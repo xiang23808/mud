@@ -4,42 +4,16 @@
     "is_safe": true,
     "monsters": [],
     "entrances": [
-      {
-        "id": "woma_forest",
-        "name": "沃玛森林",
-        "position": [8, 12],
-        "description": "通往沃玛森林的传送门"
-      },
-      {
-        "id": "zombie_cave_1",
-        "name": "僵尸洞",
-        "position": [12, 12],
-        "description": "通往僵尸洞的传送门"
-      },
-      {
-        "id": "pig_cave_1",
-        "name": "猪洞",
-        "position": [16, 12],
-        "description": "通往猪洞的传送门"
-      },
-      {
-        "id": "zuma_temple_1",
-        "name": "祖玛寺庙",
-        "position": [8, 16],
-        "description": "通往祖玛寺庙的传送门"
-      },
-      {
-        "id": "sealed_valley_1",
-        "name": "封魔谷",
-        "position": [12, 16],
-        "description": "通往封魔谷的传送门"
-      },
-      {
-        "id": "red_moon_canyon",
-        "name": "赤月峡谷",
-        "position": [16, 16],
-        "description": "通往赤月峡谷的传送门"
-      }
+      {"id": "woma_forest", "name": "沃玛森林", "position": [6, 10], "description": "通往沃玛森林"},
+      {"id": "zombie_cave_1", "name": "僵尸洞", "position": [10, 10], "description": "通往僵尸洞"},
+      {"id": "pig_cave_1", "name": "猪洞", "position": [14, 10], "description": "通往猪洞"},
+      {"id": "zuma_temple_1", "name": "祖玛寺庙", "position": [18, 10], "description": "通往祖玛寺庙"},
+      {"id": "sealed_valley_1", "name": "封魔谷", "position": [6, 14], "description": "通往封魔谷"},
+      {"id": "red_moon_canyon", "name": "赤月峡谷", "position": [10, 14], "description": "通往赤月峡谷"},
+      {"id": "dark_forest", "name": "黑暗森林", "position": [14, 14], "description": "暗黑风格区域"},
+      {"id": "tristram_ruins", "name": "崔斯特瑞姆", "position": [18, 14], "description": "暗黑风格区域"},
+      {"id": "deadwind_pass", "name": "逆风小径", "position": [6, 18], "description": "魔兽风格区域"},
+      {"id": "molten_core_entrance", "name": "熔火之心", "position": [10, 18], "description": "魔兽风格区域"}
     ]
   },
   "woma_forest": {
@@ -229,6 +203,132 @@
     "boss": "red_moon_demon",
     "exits": {
       "red_moon_cave": [1, 0]
+    }
+  },
+  "dark_forest": {
+    "name": "黑暗森林",
+    "monster_count": 65,
+    "monsters": ["fallen_one", "dark_hunter", "corrupted_rogue"],
+    "exits": {
+      "main_city": [1, 0],
+      "cold_plains": [22, 23]
+    }
+  },
+  "cold_plains": {
+    "name": "寒冰平原",
+    "monster_count": 60,
+    "monsters": ["yeti", "frozen_horror", "ice_golem"],
+    "exits": {
+      "dark_forest": [1, 0],
+      "blood_moor": [22, 23]
+    }
+  },
+  "blood_moor": {
+    "name": "血腥荒原",
+    "monster_count": 55,
+    "monsters": ["blood_hawk", "quill_rat", "zombie_brute"],
+    "boss": "blood_raven",
+    "exits": {
+      "cold_plains": [1, 0]
+    }
+  },
+  "tristram_ruins": {
+    "name": "崔斯特瑞姆废墟",
+    "monster_count": 50,
+    "monsters": ["skeleton_archer", "burning_dead", "ghoul"],
+    "exits": {
+      "main_city": [1, 0],
+      "cathedral_1": [22, 23]
+    }
+  },
+  "cathedral_1": {
+    "name": "大教堂1层",
+    "monster_count": 50,
+    "monsters": ["fallen_shaman", "dark_one", "tainted"],
+    "exits": {
+      "tristram_ruins": [1, 0],
+      "cathedral_2": [22, 23]
+    }
+  },
+  "cathedral_2": {
+    "name": "大教堂2层",
+    "monster_count": 45,
+    "monsters": ["bone_mage", "horror", "afflicted"],
+    "exits": {
+      "cathedral_1": [1, 0],
+      "cathedral_3": [22, 23]
+    }
+  },
+  "cathedral_3": {
+    "name": "大教堂3层",
+    "monster_count": 40,
+    "monsters": ["bone_warrior", "returned", "plague_bearer"],
+    "boss": "butcher",
+    "exits": {
+      "cathedral_2": [1, 0]
+    }
+  },
+  "deadwind_pass": {
+    "name": "逆风小径",
+    "monster_count": 55,
+    "monsters": ["ghoul_wanderer", "skeletal_mage", "restless_spirit"],
+    "exits": {
+      "main_city": [1, 0],
+      "karazhan_1": [22, 23]
+    }
+  },
+  "karazhan_1": {
+    "name": "卡拉赞1层",
+    "monster_count": 50,
+    "monsters": ["arcane_wraith", "mana_fiend", "spectral_servant"],
+    "exits": {
+      "deadwind_pass": [1, 0],
+      "karazhan_2": [22, 23]
+    }
+  },
+  "karazhan_2": {
+    "name": "卡拉赞2层",
+    "monster_count": 45,
+    "monsters": ["phantom_guest", "ghostly_steward", "ethereal_spellbinder"],
+    "exits": {
+      "karazhan_1": [1, 0],
+      "karazhan_3": [22, 23]
+    }
+  },
+  "karazhan_3": {
+    "name": "卡拉赞3层",
+    "monster_count": 40,
+    "monsters": ["shade_of_aran", "arcane_anomaly"],
+    "boss": "prince_malchezaar",
+    "exits": {
+      "karazhan_2": [1, 0]
+    }
+  },
+  "molten_core_entrance": {
+    "name": "熔火之心入口",
+    "monster_count": 50,
+    "monsters": ["molten_giant", "lava_surger", "fire_imp"],
+    "exits": {
+      "main_city": [1, 0],
+      "molten_core_1": [22, 23]
+    }
+  },
+  "molten_core_1": {
+    "name": "熔火之心1层",
+    "monster_count": 45,
+    "monsters": ["flamewaker", "core_hound", "lava_elemental"],
+    "exits": {
+      "molten_core_entrance": [1, 0],
+      "molten_core_2": [22, 23]
+    }
+  },
+  "molten_core_2": {
+    "name": "熔火之心2层",
+    "monster_count": 40,
+    "monsters": ["flamewaker_elite", "ancient_core_hound"],
+    "boss": "ragnaros",
+    "exits": {
+      "molten_core_1": [1, 0]
     }
   }
 }

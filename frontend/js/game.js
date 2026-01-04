@@ -103,9 +103,13 @@ function handleMessage(msg) {
             renderMap();
             break;
         case 'map_change':
-            mapState = msg.data.state;
-            renderMap();
-            output(`进入地图: ${msg.data.map_id}`);
+            if (msg.data.state) {
+                mapState = msg.data.state;
+                renderMap();
+                output(`进入地图: ${mapState.map_id || msg.data.map_id}`);
+            } else if (msg.data.error) {
+                output(`[错误] ${msg.data.error}`);
+            }
             break;
         case 'move_result':
             if (!msg.data.success) output(`[移动失败] ${msg.data.error}`);
@@ -340,16 +344,10 @@ function renderInventory(data) {
     const used_slots = items.length;
     const free_slots = max_slots - used_slots;
     
-    // 显示空间信息
-    const storageInfo = document.createElement('div');
-    storageInfo.style.cssText = 'color: #ffd700; margin-bottom: 10px; text-align: center;';
-    storageInfo.textContent = `已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots}`;
-    
     const grid = $('inventory-grid');
-    grid.innerHTML = '';
-    grid.parentElement.insertBefore(storageInfo, grid);
-    
-    grid.innerHTML = items.map(item => `
+    grid.innerHTML = `<div style="grid-column: 1/-1; color: #ffd700; text-align: center; margin-bottom: 10px;">
+        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots}
+    </div>` + items.map(item => `
         <div class="inv-slot quality-${item.quality}">
             <div class="item-name">${item.info?.name || item.item_id}</div>
             <div>x${item.quantity}</div>
@@ -447,12 +445,12 @@ async function openSkills() {
     // 已学习技能
     const learnedHtml = skillData.learned.length > 0 ? `
         <div class="skills-section">
-            <h3>已学习技能</h3>
+            <h3>已学习技能 (${skillData.learned.length})</h3>
             ${skillData.learned.map(skill => `
                 <div class="skill-item learned">
                     <div class="skill-info">
-                        <div class="skill-name">✓ ${skill.info.name}</div>
-                        <div class="skill-desc">${skill.info.description}</div>
+                        <div class="skill-name">✓ ${skill.info?.name || skill.skill_id}</div>
+                        <div class="skill-desc">${skill.info?.description || ''}</div>
                         <div class="skill-level">等级: ${skill.level}/3 | 熟练度: ${skill.proficiency}/1000</div>
                     </div>
                 </div>
@@ -460,30 +458,45 @@ async function openSkills() {
         </div>
     ` : '';
     
-    // 可学习技能
-    const availableHtml = `
+    // 可学习技能（分为可购买和掉落获取）
+    const buyable = skillData.available.filter(s => !s.learned && s.info?.buy_price > 0);
+    const dropOnly = skillData.available.filter(s => !s.learned && (!s.info?.buy_price || s.info.buy_price === 0));
+    
+    const buyableHtml = buyable.length > 0 ? `
         <div class="skills-section">
-            <h3>可学习技能</h3>
-            ${skillData.available.map(skill => {
-                if (skill.learned) return '';
+            <h3>可购买技能 (${buyable.length})</h3>
+            ${buyable.map(skill => {
                 const canLearn = skill.can_learn;
-                const buttonText = canLearn ?
-                    (skill.info.buy_price > 0 ? `学习 (${skill.info.buy_price}金币)` : '学习') :
-                    `等级不足(需要Lv.${skill.info.level_req})`;
+                const buttonText = canLearn ? `学习 (${skill.info.buy_price}金币)` : `需要Lv.${skill.info.level_req}`;
                 return `
                     <div class="skill-item ${canLearn ? '' : 'disabled'}">
                         <div class="skill-info">
-                            <div class="skill-name">${skill.info.name}</div>
-                            <div class="skill-desc">${skill.info.description} (需要等级:${skill.info.level_req})</div>
+                            <div class="skill-name">${skill.info?.name || skill.skill_id}</div>
+                            <div class="skill-desc">${skill.info?.description || ''} (需要等级:${skill.info?.level_req || 1})</div>
                         </div>
                         <button onclick="learnSkill('${skill.skill_id}')" ${canLearn ? '' : 'disabled'}>${buttonText}</button>
                     </div>
                 `;
             }).join('')}
         </div>
-    `;
+    ` : '';
     
-    list.innerHTML = learnedHtml + availableHtml;
+    const dropHtml = dropOnly.length > 0 ? `
+        <div class="skills-section">
+            <h3>掉落获取技能 (${dropOnly.length})</h3>
+            ${dropOnly.map(skill => `
+                <div class="skill-item disabled">
+                    <div class="skill-info">
+                        <div class="skill-name">${skill.info?.name || skill.skill_id}</div>
+                        <div class="skill-desc">${skill.info?.description || ''} (需要等级:${skill.info?.level_req || 1})</div>
+                    </div>
+                    <span style="color:#ff0;font-size:12px;">怪物掉落</span>
+                </div>
+            `).join('')}
+        </div>
+    ` : '';
+    
+    list.innerHTML = learnedHtml + buyableHtml + dropHtml;
 }
 
 function learnSkill(skillId) {

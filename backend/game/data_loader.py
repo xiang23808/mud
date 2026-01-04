@@ -73,13 +73,12 @@ class DataLoader:
         elif shop_type == "consumable":
             items = cls.load("items/consumables.json")
         elif shop_type == "skill":
-            # 返回所有可购买技能
+            # 返回所有技能（包括掉落获取的）
             all_skills = {}
             for cls_name in ["warrior", "mage", "taoist"]:
                 skills = cls.load(f"skills/{cls_name}.json")
                 for sid, skill in skills.items():
-                    if skill.get("buy_price", 0) > 0:
-                        all_skills[sid] = skill
+                    all_skills[sid] = skill
             return all_skills
         else:
             return {}

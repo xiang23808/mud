@@ -189,7 +189,7 @@ class MapInstance:
     def get_state(self, char_id: int) -> dict:
         """获取玩家视角的地图状态"""
         revealed = self.revealed.get(char_id, set())
-        visible_monsters = {str(pos): m for pos, m in self.monsters.items() if pos in revealed}
+        visible_monsters = {f"{pos[0]},{pos[1]}": m for pos, m in self.monsters.items() if pos in revealed}
         visible_players = {cid: pos for cid, pos in self.players.items() if pos in revealed and cid != char_id}
         
         # 获取可见的入口 - 修复返回格式
@@ -315,31 +315,38 @@ class MapManager:
             "zombie_cave_3": {"name": "僵尸洞3层", "monster_count": 60, "monsters": ["zombie_elite"], "boss": "corpse_king", "exits": {"zombie_cave_2": [1, 0]}},
         }
     
-    def get_or_create_instance(self, map_id: str) -> MapInstance:
+    def get_or_create_instance(self, map_id: str) -> Optional[MapInstance]:
         """获取或创建地图实例"""
         if map_id not in self.instances:
-            config = self.map_configs.get(map_id, {})
+            config = self.map_configs.get(map_id)
+            if not config:
+                return None  # 地图配置不存在
             self.instances[map_id] = MapInstance(map_id, config)
         return self.instances[map_id]
     
     def enter_map(self, char_id: int, map_id: str, from_entrance: bool = True) -> dict:
         """玩家进入地图"""
+        # 检查地图配置是否存在
+        if map_id not in self.map_configs:
+            return {"success": False, "error": f"地图 {map_id} 不存在"}
+        
         # 离开当前地图
         if current_map := self.player_map.get(char_id):
             if current_map in self.instances:
                 self.instances[current_map].leave(char_id)
         
         # 对于非主城地图，如果没有其他玩家，则重新生成
-        # 主城永久保留，不重新生成
         if map_id != "main_city":
             if map_id in self.instances:
                 instance = self.instances[map_id]
-                # 如果地图中没有其他玩家，重新生成
                 if len(instance.players) == 0:
                     del self.instances[map_id]
         
         # 进入新地图
         instance = self.get_or_create_instance(map_id)
+        if not instance:
+            return {"success": False, "error": f"无法创建地图 {map_id}"}
+        
         pos = instance.enter(char_id, from_entrance)
         self.player_map[char_id] = map_id
         
@@ -396,11 +403,19 @@ class MapManager:
         config = self.map_configs.get(map_id, {})
         exits = config.get("exits", {})
         
-        # 检查是否在出口位置
+        # 检查是否在入口区域(左上角)或出口区域(右下角)
+        in_entrance_area = pos[0] <= 3 and pos[1] <= 3
+        in_exit_area = pos[0] >= 20 and pos[1] >= 20
+        
+        # 根据区域找到对应的目标地图
         for target_map, exit_pos in exits.items():
-            if pos == exit_pos or (exit_type == "entrance" and pos == (1, 0)) or (exit_type == "exit" and pos == (22, 23)):
-                from_entrance = exit_type == "exit"
-                return self.enter_map(char_id, target_map, from_entrance)
+            exit_pos_tuple = tuple(exit_pos) if isinstance(exit_pos, list) else exit_pos
+            # 入口区域对应的出口通常在左上角
+            if exit_type == "entrance" and in_entrance_area and exit_pos_tuple[0] <= 3:
+                return self.enter_map(char_id, target_map, False)
+            # 出口区域对应的出口通常在右下角
+            if exit_type == "exit" and in_exit_area and exit_pos_tuple[0] >= 20:
+                return self.enter_map(char_id, target_map, True)
         
         return {"success": False, "error": "不在出口位置"}
 

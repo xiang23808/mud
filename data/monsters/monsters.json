@@ -511,5 +511,463 @@
       {"item": "bone_king_sword", "rate": 0.02},
       {"item": "death_armor", "rate": 0.01}
     ]
+  },
+  "fallen_one": {
+    "name": "堕落者",
+    "level": 8,
+    "hp": 90,
+    "attack": 20,
+    "defense": 6,
+    "exp": 45,
+    "gold": 18,
+    "drops": [{"item": "fallen_tooth", "rate": 0.3}]
+  },
+  "dark_hunter": {
+    "name": "黑暗猎手",
+    "level": 12,
+    "hp": 160,
+    "attack": 35,
+    "defense": 12,
+    "exp": 85,
+    "gold": 30,
+    "drops": [{"item": "hunter_bow", "rate": 0.05}]
+  },
+  "corrupted_rogue": {
+    "name": "堕落游侠",
+    "level": 15,
+    "hp": 200,
+    "attack": 42,
+    "defense": 15,
+    "exp": 110,
+    "gold": 40,
+    "drops": [{"item": "rogue_dagger", "rate": 0.04}]
+  },
+  "yeti": {
+    "name": "雪人",
+    "level": 18,
+    "hp": 350,
+    "attack": 55,
+    "defense": 25,
+    "exp": 160,
+    "gold": 55,
+    "drops": [{"item": "yeti_fur", "rate": 0.25}]
+  },
+  "frozen_horror": {
+    "name": "冰霜恐魔",
+    "level": 22,
+    "hp": 450,
+    "attack": 70,
+    "defense": 32,
+    "exp": 240,
+    "gold": 75,
+    "drops": [{"item": "frost_orb", "rate": 0.1}]
+  },
+  "ice_golem": {
+    "name": "冰霜傀儡",
+    "level": 25,
+    "hp": 600,
+    "attack": 80,
+    "defense": 45,
+    "exp": 320,
+    "gold": 95,
+    "drops": [{"item": "ice_crystal", "rate": 0.15}]
+  },
+  "blood_hawk": {
+    "name": "血鹰",
+    "level": 14,
+    "hp": 120,
+    "attack": 45,
+    "defense": 8,
+    "exp": 90,
+    "gold": 32,
+    "drops": [{"item": "blood_feather", "rate": 0.2}]
+  },
+  "quill_rat": {
+    "name": "刺鼠",
+    "level": 10,
+    "hp": 80,
+    "attack": 28,
+    "defense": 5,
+    "exp": 55,
+    "gold": 20,
+    "drops": [{"item": "quill_spine", "rate": 0.35}]
+  },
+  "zombie_brute": {
+    "name": "僵尸蛮兵",
+    "level": 16,
+    "hp": 280,
+    "attack": 48,
+    "defense": 18,
+    "exp": 130,
+    "gold": 45,
+    "drops": [{"item": "brute_bone", "rate": 0.2}]
+  },
+  "blood_raven": {
+    "name": "血鸟",
+    "level": 28,
+    "hp": 3500,
+    "attack": 115,
+    "defense": 42,
+    "exp": 3200,
+    "gold": 850,
+    "drops": [
+      {"item": "raven_bow", "rate": 0.03},
+      {"item": "blood_ring", "rate": 0.02},
+      {"item": "shadow_armor", "rate": 0.01}
+    ]
+  },
+  "skeleton_archer": {
+    "name": "骷髅弓手",
+    "level": 20,
+    "hp": 250,
+    "attack": 60,
+    "defense": 15,
+    "exp": 180,
+    "gold": 58,
+    "drops": [{"item": "bone_arrow", "rate": 0.3}]
+  },
+  "burning_dead": {
+    "name": "燃烧亡灵",
+    "level": 24,
+    "hp": 380,
+    "attack": 75,
+    "defense": 22,
+    "exp": 260,
+    "gold": 80,
+    "drops": [{"item": "ember_stone", "rate": 0.12}]
+  },
+  "ghoul": {
+    "name": "食尸鬼",
+    "level": 22,
+    "hp": 320,
+    "attack": 65,
+    "defense": 20,
+    "exp": 220,
+    "gold": 70,
+    "drops": [{"item": "ghoul_claw", "rate": 0.18}]
+  },
+  "fallen_shaman": {
+    "name": "堕落萨满",
+    "level": 26,
+    "hp": 300,
+    "attack": 85,
+    "defense": 18,
+    "exp": 300,
+    "gold": 90,
+    "drops": [{"item": "shaman_staff", "rate": 0.05}]
+  },
+  "dark_one": {
+    "name": "黑暗之子",
+    "level": 28,
+    "hp": 420,
+    "attack": 95,
+    "defense": 28,
+    "exp": 380,
+    "gold": 110,
+    "drops": [{"item": "dark_essence", "rate": 0.1}]
+  },
+  "tainted": {
+    "name": "污染者",
+    "level": 30,
+    "hp": 500,
+    "attack": 105,
+    "defense": 35,
+    "exp": 450,
+    "gold": 130,
+    "drops": [{"item": "tainted_blood", "rate": 0.15}]
+  },
+  "bone_mage": {
+    "name": "骨法师",
+    "level": 32,
+    "hp": 400,
+    "attack": 120,
+    "defense": 25,
+    "exp": 520,
+    "gold": 150,
+    "drops": [{"item": "bone_wand", "rate": 0.04}]
+  },
+  "horror": {
+    "name": "恐惧魔",
+    "level": 34,
+    "hp": 550,
+    "attack": 130,
+    "defense": 40,
+    "exp": 600,
+    "gold": 170,
+    "drops": [{"item": "horror_claw", "rate": 0.08}]
+  },
+  "afflicted": {
+    "name": "受难者",
+    "level": 33,
+    "hp": 480,
+    "attack": 115,
+    "defense": 35,
+    "exp": 550,
+    "gold": 160,
+    "drops": [{"item": "soul_fragment", "rate": 0.12}]
+  },
+  "bone_warrior": {
+    "name": "骨战士",
+    "level": 35,
+    "hp": 650,
+    "attack": 125,
+    "defense": 50,
+    "exp": 680,
+    "gold": 190,
+    "drops": [{"item": "bone_shield", "rate": 0.05}]
+  },
+  "returned": {
+    "name": "归来者",
+    "level": 36,
+    "hp": 700,
+    "attack": 135,
+    "defense": 55,
+    "exp": 750,
+    "gold": 210,
+    "drops": [{"item": "soul_stone", "rate": 0.08}]
+  },
+  "plague_bearer": {
+    "name": "瘟疫使者",
+    "level": 37,
+    "hp": 750,
+    "attack": 145,
+    "defense": 48,
+    "exp": 820,
+    "gold": 230,
+    "drops": [{"item": "plague_essence", "rate": 0.1}]
+  },
+  "butcher": {
+    "name": "屠夫",
+    "level": 40,
+    "hp": 8500,
+    "attack": 200,
+    "defense": 75,
+    "exp": 8500,
+    "gold": 1800,
+    "drops": [
+      {"item": "butcher_cleaver", "rate": 0.05},
+      {"item": "blood_armor", "rate": 0.02},
+      {"item": "soul_harvest", "rate": 0.08}
+    ]
+  },
+  "ghoul_wanderer": {
+    "name": "游荡食尸鬼",
+    "level": 38,
+    "hp": 800,
+    "attack": 150,
+    "defense": 58,
+    "exp": 900,
+    "gold": 250,
+    "drops": [{"item": "wanderer_essence", "rate": 0.12}]
+  },
+  "skeletal_mage": {
+    "name": "骷髅法师",
+    "level": 40,
+    "hp": 600,
+    "attack": 175,
+    "defense": 40,
+    "exp": 1000,
+    "gold": 280,
+    "drops": [{"item": "arcane_dust", "rate": 0.15}]
+  },
+  "restless_spirit": {
+    "name": "不安亡魂",
+    "level": 39,
+    "hp": 700,
+    "attack": 160,
+    "defense": 45,
+    "exp": 950,
+    "gold": 265,
+    "drops": [{"item": "spirit_shard", "rate": 0.1}]
+  },
+  "arcane_wraith": {
+    "name": "奥术幽灵",
+    "level": 42,
+    "hp": 900,
+    "attack": 180,
+    "defense": 55,
+    "exp": 1100,
+    "gold": 300,
+    "drops": [{"item": "arcane_crystal", "rate": 0.1}]
+  },
+  "mana_fiend": {
+    "name": "法力恶魔",
+    "level": 43,
+    "hp": 850,
+    "attack": 190,
+    "defense": 50,
+    "exp": 1150,
+    "gold": 320,
+    "drops": [{"item": "mana_gem", "rate": 0.12}]
+  },
+  "spectral_servant": {
+    "name": "幽灵仆从",
+    "level": 41,
+    "hp": 750,
+    "attack": 165,
+    "defense": 48,
+    "exp": 1050,
+    "gold": 290,
+    "drops": [{"item": "spectral_essence", "rate": 0.15}]
+  },
+  "phantom_guest": {
+    "name": "幻影宾客",
+    "level": 44,
+    "hp": 950,
+    "attack": 185,
+    "defense": 60,
+    "exp": 1200,
+    "gold": 340,
+    "drops": [{"item": "phantom_cloth", "rate": 0.1}]
+  },
+  "ghostly_steward": {
+    "name": "幽灵管家",
+    "level": 45,
+    "hp": 1000,
+    "attack": 195,
+    "defense": 65,
+    "exp": 1300,
+    "gold": 360,
+    "drops": [{"item": "steward_key", "rate": 0.08}]
+  },
+  "ethereal_spellbinder": {
+    "name": "虚空缚法者",
+    "level": 46,
+    "hp": 900,
+    "attack": 210,
+    "defense": 55,
+    "exp": 1400,
+    "gold": 380,
+    "drops": [{"item": "spellbinder_tome", "rate": 0.06}]
+  },
+  "shade_of_aran": {
+    "name": "埃兰之影",
+    "level": 48,
+    "hp": 1200,
+    "attack": 220,
+    "defense": 70,
+    "exp": 1600,
+    "gold": 420,
+    "drops": [{"item": "aran_pendant", "rate": 0.05}]
+  },
+  "arcane_anomaly": {
+    "name": "奥术畸体",
+    "level": 47,
+    "hp": 1100,
+    "attack": 200,
+    "defense": 65,
+    "exp": 1500,
+    "gold": 400,
+    "drops": [{"item": "anomaly_core", "rate": 0.08}]
+  },
+  "prince_malchezaar": {
+    "name": "玛克扎尔王子",
+    "level": 50,
+    "hp": 12000,
+    "attack": 260,
+    "defense": 95,
+    "exp": 12000,
+    "gold": 2500,
+    "drops": [
+      {"item": "malchezaar_blade", "rate": 0.04},
+      {"item": "prince_ring", "rate": 0.03},
+      {"item": "void_crystal", "rate": 0.1},
+      {"item": "netherbane", "rate": 0.05}
+    ]
+  },
+  "molten_giant": {
+    "name": "熔岩巨人",
+    "level": 44,
+    "hp": 1500,
+    "attack": 180,
+    "defense": 80,
+    "exp": 1400,
+    "gold": 380,
+    "drops": [{"item": "molten_core", "rate": 0.1}]
+  },
+  "lava_surger": {
+    "name": "熔岩奔腾者",
+    "level": 42,
+    "hp": 1100,
+    "attack": 170,
+    "defense": 60,
+    "exp": 1200,
+    "gold": 330,
+    "drops": [{"item": "lava_essence", "rate": 0.15}]
+  },
+  "fire_imp": {
+    "name": "火焰小鬼",
+    "level": 40,
+    "hp": 600,
+    "attack": 150,
+    "defense": 35,
+    "exp": 1000,
+    "gold": 280,
+    "drops": [{"item": "imp_ember", "rate": 0.25}]
+  },
+  "flamewaker": {
+    "name": "烈焰行者",
+    "level": 46,
+    "hp": 1300,
+    "attack": 200,
+    "defense": 70,
+    "exp": 1500,
+    "gold": 400,
+    "drops": [{"item": "flamewaker_eye", "rate": 0.08}]
+  },
+  "core_hound": {
+    "name": "熔火犬",
+    "level": 45,
+    "hp": 1400,
+    "attack": 190,
+    "defense": 75,
+    "exp": 1450,
+    "gold": 390,
+    "drops": [{"item": "core_leather", "rate": 0.12}]
+  },
+  "lava_elemental": {
+    "name": "熔岩元素",
+    "level": 47,
+    "hp": 1200,
+    "attack": 210,
+    "defense": 65,
+    "exp": 1550,
+    "gold": 410,
+    "drops": [{"item": "elemental_fire", "rate": 0.1}]
+  },
+  "flamewaker_elite": {
+    "name": "烈焰行者精英",
+    "level": 49,
+    "hp": 1600,
+    "attack": 230,
+    "defense": 85,
+    "exp": 1800,
+    "gold": 480,
+    "drops": [{"item": "flamewaker_heart", "rate": 0.06}]
+  },
+  "ancient_core_hound": {
+    "name": "上古熔火犬",
+    "level": 50,
+    "hp": 2000,
+    "attack": 240,
+    "defense": 90,
+    "exp": 2000,
+    "gold": 520,
+    "drops": [{"item": "ancient_core", "rate": 0.08}]
+  },
+  "ragnaros": {
+    "name": "拉格纳罗斯",
+    "level": 55,
+    "hp": 15000,
+    "attack": 300,
+    "defense": 100,
+    "exp": 15000,
+    "gold": 3000,
+    "drops": [
+      {"item": "sulfuras", "rate": 0.02},
+      {"item": "ragnaros_essence", "rate": 0.1},
+      {"item": "fire_lord_crown", "rate": 0.03},
+      {"item": "molten_destroyer", "rate": 0.05}
+    ]
   }
 }

@@ -2,7 +2,7 @@ import random
 from typing import List, Tuple, Set
 
 class MazeGenerator:
-    """12x12迷宫生成器 - 使用递归回溯算法"""
+    """24x24迷宫生成器 - 优化版，生成更开放的地图"""
     
     def __init__(self, width: int = 24, height: int = 24):
         self.width = width
@@ -10,42 +10,77 @@ class MazeGenerator:
     
     def generate(self) -> List[List[int]]:
         """生成迷宫，0=通道，1=墙壁"""
-        # 初始化全墙
-        maze = [[1] * self.width for _ in range(self.height)]
+        # 初始化全部为通道，然后添加墙壁
+        maze = [[0] * self.width for _ in range(self.height)]
         
-        # 递归回溯生成
-        self._carve(maze, 1, 1)
+        # 添加边界墙
+        for x in range(self.width):
+            maze[0][x] = 1
+            maze[self.height - 1][x] = 1
+        for y in range(self.height):
+            maze[y][0] = 1
+            maze[y][self.width - 1] = 1
         
-        # 设置入口和出口并确保可到达
+        # 随机添加一些墙壁作为障碍，但保持大部分区域可通行
+        # 墙壁密度约30%
+        for y in range(2, self.height - 2):
+            for x in range(2, self.width - 2):
+                if random.random() < 0.3:
+                    maze[y][x] = 1
+        
+        # 确保入口和出口区域清空
         entrance = (1, 0)
         exit_pos = (self.width - 2, self.height - 1)
         
-        # 确保入口和出口位置是通道
-        maze[entrance[1]][entrance[0]] = 0
-        maze[exit_pos[1]][exit_pos[0]] = 0
+        # 清空入口区域（3x3）
+        for dy in range(-1, 2):
+            for dx in range(-1, 2):
+                nx, ny = entrance[0] + dx, entrance[1] + dy
+                if 0 <= nx < self.width and 0 <= ny < self.height:
+                    maze[ny][nx] = 0
         
-        # 确保入口和出口周围有通道连接
-        # 入口向下连接
-        if entrance[1] + 1 < self.height:
-            maze[entrance[1] + 1][entrance[0]] = 0
+        # 清空出口区域（3x3）
+        for dy in range(-1, 2):
+            for dx in range(-1, 2):
+                nx, ny = exit_pos[0] + dx, exit_pos[1] + dy
+                if 0 <= nx < self.width and 0 <= ny < self.height:
+                    maze[ny][nx] = 0
         
-        # 出口向上连接
-        if exit_pos[1] - 1 >= 0:
-            maze[exit_pos[1] - 1][exit_pos[0]] = 0
+        # 确保从入口到出口有明确的通路
+        self._ensure_path(maze, entrance, exit_pos)
         
         return maze
     
-    def _carve(self, maze: List[List[int]], x: int, y: int):
-        """递归挖掘通道"""
-        maze[y][x] = 0
-        directions = [(0, -2), (0, 2), (-2, 0), (2, 0)]
-        random.shuffle(directions)
+    def _ensure_path(self, maze: List[List[int]], start: Tuple[int, int], end: Tuple[int, int]):
+        """确保从起点到终点有通路"""
+        # 使用简单的直线路径，然后添加一些随机转折
+        current_x, current_y = start
+        target_x, target_y = end
         
-        for dx, dy in directions:
-            nx, ny = x + dx, y + dy
-            if 0 < nx < self.width - 1 and 0 < ny < self.height - 1 and maze[ny][nx] == 1:
-                maze[y + dy // 2][x + dx // 2] = 0
-                self._carve(maze, nx, ny)
+        while current_y < target_y:
+            maze[current_y][current_x] = 0
+            # 确保路径宽度为2
+            if current_x + 1 < self.width:
+                maze[current_y][current_x + 1] = 0
+            current_y += 1
+            
+            # 随机左右移动
+            if current_x < target_x and random.random() < 0.3:
+                current_x += 1
+            elif current_x > target_x and random.random() < 0.3:
+                current_x -= 1
+            
+            current_x = max(1, min(self.width - 2, current_x))
+        
+        # 确保到达目标点
+        while current_x != target_x:
+            maze[current_y][current_x] = 0
+            if current_x + 1 < self.width:
+                maze[current_y][current_x + 1] = 0
+            if current_x < target_x:
+                current_x += 1
+            else:
+                current_x -= 1
 
 
 class Pathfinder:

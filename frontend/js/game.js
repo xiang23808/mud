@@ -116,6 +116,9 @@ function handleMessage(msg) {
         case 'inventory':
             renderInventory(msg.data);
             break;
+        case 'equipment':
+            renderEquipment(msg.data);
+            break;
         case 'chat':
             output(`[${msg.name}] ${msg.message}`);
             break;
@@ -157,24 +160,37 @@ function renderMap() {
             ctx.fillStyle = isWall ? '#444' : '#1a1a2e';
             ctx.fillRect(px, py, CELL_SIZE - 1, CELL_SIZE - 1);
             
-            // 标记出入口
-            if (x === 1 && y === 0) {
-                ctx.fillStyle = '#0ff';
-                ctx.fillRect(px + 5, py + 5, 10, 10);
-            }
-            if (x === 22 && y === 23) {
-                ctx.fillStyle = '#0ff';
-                ctx.fillRect(px + 5, py + 5, 10, 10);
+            // 标记出入口（非主城地图）
+            if (mapState.map_id !== 'main_city') {
+                if ((x <= 2 && y <= 2) || (x >= 21 && y >= 21)) {
+                    ctx.fillStyle = '#0ff';
+                    ctx.fillRect(px + 5, py + 5, 10, 10);
+                }
             }
         }
     }
     
-    // 绘制入口
+    // 绘制入口 - 修复显示
     if (mapState.entrances) {
         for (const [id, entrance] of Object.entries(mapState.entrances)) {
             const [x, y] = entrance.position;
-            ctx.fillStyle = '#ff0';
-            ctx.fillRect(x * CELL_SIZE + 5, y * CELL_SIZE + 5, 10, 10);
+            if (revealed.has(`${x},${y}`)) {
+                ctx.fillStyle = '#ff0';
+                ctx.fillRect(x * CELL_SIZE + 5, y * CELL_SIZE + 5, 10, 10);
+            }
+        }
+    }
+    
+    // 绘制NPC
+    if (mapState.npcs) {
+        for (const npc of mapState.npcs) {
+            const [x, y] = npc.position;
+            if (revealed.has(`${x},${y}`)) {
+                ctx.fillStyle = '#00f';
+                ctx.beginPath();
+                ctx.arc(x * CELL_SIZE + 10, y * CELL_SIZE + 10, 6, 0, Math.PI * 2);
+                ctx.fill();
+            }
         }
     }
     
@@ -206,6 +222,19 @@ canvas.onclick = e => {
     const x = Math.floor((e.clientX - rect.left) / CELL_SIZE);
     const y = Math.floor((e.clientY - rect.top) / CELL_SIZE);
     
+    // 检查是否在迷雾中（未揭示的区域）
+    const revealed = new Set(mapState.revealed.map(p => `${p[0]},${p[1]}`));
+    if (!revealed.has(`${x},${y}`)) {
+        output('[系统] 该区域尚未探索，无法前往');
+        return;
+    }
+    
+    // 检查是否是墙壁
+    if (mapState.maze[y][x] === 1) {
+        output('[系统] 此处无法通行');
+        return;
+    }
+    
     // 检查是否点击怪物
     const monsterKey = `${x},${y}`;
     if (mapState.monsters && mapState.monsters[monsterKey]) {
@@ -213,7 +242,17 @@ canvas.onclick = e => {
         return;
     }
     
-    // 检查是否点击入口
+    // 检查是否点击NPC（只在已揭示区域）
+    if (mapState.npcs && revealed.has(`${x},${y}`)) {
+        for (const npc of mapState.npcs) {
+            if (npc.position[0] === x && npc.position[1] === y) {
+                handleNPCClick(npc);
+                return;
+            }
+        }
+    }
+    
+    // 检查是否点击入口（需要站在入口位置）
     if (mapState.entrances && mapState.position[0] === x && mapState.position[1] === y) {
         for (const [id, entrance] of Object.entries(mapState.entrances)) {
             if (entrance.position[0] === x && entrance.position[1] === y) {
@@ -225,12 +264,20 @@ canvas.onclick = e => {
         }
     }
     
-    // 检查是否点击出口
-    if ((x === 1 && y === 0) || (x === 22 && y === 23)) {
-        const exitType = (x === 1 && y === 0) ? 'entrance' : 'exit';
-        if (mapState.position[0] === x && mapState.position[1] === y) {
-            ws.send(JSON.stringify({ type: 'use_exit', exit_type: exitType }));
-            return;
+    // 检查是否点击出口（非主城）
+    if (mapState.map_id !== 'main_city') {
+        const isEntrance = x <= 2 && y <= 2;
+        const isExit = x >= 21 && y >= 21;
+        
+        if (isEntrance || isExit) {
+            const exitType = isEntrance ? 'entrance' : 'exit';
+            // 检查玩家是否在出入口区域
+            const px = mapState.position[0];
+            const py = mapState.position[1];
+            if ((isEntrance && px <= 2 && py <= 2) || (isExit && px >= 21 && py >= 21)) {
+                ws.send(JSON.stringify({ type: 'use_exit', exit_type: exitType }));
+                return;
+            }
         }
     }
     
@@ -286,14 +333,28 @@ function switchStorage(type) {
     ws.send(JSON.stringify({ type: 'get_inventory', storage: type }));
 }
 
-function renderInventory(items) {
+function renderInventory(data) {
+    const items = data.items || data;
+    const storage_type = data.storage_type || 'inventory';
+    const max_slots = storage_type === 'warehouse' ? 1000 : 200;
+    const used_slots = items.length;
+    const free_slots = max_slots - used_slots;
+    
+    // 显示空间信息
+    const storageInfo = document.createElement('div');
+    storageInfo.style.cssText = 'color: #ffd700; margin-bottom: 10px; text-align: center;';
+    storageInfo.textContent = `已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots}`;
+    
     const grid = $('inventory-grid');
+    grid.innerHTML = '';
+    grid.parentElement.insertBefore(storageInfo, grid);
+    
     grid.innerHTML = items.map(item => `
         <div class="inv-slot quality-${item.quality}">
             <div class="item-name">${item.info?.name || item.item_id}</div>
             <div>x${item.quantity}</div>
             <div class="item-actions">
-                ${item.info?.type === 'weapon' || item.info?.type === 'armor' ? 
+                ${item.info?.type === 'weapon' || item.info?.type === 'armor' ?
                     `<button onclick="equipItem(${item.slot})">装备</button>` : ''}
                 <button onclick="recycleItem(${item.slot})">回收</button>
             </div>
@@ -311,6 +372,70 @@ function recycleItem(slot) {
         ws.send(JSON.stringify({ type: 'recycle', slot }));
         setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 500);
     }
+}
+
+// 装备
+function openEquipment() {
+    show('equipment-modal');
+    ws.send(JSON.stringify({ type: 'get_equipment' }));
+}
+
+function renderEquipment(data) {
+    const { equipment, total_stats } = data;
+    
+    // 显示综合属性
+    const statsHtml = `
+        <div style="background: #0f3460; padding: 15px; margin-bottom: 15px; border-radius: 5px;">
+            <h4 style="color: #ffd700; margin-bottom: 10px;">综合属性</h4>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; color: #0f0;">
+                <div>等级: ${total_stats.level}</div>
+                <div>生命: ${total_stats.hp}</div>
+                <div>魔法: ${total_stats.mp}</div>
+                <div>攻击: ${total_stats.attack}</div>
+                <div>防御: ${total_stats.defense}</div>
+                <div>幸运: ${total_stats.luck}</div>
+            </div>
+        </div>
+    `;
+    
+    // 装备槽位名称映射
+    const slotNames = {
+        weapon: '武器',
+        helmet: '头盔',
+        armor: '衣服',
+        belt: '腰带',
+        boots: '鞋子',
+        necklace: '项链',
+        ring_left: '左戒指',
+        ring_right: '右戒指',
+        bracelet_left: '左手镯',
+        bracelet_right: '右手镯'
+    };
+    
+    // 显示装备槽位
+    const slotsHtml = `
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            ${Object.entries(slotNames).map(([slot, name]) => {
+                const item = equipment[slot];
+                return `
+                    <div class="equip-slot ${item ? 'quality-' + item.quality : ''}"
+                         style="background: #0f3460; padding: 12px; border-radius: 5px; min-height: 80px;">
+                        <div style="color: #ffd700; font-weight: bold; margin-bottom: 5px;">${name}</div>
+                        ${item ? `
+                            <div style="font-size: 14px; margin-bottom: 3px;">${item.info?.name || item.item_id}</div>
+                            <div style="font-size: 11px; color: #888;">
+                                ${item.info?.attack ? `攻击+${item.info.attack} ` : ''}
+                                ${item.info?.defense ? `防御+${item.info.defense}` : ''}
+                            </div>
+                        ` : '<div style="color: #666;">未装备</div>'}
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
+    
+    $('equipment-stats').innerHTML = statsHtml;
+    $('equipment-slots').innerHTML = slotsHtml;
 }
 
 // 技能
@@ -377,6 +502,91 @@ function sendChat() {
     if (ws && input.value.trim()) {
         ws.send(JSON.stringify({ type: 'chat', message: input.value }));
         input.value = '';
+    }
+}
+
+// NPC交互
+function handleNPCClick(npc) {
+    switch(npc.id) {
+        case 'weapon_shop':
+            output(`[${npc.npc_name}] 欢迎来到武器店！这里有各种精良的武器装备。`);
+            showShopDialog('武器店', 'weapon');
+            break;
+        case 'armor_shop':
+            output(`[${npc.npc_name}] 欢迎来到防具店！这里有最好的防护装备。`);
+            showShopDialog('防具店', 'armor');
+            break;
+        case 'potion_shop':
+            output(`[${npc.npc_name}] 欢迎来到药店！需要补充药水吗？`);
+            showShopDialog('药店', 'consumable');
+            break;
+        case 'skill_shop':
+            output(`[${npc.npc_name}] 欢迎来到书店！想要学习新技能吗？`);
+            openSkills();
+            break;
+        case 'recycle_shop':
+            output(`[${npc.npc_name}] 我这里回收各种装备和物品，价格公道！`);
+            openInventory();
+            break;
+        case 'warehouse':
+            output(`[${npc.npc_name}] 欢迎使用仓库服务！`);
+            openInventory();
+            break;
+    }
+}
+
+// 显示商店对话框
+async function showShopDialog(shopName, itemType) {
+    try {
+        const items = await api(`/api/shop/${itemType}`);
+        const itemList = Object.entries(items).map(([id, item]) => `
+            <div style="padding: 10px; border-bottom: 1px solid #333;">
+                <div style="color: #ffd700;">${item.name}</div>
+                <div style="color: #888; font-size: 12px;">价格: ${item.buy_price || 0} 金币</div>
+                <button onclick="buyItem('${id}', 1)" style="margin-top: 5px;">购买</button>
+            </div>
+        `).join('');
+        
+        const dialog = document.createElement('div');
+        dialog.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #0f3460; border: 2px solid #ffd700; padding: 20px; border-radius: 10px; max-width: 400px; max-height: 500px; overflow-y: auto; z-index: 1000;';
+        dialog.innerHTML = `
+            <h3 style="color: #ffd700; margin-bottom: 15px;">${shopName}</h3>
+            <div>${itemList}</div>
+            <button onclick="this.parentElement.remove()" style="margin-top: 15px; width: 100%;">关闭</button>
+        `;
+        document.body.appendChild(dialog);
+    } catch (e) {
+        output('[错误] 无法打开商店');
+    }
+}
+
+// 购买物品
+async function buyItem(itemId, quantity) {
+    try {
+        const url = `/api/shop/buy?token=${token}`;
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ item_id: itemId, quantity, char_id: currentChar.id })
+        });
+        
+        if (!res.ok) {
+            const error = await res.json();
+            throw new Error(error.detail || '购买失败');
+        }
+        
+        const result = await res.json();
+        if (result.success) {
+            output('[购买成功]');
+            // 更新角色信息
+            const chars = await api('/api/characters');
+            currentChar = chars.find(c => c.id === currentChar.id);
+            updateCharInfo();
+        } else {
+            output(`[购买失败] ${result.error}`);
+        }
+    } catch (e) {
+        output(`[错误] ${e.message}`);
     }
 }
 

@@ -9,51 +9,101 @@ class MapInstance:
     def __init__(self, map_id: str, config: dict):
         self.map_id = map_id
         self.config = config
-        self.maze = MazeGenerator().generate()
+        
+        # 主城使用特殊的开放地图，其他地图生成迷宫
+        if config.get("is_safe") or map_id == "main_city":
+            self.maze = self._generate_safe_city()
+        else:
+            self.maze = MazeGenerator().generate()
+        
         self.monsters: Dict[Tuple[int, int], dict] = {}
-        self.players: Dict[int, Tuple[int, int]] = {}  # char_id -> position
-        self.revealed: Dict[int, Set[Tuple[int, int]]] = {}  # char_id -> revealed cells
-        self.entrances: Dict[str, Tuple[int, int]] = {}  # 地图入口位置
+        self.players: Dict[int, Tuple[int, int]] = {}
+        self.revealed: Dict[int, Set[Tuple[int, int]]] = {}
+        self.entrances: Dict[str, Tuple[int, int]] = {}
         
         self._init_entrances()
         self._spawn_monsters()
     
+    def _generate_safe_city(self) -> list:
+        """生成主城安全区 - 开放地图带随机装饰"""
+        # 创建一个开放的24x24地图
+        maze = [[0] * 24 for _ in range(24)]
+        
+        # 只在边界添加墙壁
+        for x in range(24):
+            maze[0][x] = 1
+            maze[23][x] = 1
+        for y in range(24):
+            maze[y][0] = 1
+            maze[y][23] = 1
+        
+        # 添加一些随机装饰性墙壁（密度15%，比普通地图少）
+        for y in range(2, 22):
+            for x in range(2, 22):
+                if random.random() < 0.15:
+                    maze[y][x] = 1
+        
+        return maze
+    
     def _init_entrances(self):
         """初始化入口位置"""
+        # 确保地图入口/出口位置可通行
+        for y in range(1, 3):
+            for x in range(1, 3):
+                self.maze[y][x] = 0  # 左上角入口区域
+        for y in range(21, 23):
+            for x in range(21, 23):
+                self.maze[y][x] = 0  # 右下角出口区域
+        
         if entrances := self.config.get("entrances"):
             for entrance in entrances:
                 pos = tuple(entrance["position"])
-                self.entrances[entrance["id"]] = pos
+                if 0 <= pos[0] < 24 and 0 <= pos[1] < 24:
+                    # 确保入口位置及周围3x3区域完全清空
+                    for dy in range(-1, 2):
+                        for dx in range(-1, 2):
+                            nx, ny = pos[0] + dx, pos[1] + dy
+                            if 0 <= nx < 24 and 0 <= ny < 24:
+                                self.maze[ny][nx] = 0
+                    self.entrances[entrance["id"]] = pos
     
     def _spawn_monsters(self):
-        """生成怪物"""
+        """生成怪物 - 简化版，不使用A*验证"""
         monster_count = self.config.get("monster_count", 60)
         monster_types = self.config.get("monsters", [])
+        
         if not monster_types:
             return
         
-        # 排除入口和出口位置
-        exclude_pos = [(1, 0), (22, 23)] + list(self.entrances.values())
+        # 排除入口和出口附近的位置
+        exclude_pos = set()
+        for pos in [(2, 1), (21, 22)] + list(self.entrances.values()):
+            for dy in range(-2, 3):
+                for dx in range(-2, 3):
+                    exclude_pos.add((pos[0] + dx, pos[1] + dy))
         
-        # 只在可通行的区域生成怪物
+        # 收集所有可通行的格子
         empty_cells = []
-        for y in range(24):
-            for x in range(24):
+        for y in range(1, 23):  # 避开边界
+            for x in range(1, 23):
                 if self.maze[y][x] == 0 and (x, y) not in exclude_pos:
-                    # 确保该位置是可到达的(周围至少有一个可通行格子)
-                    has_neighbor = False
-                    for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                        nx, ny = x + dx, y + dy
-                        if 0 <= nx < 24 and 0 <= ny < 24 and self.maze[ny][nx] == 0:
-                            has_neighbor = True
-                            break
-                    if has_neighbor:
+                    # 检查周围是否有足够的通路
+                    neighbor_count = 0
+                    for dy, dx in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                        ny, nx = y + dy, x + dx
+                        if 0 <= ny < 24 and 0 <= nx < 24 and self.maze[ny][nx] == 0:
+                            neighbor_count += 1
+                    # 至少有2个相邻通路才算合适的刷新点
+                    if neighbor_count >= 2:
                         empty_cells.append((x, y))
+        
+        if not empty_cells:
+            return
         
         random.shuffle(empty_cells)
         
         # 生成普通怪物
-        spawn_count = min(monster_count, len(empty_cells) - 1)  # 保留一个位置给boss
+        spawn_count = min(monster_count, len(empty_cells) - 1)
         for i in range(spawn_count):
             if i >= len(empty_cells):
                 break
@@ -61,21 +111,26 @@ class MapInstance:
             monster_type = random.choice(monster_types)
             self.monsters[pos] = {"type": monster_type, "id": i}
         
-        # 生成Boss在远离入口的位置
+        # 生成Boss
         if boss := self.config.get("boss"):
             if len(empty_cells) > spawn_count:
-                # 选择离入口最远的位置
-                entrance = (1, 0)
+                entrance = (2, 1)
                 farthest_pos = max(empty_cells[spawn_count:],
                                   key=lambda p: abs(p[0] - entrance[0]) + abs(p[1] - entrance[1]))
                 self.monsters[farthest_pos] = {"type": boss, "id": -1, "is_boss": True}
     
     def enter(self, char_id: int, from_entrance: bool = True) -> Tuple[int, int]:
         """玩家进入地图"""
-        pos = (1, 0) if from_entrance else (22, 23)
+        # 主城使用中心位置，其他地图使用入口/出口
+        if self.config.get("is_safe") or self.map_id == "main_city":
+            pos = (12, 12)  # 主城中心位置
+        else:
+            pos = (2, 1) if from_entrance else (21, 22)  # 避开边界墙壁
+        
         self.players[char_id] = pos
         self.revealed[char_id] = set()
-        self.reveal_around(char_id, pos)
+        # 进入地图时使用更大的视野半径(5格)
+        self.reveal_around(char_id, pos, radius=5)
         return pos
     
     def leave(self, char_id: int):
@@ -83,7 +138,7 @@ class MapInstance:
         self.players.pop(char_id, None)
         self.revealed.pop(char_id, None)
     
-    def reveal_around(self, char_id: int, pos: Tuple[int, int], radius: int = 2):
+    def reveal_around(self, char_id: int, pos: Tuple[int, int], radius: int = 3):
         """揭示周围区域"""
         if char_id not in self.revealed:
             self.revealed[char_id] = set()
@@ -117,15 +172,17 @@ class MapInstance:
         # 检查路径上是否有怪物
         for pos in path[1:]:
             if pos in self.monsters:
+                # 揭示怪物周围区域，让玩家能看到阻挡的怪物
+                self.reveal_around(char_id, pos, radius=1)
                 return {"success": False, "error": "有怪物阻挡", "monster_pos": pos, "monster": self.monsters[pos]}
         
         # 移动
         self.players[char_id] = target
         self.reveal_around(char_id, target)
         
-        # 检查是否到达出口
-        at_exit = target == (22, 23)
-        at_entrance = target == (1, 0)
+        # 检查是否到达出口（适用于非主城地图）
+        at_exit = (target[0] >= 21 and target[1] >= 21) and not self.config.get("is_safe")
+        at_entrance = (target[0] <= 2 and target[1] <= 2) and not self.config.get("is_safe")
         
         return {"success": True, "path": path, "at_exit": at_exit, "at_entrance": at_entrance}
     
@@ -135,13 +192,31 @@ class MapInstance:
         visible_monsters = {str(pos): m for pos, m in self.monsters.items() if pos in revealed}
         visible_players = {cid: pos for cid, pos in self.players.items() if pos in revealed and cid != char_id}
         
-        # 获取可见的入口
+        # 获取可见的入口 - 修复返回格式
         visible_entrances = {}
         if self.config.get("entrances"):
             for entrance in self.config["entrances"]:
                 pos = tuple(entrance["position"])
                 if pos in revealed:
-                    visible_entrances[entrance["id"]] = entrance
+                    # 使用entrance的id作为key，完整entrance对象作为value
+                    visible_entrances[entrance["id"]] = {
+                        "id": entrance["id"],
+                        "name": entrance["name"],
+                        "position": entrance["position"],
+                        "description": entrance.get("description", "")
+                    }
+        
+        # 添加NPC信息（主城特有）
+        npcs = []
+        if self.config.get("is_safe"):
+            npcs = [
+                {"id": "weapon_shop", "name": "武器店", "position": [6, 8], "npc_name": "铁匠王大锤"},
+                {"id": "armor_shop", "name": "防具店", "position": [10, 8], "npc_name": "裁缝李大娘"},
+                {"id": "potion_shop", "name": "药店", "position": [14, 8], "npc_name": "药师孙老头"},
+                {"id": "skill_shop", "name": "书店", "position": [18, 8], "npc_name": "书生张秀才"},
+                {"id": "recycle_shop", "name": "回收商", "position": [6, 16], "npc_name": "收购商老周"},
+                {"id": "warehouse", "name": "仓库", "position": [10, 16], "npc_name": "仓库管理员"}
+            ]
         
         return {
             "map_id": self.map_id,
@@ -151,7 +226,8 @@ class MapInstance:
             "monsters": visible_monsters,
             "players": visible_players,
             "entrances": visible_entrances,
-            "exits": self.config.get("exits", {})
+            "exits": self.config.get("exits", {}),
+            "npcs": npcs
         }
     
     def remove_monster(self, pos: Tuple[int, int]) -> Optional[dict]:
@@ -159,12 +235,48 @@ class MapInstance:
         return self.monsters.pop(pos, None)
     
     def respawn_check(self):
-        """检查并补充怪物"""
+        """检查并补充怪物 - 简化版"""
         monster_count = self.config.get("monster_count", 60)
         current = len([m for m in self.monsters.values() if not m.get("is_boss")])
+        need_spawn = monster_count - current
         
-        if current < monster_count:
-            self._spawn_monsters()
+        if need_spawn > 0:
+            monster_types = self.config.get("monsters", [])
+            if not monster_types:
+                return
+            
+            # 排除入口、出口和已有怪物的位置
+            exclude_pos = set(self.monsters.keys())
+            for pos in [(2, 1), (21, 22)] + list(self.entrances.values()):
+                for dy in range(-2, 3):
+                    for dx in range(-2, 3):
+                        exclude_pos.add((pos[0] + dx, pos[1] + dy))
+            
+            # 收集可用位置
+            empty_cells = []
+            for y in range(1, 23):
+                for x in range(1, 23):
+                    if self.maze[y][x] == 0 and (x, y) not in exclude_pos:
+                        neighbor_count = sum(1 for dy, dx in [(0, 1), (0, -1), (1, 0), (-1, 0)]
+                                           if 0 <= y + dy < 24 and 0 <= x + dx < 24
+                                           and self.maze[y + dy][x + dx] == 0)
+                        if neighbor_count >= 2:
+                            empty_cells.append((x, y))
+            
+            if not empty_cells:
+                return
+            
+            random.shuffle(empty_cells)
+            
+            # 补充怪物
+            spawn_count = min(need_spawn, len(empty_cells))
+            monster_id_base = max([m.get("id", 0) for m in self.monsters.values()
+                                  if not m.get("is_boss")], default=0) + 1
+            
+            for i in range(spawn_count):
+                pos = empty_cells[i]
+                monster_type = random.choice(monster_types)
+                self.monsters[pos] = {"type": monster_type, "id": monster_id_base + i}
 
 
 class MapManager:
@@ -216,6 +328,15 @@ class MapManager:
         if current_map := self.player_map.get(char_id):
             if current_map in self.instances:
                 self.instances[current_map].leave(char_id)
+        
+        # 对于非主城地图，如果没有其他玩家，则重新生成
+        # 主城永久保留，不重新生成
+        if map_id != "main_city":
+            if map_id in self.instances:
+                instance = self.instances[map_id]
+                # 如果地图中没有其他玩家，重新生成
+                if len(instance.players) == 0:
+                    del self.instances[map_id]
         
         # 进入新地图
         instance = self.get_or_create_instance(map_id)

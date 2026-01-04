@@ -101,10 +101,18 @@ async def get_skills(char_id: int, token: str, db: AsyncSession = Depends(get_db
     return await GameEngine.get_character_skills(char_id, db)
 
 @app.post("/api/shop/buy")
-async def buy_item(item_id: str, quantity: int, token: str, char_id: int, db: AsyncSession = Depends(get_db)):
+async def buy_item(data: dict, token: str, db: AsyncSession = Depends(get_db)):
     user_id = decode_token(token)
     if not user_id:
         raise HTTPException(401, "无效token")
+    
+    item_id = data.get("item_id")
+    quantity = data.get("quantity", 1)
+    char_id = data.get("char_id")
+    
+    if not item_id or not char_id:
+        raise HTTPException(400, "缺少必要参数")
+    
     return await GameEngine.buy_item(char_id, item_id, quantity, db)
 
 # ============ 行会 ============
@@ -186,9 +194,11 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
             if msg_type == "move":
                 result = await GameEngine.move(char_id, data["x"], data["y"], db)
                 await manager.send(char_id, {"type": "move_result", "data": result})
+                # 无论移动成功还是失败（遇到怪物），都更新地图状态
+                # 这样可以显示阻挡路径的怪物
+                await manager.send(char_id, {"type": "map_state", "data": map_manager.get_state(char_id)})
                 if result.get("success"):
                     state = GameEngine._char_to_dict(await db.get(Character, char_id))
-                    await manager.send(char_id, {"type": "map_state", "data": map_manager.get_state(char_id)})
             
             elif msg_type == "attack":
                 pos = tuple(data["pos"])
@@ -236,6 +246,10 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
             elif msg_type == "use_skill":
                 result = await GameEngine.use_skill(char_id, data["skill_id"], db)
                 await manager.send(char_id, {"type": "skill_used", "data": result})
+            
+            elif msg_type == "get_equipment":
+                result = await GameEngine.get_equipment(char_id, db)
+                await manager.send(char_id, {"type": "equipment", "data": result})
             
             elif msg_type == "attack_player":
                 target_id = data.get("target_id")

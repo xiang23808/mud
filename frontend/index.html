@@ -44,6 +44,7 @@
                 <div class="header-buttons">
                     <button onclick="returnToCity()">回城</button>
                     <button onclick="openInventory()">背包</button>
+                    <button onclick="openEquipment()">装备</button>
                     <button onclick="openSkills()">技能</button>
                     <button onclick="logout()">退出</button>
                 </div>
@@ -81,6 +82,18 @@
                     <button class="tab" onclick="switchStorage('warehouse')">仓库</button>
                 </div>
                 <div id="inventory-grid"></div>
+            </div>
+        </div>
+
+        <!-- 装备弹窗 -->
+        <div id="equipment-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>装备栏</h3>
+                    <button onclick="closeModal('equipment-modal')">×</button>
+                </div>
+                <div id="equipment-stats"></div>
+                <div id="equipment-slots"></div>
             </div>
         </div>
 

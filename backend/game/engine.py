@@ -169,7 +169,7 @@ class GameEngine:
         return result
     
     @classmethod
-    async def get_inventory(cls, char_id: int, storage_type: str, db: AsyncSession) -> list:
+    async def get_inventory(cls, char_id: int, storage_type: str, db: AsyncSession) -> dict:
         """获取背包/仓库"""
         st = StorageType.WAREHOUSE if storage_type == "warehouse" else StorageType.INVENTORY
         result = await db.execute(
@@ -180,13 +180,59 @@ class GameEngine:
         )
         items = result.scalars().all()
         
-        return [{
-            "slot": item.slot,
-            "item_id": item.item_id,
-            "quality": item.quality,
-            "quantity": item.quantity,
-            "info": DataLoader.get_item(item.item_id)
-        } for item in items]
+        return {
+            "storage_type": storage_type,
+            "items": [{
+                "slot": item.slot,
+                "item_id": item.item_id,
+                "quality": item.quality,
+                "quantity": item.quantity,
+                "info": DataLoader.get_item(item.item_id)
+            } for item in items]
+        }
+    
+    @classmethod
+    async def get_equipment(cls, char_id: int, db: AsyncSession) -> dict:
+        """获取角色装备和综合属性"""
+        char = await db.get(Character, char_id)
+        if not char:
+            return {"equipment": {}, "total_stats": {}}
+        
+        # 获取所有装备
+        result = await db.execute(select(Equipment).where(Equipment.character_id == char_id))
+        equipment_list = result.scalars().all()
+        
+        # 装备槽位
+        slots = ["weapon", "helmet", "armor", "belt", "boots", "necklace", "ring_left", "ring_right", "bracelet_left", "bracelet_right"]
+        equipment = {}
+        
+        for slot in slots:
+            equip = next((e for e in equipment_list if e.slot == slot), None)
+            if equip:
+                item_info = DataLoader.get_item(equip.item_id)
+                quality_info = DataLoader.get_quality(equip.quality)
+                equipment[slot] = {
+                    "item_id": equip.item_id,
+                    "quality": equip.quality,
+                    "info": item_info
+                }
+            else:
+                equipment[slot] = None
+        
+        # 计算综合属性
+        total_stats = await cls._get_combat_stats(char, db)
+        
+        return {
+            "equipment": equipment,
+            "total_stats": {
+                "level": total_stats["level"],
+                "hp": f"{char.hp}/{total_stats['max_hp']}",
+                "mp": f"{char.mp}/{total_stats['max_mp']}",
+                "attack": total_stats["attack"],
+                "defense": total_stats["defense"],
+                "luck": total_stats["luck"]
+            }
+        }
     
     @classmethod
     async def equip_item(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
@@ -527,20 +573,62 @@ class GameEngine:
         return stats
     
     @classmethod
-    def _check_level_up(cls, char: Character) -> bool:
-        """检查升级"""
-        exp_needed = char.level * 100
+    def _check_level_up(cls, char: Character) -> dict:
+        """检查升级，返回升级信息"""
+        level_up_data = {"leveled_up": False, "new_level": char.level, "stats_gained": {}}
+        
+        # 计算升级所需经验（指数增长）
+        exp_needed = int(char.level * 100 * (1.1 ** (char.level - 1)))
+        
         if char.exp >= exp_needed:
             char.exp -= exp_needed
             char.level += 1
-            char.max_hp += 20
-            char.max_mp += 10
-            char.attack += 3
-            char.defense += 2
+            
+            # 根据职业获得不同的属性加成
+            if char.char_class.value == "warrior":
+                hp_gain = 25
+                mp_gain = 5
+                attack_gain = 4
+                defense_gain = 3
+            elif char.char_class.value == "mage":
+                hp_gain = 10
+                mp_gain = 20
+                attack_gain = 5
+                defense_gain = 1
+            else:  # taoist
+                hp_gain = 15
+                mp_gain = 15
+                attack_gain = 3
+                defense_gain = 2
+            
+            char.max_hp += hp_gain
+            char.max_mp += mp_gain
+            char.attack += attack_gain
+            char.defense += defense_gain
+            
+            # 每10级额外增加幸运值
+            luck_gain = 0
+            if char.level % 10 == 0:
+                char.luck += 1
+                luck_gain = 1
+            
+            # 恢复满状态
             char.hp = char.max_hp
             char.mp = char.max_mp
-            return True
-        return False
+            
+            level_up_data = {
+                "leveled_up": True,
+                "new_level": char.level,
+                "stats_gained": {
+                    "hp": hp_gain,
+                    "mp": mp_gain,
+                    "attack": attack_gain,
+                    "defense": defense_gain,
+                    "luck": luck_gain
+                }
+            }
+        
+        return level_up_data
     
     @classmethod
     def _char_to_dict(cls, char: Character) -> dict:

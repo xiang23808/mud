@@ -1,0 +1,155 @@
+{
+  "hp_potion_small": {
+    "name": "小红瓶",
+    "type": "consumable",
+    "description": "恢复50点生命值",
+    "effect": {"heal_hp": 50},
+    "buy_price": 20,
+    "recycle_gold": 2
+  },
+  "hp_potion_medium": {
+    "name": "中红瓶",
+    "type": "consumable",
+    "description": "恢复150点生命值",
+    "effect": {"heal_hp": 150},
+    "buy_price": 60,
+    "recycle_gold": 6
+  },
+  "hp_potion_large": {
+    "name": "大红瓶",
+    "type": "consumable",
+    "description": "恢复500点生命值",
+    "effect": {"heal_hp": 500},
+    "buy_price": 200,
+    "recycle_gold": 20
+  },
+  "mp_potion_small": {
+    "name": "小蓝瓶",
+    "type": "consumable",
+    "description": "恢复30点魔法值",
+    "effect": {"heal_mp": 30},
+    "buy_price": 15,
+    "recycle_gold": 1
+  },
+  "mp_potion_medium": {
+    "name": "中蓝瓶",
+    "type": "consumable",
+    "description": "恢复100点魔法值",
+    "effect": {"heal_mp": 100},
+    "buy_price": 50,
+    "recycle_gold": 5
+  },
+  "mp_potion_large": {
+    "name": "大蓝瓶",
+    "type": "consumable",
+    "description": "恢复300点魔法值",
+    "effect": {"heal_mp": 300},
+    "buy_price": 150,
+    "recycle_gold": 15
+  },
+  "random_teleport": {
+    "name": "随机传送卷",
+    "type": "consumable",
+    "description": "随机传送到地图某处",
+    "effect": {"teleport": "random"},
+    "buy_price": 100,
+    "recycle_gold": 10
+  },
+  "return_scroll": {
+    "name": "回城卷",
+    "type": "consumable",
+    "description": "传送回主城",
+    "effect": {"teleport": "city"},
+    "buy_price": 50,
+    "recycle_gold": 5
+  },
+  "blessing_oil": {
+    "name": "祝福油",
+    "type": "consumable",
+    "description": "永久增加1点幸运值",
+    "effect": {"luck": 1},
+    "buy_price": 0,
+    "recycle_yuanbao": 10,
+    "drop_only": true
+  },
+  "chicken_meat": {
+    "name": "鸡肉",
+    "type": "material",
+    "description": "烹饪材料",
+    "buy_price": 0,
+    "recycle_gold": 1,
+    "drop_only": true
+  },
+  "deer_meat": {
+    "name": "鹿肉",
+    "type": "material",
+    "description": "烹饪材料",
+    "buy_price": 0,
+    "recycle_gold": 2,
+    "drop_only": true
+  },
+  "wolf_fang": {
+    "name": "狼牙",
+    "type": "material",
+    "description": "制作材料",
+    "buy_price": 0,
+    "recycle_gold": 5,
+    "drop_only": true
+  },
+  "snake_venom": {
+    "name": "蛇毒",
+    "type": "material",
+    "description": "炼药材料",
+    "buy_price": 0,
+    "recycle_gold": 8,
+    "drop_only": true
+  },
+  "woma_horn": {
+    "name": "沃玛号角",
+    "type": "material",
+    "description": "珍贵材料",
+    "buy_price": 0,
+    "recycle_gold": 20,
+    "drop_only": true
+  },
+  "magic_stone": {
+    "name": "魔法石",
+    "type": "material",
+    "description": "魔法材料",
+    "buy_price": 0,
+    "recycle_gold": 15,
+    "drop_only": true
+  },
+  "zombie_meat": {
+    "name": "僵尸肉",
+    "type": "material",
+    "description": "炼金材料",
+    "buy_price": 0,
+    "recycle_gold": 3,
+    "drop_only": true
+  },
+  "centipede_leg": {
+    "name": "蜈蚣腿",
+    "type": "material",
+    "description": "制作材料",
+    "buy_price": 0,
+    "recycle_gold": 6,
+    "drop_only": true
+  },
+  "bone_fragment": {
+    "name": "骨头碎片",
+    "type": "material",
+    "description": "制作材料",
+    "buy_price": 0,
+    "recycle_gold": 10,
+    "drop_only": true
+  },
+  "zuma_piece": {
+    "name": "祖玛碎片",
+    "type": "material",
+    "description": "稀有材料",
+    "buy_price": 0,
+    "recycle_gold": 50,
+    "drop_only": true
+  }
+}

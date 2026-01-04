@@ -1,0 +1,110 @@
+{
+  "bronze_ring": {
+    "name": "青铜戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 1,
+    "attack": 1,
+    "buy_price": 50,
+    "recycle_gold": 5
+  },
+  "iron_ring": {
+    "name": "铁戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 8,
+    "attack": 2,
+    "defense": 1,
+    "buy_price": 300,
+    "recycle_gold": 30
+  },
+  "poison_ring": {
+    "name": "毒蛇戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 15,
+    "attack": 4,
+    "defense": 2,
+    "buy_price": 0,
+    "recycle_gold": 150,
+    "drop_only": true
+  },
+  "corpse_king_ring": {
+    "name": "尸王戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 28,
+    "attack": 8,
+    "defense": 4,
+    "hp_bonus": 50,
+    "buy_price": 0,
+    "recycle_yuanbao": 25,
+    "drop_only": true
+  },
+  "dragon_ring": {
+    "name": "龙之戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 35,
+    "attack": 12,
+    "defense": 6,
+    "hp_bonus": 80,
+    "mp_bonus": 40,
+    "buy_price": 0,
+    "recycle_yuanbao": 45,
+    "drop_only": true
+  },
+  "bronze_necklace": {
+    "name": "青铜项链",
+    "type": "accessory",
+    "slot": "necklace",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 1,
+    "hp_bonus": 10,
+    "buy_price": 50,
+    "recycle_gold": 5
+  },
+  "silver_necklace": {
+    "name": "银项链",
+    "type": "accessory",
+    "slot": "necklace",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 10,
+    "hp_bonus": 30,
+    "mp_bonus": 15,
+    "buy_price": 500,
+    "recycle_gold": 50
+  },
+  "death_necklace": {
+    "name": "死神项链",
+    "type": "accessory",
+    "slot": "necklace",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 30,
+    "hp_bonus": 80,
+    "mp_bonus": 50,
+    "attack": 5,
+    "buy_price": 0,
+    "recycle_yuanbao": 30,
+    "drop_only": true
+  },
+  "holy_necklace": {
+    "name": "圣战项链",
+    "type": "accessory",
+    "slot": "necklace",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 35,
+    "hp_bonus": 100,
+    "mp_bonus": 60,
+    "attack": 8,
+    "defense": 5,
+    "buy_price": 0,
+    "recycle_yuanbao": 40,
+    "drop_only": true
+  }
+}

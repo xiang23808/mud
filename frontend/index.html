@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUD</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 登录界面 -->
+        <div id="login-screen" class="screen">
+            <h1>MUD</h1>
+            <div class="form-box">
+                <input type="text" id="username" placeholder="用户名">
+                <input type="password" id="password" placeholder="密码">
+                <button onclick="login()">登录</button>
+                <button onclick="register()">注册</button>
+            </div>
+            <div id="login-error" class="error"></div>
+        </div>
+
+        <!-- 角色选择界面 -->
+        <div id="character-screen" class="screen hidden">
+            <h2>选择角色</h2>
+            <div id="character-list"></div>
+            <div class="create-char">
+                <h3>创建新角色</h3>
+                <input type="text" id="char-name" placeholder="角色名">
+                <select id="char-class">
+                    <option value="warrior">战士</option>
+                    <option value="mage">法师</option>
+                    <option value="taoist">道士</option>
+                </select>
+                <button onclick="createCharacter()">创建</button>
+            </div>
+            <div id="char-error" class="error"></div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="game-screen" class="screen hidden">
+            <div id="game-header">
+                <span id="char-info"></span>
+                <div class="header-buttons">
+                    <button onclick="returnToCity()">回城</button>
+                    <button onclick="openInventory()">背包</button>
+                    <button onclick="openSkills()">技能</button>
+                    <button onclick="logout()">退出</button>
+                </div>
+            </div>
+            <div id="game-main">
+                <div id="map-container">
+                    <div id="map-name"></div>
+                    <canvas id="map-canvas" width="480" height="480"></canvas>
+                    <div id="map-legend">
+                        <span class="legend-item"><span class="legend-color" style="background:#0f0"></span>玩家</span>
+                        <span class="legend-item"><span class="legend-color" style="background:#f00"></span>怪物</span>
+                        <span class="legend-item"><span class="legend-color" style="background:#ff0"></span>Boss</span>
+                        <span class="legend-item"><span class="legend-color" style="background:#0ff"></span>出口</span>
+                    </div>
+                </div>
+                <div id="game-panel">
+                    <div id="output"></div>
+                    <div id="chat-box">
+                        <input type="text" id="chat-input" placeholder="输入消息..." onkeypress="if(event.key==='Enter')sendChat()">
+                        <button onclick="sendChat()">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 背包弹窗 -->
+        <div id="inventory-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>背包</h3>
+                    <button onclick="closeModal('inventory-modal')">×</button>
+                </div>
+                <div class="tabs">
+                    <button class="tab active" onclick="switchStorage('inventory')">背包</button>
+                    <button class="tab" onclick="switchStorage('warehouse')">仓库</button>
+                </div>
+                <div id="inventory-grid"></div>
+            </div>
+        </div>
+
+        <!-- 技能弹窗 -->
+        <div id="skills-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>技能</h3>
+                    <button onclick="closeModal('skills-modal')">×</button>
+                </div>
+                <div id="skills-list"></div>
+            </div>
+        </div>
+
+        <!-- 战斗弹窗 -->
+        <div id="combat-modal" class="modal hidden">
+            <div class="modal-content combat-content">
+                <div class="modal-header">
+                    <h3>⚔️ 战斗</h3>
+                </div>
+                <div id="combat-log"></div>
+                <button id="combat-close" class="hidden" onclick="closeCombat()">继续</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/game.js"></script>
+</body>
+</html>

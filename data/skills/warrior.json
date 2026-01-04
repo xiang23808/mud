@@ -1,0 +1,91 @@
+{
+  "basic_sword": {
+    "name": "基础剑法",
+    "class": "warrior",
+    "level_req": 1,
+    "type": "passive",
+    "description": "增加基础攻击力",
+    "effect": {"attack_bonus": 5},
+    "buy_price": 100,
+    "max_level": 3
+  },
+  "attack_sword": {
+    "name": "攻杀剑术",
+    "class": "warrior",
+    "level_req": 7,
+    "type": "active",
+    "description": "强力一击，造成150%伤害",
+    "effect": {"damage_multiplier": 1.5},
+    "mp_cost": 5,
+    "buy_price": 500,
+    "max_level": 3
+  },
+  "stab_sword": {
+    "name": "刺杀剑术",
+    "class": "warrior",
+    "level_req": 15,
+    "type": "active",
+    "description": "穿刺攻击，无视30%防御",
+    "effect": {"ignore_defense": 0.3, "damage_multiplier": 1.2},
+    "mp_cost": 8,
+    "buy_price": 2000,
+    "max_level": 3
+  },
+  "half_moon": {
+    "name": "半月弯刀",
+    "class": "warrior",
+    "level_req": 25,
+    "type": "active",
+    "description": "弧形斩击，范围攻击",
+    "effect": {"damage_multiplier": 1.8, "aoe": true},
+    "mp_cost": 15,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "fire_sword": {
+    "name": "烈火剑法",
+    "class": "warrior",
+    "level_req": 35,
+    "type": "active",
+    "description": "附带火焰的强力攻击",
+    "effect": {"damage_multiplier": 2.5, "fire_damage": 50},
+    "mp_cost": 25,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "sun_sword": {
+    "name": "逐日剑法",
+    "class": "warrior",
+    "level_req": 45,
+    "type": "active",
+    "description": "传说中的剑法，威力无穷",
+    "effect": {"damage_multiplier": 3.0, "fire_damage": 100},
+    "mp_cost": 40,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "iron_body": {
+    "name": "铁布衫",
+    "class": "warrior",
+    "level_req": 20,
+    "type": "passive",
+    "description": "增加防御力和生命值",
+    "effect": {"defense_bonus": 20, "hp_bonus": 50},
+    "buy_price": 3000,
+    "max_level": 3
+  },
+  "shield_block": {
+    "name": "盾牌格挡",
+    "class": "warrior",
+    "level_req": 30,
+    "type": "passive",
+    "description": "有几率格挡攻击",
+    "effect": {"block_chance": 0.15},
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  }
+}

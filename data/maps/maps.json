@@ -1,0 +1,234 @@
+{
+  "main_city": {
+    "name": "比奇省",
+    "is_safe": true,
+    "monsters": [],
+    "entrances": [
+      {
+        "id": "woma_forest",
+        "name": "沃玛森林",
+        "position": [8, 12],
+        "description": "通往沃玛森林的传送门"
+      },
+      {
+        "id": "zombie_cave_1",
+        "name": "僵尸洞",
+        "position": [12, 12],
+        "description": "通往僵尸洞的传送门"
+      },
+      {
+        "id": "pig_cave_1",
+        "name": "猪洞",
+        "position": [16, 12],
+        "description": "通往猪洞的传送门"
+      },
+      {
+        "id": "zuma_temple_1",
+        "name": "祖玛寺庙",
+        "position": [8, 16],
+        "description": "通往祖玛寺庙的传送门"
+      },
+      {
+        "id": "sealed_valley_1",
+        "name": "封魔谷",
+        "position": [12, 16],
+        "description": "通往封魔谷的传送门"
+      },
+      {
+        "id": "red_moon_canyon",
+        "name": "赤月峡谷",
+        "position": [16, 16],
+        "description": "通往赤月峡谷的传送门"
+      }
+    ]
+  },
+  "woma_forest": {
+    "name": "沃玛森林",
+    "monster_count": 60,
+    "monsters": ["chicken", "deer", "wolf", "snake"],
+    "exits": {
+      "main_city": [1, 0],
+      "woma_temple_1": [22, 23]
+    }
+  },
+  "woma_temple_1": {
+    "name": "沃玛寺庙1层",
+    "monster_count": 60,
+    "monsters": ["woma_guard", "woma_warrior"],
+    "exits": {
+      "woma_forest": [1, 0],
+      "woma_temple_2": [22, 23]
+    }
+  },
+  "woma_temple_2": {
+    "name": "沃玛寺庙2层",
+    "monster_count": 60,
+    "monsters": ["woma_warrior", "woma_mage"],
+    "exits": {
+      "woma_temple_1": [1, 0],
+      "woma_temple_3": [22, 23]
+    }
+  },
+  "woma_temple_3": {
+    "name": "沃玛寺庙3层",
+    "monster_count": 50,
+    "monsters": ["woma_mage", "woma_elite"],
+    "boss": "woma_leader",
+    "exits": {
+      "woma_temple_2": [1, 0]
+    }
+  },
+  "zombie_cave_1": {
+    "name": "僵尸洞1层",
+    "monster_count": 60,
+    "monsters": ["zombie", "zombie_warrior"],
+    "exits": {
+      "main_city": [1, 0],
+      "zombie_cave_2": [22, 23]
+    }
+  },
+  "zombie_cave_2": {
+    "name": "僵尸洞2层",
+    "monster_count": 60,
+    "monsters": ["zombie_warrior", "zombie_mage"],
+    "exits": {
+      "zombie_cave_1": [1, 0],
+      "zombie_cave_3": [22, 23]
+    }
+  },
+  "zombie_cave_3": {
+    "name": "僵尸洞3层",
+    "monster_count": 50,
+    "monsters": ["zombie_elite"],
+    "boss": "corpse_king",
+    "exits": {
+      "zombie_cave_2": [1, 0]
+    }
+  },
+  "pig_cave_1": {
+    "name": "猪洞1层",
+    "monster_count": 70,
+    "monsters": ["wild_boar", "boar_warrior"],
+    "exits": {
+      "main_city": [1, 0],
+      "pig_cave_2": [22, 23]
+    }
+  },
+  "pig_cave_2": {
+    "name": "猪洞2层",
+    "monster_count": 70,
+    "monsters": ["boar_warrior", "boar_elite"],
+    "exits": {
+      "pig_cave_1": [1, 0],
+      "pig_cave_3": [22, 23]
+    }
+  },
+  "pig_cave_3": {
+    "name": "猪洞3层",
+    "monster_count": 60,
+    "monsters": ["boar_elite", "wild_pig_king"],
+    "boss": "pig_king",
+    "exits": {
+      "pig_cave_2": [1, 0]
+    }
+  },
+  "zuma_temple_1": {
+    "name": "祖玛寺庙1层",
+    "monster_count": 50,
+    "monsters": ["zuma_guard", "zuma_archer"],
+    "exits": {
+      "main_city": [1, 0],
+      "zuma_temple_2": [22, 23]
+    }
+  },
+  "zuma_temple_2": {
+    "name": "祖玛寺庙2层",
+    "monster_count": 50,
+    "monsters": ["zuma_archer", "zuma_statue"],
+    "exits": {
+      "zuma_temple_1": [1, 0],
+      "zuma_temple_3": [22, 23]
+    }
+  },
+  "zuma_temple_3": {
+    "name": "祖玛寺庙3层",
+    "monster_count": 45,
+    "monsters": ["zuma_statue", "zuma_guard"],
+    "exits": {
+      "zuma_temple_2": [1, 0],
+      "zuma_temple_4": [22, 23]
+    }
+  },
+  "zuma_temple_4": {
+    "name": "祖玛寺庙4层",
+    "monster_count": 45,
+    "monsters": ["zuma_statue", "zuma_elite"],
+    "exits": {
+      "zuma_temple_3": [1, 0],
+      "zuma_temple_5": [22, 23]
+    }
+  },
+  "zuma_temple_5": {
+    "name": "祖玛寺庙5层",
+    "monster_count": 40,
+    "monsters": ["zuma_elite"],
+    "boss": "zuma_leader",
+    "exits": {
+      "zuma_temple_4": [1, 0]
+    }
+  },
+  "sealed_valley_1": {
+    "name": "封魔谷入口",
+    "monster_count": 55,
+    "monsters": ["demon_soldier", "demon_archer"],
+    "exits": {
+      "main_city": [1, 0],
+      "sealed_valley_2": [22, 23]
+    }
+  },
+  "sealed_valley_2": {
+    "name": "封魔谷深处",
+    "monster_count": 50,
+    "monsters": ["demon_archer", "demon_warrior"],
+    "exits": {
+      "sealed_valley_1": [1, 0],
+      "sealed_valley_3": [22, 23]
+    }
+  },
+  "sealed_valley_3": {
+    "name": "封魔谷禁地",
+    "monster_count": 45,
+    "monsters": ["demon_warrior", "demon_elite"],
+    "boss": "demon_lord",
+    "exits": {
+      "sealed_valley_2": [1, 0]
+    }
+  },
+  "red_moon_canyon": {
+    "name": "赤月峡谷",
+    "monster_count": 50,
+    "monsters": ["red_moon_guard", "red_moon_warrior"],
+    "exits": {
+      "main_city": [1, 0],
+      "red_moon_cave": [22, 23]
+    }
+  },
+  "red_moon_cave": {
+    "name": "赤月洞穴",
+    "monster_count": 45,
+    "monsters": ["red_moon_warrior", "red_moon_mage"],
+    "exits": {
+      "red_moon_canyon": [1, 0],
+      "red_moon_temple": [22, 23]
+    }
+  },
+  "red_moon_temple": {
+    "name": "赤月神殿",
+    "monster_count": 40,
+    "monsters": ["red_moon_mage", "red_moon_elite"],
+    "boss": "red_moon_demon",
+    "exits": {
+      "red_moon_cave": [1, 0]
+    }
+  }
+}

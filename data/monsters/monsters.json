@@ -1,0 +1,515 @@
+{
+  "chicken": {
+    "name": "鸡",
+    "level": 1,
+    "hp": 15,
+    "attack": 3,
+    "defense": 0,
+    "exp": 5,
+    "gold": 2,
+    "drops": [{"item": "chicken_meat", "rate": 0.5}]
+  },
+  "deer": {
+    "name": "鹿",
+    "level": 2,
+    "hp": 25,
+    "attack": 5,
+    "defense": 1,
+    "exp": 10,
+    "gold": 5,
+    "drops": [{"item": "deer_meat", "rate": 0.3}]
+  },
+  "wolf": {
+    "name": "狼",
+    "level": 5,
+    "hp": 50,
+    "attack": 12,
+    "defense": 3,
+    "exp": 25,
+    "gold": 10,
+    "drops": [{"item": "wolf_fang", "rate": 0.2}]
+  },
+  "snake": {
+    "name": "毒蛇",
+    "level": 8,
+    "hp": 80,
+    "attack": 18,
+    "defense": 5,
+    "exp": 40,
+    "gold": 15,
+    "drops": [{"item": "snake_venom", "rate": 0.15}]
+  },
+  "woma_guard": {
+    "name": "沃玛卫士",
+    "level": 15,
+    "hp": 200,
+    "attack": 35,
+    "defense": 15,
+    "exp": 100,
+    "gold": 30,
+    "drops": [
+      {"item": "woma_horn", "rate": 0.1},
+      {"item": "iron_sword", "rate": 0.05}
+    ]
+  },
+  "woma_warrior": {
+    "name": "沃玛战士",
+    "level": 18,
+    "hp": 280,
+    "attack": 45,
+    "defense": 20,
+    "exp": 150,
+    "gold": 50,
+    "drops": [
+      {"item": "woma_horn", "rate": 0.15},
+      {"item": "steel_sword", "rate": 0.03}
+    ]
+  },
+  "woma_mage": {
+    "name": "沃玛法师",
+    "level": 20,
+    "hp": 200,
+    "attack": 60,
+    "defense": 10,
+    "exp": 180,
+    "gold": 60,
+    "drops": [
+      {"item": "magic_stone", "rate": 0.1},
+      {"item": "mage_staff", "rate": 0.02}
+    ]
+  },
+  "woma_elite": {
+    "name": "沃玛精英",
+    "level": 25,
+    "hp": 500,
+    "attack": 80,
+    "defense": 30,
+    "exp": 300,
+    "gold": 100,
+    "drops": [
+      {"item": "woma_horn", "rate": 0.3},
+      {"item": "heavy_armor", "rate": 0.05}
+    ]
+  },
+  "woma_leader": {
+    "name": "沃玛教主",
+    "level": 35,
+    "hp": 5000,
+    "attack": 150,
+    "defense": 50,
+    "exp": 5000,
+    "gold": 1000,
+    "drops": [
+      {"item": "woma_horn", "rate": 1.0},
+      {"item": "judgement", "rate": 0.01},
+      {"item": "dragon_sword", "rate": 0.005},
+      {"item": "half_moon", "rate": 0.1}
+    ]
+  },
+  "zombie": {
+    "name": "僵尸",
+    "level": 10,
+    "hp": 120,
+    "attack": 25,
+    "defense": 8,
+    "exp": 60,
+    "gold": 20,
+    "drops": [
+      {"item": "zombie_meat", "rate": 0.3},
+      {"item": "basic_sword", "rate": 0.01}
+    ]
+  },
+  "zombie_warrior": {
+    "name": "僵尸战士",
+    "level": 15,
+    "hp": 200,
+    "attack": 40,
+    "defense": 15,
+    "exp": 100,
+    "gold": 35,
+    "drops": [
+      {"item": "zombie_meat", "rate": 0.4},
+      {"item": "iron_sword", "rate": 0.02}
+    ]
+  },
+  "zombie_mage": {
+    "name": "僵尸法师",
+    "level": 18,
+    "hp": 150,
+    "attack": 55,
+    "defense": 8,
+    "exp": 120,
+    "gold": 45,
+    "drops": [
+      {"item": "magic_stone", "rate": 0.15},
+      {"item": "magic_robe", "rate": 0.02}
+    ]
+  },
+  "zombie_elite": {
+    "name": "僵尸精英",
+    "level": 22,
+    "hp": 400,
+    "attack": 70,
+    "defense": 25,
+    "exp": 250,
+    "gold": 80,
+    "drops": [
+      {"item": "bone_fragment", "rate": 0.3},
+      {"item": "steel_sword", "rate": 0.02}
+    ]
+  },
+  "corpse_king": {
+    "name": "尸王",
+    "level": 30,
+    "hp": 3000,
+    "attack": 120,
+    "defense": 40,
+    "exp": 3000,
+    "gold": 800,
+    "drops": [
+      {"item": "bone_fragment", "rate": 1.0},
+      {"item": "corpse_king_ring", "rate": 0.02},
+      {"item": "death_necklace", "rate": 0.01},
+      {"item": "stab_sword", "rate": 0.08}
+    ]
+  },
+  "wild_boar": {
+    "name": "野猪",
+    "level": 6,
+    "hp": 60,
+    "attack": 15,
+    "defense": 4,
+    "exp": 30,
+    "gold": 12,
+    "drops": [{"item": "boar_meat", "rate": 0.4}]
+  },
+  "boar_warrior": {
+    "name": "猪卫士",
+    "level": 12,
+    "hp": 150,
+    "attack": 30,
+    "defense": 12,
+    "exp": 75,
+    "gold": 25,
+    "drops": [
+      {"item": "boar_meat", "rate": 0.5},
+      {"item": "leather_armor", "rate": 0.03}
+    ]
+  },
+  "boar_elite": {
+    "name": "猪精英",
+    "level": 18,
+    "hp": 300,
+    "attack": 50,
+    "defense": 20,
+    "exp": 180,
+    "gold": 60,
+    "drops": [
+      {"item": "boar_tusk", "rate": 0.25},
+      {"item": "iron_armor", "rate": 0.04}
+    ]
+  },
+  "wild_pig_king": {
+    "name": "野猪王",
+    "level": 24,
+    "hp": 800,
+    "attack": 75,
+    "defense": 30,
+    "exp": 500,
+    "gold": 150,
+    "drops": [
+      {"item": "boar_tusk", "rate": 0.5},
+      {"item": "heavy_armor", "rate": 0.03}
+    ]
+  },
+  "pig_king": {
+    "name": "猪王",
+    "level": 28,
+    "hp": 2500,
+    "attack": 110,
+    "defense": 38,
+    "exp": 2500,
+    "gold": 700,
+    "drops": [
+      {"item": "boar_tusk", "rate": 1.0},
+      {"item": "bone_king_sword", "rate": 0.02},
+      {"item": "death_armor", "rate": 0.01},
+      {"item": "iron_body", "rate": 0.08}
+    ]
+  },
+  "zuma_guard": {
+    "name": "祖玛卫士",
+    "level": 32,
+    "hp": 800,
+    "attack": 95,
+    "defense": 45,
+    "exp": 600,
+    "gold": 150,
+    "drops": [
+      {"item": "zuma_piece", "rate": 0.2},
+      {"item": "zuma_helmet", "rate": 0.03}
+    ]
+  },
+  "zuma_archer": {
+    "name": "祖玛弓箭手",
+    "level": 33,
+    "hp": 750,
+    "attack": 100,
+    "defense": 40,
+    "exp": 620,
+    "gold": 155,
+    "drops": [
+      {"item": "zuma_piece", "rate": 0.22},
+      {"item": "silver_necklace", "rate": 0.04}
+    ]
+  },
+  "zuma_statue": {
+    "name": "祖玛雕像",
+    "level": 35,
+    "hp": 1000,
+    "attack": 120,
+    "defense": 60,
+    "exp": 800,
+    "gold": 200,
+    "drops": [
+      {"item": "zuma_piece", "rate": 0.3},
+      {"item": "zuma_armor", "rate": 0.02}
+    ]
+  },
+  "zuma_elite": {
+    "name": "祖玛精英",
+    "level": 38,
+    "hp": 1200,
+    "attack": 135,
+    "defense": 70,
+    "exp": 1000,
+    "gold": 250,
+    "drops": [
+      {"item": "zuma_piece", "rate": 0.4},
+      {"item": "dragon_ring", "rate": 0.02}
+    ]
+  },
+  "zuma_leader": {
+    "name": "祖玛教主",
+    "level": 40,
+    "hp": 8000,
+    "attack": 180,
+    "defense": 70,
+    "exp": 8000,
+    "gold": 1500,
+    "drops": [
+      {"item": "zuma_piece", "rate": 1.0},
+      {"item": "dragon_sword", "rate": 0.02},
+      {"item": "holy_armor", "rate": 0.01},
+      {"item": "fire_sword", "rate": 0.08}
+    ]
+  },
+  "demon_soldier": {
+    "name": "魔族士兵",
+    "level": 26,
+    "hp": 600,
+    "attack": 85,
+    "defense": 35,
+    "exp": 400,
+    "gold": 120,
+    "drops": [
+      {"item": "demon_crystal", "rate": 0.15},
+      {"item": "iron_armor", "rate": 0.03}
+    ]
+  },
+  "demon_archer": {
+    "name": "魔族弓手",
+    "level": 28,
+    "hp": 550,
+    "attack": 95,
+    "defense": 30,
+    "exp": 450,
+    "gold": 130,
+    "drops": [
+      {"item": "demon_crystal", "rate": 0.18},
+      {"item": "poison_ring", "rate": 0.02}
+    ]
+  },
+  "demon_warrior": {
+    "name": "魔族战士",
+    "level": 31,
+    "hp": 750,
+    "attack": 110,
+    "defense": 42,
+    "exp": 650,
+    "gold": 170,
+    "drops": [
+      {"item": "demon_crystal", "rate": 0.25},
+      {"item": "heavy_armor", "rate": 0.04}
+    ]
+  },
+  "demon_elite": {
+    "name": "魔族精英",
+    "level": 34,
+    "hp": 950,
+    "attack": 130,
+    "defense": 55,
+    "exp": 850,
+    "gold": 220,
+    "drops": [
+      {"item": "demon_crystal", "rate": 0.35},
+      {"item": "death_necklace", "rate": 0.02}
+    ]
+  },
+  "demon_lord": {
+    "name": "魔族领主",
+    "level": 37,
+    "hp": 6000,
+    "attack": 170,
+    "defense": 65,
+    "exp": 6000,
+    "gold": 1200,
+    "drops": [
+      {"item": "demon_crystal", "rate": 1.0},
+      {"item": "dragon_wand", "rate": 0.02},
+      {"item": "holy_necklace", "rate": 0.01},
+      {"item": "divine_shield", "rate": 0.08}
+    ]
+  },
+  "red_moon_guard": {
+    "name": "赤月卫士",
+    "level": 36,
+    "hp": 1100,
+    "attack": 140,
+    "defense": 68,
+    "exp": 900,
+    "gold": 230,
+    "drops": [
+      {"item": "red_moon_crystal", "rate": 0.2},
+      {"item": "zuma_helmet", "rate": 0.03}
+    ]
+  },
+  "red_moon_warrior": {
+    "name": "赤月战士",
+    "level": 38,
+    "hp": 1250,
+    "attack": 155,
+    "defense": 75,
+    "exp": 1100,
+    "gold": 270,
+    "drops": [
+      {"item": "red_moon_crystal", "rate": 0.25},
+      {"item": "zuma_armor", "rate": 0.02}
+    ]
+  },
+  "red_moon_mage": {
+    "name": "赤月法师",
+    "level": 39,
+    "hp": 1000,
+    "attack": 170,
+    "defense": 60,
+    "exp": 1200,
+    "gold": 290,
+    "drops": [
+      {"item": "red_moon_crystal", "rate": 0.28},
+      {"item": "dragon_staff", "rate": 0.02}
+    ]
+  },
+  "red_moon_elite": {
+    "name": "赤月精英",
+    "level": 41,
+    "hp": 1500,
+    "attack": 190,
+    "defense": 85,
+    "exp": 1500,
+    "gold": 350,
+    "drops": [
+      {"item": "red_moon_crystal", "rate": 0.4},
+      {"item": "holy_armor", "rate": 0.02}
+    ]
+  },
+  "red_moon_demon": {
+    "name": "赤月恶魔",
+    "level": 45,
+    "hp": 10000,
+    "attack": 220,
+    "defense": 90,
+    "exp": 10000,
+    "gold": 2000,
+    "drops": [
+      {"item": "red_moon_crystal", "rate": 1.0},
+      {"item": "judgement", "rate": 0.03},
+      {"item": "dragon_ring", "rate": 0.02},
+      {"item": "sun_sword", "rate": 0.05},
+      {"item": "meteor", "rate": 0.05}
+    ]
+  },
+  "centipede": {
+    "name": "蜈蚣",
+    "level": 12,
+    "hp": 150,
+    "attack": 30,
+    "defense": 10,
+    "exp": 80,
+    "gold": 25,
+    "drops": [{"item": "centipede_leg", "rate": 0.2}]
+  },
+  "centipede_warrior": {
+    "name": "蜈蚣战士",
+    "level": 16,
+    "hp": 220,
+    "attack": 45,
+    "defense": 18,
+    "exp": 120,
+    "gold": 40,
+    "drops": [
+      {"item": "centipede_leg", "rate": 0.3},
+      {"item": "poison_ring", "rate": 0.02}
+    ]
+  },
+  "centipede_elite": {
+    "name": "蜈蚣精英",
+    "level": 20,
+    "hp": 450,
+    "attack": 65,
+    "defense": 28,
+    "exp": 280,
+    "gold": 90,
+    "drops": [
+      {"item": "centipede_leg", "rate": 0.5},
+      {"item": "bone_helmet", "rate": 0.05}
+    ]
+  },
+  "skeleton": {
+    "name": "骷髅",
+    "level": 14,
+    "hp": 180,
+    "attack": 38,
+    "defense": 12,
+    "exp": 90,
+    "gold": 28,
+    "drops": [{"item": "bone_fragment", "rate": 0.4}]
+  },
+  "skeleton_warrior": {
+    "name": "骷髅战士",
+    "level": 19,
+    "hp": 320,
+    "attack": 58,
+    "defense": 22,
+    "exp": 200,
+    "gold": 65,
+    "drops": [
+      {"item": "bone_fragment", "rate": 0.5},
+      {"item": "skeleton_helmet", "rate": 0.03}
+    ]
+  },
+  "skeleton_king": {
+    "name": "骷髅王",
+    "level": 28,
+    "hp": 2500,
+    "attack": 110,
+    "defense": 38,
+    "exp": 2500,
+    "gold": 700,
+    "drops": [
+      {"item": "bone_fragment", "rate": 1.0},
+      {"item": "bone_king_sword", "rate": 0.02},
+      {"item": "death_armor", "rate": 0.01}
+    ]
+  }
+}

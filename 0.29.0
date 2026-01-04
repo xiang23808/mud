@@ -1,0 +1,7 @@
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+Collecting asyncpg
+  Downloading https://mirrors.aliyun.com/pypi/packages/c5/03/ea5fd3fa18a26ba1aa663fce57620238d7e413d262dda284b71631ca8d2a/asyncpg-0.31.0-cp39-cp39-win_amd64.whl (582 kB)
+     ---------------------------------------- 582.1/582.1 kB ?  0:00:00
+Requirement already satisfied: async_timeout>=4.0.3 in .\.venv\lib\site-packages (from asyncpg) (5.0.1)
+Installing collected packages: asyncpg
+Successfully installed asyncpg-0.31.0

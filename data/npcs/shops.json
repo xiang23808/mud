@@ -1,0 +1,43 @@
+{
+  "weapon_shop": {
+    "name": "武器店",
+    "npc_name": "铁匠王大锤",
+    "items": ["wooden_sword", "basic_sword", "green_sword", "wooden_staff", "mage_staff", "wooden_sword_taoist", "taoist_sword"]
+  },
+  "armor_shop": {
+    "name": "防具店",
+    "npc_name": "裁缝李大娘",
+    "items": ["cloth_armor", "leather_armor", "iron_armor", "mage_robe", "taoist_robe", "leather_helmet", "iron_helmet", "leather_boots", "iron_boots"]
+  },
+  "potion_shop": {
+    "name": "药店",
+    "npc_name": "药师孙老头",
+    "items": ["hp_potion_small", "hp_potion_medium", "hp_potion_large", "mp_potion_small", "mp_potion_medium", "mp_potion_large", "town_scroll"]
+  },
+  "skill_shop": {
+    "name": "书店",
+    "npc_name": "书生张秀才",
+    "description": "出售基础技能书",
+    "warrior_skills": ["basic_sword", "attack_sword", "stab_sword", "iron_body"],
+    "mage_skills": ["fireball", "fire_wall", "charm", "hell_fire", "magic_shield"],
+    "taoist_skills": ["healing", "spirit_sword", "poison", "soul_fire", "summon_skeleton"]
+  },
+  "recycle_shop": {
+    "name": "回收商",
+    "npc_name": "收购商老周",
+    "description": "回收各种物品换取金币或元宝"
+  },
+  "warehouse": {
+    "name": "仓库",
+    "npc_name": "仓库管理员",
+    "description": "存取物品"
+  },
+  "teleporter": {
+    "name": "传送员",
+    "npc_name": "传送使者",
+    "destinations": [
+      {"id": "woma_forest", "name": "沃玛森林", "cost": 100},
+      {"id": "zombie_cave_1", "name": "僵尸洞", "cost": 100}
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "fireball": {
+    "name": "火球术",
+    "class": "mage",
+    "level_req": 1,
+    "type": "active",
+    "description": "发射火球攻击敌人",
+    "effect": {"magic_damage": 20},
+    "mp_cost": 5,
+    "buy_price": 100,
+    "max_level": 3
+  },
+  "fire_wall": {
+    "name": "抗拒火环",
+    "class": "mage",
+    "level_req": 12,
+    "type": "active",
+    "description": "释放火环推开敌人",
+    "effect": {"magic_damage": 15, "knockback": true},
+    "mp_cost": 10,
+    "buy_price": 1000,
+    "max_level": 3
+  },
+  "charm": {
+    "name": "诱惑之光",
+    "class": "mage",
+    "level_req": 15,
+    "type": "active",
+    "description": "有几率魅惑怪物",
+    "effect": {"charm_rate": 0.1},
+    "mp_cost": 20,
+    "buy_price": 2000,
+    "max_level": 3
+  },
+  "hell_fire": {
+    "name": "地狱火",
+    "class": "mage",
+    "level_req": 20,
+    "type": "active",
+    "description": "召唤地狱之火",
+    "effect": {"magic_damage": 60},
+    "mp_cost": 25,
+    "buy_price": 5000,
+    "max_level": 3
+  },
+  "lightning": {
+    "name": "雷电术",
+    "class": "mage",
+    "level_req": 25,
+    "type": "active",
+    "description": "召唤雷电攻击",
+    "effect": {"magic_damage": 100},
+    "mp_cost": 35,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "ice_roar": {
+    "name": "冰咆哮",
+    "class": "mage",
+    "level_req": 35,
+    "type": "active",
+    "description": "释放冰霜风暴",
+    "effect": {"magic_damage": 150, "slow": 0.3},
+    "mp_cost": 50,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "meteor": {
+    "name": "流星火雨",
+    "class": "mage",
+    "level_req": 45,
+    "type": "active",
+    "description": "召唤流星雨",
+    "effect": {"magic_damage": 250, "aoe": true},
+    "mp_cost": 80,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "magic_shield": {
+    "name": "魔法盾",
+    "class": "mage",
+    "level_req": 18,
+    "type": "active",
+    "description": "消耗魔法抵挡伤害",
+    "effect": {"damage_absorb": 0.5},
+    "mp_cost": 30,
+    "buy_price": 3000,
+    "max_level": 3
+  },
+  "teleport": {
+    "name": "瞬间移动",
+    "class": "mage",
+    "level_req": 22,
+    "type": "active",
+    "description": "瞬间传送到指定位置",
+    "effect": {"teleport_range": 5},
+    "mp_cost": 20,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  }
+}

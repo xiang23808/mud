@@ -1,0 +1,14 @@
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+Collecting pydantic
+  Downloading https://mirrors.aliyun.com/pypi/packages/5a/87/b70ad306ebb6f9b585f114d0ac2137d792b48be34d732d60e597c2f8465a/pydantic-2.12.5-py3-none-any.whl (463 kB)
+Requirement already satisfied: pydantic-settings in .\.venv\lib\site-packages (2.12.0)
+Requirement already satisfied: annotated-types>=0.6.0 in .\.venv\lib\site-packages (from pydantic) (0.7.0)
+Collecting pydantic-core==2.41.5 (from pydantic)
+  Downloading https://mirrors.aliyun.com/pypi/packages/44/8a/a98aede18db6e9cd5d66bcacd8a409fcf8134204cdede2e7de35c5a2c5ef/pydantic_core-2.41.5-cp39-cp39-win_amd64.whl (2.0 MB)
+     ---------------------------------------- 2.0/2.0 MB 10.2 MB/s  0:00:00
+Requirement already satisfied: typing-extensions>=4.14.1 in .\.venv\lib\site-packages (from pydantic) (4.15.0)
+Requirement already satisfied: typing-inspection>=0.4.2 in .\.venv\lib\site-packages (from pydantic) (0.4.2)
+Requirement already satisfied: python-dotenv>=0.21.0 in .\.venv\lib\site-packages (from pydantic-settings) (1.2.1)
+Installing collected packages: pydantic-core, pydantic
+
+Successfully installed pydantic-2.12.5 pydantic-core-2.41.5

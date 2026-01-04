@@ -1,0 +1,104 @@
+{
+  "healing": {
+    "name": "治愈术",
+    "class": "taoist",
+    "level_req": 1,
+    "type": "active",
+    "description": "恢复生命值",
+    "effect": {"heal_hp": 50},
+    "mp_cost": 10,
+    "buy_price": 100,
+    "max_level": 3
+  },
+  "spirit_sword": {
+    "name": "精神力战法",
+    "class": "taoist",
+    "level_req": 7,
+    "type": "passive",
+    "description": "增加攻击力",
+    "effect": {"attack_bonus": 10},
+    "buy_price": 500,
+    "max_level": 3
+  },
+  "poison": {
+    "name": "施毒术",
+    "class": "taoist",
+    "level_req": 15,
+    "type": "active",
+    "description": "对敌人施加毒素",
+    "effect": {"poison_damage": 10, "duration": 5},
+    "mp_cost": 15,
+    "buy_price": 2000,
+    "max_level": 3
+  },
+  "soul_fire": {
+    "name": "灵魂火符",
+    "class": "taoist",
+    "level_req": 20,
+    "type": "active",
+    "description": "发射火符攻击",
+    "effect": {"magic_damage": 40},
+    "mp_cost": 12,
+    "buy_price": 3000,
+    "max_level": 3
+  },
+  "summon_skeleton": {
+    "name": "召唤骷髅",
+    "class": "taoist",
+    "level_req": 22,
+    "type": "active",
+    "description": "召唤骷髅战士协助战斗",
+    "effect": {"summon": "skeleton", "duration": 300},
+    "mp_cost": 30,
+    "buy_price": 5000,
+    "max_level": 3
+  },
+  "invisibility": {
+    "name": "隐身术",
+    "class": "taoist",
+    "level_req": 25,
+    "type": "active",
+    "description": "隐身躲避怪物",
+    "effect": {"invisible": true, "duration": 30},
+    "mp_cost": 20,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "summon_dog": {
+    "name": "召唤神兽",
+    "class": "taoist",
+    "level_req": 35,
+    "type": "active",
+    "description": "召唤强大的神兽",
+    "effect": {"summon": "holy_dog", "duration": 600},
+    "mp_cost": 50,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "group_healing": {
+    "name": "群体治愈术",
+    "class": "taoist",
+    "level_req": 30,
+    "type": "active",
+    "description": "治愈周围所有队友",
+    "effect": {"heal_hp": 100, "aoe": true},
+    "mp_cost": 40,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  },
+  "divine_shield": {
+    "name": "神圣战甲术",
+    "class": "taoist",
+    "level_req": 28,
+    "type": "active",
+    "description": "增加防御力和魔法抗性",
+    "effect": {"defense_bonus": 30, "duration": 180},
+    "mp_cost": 35,
+    "buy_price": 0,
+    "drop_only": true,
+    "max_level": 3
+  }
+}

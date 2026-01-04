@@ -1,0 +1,37 @@
+{
+  "white": {
+    "name": "普通",
+    "color": "#FFFFFF",
+    "bonus": 1.0,
+    "currency": "gold",
+    "recycle_multiplier": 1.0
+  },
+  "green": {
+    "name": "优秀",
+    "color": "#00FF00",
+    "bonus": 1.1,
+    "currency": "gold",
+    "recycle_multiplier": 1.5
+  },
+  "blue": {
+    "name": "精良",
+    "color": "#0088FF",
+    "bonus": 1.25,
+    "currency": "gold",
+    "recycle_multiplier": 2.0
+  },
+  "purple": {
+    "name": "史诗",
+    "color": "#AA00FF",
+    "bonus": 1.5,
+    "currency": "yuanbao",
+    "recycle_multiplier": 1.0
+  },
+  "red": {
+    "name": "传说",
+    "color": "#FF0000",
+    "bonus": 2.0,
+    "currency": "yuanbao",
+    "recycle_multiplier": 2.0
+  }
+}

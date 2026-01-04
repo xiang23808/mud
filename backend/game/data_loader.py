@@ -59,6 +59,17 @@ class DataLoader:
         return qualities.get(quality, qualities.get("white", {}))
     
     @classmethod
+    def get_drop_groups(cls) -> dict:
+        """获取掉落组配置"""
+        return cls.load("config/drop_groups.json")
+    
+    @classmethod
+    def get_drop_group(cls, group_id: str) -> dict:
+        """获取单个掉落组"""
+        groups = cls.get_drop_groups()
+        return groups.get(group_id, {})
+    
+    @classmethod
     def get_all_skills(cls, char_class: str) -> dict:
         """获取职业所有技能"""
         return cls.load(f"skills/{char_class}.json")

@@ -132,6 +132,14 @@ function handleMessage(msg) {
             if (msg.data.success) output('[成功]');
             else output(`[失败] ${msg.data.error}`);
             break;
+        case 'skillbook_result':
+            if (msg.data.success) {
+                output(`[成功] ${msg.data.message}`);
+                ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' }));
+            } else {
+                output(`[失败] ${msg.data.error}`);
+            }
+            break;
     }
 }
 
@@ -347,17 +355,21 @@ function renderInventory(data) {
     const grid = $('inventory-grid');
     grid.innerHTML = `<div style="grid-column: 1/-1; color: #ffd700; text-align: center; margin-bottom: 10px;">
         已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots}
-    </div>` + items.map(item => `
+    </div>` + items.map(item => {
+        const isEquipable = item.info?.type === 'weapon' || item.info?.type === 'armor' || item.info?.type === 'accessory';
+        const isSkillbook = item.info?.type === 'skillbook';
+        return `
         <div class="inv-slot quality-${item.quality}">
             <div class="item-name">${item.info?.name || item.item_id}</div>
             <div>x${item.quantity}</div>
             <div class="item-actions">
-                ${item.info?.type === 'weapon' || item.info?.type === 'armor' ?
-                    `<button onclick="equipItem(${item.slot})">装备</button>` : ''}
+                ${isEquipable ? `<button onclick="equipItem(${item.slot})">装备</button>` : ''}
+                ${isSkillbook ? `<button onclick="useSkillbook(${item.slot})">学习</button>` : ''}
                 <button onclick="recycleItem(${item.slot})">回收</button>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
 }
 
 function equipItem(slot) {
@@ -370,6 +382,10 @@ function recycleItem(slot) {
         ws.send(JSON.stringify({ type: 'recycle', slot }));
         setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 500);
     }
+}
+
+function useSkillbook(slot) {
+    ws.send(JSON.stringify({ type: 'use_skillbook', slot }));
 }
 
 // 装备

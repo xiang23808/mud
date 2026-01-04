@@ -243,6 +243,10 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
                 result = await GameEngine.learn_skill(char_id, data["skill_id"], db)
                 await manager.send(char_id, {"type": "learn_result", "data": result})
             
+            elif msg_type == "use_skillbook":
+                result = await GameEngine.use_skillbook(char_id, data["slot"], db)
+                await manager.send(char_id, {"type": "skillbook_result", "data": result})
+            
             elif msg_type == "use_skill":
                 result = await GameEngine.use_skill(char_id, data["skill_id"], db)
                 await manager.send(char_id, {"type": "skill_used", "data": result})

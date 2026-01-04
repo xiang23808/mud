@@ -7,7 +7,8 @@
     "defense": 0,
     "exp": 5,
     "gold": 2,
-    "drops": [{"item": "chicken_meat", "rate": 0.5}]
+    "drops": [{"item": "chicken_meat", "rate": "1/2"}],
+    "drop_groups": ["common_material"]
   },
   "deer": {
     "name": "鹿",
@@ -17,7 +18,8 @@
     "defense": 1,
     "exp": 10,
     "gold": 5,
-    "drops": [{"item": "deer_meat", "rate": 0.3}]
+    "drops": [{"item": "deer_meat", "rate": "1/3"}],
+    "drop_groups": ["common_material", "low_accessory"]
   },
   "wolf": {
     "name": "狼",
@@ -27,7 +29,8 @@
     "defense": 3,
     "exp": 25,
     "gold": 10,
-    "drops": [{"item": "wolf_fang", "rate": 0.2}]
+    "drops": [{"item": "wolf_fang", "rate": "1/5"}],
+    "drop_groups": ["common_material", "low_weapon", "low_armor"]
   },
   "snake": {
     "name": "毒蛇",
@@ -37,7 +40,8 @@
     "defense": 5,
     "exp": 40,
     "gold": 15,
-    "drops": [{"item": "snake_venom", "rate": 0.15}]
+    "drops": [{"item": "snake_venom", "rate": "1/7"}],
+    "drop_groups": ["common_material", "low_weapon", "low_armor", "low_accessory"]
   },
   "woma_guard": {
     "name": "沃玛卫士",
@@ -48,9 +52,9 @@
     "exp": 100,
     "gold": 30,
     "drops": [
-      {"item": "woma_horn", "rate": 0.1},
-      {"item": "iron_sword", "rate": 0.05}
-    ]
+      {"item": "woma_horn", "rate": "1/10"}
+    ],
+    "drop_groups": ["woma_drops", "mid_weapon", "mid_armor", "mid_accessory"]
   },
   "woma_warrior": {
     "name": "沃玛战士",
@@ -61,9 +65,9 @@
     "exp": 150,
     "gold": 50,
     "drops": [
-      {"item": "woma_horn", "rate": 0.15},
-      {"item": "steel_sword", "rate": 0.03}
-    ]
+      {"item": "woma_horn", "rate": "1/7"}
+    ],
+    "drop_groups": ["woma_drops", "mid_weapon", "mid_armor", "mid_accessory"]
   },
   "woma_mage": {
     "name": "沃玛法师",
@@ -74,9 +78,9 @@
     "exp": 180,
     "gold": 60,
     "drops": [
-      {"item": "magic_stone", "rate": 0.1},
-      {"item": "mage_staff", "rate": 0.02}
-    ]
+      {"item": "magic_stone", "rate": "1/10"}
+    ],
+    "drop_groups": ["woma_drops", "mid_weapon", "mid_armor", "mage_skillbook"]
   },
   "woma_elite": {
     "name": "沃玛精英",
@@ -87,9 +91,9 @@
     "exp": 300,
     "gold": 100,
     "drops": [
-      {"item": "woma_horn", "rate": 0.3},
-      {"item": "heavy_armor", "rate": 0.05}
-    ]
+      {"item": "woma_horn", "rate": "1/4"}
+    ],
+    "drop_groups": ["woma_drops", "mid_weapon", "mid_armor", "high_accessory", "warrior_skillbook"]
   },
   "woma_leader": {
     "name": "沃玛教主",
@@ -100,11 +104,12 @@
     "exp": 5000,
     "gold": 1000,
     "drops": [
-      {"item": "woma_horn", "rate": 1.0},
-      {"item": "judgement", "rate": 0.01},
-      {"item": "dragon_sword", "rate": 0.005},
-      {"item": "half_moon", "rate": 0.1}
-    ]
+      {"item": "woma_horn", "rate": "1/1"},
+      {"item": "judgement", "rate": "1/100"},
+      {"item": "dragon_sword", "rate": "1/200"},
+      {"item": "half_moon", "rate": "1/10"}
+    ],
+    "drop_groups": ["high_weapon", "high_armor", "high_accessory", "warrior_skillbook", "boss_special"]
   },
   "zombie": {
     "name": "僵尸",
@@ -115,9 +120,9 @@
     "exp": 60,
     "gold": 20,
     "drops": [
-      {"item": "zombie_meat", "rate": 0.3},
-      {"item": "basic_sword", "rate": 0.01}
-    ]
+      {"item": "zombie_meat", "rate": "1/3"}
+    ],
+    "drop_groups": ["zombie_drops", "low_weapon", "low_armor"]
   },
   "zombie_warrior": {
     "name": "僵尸战士",
@@ -128,9 +133,9 @@
     "exp": 100,
     "gold": 35,
     "drops": [
-      {"item": "zombie_meat", "rate": 0.4},
-      {"item": "iron_sword", "rate": 0.02}
-    ]
+      {"item": "zombie_meat", "rate": "1/3"}
+    ],
+    "drop_groups": ["zombie_drops", "mid_weapon", "mid_armor", "warrior_skillbook"]
   },
   "zombie_mage": {
     "name": "僵尸法师",
@@ -141,9 +146,9 @@
     "exp": 120,
     "gold": 45,
     "drops": [
-      {"item": "magic_stone", "rate": 0.15},
-      {"item": "magic_robe", "rate": 0.02}
-    ]
+      {"item": "magic_stone", "rate": "1/7"}
+    ],
+    "drop_groups": ["zombie_drops", "mid_weapon", "mid_armor", "mage_skillbook"]
   },
   "zombie_elite": {
     "name": "僵尸精英",
@@ -154,9 +159,9 @@
     "exp": 250,
     "gold": 80,
     "drops": [
-      {"item": "bone_fragment", "rate": 0.3},
-      {"item": "steel_sword", "rate": 0.02}
-    ]
+      {"item": "bone_fragment", "rate": "1/4"}
+    ],
+    "drop_groups": ["zombie_drops", "mid_weapon", "mid_armor", "mid_accessory", "warrior_skillbook"]
   },
   "corpse_king": {
     "name": "尸王",
@@ -167,11 +172,12 @@
     "exp": 3000,
     "gold": 800,
     "drops": [
-      {"item": "bone_fragment", "rate": 1.0},
-      {"item": "corpse_king_ring", "rate": 0.02},
-      {"item": "death_necklace", "rate": 0.01},
-      {"item": "stab_sword", "rate": 0.08}
-    ]
+      {"item": "bone_fragment", "rate": "1/1"},
+      {"item": "corpse_king_ring", "rate": "1/50"},
+      {"item": "death_necklace", "rate": "1/100"},
+      {"item": "stab_sword", "rate": "1/12"}
+    ],
+    "drop_groups": ["high_weapon", "high_armor", "high_accessory", "warrior_skillbook", "boss_special"]
   },
   "wild_boar": {
     "name": "野猪",
@@ -246,9 +252,9 @@
     "exp": 600,
     "gold": 150,
     "drops": [
-      {"item": "zuma_piece", "rate": 0.2},
-      {"item": "zuma_helmet", "rate": 0.03}
-    ]
+      {"item": "zuma_piece", "rate": "1/5"}
+    ],
+    "drop_groups": ["zuma_drops", "high_weapon", "high_armor", "high_accessory"]
   },
   "zuma_archer": {
     "name": "祖玛弓箭手",
@@ -298,11 +304,12 @@
     "exp": 8000,
     "gold": 1500,
     "drops": [
-      {"item": "zuma_piece", "rate": 1.0},
-      {"item": "dragon_sword", "rate": 0.02},
-      {"item": "holy_armor", "rate": 0.01},
-      {"item": "fire_sword", "rate": 0.08}
-    ]
+      {"item": "zuma_piece", "rate": "1/1"},
+      {"item": "dragon_sword", "rate": "1/50"},
+      {"item": "holy_armor", "rate": "1/100"},
+      {"item": "fire_sword", "rate": "1/12"}
+    ],
+    "drop_groups": ["zuma_drops", "high_weapon", "high_armor", "high_accessory", "warrior_skillbook", "mage_skillbook", "taoist_skillbook", "boss_special"]
   },
   "demon_soldier": {
     "name": "魔族士兵",

@@ -1,6 +1,7 @@
 import random
 from typing import List, Dict, Optional
 from dataclasses import dataclass
+from fractions import Fraction
 
 @dataclass
 class CombatResult:
@@ -29,7 +30,7 @@ class CombatEngine:
         return max(1, int(base_damage * variance))
     
     @staticmethod
-    def pve_combat(player: dict, monster: dict, skills: List[dict] = None) -> CombatResult:
+    def pve_combat(player: dict, monster: dict, skills: List[dict] = None, drop_groups: List[str] = None, data_loader=None) -> CombatResult:
         """PVE战斗"""
         logs = []
         player_hp = player.get("max_hp", 100)
@@ -44,30 +45,72 @@ class CombatEngine:
         round_num = 0
         max_rounds = 50
         
-        # 可用技能列表
-        available_skills = skills or []
+        # 可用技能列表 - 按等级要求降序排列（优先使用高级技能）
+        available_skills = sorted(skills or [], key=lambda s: s.get("level_req", 1), reverse=True)
+        
+        # 技能CD追踪 {skill_name: remaining_cd}
+        skill_cooldowns = {}
         
         while player_hp > 0 and monster_hp > 0 and round_num < max_rounds:
             round_num += 1
             logs.append(f"--- 第{round_num}回合 ---")
             
-            # 玩家攻击 - 随机选择是否使用技能
+            # 减少所有技能CD
+            for skill_name in list(skill_cooldowns.keys()):
+                skill_cooldowns[skill_name] -= 1
+                if skill_cooldowns[skill_name] <= 0:
+                    del skill_cooldowns[skill_name]
+            
+            # 玩家攻击 - 优先使用高级技能
             used_skill = False
-            skill_multiplier = 1.0
+            extra_damage = 0
             mp_cost = 0
+            skill_name = ""
             
-            # 30%概率使用技能
-            if available_skills and player_mp > 0 and random.random() < 0.3:
-                usable_skills = [s for s in available_skills if s.get("mp_cost", 0) <= player_mp]
-                if usable_skills:
-                    skill = random.choice(usable_skills)
-                    mp_cost = skill.get("mp_cost", 0)
-                    skill_multiplier = skill.get("effect", {}).get("damage_multiplier", 1.0)
-                    player_mp -= mp_cost
-                    used_skill = True
-                    logs.append(f"使用技能: {skill['name']} (消耗{mp_cost}MP)")
+            # 50%概率使用技能
+            if available_skills and player_mp > 0 and random.random() < 0.5:
+                # 按等级要求降序遍历，优先使用高级技能
+                for skill in available_skills:
+                    s_name = skill.get("name", "技能")
+                    # 检查MP和CD
+                    if skill.get("mp_cost", 0) <= player_mp and s_name not in skill_cooldowns:
+                        mp_cost = skill.get("mp_cost", 0)
+                        effect = skill.get("effect", {})
+                        player_mp -= mp_cost
+                        used_skill = True
+                        skill_name = s_name
+                        skill_level = skill.get("level", 1)
+                        cooldown = skill.get("cooldown", 1)
+                        
+                        # 设置CD
+                        skill_cooldowns[skill_name] = cooldown
+                        
+                        logs.append(f"使用技能: {skill_name} Lv.{skill_level} (消耗{mp_cost}MP, CD:{cooldown}回合)")
+                        
+                        # 计算技能伤害
+                        if effect.get("magic_damage"):
+                            extra_damage = int(effect["magic_damage"] * skill_level)
+                        elif effect.get("damage_multiplier"):
+                            base = CombatEngine.calculate_damage(player, monster)
+                            extra_damage = int(base * (effect["damage_multiplier"] - 1) * skill_level)
+                        
+                        # 无视防御
+                        if effect.get("ignore_defense"):
+                            extra_damage += int(monster.get("defense", 0) * effect["ignore_defense"] * skill_level)
+                        
+                        # 火焰伤害
+                        if effect.get("fire_damage"):
+                            extra_damage += int(effect["fire_damage"] * skill_level)
+                        
+                        # 治愈术
+                        if effect.get("heal_hp"):
+                            heal = int(effect["heal_hp"] * skill_level)
+                            player_hp = min(player.get("max_hp", 100), player_hp + heal)
+                            logs.append(f"恢复 {heal} 点生命值")
+                        
+                        break  # 使用一个技能后退出循环
             
-            damage = int(CombatEngine.calculate_damage(player, monster) * skill_multiplier)
+            damage = CombatEngine.calculate_damage(player, monster) + extra_damage
             monster_hp -= damage
             
             if used_skill:
@@ -96,11 +139,18 @@ class CombatEngine:
             gold_gained = monster.get("gold", random.randint(1, monster.get("level", 1) * 10))
             logs.append(f"🎉 胜利! 获得 {exp_gained} 经验, {gold_gained} 金币")
             
-            # 掉落判定
-            for drop in monster.get("drops", []):
-                if random.random() < drop.get("rate", 0.1):
-                    drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality()})
-                    logs.append(f"💎 获得物品: {drop['item']}")
+            # 掉落判定 - 使用掉落组系统
+            if drop_groups and data_loader:
+                drops = CombatEngine.calculate_drops_from_groups(drop_groups, monster.get("drops", []), data_loader)
+            else:
+                # 兼容旧的掉落方式
+                for drop in monster.get("drops", []):
+                    rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
+                    if random.random() < rate:
+                        drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(rate)})
+            
+            for drop in drops:
+                logs.append(f"💎 获得物品: {drop['item_id']}")
         else:
             logs.append(f"💀 战斗失败...")
         
@@ -154,16 +204,66 @@ class CombatEngine:
         }
     
     @staticmethod
-    def _roll_quality() -> str:
-        """随机品质"""
+    def _roll_quality(base_rate: float = 1.0) -> str:
+        """随机品质 - 掉率越低品质越高概率"""
         roll = random.random()
-        if roll < 0.6:
+        # 基础掉率越低，高品质概率越高
+        quality_boost = min(0.3, (1 - base_rate) * 0.5)
+        
+        if roll < 0.5 - quality_boost:
             return "white"
-        elif roll < 0.85:
+        elif roll < 0.75 - quality_boost * 0.5:
             return "green"
-        elif roll < 0.95:
+        elif roll < 0.9:
             return "blue"
-        elif roll < 0.99:
+        elif roll < 0.97:
             return "purple"
         else:
             return "red"
+    
+    @staticmethod
+    def parse_rate(rate_str: str) -> float:
+        """解析掉率字符串，支持分数格式如 '1/100'"""
+        if isinstance(rate_str, (int, float)):
+            return float(rate_str)
+        if '/' in str(rate_str):
+            frac = Fraction(rate_str)
+            return float(frac)
+        return float(rate_str)
+    
+    @staticmethod
+    def calculate_drops_from_groups(drop_groups: List[str], monster_drops: List[dict], data_loader) -> List[dict]:
+        """从掉落组计算掉落物品"""
+        drops = []
+        all_drops = {}  # 合并重复物品的掉率
+        
+        # 收集怪物自身的掉落
+        for drop in monster_drops:
+            item_id = drop.get("item")
+            rate = CombatEngine.parse_rate(drop.get("rate", 0))
+            if item_id in all_drops:
+                # 合并掉率：1 - (1-r1)*(1-r2)
+                all_drops[item_id] = 1 - (1 - all_drops[item_id]) * (1 - rate)
+            else:
+                all_drops[item_id] = rate
+        
+        # 收集掉落组的掉落
+        for group_id in drop_groups:
+            group = data_loader.get_drop_group(group_id)
+            for drop in group.get("drops", []):
+                item_id = drop.get("item")
+                rate = CombatEngine.parse_rate(drop.get("rate", 0))
+                if item_id in all_drops:
+                    all_drops[item_id] = 1 - (1 - all_drops[item_id]) * (1 - rate)
+                else:
+                    all_drops[item_id] = rate
+        
+        # 计算掉落
+        for item_id, rate in all_drops.items():
+            if random.random() < rate:
+                drops.append({
+                    "item_id": item_id,
+                    "quality": CombatEngine._roll_quality(rate)
+                })
+        
+        return drops

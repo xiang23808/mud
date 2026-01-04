@@ -7,6 +7,7 @@
     "description": "发射火球攻击敌人",
     "effect": {"magic_damage": 20},
     "mp_cost": 5,
+    "cooldown": 1,
     "buy_price": 100,
     "max_level": 3
   },
@@ -18,6 +19,7 @@
     "description": "释放火环推开敌人",
     "effect": {"magic_damage": 15, "knockback": true},
     "mp_cost": 10,
+    "cooldown": 2,
     "buy_price": 1000,
     "max_level": 3
   },
@@ -29,6 +31,7 @@
     "description": "有几率魅惑怪物",
     "effect": {"charm_rate": 0.1},
     "mp_cost": 20,
+    "cooldown": 5,
     "buy_price": 2000,
     "max_level": 3
   },
@@ -40,6 +43,7 @@
     "description": "召唤地狱之火",
     "effect": {"magic_damage": 60},
     "mp_cost": 25,
+    "cooldown": 3,
     "buy_price": 5000,
     "max_level": 3
   },
@@ -51,6 +55,7 @@
     "description": "召唤雷电攻击",
     "effect": {"magic_damage": 100},
     "mp_cost": 35,
+    "cooldown": 4,
     "buy_price": 0,
     "drop_only": true,
     "max_level": 3
@@ -63,6 +68,7 @@
     "description": "释放冰霜风暴",
     "effect": {"magic_damage": 150, "slow": 0.3},
     "mp_cost": 50,
+    "cooldown": 5,
     "buy_price": 0,
     "drop_only": true,
     "max_level": 3
@@ -75,6 +81,7 @@
     "description": "召唤流星雨",
     "effect": {"magic_damage": 250, "aoe": true},
     "mp_cost": 80,
+    "cooldown": 6,
     "buy_price": 0,
     "drop_only": true,
     "max_level": 3
@@ -87,6 +94,7 @@
     "description": "消耗魔法抵挡伤害",
     "effect": {"damage_absorb": 0.5},
     "mp_cost": 30,
+    "cooldown": 10,
     "buy_price": 3000,
     "max_level": 3
   },
@@ -98,6 +106,7 @@
     "description": "瞬间传送到指定位置",
     "effect": {"teleport_range": 5},
     "mp_cost": 20,
+    "cooldown": 8,
     "buy_price": 0,
     "drop_only": true,
     "max_level": 3

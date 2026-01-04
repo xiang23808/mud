@@ -82,9 +82,22 @@ class GameEngine:
         cls.combat_locks[char_id] = True
         
         try:
+            # 获取角色已学习的主动技能
+            skills_result = await db.execute(
+                select(CharacterSkill).where(CharacterSkill.character_id == char_id)
+            )
+            learned_skills = skills_result.scalars().all()
+            active_skills = []
+            for skill in learned_skills:
+                skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
+                if skill_info and skill_info.get("type") == "active":
+                    skill_data = {**skill_info, "level": skill.level}
+                    active_skills.append(skill_data)
+            
             # 计算战斗
             player_stats = await cls._get_combat_stats(char, db)
-            result = CombatEngine.pve_combat(player_stats, monster_info)
+            drop_groups = monster_info.get("drop_groups", [])
+            result = CombatEngine.pve_combat(player_stats, monster_info, active_skills, drop_groups, DataLoader)
             
             if result.victory:
                 # 移除怪物
@@ -234,6 +247,19 @@ class GameEngine:
             }
         }
     
+    # 槽位映射：物品slot -> 装备slot
+    SLOT_MAP = {
+        "body": "armor",
+        "head": "helmet",
+        "helmet": "helmet",
+        "weapon": "weapon",
+        "belt": "belt",
+        "boots": "boots",
+        "necklace": "necklace",
+        "ring": "ring_left",  # 默认左边
+        "bracelet": "bracelet_left",  # 默认左边
+    }
+    
     @classmethod
     async def equip_item(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
         """装备物品"""
@@ -250,10 +276,27 @@ class GameEngine:
             return {"success": False, "error": "物品不存在"}
         
         item_info = DataLoader.get_item(inv_item.item_id)
-        if not item_info or item_info.get("type") not in ["weapon", "armor"]:
+        if not item_info or item_info.get("type") not in ["weapon", "armor", "accessory"]:
             return {"success": False, "error": "无法装备此物品"}
         
-        equip_slot = item_info.get("slot", "weapon")
+        # 获取物品槽位并映射到装备槽位
+        item_slot = item_info.get("slot", "weapon")
+        equip_slot = cls.SLOT_MAP.get(item_slot, item_slot)
+        
+        # 对于戒指和手镯，检查左边是否已装备，如果是则装备到右边
+        if item_slot in ["ring", "bracelet"]:
+            left_slot = f"{item_slot}_left"
+            right_slot = f"{item_slot}_right"
+            result = await db.execute(
+                select(Equipment).where(
+                    Equipment.character_id == char_id,
+                    Equipment.slot == left_slot
+                )
+            )
+            if result.scalar_one_or_none():
+                equip_slot = right_slot
+            else:
+                equip_slot = left_slot
         
         # 检查当前装备
         result = await db.execute(
@@ -456,6 +499,43 @@ class GameEngine:
         return {"success": True}
     
     @classmethod
+    async def use_skillbook(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
+        """使用技能书学习技能"""
+        # 获取背包物品
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == StorageType.INVENTORY,
+                InventoryItem.slot == inventory_slot
+            )
+        )
+        inv_item = result.scalar_one_or_none()
+        if not inv_item:
+            return {"success": False, "error": "物品不存在"}
+        
+        item_info = DataLoader.get_item(inv_item.item_id)
+        if not item_info or item_info.get("type") != "skillbook":
+            return {"success": False, "error": "这不是技能书"}
+        
+        skill_id = item_info.get("skill_id")
+        char = await db.get(Character, char_id)
+        
+        # 检查职业
+        if item_info.get("class") != char.char_class.value:
+            return {"success": False, "error": "职业不符，无法学习此技能"}
+        
+        # 学习技能
+        learn_result = await cls.learn_skill(char_id, skill_id, db)
+        if not learn_result.get("success"):
+            return learn_result
+        
+        # 消耗技能书
+        await db.delete(inv_item)
+        await db.commit()
+        
+        return {"success": True, "skill_id": skill_id, "message": f"成功学习技能: {item_info.get('name')}"}
+    
+    @classmethod
     async def get_character_skills(cls, char_id: int, db: AsyncSession) -> dict:
         """获取角色技能列表"""
         char = await db.get(Character, char_id)
@@ -569,6 +649,18 @@ class GameEngine:
             stats["defense"] += int(item_info.get("defense", 0) * bonus)
             stats["max_hp"] += int(item_info.get("hp_bonus", 0) * bonus)
             stats["max_mp"] += int(item_info.get("mp_bonus", 0) * bonus)
+        
+        # 加上被动技能属性
+        skills_result = await db.execute(select(CharacterSkill).where(CharacterSkill.character_id == char.id))
+        for skill in skills_result.scalars():
+            skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
+            if skill_info and skill_info.get("type") == "passive":
+                effect = skill_info.get("effect", {})
+                level_bonus = skill.level  # 技能等级加成
+                stats["attack"] += int(effect.get("attack_bonus", 0) * level_bonus)
+                stats["defense"] += int(effect.get("defense_bonus", 0) * level_bonus)
+                stats["max_hp"] += int(effect.get("hp_bonus", 0) * level_bonus)
+                stats["max_mp"] += int(effect.get("mp_bonus", 0) * level_bonus)
         
         return stats
     

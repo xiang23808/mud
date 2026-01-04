@@ -151,5 +151,85 @@
     "buy_price": 0,
     "recycle_gold": 50,
     "drop_only": true
+  },
+  "half_moon": {
+    "name": "半月弯刀技能书",
+    "type": "skillbook",
+    "skill_id": "half_moon",
+    "class": "warrior",
+    "description": "学习后可使用半月弯刀技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 15,
+    "drop_only": true
+  },
+  "stab_sword": {
+    "name": "刺杀剑术技能书",
+    "type": "skillbook",
+    "skill_id": "stab_sword",
+    "class": "warrior",
+    "description": "学习后可使用刺杀剑术技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 10,
+    "drop_only": true
+  },
+  "fire_sword": {
+    "name": "烈火剑法技能书",
+    "type": "skillbook",
+    "skill_id": "fire_sword",
+    "class": "warrior",
+    "description": "学习后可使用烈火剑法技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 20,
+    "drop_only": true
+  },
+  "sun_sword": {
+    "name": "逐日剑法技能书",
+    "type": "skillbook",
+    "skill_id": "sun_sword",
+    "class": "warrior",
+    "description": "学习后可使用逐日剑法技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 30,
+    "drop_only": true
+  },
+  "iron_body": {
+    "name": "铁布衫技能书",
+    "type": "skillbook",
+    "skill_id": "iron_body",
+    "class": "warrior",
+    "description": "学习后可使用铁布衫技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 12,
+    "drop_only": true
+  },
+  "divine_shield": {
+    "name": "神圣战甲术技能书",
+    "type": "skillbook",
+    "skill_id": "divine_shield",
+    "class": "taoist",
+    "description": "学习后可使用神圣战甲术技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 18,
+    "drop_only": true
+  },
+  "meteor": {
+    "name": "流星火雨技能书",
+    "type": "skillbook",
+    "skill_id": "meteor",
+    "class": "mage",
+    "description": "学习后可使用流星火雨技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 25,
+    "drop_only": true
+  },
+  "soul_harvest": {
+    "name": "灵魂收割技能书",
+    "type": "skillbook",
+    "skill_id": "soul_harvest",
+    "class": "mage",
+    "description": "学习后可使用灵魂收割技能",
+    "buy_price": 0,
+    "recycle_yuanbao": 20,
+    "drop_only": true
   }
 }

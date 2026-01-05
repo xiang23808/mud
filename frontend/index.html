@@ -52,7 +52,7 @@
             <div id="game-main">
                 <div id="map-container">
                     <div id="map-name"></div>
-                    <canvas id="map-canvas" width="480" height="480"></canvas>
+                    <canvas id="map-canvas" width="640" height="640"></canvas>
                     <div id="map-legend">
                         <span class="legend-item"><span class="legend-color" style="background:#0f0"></span>玩家</span>
                         <span class="legend-item"><span class="legend-color" style="background:#f00"></span>怪物</span>
@@ -60,11 +60,37 @@
                         <span class="legend-item"><span class="legend-color" style="background:#0ff"></span>出口</span>
                     </div>
                 </div>
-                <div id="game-panel">
-                    <div id="output"></div>
-                    <div id="chat-box">
-                        <input type="text" id="chat-input" placeholder="输入消息..." onkeypress="if(event.key==='Enter')sendChat()">
-                        <button onclick="sendChat()">发送</button>
+                <div id="game-info-panel">
+                    <!-- 角色属性面板 -->
+                    <div class="info-section">
+                        <h4>角色属性</h4>
+                        <div id="char-stats-info"></div>
+                    </div>
+                    
+                    <!-- 地图信息面板 -->
+                    <div class="info-section">
+                        <h4>地图信息</h4>
+                        <div id="map-info"></div>
+                    </div>
+                    
+                    <!-- 战斗日志 -->
+                    <div class="info-section">
+                        <h4>战斗日志</h4>
+                        <div id="battle-log"></div>
+                    </div>
+                    
+                    <!-- 折叠聊天框 -->
+                    <div class="info-section chat-section">
+                        <h4 onclick="toggleChat()" style="cursor:pointer">
+                            💬 世界聊天 <span id="chat-toggle">▼</span>
+                        </h4>
+                        <div id="chat-panel" class="collapsed">
+                            <div id="chat-messages"></div>
+                            <div id="chat-box">
+                                <input type="text" id="chat-input" placeholder="输入消息..." onkeypress="if(event.key==='Enter')sendChat()">
+                                <button onclick="sendChat()">发送</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

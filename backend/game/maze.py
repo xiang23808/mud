@@ -2,9 +2,9 @@ import random
 from typing import List, Tuple, Set
 
 class MazeGenerator:
-    """24x24迷宫生成器 - 优化版，生成更开放的地图"""
+    """32x32迷宫生成器 - 优化版，生成更开放的地图"""
     
-    def __init__(self, width: int = 24, height: int = 24):
+    def __init__(self, width: int = 32, height: int = 32):
         self.width = width
         self.height = height
     

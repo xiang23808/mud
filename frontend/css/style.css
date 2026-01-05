@@ -63,12 +63,53 @@ button:hover { background: #ff6b6b; }
 .legend-item { display: flex; align-items: center; gap: 5px; }
 .legend-color { width: 12px; height: 12px; display: inline-block; }
 
-#game-panel { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+/* 右侧信息面板 */
+#game-info-panel {
+    flex: 1; display: flex; flex-direction: column; gap: 15px;
+    max-width: 400px; min-width: 300px;
+}
 
-#output {
-    flex: 1; background: #000; border: 2px solid #0f3460;
-    padding: 10px; overflow-y: auto; max-height: 400px; min-height: 400px;
-    font-size: 14px; line-height: 1.6;
+.info-section {
+    background: #16213e; border: 2px solid #0f3460; border-radius: 5px;
+    padding: 12px;
+}
+
+.info-section h4 {
+    color: #ffd700; margin-bottom: 10px; font-size: 16px;
+    border-bottom: 1px solid #0f3460; padding-bottom: 5px;
+}
+
+#char-stats-info, #map-info, #battle-log {
+    font-size: 13px; line-height: 1.6; color: #0f0;
+}
+
+#battle-log {
+    max-height: 150px; overflow-y: auto;
+    background: #000; padding: 8px; border-radius: 3px;
+}
+
+/* 折叠聊天框 */
+.chat-section h4 {
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+#chat-toggle {
+    transition: transform 0.3s;
+}
+
+#chat-panel {
+    max-height: 400px; overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+#chat-panel.collapsed {
+    max-height: 0;
+}
+
+#chat-messages {
+    background: #000; padding: 10px; min-height: 200px; max-height: 300px;
+    overflow-y: auto; font-size: 13px; line-height: 1.6;
+    border-radius: 3px; margin-bottom: 10px;
 }
 
 #chat-box { display: flex; gap: 10px; }

@@ -97,8 +97,9 @@ function handleMessage(msg) {
             currentChar = msg.data.character;
             mapState = msg.data.map;
             updateCharInfo();
+            updateCharStats();
             renderMap();
-            output('欢迎来到传奇世界！');
+            addBattleLog('欢迎来到传奇世界！');
             break;
         case 'map_state':
             mapState = msg.data;
@@ -126,7 +127,14 @@ function handleMessage(msg) {
             renderEquipment(msg.data);
             break;
         case 'chat':
-            output(`[${msg.name}] ${msg.message}`);
+            const chatEl = $('chat-messages');
+            if (chatEl) {
+                const div = document.createElement('div');
+                div.textContent = `[${msg.name}] ${msg.message}`;
+                div.style.color = '#888';
+                chatEl.appendChild(div);
+                chatEl.scrollTop = chatEl.scrollHeight;
+            }
             break;
         case 'equip_result':
         case 'recycle_result':
@@ -155,12 +163,12 @@ function renderMap() {
     
     $('map-name').textContent = mapState.map_name || mapState.map_id;
     ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, 480, 480);
+    ctx.fillRect(0, 0, 640, 640);
     
     const revealed = new Set(mapState.revealed.map(p => `${p[0]},${p[1]}`));
     
-    for (let y = 0; y < 24; y++) {
-        for (let x = 0; x < 24; x++) {
+    for (let y = 0; y < 32; y++) {
+        for (let x = 0; x < 32; x++) {
             const px = x * CELL_SIZE;
             const py = y * CELL_SIZE;
             
@@ -176,7 +184,7 @@ function renderMap() {
             
             // 标记出入口（非主城地图）
             if (mapState.map_id !== 'main_city') {
-                if ((x <= 2 && y <= 2) || (x >= 21 && y >= 21)) {
+                if ((x <= 2 && y <= 2) || (x >= 29 && y >= 29)) {
                     ctx.fillStyle = '#0ff';
                     ctx.fillRect(px + 5, py + 5, 10, 10);
                 }
@@ -226,6 +234,66 @@ function renderMap() {
         ctx.beginPath();
         ctx.arc(x * CELL_SIZE + 10, y * CELL_SIZE + 10, 8, 0, Math.PI * 2);
         ctx.fill();
+    }
+    
+    // 更新右侧信息面板
+    updateMapInfo();
+}
+
+// 更新角色属性面板
+function updateCharStats() {
+    if (!currentChar) return;
+    const el = $('char-stats-info');
+    if (!el) return;
+    el.innerHTML = `
+        <div>等级: ${currentChar.level}</div>
+        <div>HP: ${currentChar.hp}/${currentChar.max_hp}</div>
+        <div>MP: ${currentChar.mp}/${currentChar.max_mp}</div>
+        <div>攻击: ${currentChar.attack}</div>
+        <div>防御: ${currentChar.defense}</div>
+        <div>幸运: ${currentChar.luck}</div>
+    `;
+}
+
+// 更新地图信息
+function updateMapInfo() {
+    if (!mapState) return;
+    const el = $('map-info');
+    if (!el) return;
+    const monsterCount = Object.keys(mapState.monsters || {}).length;
+    const explorePercent = Math.floor((mapState.revealed.length / (32 * 32)) * 100);
+    el.innerHTML = `
+        <div>当前地图: ${mapState.map_name || mapState.map_id}</div>
+        <div>怪物数量: ${monsterCount}</div>
+        <div>探索度: ${explorePercent}%</div>
+    `;
+}
+
+// 添加战斗日志
+function addBattleLog(msg) {
+    const el = $('battle-log');
+    if (!el) return;
+    const div = document.createElement('div');
+    div.textContent = msg;
+    div.style.marginBottom = '3px';
+    el.appendChild(div);
+    el.scrollTop = el.scrollHeight;
+    // 限制日志条数
+    while (el.children.length > 20) {
+        el.removeChild(el.firstChild);
+    }
+}
+
+// 折叠/展开聊天框
+function toggleChat() {
+    const panel = $('chat-panel');
+    const toggle = $('chat-toggle');
+    if (panel.classList.contains('collapsed')) {
+        panel.classList.remove('collapsed');
+        toggle.textContent = '▼';
+    } else {
+        panel.classList.add('collapsed');
+        toggle.textContent = '▶';
     }
 }
 
@@ -281,14 +349,14 @@ canvas.onclick = e => {
     // 检查是否点击出口（非主城）
     if (mapState.map_id !== 'main_city') {
         const isEntrance = x <= 2 && y <= 2;
-        const isExit = x >= 21 && y >= 21;
+        const isExit = x >= 29 && y >= 29;
         
         if (isEntrance || isExit) {
             const exitType = isEntrance ? 'entrance' : 'exit';
             // 检查玩家是否在出入口区域
             const px = mapState.position[0];
             const py = mapState.position[1];
-            if ((isEntrance && px <= 2 && py <= 2) || (isExit && px >= 21 && py >= 21)) {
+            if ((isEntrance && px <= 2 && py <= 2) || (isExit && px >= 29 && py >= 29)) {
                 ws.send(JSON.stringify({ type: 'use_exit', exit_type: exitType }));
                 return;
             }
@@ -342,6 +410,7 @@ function showCombat(data) {
             if (data.victory) {
                 currentChar = data.character;
                 updateCharInfo();
+                updateCharStats();
             }
             return;
         }
@@ -596,6 +665,14 @@ function sendChat() {
     const input = $('chat-input');
     if (ws && input.value.trim()) {
         ws.send(JSON.stringify({ type: 'chat', message: input.value }));
+        const el = $('chat-messages');
+        if (el) {
+            const div = document.createElement('div');
+            div.textContent = `[${currentChar.name}] ${input.value}`;
+            div.style.color = '#0f0';
+            el.appendChild(div);
+            el.scrollTop = el.scrollHeight;
+        }
         input.value = '';
     }
 }

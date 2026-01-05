@@ -8,6 +8,7 @@
       {"id": "zombie_cave_1", "name": "僵尸洞", "position": [10, 10], "description": "通往僵尸洞"},
       {"id": "pig_cave_1", "name": "猪洞", "position": [14, 10], "description": "通往猪洞"},
       {"id": "zuma_temple_1", "name": "祖玛寺庙", "position": [18, 10], "description": "通往祖玛寺庙"},
+      {"id": "centipede_cave_1", "name": "蜈蚣洞", "position": [6, 6], "description": "通往蜈蚣洞"},
       {"id": "sealed_valley_1", "name": "封魔谷", "position": [6, 14], "description": "通往封魔谷"},
       {"id": "red_moon_canyon", "name": "赤月峡谷", "position": [10, 14], "description": "通往赤月峡谷"},
       {"id": "dark_forest", "name": "黑暗森林", "position": [14, 14], "description": "暗黑风格区域"},
@@ -329,6 +330,51 @@
     "boss": "ragnaros",
     "exits": {
       "molten_core_1": [1, 0]
+    }
+  },
+  "centipede_cave_1": {
+    "name": "蜈蚣洞1层",
+    "monster_count": 65,
+    "monsters": ["centipede", "centipede_warrior"],
+    "exits": {
+      "main_city": [1, 0],
+      "centipede_cave_2": [22, 23]
+    }
+  },
+  "centipede_cave_2": {
+    "name": "蜈蚣洞2层",
+    "monster_count": 60,
+    "monsters": ["centipede_warrior", "centipede_elite"],
+    "exits": {
+      "centipede_cave_1": [1, 0],
+      "centipede_cave_3": [22, 23]
+    }
+  },
+  "centipede_cave_3": {
+    "name": "蜈蚣洞3层",
+    "monster_count": 55,
+    "monsters": ["centipede_elite", "skeleton", "skeleton_warrior"],
+    "boss": "skeleton_king",
+    "exits": {
+      "centipede_cave_2": [1, 0]
+    }
+  },
+  "blackrock_depths": {
+    "name": "黑石深渊",
+    "monster_count": 50,
+    "monsters": ["dark_iron_dwarf", "fire_guard", "molten_destroyer"],
+    "exits": {
+      "molten_core_2": [1, 0],
+      "blackrock_spire": [22, 23]
+    }
+  },
+  "blackrock_spire": {
+    "name": "黑石塔",
+    "monster_count": 45,
+    "monsters": ["black_dragonkin", "chromatic_elite", "dragonspawn"],
+    "boss": "nefarian",
+    "exits": {
+      "blackrock_depths": [1, 0]
     }
   }
 }

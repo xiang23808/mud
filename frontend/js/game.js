@@ -74,7 +74,9 @@ async function enterGame(charId) {
 }
 
 function updateCharInfo() {
-    $('char-info').textContent = `${currentChar.name} | ${classNames[currentChar.char_class]} | Lv.${currentChar.level} | HP:${currentChar.hp}/${currentChar.max_hp} | MP:${currentChar.mp}/${currentChar.max_mp} | 金币:${currentChar.gold} | 元宝:${currentChar.yuanbao}`;
+    const expNeeded = Math.floor(currentChar.level * 100 * Math.pow(1.1, currentChar.level - 1));
+    const expPercent = Math.floor((currentChar.exp / expNeeded) * 100);
+    $('char-info').textContent = `${currentChar.name} | ${classNames[currentChar.char_class]} | Lv.${currentChar.level} | HP:${currentChar.hp}/${currentChar.max_hp} | MP:${currentChar.mp}/${currentChar.max_mp} | 经验:${currentChar.exp}/${expNeeded}(${expPercent}%) | 金币:${currentChar.gold} | 元宝:${currentChar.yuanbao}`;
 }
 
 // WebSocket连接
@@ -151,7 +153,7 @@ const ctx = canvas.getContext('2d');
 function renderMap() {
     if (!mapState) return;
     
-    $('map-name').textContent = mapState.map_id;
+    $('map-name').textContent = mapState.map_name || mapState.map_id;
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, 480, 480);
     
@@ -304,6 +306,34 @@ function showCombat(data) {
     log.innerHTML = '';
     $('combat-close').classList.add('hidden');
     
+    // 解析血量信息
+    let playerHp = currentChar.max_hp, playerMaxHp = currentChar.max_hp;
+    let monsterHp = 0, monsterMaxHp = 0, monsterName = '怪物';
+    
+    // 从第一条日志解析初始血量
+    if (data.logs.length > 1) {
+        const initLog = data.logs[1];
+        const match = initLog.match(/你的HP: (\d+)\/(\d+).*?(\S+)的HP: (\d+)/);
+        if (match) {
+            playerHp = parseInt(match[1]);
+            playerMaxHp = parseInt(match[2]);
+            monsterName = match[3];
+            monsterHp = monsterMaxHp = parseInt(match[4]);
+        }
+    }
+    
+    // 血量条
+    const hpBar = document.createElement('div');
+    hpBar.id = 'combat-hp-bar';
+    hpBar.style.cssText = 'margin-bottom:10px;padding:10px;background:#1a1a2e;border-radius:5px;';
+    hpBar.innerHTML = `
+        <div style="margin-bottom:5px;"><span style="color:#0f0;">你</span>: <span id="player-hp">${playerHp}</span>/${playerMaxHp}</div>
+        <div style="height:8px;background:#333;border-radius:4px;margin-bottom:8px;"><div id="player-hp-fill" style="height:100%;width:100%;background:#0f0;border-radius:4px;transition:width 0.3s;"></div></div>
+        <div style="margin-bottom:5px;"><span style="color:#f00;">${monsterName}</span>: <span id="monster-hp">${monsterHp}</span>/${monsterMaxHp}</div>
+        <div style="height:8px;background:#333;border-radius:4px;"><div id="monster-hp-fill" style="height:100%;width:100%;background:#f00;border-radius:4px;transition:width 0.3s;"></div></div>
+    `;
+    log.appendChild(hpBar);
+    
     let i = 0;
     const interval = setInterval(() => {
         if (i >= data.logs.length) {
@@ -316,6 +346,18 @@ function showCombat(data) {
             return;
         }
         const line = data.logs[i];
+        
+        // 更新血量显示
+        const hpMatch = line.match(/你的HP: (\d+).*?的HP: (\d+)/);
+        if (hpMatch) {
+            playerHp = parseInt(hpMatch[1]);
+            monsterHp = parseInt(hpMatch[2]);
+            $('player-hp').textContent = Math.max(0, playerHp);
+            $('monster-hp').textContent = Math.max(0, monsterHp);
+            $('player-hp-fill').style.width = Math.max(0, (playerHp / playerMaxHp) * 100) + '%';
+            $('monster-hp-fill').style.width = Math.max(0, (monsterHp / monsterMaxHp) * 100) + '%';
+        }
+        
         const div = document.createElement('div');
         if (line.includes('回合')) div.className = 'round';
         else if (line.includes('伤害')) div.className = 'damage';
@@ -345,9 +387,12 @@ function switchStorage(type) {
     ws.send(JSON.stringify({ type: 'get_inventory', storage: type }));
 }
 
+let currentStorageType = 'inventory';
+
 function renderInventory(data) {
     const items = data.items || data;
     const storage_type = data.storage_type || 'inventory';
+    currentStorageType = storage_type;
     const max_slots = storage_type === 'warehouse' ? 1000 : 200;
     const used_slots = items.length;
     const free_slots = max_slots - used_slots;
@@ -358,13 +403,24 @@ function renderInventory(data) {
     </div>` + items.map(item => {
         const isEquipable = item.info?.type === 'weapon' || item.info?.type === 'armor' || item.info?.type === 'accessory';
         const isSkillbook = item.info?.type === 'skillbook';
+        const info = item.info || {};
+        const attrs = [];
+        if (info.attack) attrs.push(`攻击+${info.attack}`);
+        if (info.defense) attrs.push(`防御+${info.defense}`);
+        if (info.hp_bonus) attrs.push(`HP+${info.hp_bonus}`);
+        if (info.mp_bonus) attrs.push(`MP+${info.mp_bonus}`);
+        const moveBtn = storage_type === 'inventory'
+            ? `<button onclick="moveToWarehouse(${item.slot})">存仓</button>`
+            : `<button onclick="moveToInventory(${item.slot})">取出</button>`;
         return `
         <div class="inv-slot quality-${item.quality}">
-            <div class="item-name">${item.info?.name || item.item_id}</div>
+            <div class="item-name">${info.name || item.item_id}</div>
+            ${attrs.length ? `<div style="font-size:10px;color:#8f8;">${attrs.join(' ')}</div>` : ''}
             <div>x${item.quantity}</div>
             <div class="item-actions">
-                ${isEquipable ? `<button onclick="equipItem(${item.slot})">装备</button>` : ''}
-                ${isSkillbook ? `<button onclick="useSkillbook(${item.slot})">学习</button>` : ''}
+                ${isEquipable && storage_type === 'inventory' ? `<button onclick="equipItem(${item.slot})">装备</button>` : ''}
+                ${isSkillbook && storage_type === 'inventory' ? `<button onclick="useSkillbook(${item.slot})">学习</button>` : ''}
+                ${moveBtn}
                 <button onclick="recycleItem(${item.slot})">回收</button>
             </div>
         </div>
@@ -386,6 +442,16 @@ function recycleItem(slot) {
 
 function useSkillbook(slot) {
     ws.send(JSON.stringify({ type: 'use_skillbook', slot }));
+}
+
+function moveToWarehouse(slot) {
+    ws.send(JSON.stringify({ type: 'move_to_warehouse', slot }));
+    setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 300);
+}
+
+function moveToInventory(slot) {
+    ws.send(JSON.stringify({ type: 'move_to_inventory', slot }));
+    setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'warehouse' })), 300);
 }
 
 // 装备

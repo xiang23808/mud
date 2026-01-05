@@ -296,5 +296,56 @@
     "buy_price": 0,
     "recycle_yuanbao": 70,
     "drop_only": true
+  },
+  "ashkandi": {
+    "name": "灰烬使者",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": ["warrior"],
+    "level_req": 60,
+    "attack": 120,
+    "hp_bonus": 200,
+    "defense": 20,
+    "buy_price": 0,
+    "recycle_yuanbao": 200,
+    "drop_only": true
+  },
+  "thunderfury": {
+    "name": "雷霆之怒",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": ["warrior"],
+    "level_req": 58,
+    "attack": 105,
+    "hp_bonus": 150,
+    "mp_bonus": 50,
+    "buy_price": 0,
+    "recycle_yuanbao": 180,
+    "drop_only": true
+  },
+  "staff_of_dominance": {
+    "name": "统御法杖",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": ["mage"],
+    "level_req": 55,
+    "attack": 55,
+    "mp_bonus": 250,
+    "buy_price": 0,
+    "recycle_yuanbao": 150,
+    "drop_only": true
+  },
+  "benediction": {
+    "name": "救赎",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": ["taoist"],
+    "level_req": 55,
+    "attack": 45,
+    "mp_bonus": 180,
+    "hp_bonus": 100,
+    "buy_price": 0,
+    "recycle_yuanbao": 140,
+    "drop_only": true
   }
 }

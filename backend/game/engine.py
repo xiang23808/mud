@@ -100,8 +100,11 @@ class GameEngine:
             result = CombatEngine.pve_combat(player_stats, monster_info, active_skills, drop_groups, DataLoader)
             
             if result.victory:
-                # 移除怪物
+                # 移除怪物并移动玩家到怪物位置
                 instance.remove_monster(monster_pos)
+                map_manager.move(char_id, monster_pos)
+                char.pos_x = monster_pos[0]
+                char.pos_y = monster_pos[1]
                 
                 # 增加经验和金币
                 char.exp += result.exp_gained

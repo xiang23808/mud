@@ -976,5 +976,80 @@
       {"item": "fire_lord_crown", "rate": 0.03},
       {"item": "molten_destroyer", "rate": 0.05}
     ]
+  },
+  "dark_iron_dwarf": {
+    "name": "黑铁矮人",
+    "level": 52,
+    "hp": 1800,
+    "attack": 250,
+    "defense": 95,
+    "exp": 2200,
+    "gold": 550,
+    "drops": [{"item": "dark_iron_ore", "rate": 0.2}]
+  },
+  "fire_guard": {
+    "name": "烈焰守卫",
+    "level": 54,
+    "hp": 2200,
+    "attack": 270,
+    "defense": 100,
+    "exp": 2500,
+    "gold": 600,
+    "drops": [{"item": "fire_essence", "rate": 0.15}]
+  },
+  "molten_destroyer": {
+    "name": "熔火毁灭者",
+    "level": 56,
+    "hp": 2500,
+    "attack": 290,
+    "defense": 110,
+    "exp": 2800,
+    "gold": 680,
+    "drops": [{"item": "molten_core", "rate": 0.12}]
+  },
+  "black_dragonkin": {
+    "name": "黑龙军团士兵",
+    "level": 58,
+    "hp": 3000,
+    "attack": 320,
+    "defense": 120,
+    "exp": 3500,
+    "gold": 800,
+    "drops": [{"item": "dragon_scale", "rate": 0.1}]
+  },
+  "chromatic_elite": {
+    "name": "多彩龙人精英",
+    "level": 60,
+    "hp": 3500,
+    "attack": 350,
+    "defense": 130,
+    "exp": 4000,
+    "gold": 900,
+    "drops": [{"item": "chromatic_scale", "rate": 0.08}]
+  },
+  "dragonspawn": {
+    "name": "龙人",
+    "level": 57,
+    "hp": 2800,
+    "attack": 300,
+    "defense": 115,
+    "exp": 3200,
+    "gold": 750,
+    "drops": [{"item": "dragon_tooth", "rate": 0.12}]
+  },
+  "nefarian": {
+    "name": "奈法利安",
+    "level": 65,
+    "hp": 25000,
+    "attack": 400,
+    "defense": 150,
+    "exp": 25000,
+    "gold": 5000,
+    "drops": [
+      {"item": "ashkandi", "rate": 0.03},
+      {"item": "nefarian_head", "rate": 0.1},
+      {"item": "chromatic_boots", "rate": 0.05},
+      {"item": "dragon_lord_crown", "rate": 0.04}
+    ]
   }
 }

@@ -306,5 +306,70 @@
     "hp_bonus": 20,
     "buy_price": 1000,
     "recycle_gold": 100
+  },
+  "dragon_lord_crown": {
+    "name": "龙王之冠",
+    "type": "armor",
+    "slot": "helmet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 60,
+    "defense": 35,
+    "hp_bonus": 150,
+    "mp_bonus": 100,
+    "attack": 15,
+    "buy_price": 0,
+    "recycle_yuanbao": 180,
+    "drop_only": true
+  },
+  "chromatic_boots": {
+    "name": "多彩龙鳞靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 58,
+    "defense": 25,
+    "hp_bonus": 80,
+    "buy_price": 0,
+    "recycle_yuanbao": 120,
+    "drop_only": true
+  },
+  "tier2_warrior_chest": {
+    "name": "勇士胸甲",
+    "type": "armor",
+    "slot": "body",
+    "class": ["warrior"],
+    "level_req": 55,
+    "defense": 50,
+    "hp_bonus": 200,
+    "attack": 15,
+    "buy_price": 0,
+    "recycle_yuanbao": 150,
+    "drop_only": true
+  },
+  "tier2_mage_robe": {
+    "name": "大法师长袍",
+    "type": "armor",
+    "slot": "body",
+    "class": ["mage"],
+    "level_req": 55,
+    "defense": 28,
+    "mp_bonus": 280,
+    "attack": 18,
+    "buy_price": 0,
+    "recycle_yuanbao": 150,
+    "drop_only": true
+  },
+  "tier2_taoist_vest": {
+    "name": "天师道袍",
+    "type": "armor",
+    "slot": "body",
+    "class": ["taoist"],
+    "level_req": 55,
+    "defense": 35,
+    "hp_bonus": 120,
+    "mp_bonus": 150,
+    "buy_price": 0,
+    "recycle_yuanbao": 150,
+    "drop_only": true
   }
 }

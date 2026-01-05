@@ -220,6 +220,7 @@ class MapInstance:
         
         return {
             "map_id": self.map_id,
+            "map_name": self.config.get("name", self.map_id),
             "maze": self.maze,
             "revealed": list(revealed),
             "position": self.players.get(char_id),

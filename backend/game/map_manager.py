@@ -1,5 +1,6 @@
 from typing import Dict, List, Tuple, Set, Optional
 from backend.game.maze import MazeGenerator, Pathfinder
+from backend.game.data_loader import DataLoader
 import random
 import json
 
@@ -47,12 +48,12 @@ class MapInstance:
     
     def _init_entrances(self):
         """初始化入口位置"""
-        # 确保地图入口/出口位置可通行
-        for y in range(1, 3):
-            for x in range(1, 3):
+        # 确保地图入口/出口位置可通行 - 扩大清空范围
+        for y in range(1, 5):
+            for x in range(1, 5):
                 self.maze[y][x] = 0  # 左上角入口区域
-        for y in range(21, 23):
-            for x in range(21, 23):
+        for y in range(19, 23):
+            for x in range(19, 23):
                 self.maze[y][x] = 0  # 右下角出口区域
         
         if entrances := self.config.get("entrances"):
@@ -109,7 +110,11 @@ class MapInstance:
                 break
             pos = empty_cells[i]
             monster_type = random.choice(monster_types)
-            self.monsters[pos] = {"type": monster_type, "id": i}
+            monster_info = DataLoader.get_monster(monster_type)
+            monster_data = {"type": monster_type, "id": i}
+            if monster_info and monster_info.get("is_boss"):
+                monster_data["is_boss"] = True
+            self.monsters[pos] = monster_data
         
         # 生成Boss
         if boss := self.config.get("boss"):
@@ -124,13 +129,15 @@ class MapInstance:
         # 主城使用中心位置，其他地图使用入口/出口
         if self.config.get("is_safe") or self.map_id == "main_city":
             pos = (12, 12)  # 主城中心位置
+            self.players[char_id] = pos
+            # 主城直接揭示全部区域，无迷雾
+            self.revealed[char_id] = {(x, y) for x in range(24) for y in range(24)}
         else:
-            pos = (2, 1) if from_entrance else (21, 22)  # 避开边界墙壁
-        
-        self.players[char_id] = pos
-        self.revealed[char_id] = set()
-        # 进入地图时使用更大的视野半径(5格)
-        self.reveal_around(char_id, pos, radius=5)
+            pos = (2, 2) if from_entrance else (21, 21)  # 避开边界墙壁
+            self.players[char_id] = pos
+            self.revealed[char_id] = set()
+            # 进入地图时使用更大的视野半径(5格)
+            self.reveal_around(char_id, pos, radius=5)
         return pos
     
     def leave(self, char_id: int):
@@ -180,9 +187,9 @@ class MapInstance:
         self.players[char_id] = target
         self.reveal_around(char_id, target)
         
-        # 检查是否到达出口（适用于非主城地图）
-        at_exit = (target[0] >= 21 and target[1] >= 21) and not self.config.get("is_safe")
-        at_entrance = (target[0] <= 2 and target[1] <= 2) and not self.config.get("is_safe")
+        # 检查是否到达出口（适用于非主城地图）- 只在特定位置
+        at_exit = (target[0] == 21 and target[1] == 21) and not self.config.get("is_safe")
+        at_entrance = (target[0] == 2 and target[1] == 2) and not self.config.get("is_safe")
         
         return {"success": True, "path": path, "at_exit": at_exit, "at_entrance": at_entrance}
     
@@ -277,7 +284,11 @@ class MapInstance:
             for i in range(spawn_count):
                 pos = empty_cells[i]
                 monster_type = random.choice(monster_types)
-                self.monsters[pos] = {"type": monster_type, "id": monster_id_base + i}
+                monster_info = DataLoader.get_monster(monster_type)
+                monster_data = {"type": monster_type, "id": monster_id_base + i}
+                if monster_info and monster_info.get("is_boss"):
+                    monster_data["is_boss"] = True
+                self.monsters[pos] = monster_data
 
 
 class MapManager:
@@ -404,9 +415,9 @@ class MapManager:
         config = self.map_configs.get(map_id, {})
         exits = config.get("exits", {})
         
-        # 检查是否在入口区域(左上角)或出口区域(右下角)
-        in_entrance_area = pos[0] <= 3 and pos[1] <= 3
-        in_exit_area = pos[0] >= 20 and pos[1] >= 20
+        # 检查是否在入口位置(2,2)或出口位置(21,21)
+        in_entrance_area = pos[0] == 2 and pos[1] == 2
+        in_exit_area = pos[0] == 21 and pos[1] == 21
         
         # 根据区域找到对应的目标地图
         for target_map, exit_pos in exits.items():

@@ -1,0 +1,3 @@
+-- 添加魔法和魔御属性到角色表
+ALTER TABLE characters ADD COLUMN IF NOT EXISTS magic INTEGER DEFAULT 0;
+ALTER TABLE characters ADD COLUMN IF NOT EXISTS magic_defense INTEGER DEFAULT 0;

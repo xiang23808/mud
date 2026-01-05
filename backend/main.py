@@ -73,15 +73,15 @@ async def create_character(data: CharacterCreate, token: str, db: AsyncSession =
         raise HTTPException(400, "角色名已存在")
     
     base_stats = {
-        CharacterClass.WARRIOR: {"hp": 150, "mp": 30, "attack": 15, "defense": 10},
-        CharacterClass.MAGE: {"hp": 80, "mp": 100, "attack": 20, "defense": 3},
-        CharacterClass.TAOIST: {"hp": 100, "mp": 80, "attack": 12, "defense": 6},
+        CharacterClass.WARRIOR: {"hp": 150, "mp": 30, "attack": 15, "magic": 0, "defense": 10, "magic_defense": 2},
+        CharacterClass.MAGE: {"hp": 80, "mp": 100, "attack": 5, "magic": 20, "defense": 3, "magic_defense": 8},
+        CharacterClass.TAOIST: {"hp": 100, "mp": 80, "attack": 8, "magic": 12, "defense": 6, "magic_defense": 5},
     }
     stats = base_stats[data.char_class]
     char = Character(
         user_id=user_id, name=data.name, char_class=data.char_class,
         hp=stats["hp"], max_hp=stats["hp"], mp=stats["mp"], max_mp=stats["mp"],
-        attack=stats["attack"], defense=stats["defense"]
+        attack=stats["attack"], magic=stats["magic"], defense=stats["defense"], magic_defense=stats["magic_defense"]
     )
     db.add(char)
     await db.commit()
@@ -224,11 +224,15 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
                 await manager.send(char_id, {"type": "inventory", "data": items})
             
             elif msg_type == "equip":
-                result = await GameEngine.equip_item(char_id, data["slot"], db)
+                result = await GameEngine.equip_item(char_id, data["slot"], db, data.get("target_slot"))
                 await manager.send(char_id, {"type": "equip_result", "data": result})
             
             elif msg_type == "recycle":
                 result = await GameEngine.recycle_item(char_id, data["slot"], db)
+                await manager.send(char_id, {"type": "recycle_result", "data": result})
+            
+            elif msg_type == "recycle_all":
+                result = await GameEngine.recycle_all(char_id, db)
                 await manager.send(char_id, {"type": "recycle_result", "data": result})
             
             elif msg_type == "move_to_warehouse":

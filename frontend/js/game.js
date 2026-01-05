@@ -163,12 +163,12 @@ function renderMap() {
     
     $('map-name').textContent = mapState.map_name || mapState.map_id;
     ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, 640, 640);
+    ctx.fillRect(0, 0, 480, 480);
     
     const revealed = new Set(mapState.revealed.map(p => `${p[0]},${p[1]}`));
     
-    for (let y = 0; y < 32; y++) {
-        for (let x = 0; x < 32; x++) {
+    for (let y = 0; y < 24; y++) {
+        for (let x = 0; x < 24; x++) {
             const px = x * CELL_SIZE;
             const py = y * CELL_SIZE;
             
@@ -182,9 +182,9 @@ function renderMap() {
             ctx.fillStyle = isWall ? '#444' : '#1a1a2e';
             ctx.fillRect(px, py, CELL_SIZE - 1, CELL_SIZE - 1);
             
-            // 标记出入口（非主城地图）
+            // 标记出入口（非主城地图）- 只在特定位置显示
             if (mapState.map_id !== 'main_city') {
-                if ((x <= 2 && y <= 2) || (x >= 29 && y >= 29)) {
+                if ((x === 2 && y === 2) || (x === 21 && y === 21)) {
                     ctx.fillStyle = '#0ff';
                     ctx.fillRect(px + 5, py + 5, 10, 10);
                 }
@@ -249,8 +249,10 @@ function updateCharStats() {
         <div>等级: ${currentChar.level}</div>
         <div>HP: ${currentChar.hp}/${currentChar.max_hp}</div>
         <div>MP: ${currentChar.mp}/${currentChar.max_mp}</div>
-        <div>攻击: ${currentChar.attack}</div>
-        <div>防御: ${currentChar.defense}</div>
+        <div>攻击(DC): ${currentChar.attack}</div>
+        <div>魔法(MC): ${currentChar.magic || 0}</div>
+        <div>防御(AC): ${currentChar.defense}</div>
+        <div>魔御(MAC): ${currentChar.magic_defense || 0}</div>
         <div>幸运: ${currentChar.luck}</div>
     `;
 }
@@ -261,7 +263,7 @@ function updateMapInfo() {
     const el = $('map-info');
     if (!el) return;
     const monsterCount = Object.keys(mapState.monsters || {}).length;
-    const explorePercent = Math.floor((mapState.revealed.length / (32 * 32)) * 100);
+    const explorePercent = Math.floor((mapState.revealed.length / (24 * 24)) * 100);
     el.innerHTML = `
         <div>当前地图: ${mapState.map_name || mapState.map_id}</div>
         <div>怪物数量: ${monsterCount}</div>
@@ -346,17 +348,17 @@ canvas.onclick = e => {
         }
     }
     
-    // 检查是否点击出口（非主城）
+    // 检查是否点击出口（非主城）- 只在特定位置(2,2)和(21,21)
     if (mapState.map_id !== 'main_city') {
-        const isEntrance = x <= 2 && y <= 2;
-        const isExit = x >= 29 && y >= 29;
+        const isEntrance = x === 2 && y === 2;
+        const isExit = x === 21 && y === 21;
         
         if (isEntrance || isExit) {
             const exitType = isEntrance ? 'entrance' : 'exit';
-            // 检查玩家是否在出入口区域
+            // 检查玩家是否在出入口位置
             const px = mapState.position[0];
             const py = mapState.position[1];
-            if ((isEntrance && px <= 2 && py <= 2) || (isExit && px >= 29 && py >= 29)) {
+            if ((isEntrance && px === 2 && py === 2) || (isExit && px === 21 && py === 21)) {
                 ws.send(JSON.stringify({ type: 'use_exit', exit_type: exitType }));
                 return;
             }
@@ -467,44 +469,88 @@ function renderInventory(data) {
     const free_slots = max_slots - used_slots;
     
     const grid = $('inventory-grid');
+    // 背包显示全部回收按钮，仓库不显示
+    const recycleAllBtn = storage_type === 'inventory' && items.length > 0
+        ? `<button onclick="recycleAll()" style="background:#c00;margin-left:10px;">全部回收</button>`
+        : '';
     grid.innerHTML = `<div style="grid-column: 1/-1; color: #ffd700; text-align: center; margin-bottom: 10px;">
-        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots}
+        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots} ${recycleAllBtn}
     </div>` + items.map(item => {
         const isEquipable = item.info?.type === 'weapon' || item.info?.type === 'armor' || item.info?.type === 'accessory';
         const isSkillbook = item.info?.type === 'skillbook';
         const info = item.info || {};
         const attrs = [];
-        if (info.attack) attrs.push(`攻击+${info.attack}`);
-        if (info.defense) attrs.push(`防御+${info.defense}`);
+        // 支持min-max格式
+        if (info.attack_min || info.attack_max) attrs.push(`DC:${info.attack_min||0}-${info.attack_max||0}`);
+        else if (info.attack) attrs.push(`DC:${info.attack}`);
+        if (info.magic_min || info.magic_max) attrs.push(`MC:${info.magic_min||0}-${info.magic_max||0}`);
+        else if (info.magic) attrs.push(`MC:${info.magic}`);
+        if (info.defense_min || info.defense_max) attrs.push(`AC:${info.defense_min||0}-${info.defense_max||0}`);
+        else if (info.defense) attrs.push(`AC:${info.defense}`);
+        if (info.magic_defense_min || info.magic_defense_max) attrs.push(`MAC:${info.magic_defense_min||0}-${info.magic_defense_max||0}`);
+        else if (info.magic_defense) attrs.push(`MAC:${info.magic_defense}`);
         if (info.hp_bonus) attrs.push(`HP+${info.hp_bonus}`);
         if (info.mp_bonus) attrs.push(`MP+${info.mp_bonus}`);
         const moveBtn = storage_type === 'inventory'
             ? `<button onclick="moveToWarehouse(${item.slot})">存仓</button>`
             : `<button onclick="moveToInventory(${item.slot})">取出</button>`;
+        // 仓库不显示回收按钮
+        const recycleBtn = storage_type === 'inventory' ? `<button onclick="recycleItem(${item.slot})">回收</button>` : '';
         return `
         <div class="inv-slot quality-${item.quality}">
             <div class="item-name">${info.name || item.item_id}</div>
             ${attrs.length ? `<div style="font-size:10px;color:#8f8;">${attrs.join(' ')}</div>` : ''}
             <div>x${item.quantity}</div>
             <div class="item-actions">
-                ${isEquipable && storage_type === 'inventory' ? `<button onclick="equipItem(${item.slot})">装备</button>` : ''}
+                ${isEquipable && storage_type === 'inventory' ? `<button onclick="equipItem(${item.slot},'${info.slot || ''}')">装备</button>` : ''}
                 ${isSkillbook && storage_type === 'inventory' ? `<button onclick="useSkillbook(${item.slot})">学习</button>` : ''}
                 ${moveBtn}
-                <button onclick="recycleItem(${item.slot})">回收</button>
+                ${recycleBtn}
             </div>
         </div>
     `;
     }).join('');
 }
 
-function equipItem(slot) {
-    ws.send(JSON.stringify({ type: 'equip', slot }));
+function equipItem(slot, itemSlot) {
+    // 如果是戒指或手镯，显示选择对话框
+    if (itemSlot === 'ring' || itemSlot === 'bracelet') {
+        const leftSlot = itemSlot + '_left';
+        const rightSlot = itemSlot + '_right';
+        const leftName = itemSlot === 'ring' ? '左戒指' : '左手镯';
+        const rightName = itemSlot === 'ring' ? '右戒指' : '右手镯';
+        
+        const dialog = document.createElement('div');
+        dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f3460;border:2px solid #ffd700;padding:20px;border-radius:10px;z-index:1001;';
+        dialog.innerHTML = `
+            <h3 style="color:#ffd700;margin-bottom:15px;">选择装备位置</h3>
+            <button onclick="doEquip(${slot},'${leftSlot}');this.parentElement.remove()" style="margin:5px;padding:10px 20px;">${leftName}</button>
+            <button onclick="doEquip(${slot},'${rightSlot}');this.parentElement.remove()" style="margin:5px;padding:10px 20px;">${rightName}</button>
+            <br><button onclick="this.parentElement.remove()" style="margin-top:10px;">取消</button>
+        `;
+        document.body.appendChild(dialog);
+    } else {
+        doEquip(slot);
+    }
+}
+
+function doEquip(slot, targetSlot = null) {
+    const msg = { type: 'equip', slot };
+    if (targetSlot) msg.target_slot = targetSlot;
+    ws.send(JSON.stringify(msg));
     setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 500);
 }
 
 function recycleItem(slot) {
     if (confirm('确定回收此物品？')) {
         ws.send(JSON.stringify({ type: 'recycle', slot }));
+        setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 500);
+    }
+}
+
+function recycleAll() {
+    if (confirm('确定回收背包中所有物品？此操作不可撤销！')) {
+        ws.send(JSON.stringify({ type: 'recycle_all' }));
         setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 500);
     }
 }
@@ -536,13 +582,15 @@ function renderEquipment(data) {
     const statsHtml = `
         <div style="background: #0f3460; padding: 15px; margin-bottom: 15px; border-radius: 5px;">
             <h4 style="color: #ffd700; margin-bottom: 10px;">综合属性</h4>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; color: #0f0;">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; color: #0f0;">
                 <div>等级: ${total_stats.level}</div>
-                <div>生命: ${total_stats.hp}</div>
-                <div>魔法: ${total_stats.mp}</div>
-                <div>攻击: ${total_stats.attack}</div>
-                <div>防御: ${total_stats.defense}</div>
                 <div>幸运: ${total_stats.luck}</div>
+                <div>生命: ${total_stats.hp}</div>
+                <div>魔法值: ${total_stats.mp}</div>
+                <div>攻击(DC): ${total_stats.attack}</div>
+                <div>魔法(MC): ${total_stats.magic}</div>
+                <div>防御(AC): ${total_stats.defense}</div>
+                <div>魔御(MAC): ${total_stats.magic_defense}</div>
             </div>
         </div>
     `;
@@ -572,9 +620,11 @@ function renderEquipment(data) {
                         <div style="color: #ffd700; font-weight: bold; margin-bottom: 5px;">${name}</div>
                         ${item ? `
                             <div style="font-size: 14px; margin-bottom: 3px;">${item.info?.name || item.item_id}</div>
-                            <div style="font-size: 11px; color: #888;">
-                                ${item.info?.attack ? `攻击+${item.info.attack} ` : ''}
-                                ${item.info?.defense ? `防御+${item.info.defense}` : ''}
+                            <div style="font-size: 10px; color: #8f8;">
+                                ${item.info?.attack_min || item.info?.attack_max ? `DC:${item.info.attack_min||0}-${item.info.attack_max||0} ` : (item.info?.attack ? `DC:${item.info.attack} ` : '')}
+                                ${item.info?.magic_min || item.info?.magic_max ? `MC:${item.info.magic_min||0}-${item.info.magic_max||0} ` : (item.info?.magic ? `MC:${item.info.magic} ` : '')}
+                                ${item.info?.defense_min || item.info?.defense_max ? `AC:${item.info.defense_min||0}-${item.info.defense_max||0} ` : (item.info?.defense ? `AC:${item.info.defense} ` : '')}
+                                ${item.info?.magic_defense_min || item.info?.magic_defense_max ? `MAC:${item.info.magic_defense_min||0}-${item.info.magic_defense_max||0}` : (item.info?.magic_defense ? `MAC:${item.info.magic_defense}` : '')}
                             </div>
                         ` : '<div style="color: #666;">未装备</div>'}
                     </div>

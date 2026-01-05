@@ -26,7 +26,9 @@ class Character(Base):
     mp = Column(Integer, default=50)
     max_mp = Column(Integer, default=50)
     attack = Column(Integer, default=10)
+    magic = Column(Integer, default=0)
     defense = Column(Integer, default=5)
+    magic_defense = Column(Integer, default=0)
     luck = Column(Integer, default=0)
     pk_value = Column(Integer, default=0)
     

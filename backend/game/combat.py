@@ -11,14 +11,34 @@ class CombatResult:
     gold_gained: int
     drops: List[dict]
     player_died: bool
+    skills_used: List[str]  # 记录使用的技能ID
 
 class CombatEngine:
     """战斗引擎 - 一次性计算完整战斗"""
     
     @staticmethod
-    def calculate_damage(attacker: dict, defender: dict) -> int:
-        """计算伤害"""
-        base_damage = attacker.get("attack", 10) - defender.get("defense", 0)
+    def calculate_damage(attacker: dict, defender: dict, is_magic: bool = False) -> int:
+        """计算伤害（支持min-max范围和减伤百分比）"""
+        # 获取攻击值（支持min-max范围）
+        if is_magic:
+            atk_min = attacker.get("magic_min", attacker.get("magic", attacker.get("attack", 10)))
+            atk_max = attacker.get("magic_max", attacker.get("magic", attacker.get("attack", 10)))
+            def_min = defender.get("magic_defense_min", defender.get("magic_defense", 0))
+            def_max = defender.get("magic_defense_max", defender.get("magic_defense", 0))
+        else:
+            atk_min = attacker.get("attack_min", attacker.get("attack", 10))
+            atk_max = attacker.get("attack_max", attacker.get("attack", 10))
+            def_min = defender.get("defense_min", defender.get("defense", 0))
+            def_max = defender.get("defense_max", defender.get("defense", 0))
+        
+        # 随机取攻击和防御值
+        attack = random.randint(int(atk_min), max(int(atk_min), int(atk_max)))
+        defense = random.randint(int(def_min), max(int(def_min), int(def_max)))
+        
+        # 使用减伤百分比公式，避免不破防
+        # 减伤率 = 防御 / (防御 + 100)，最高减伤80%
+        reduction = min(0.8, defense / (defense + 100))
+        base_damage = int(attack * (1 - reduction))
         base_damage = max(1, base_damage)
         
         # 暴击判定 (10%几率，1.5倍伤害)
@@ -44,6 +64,7 @@ class CombatEngine:
         
         round_num = 0
         max_rounds = 50
+        skills_used = []  # 记录使用的技能ID
         
         # 可用技能列表 - 按等级要求降序排列（优先使用高级技能）
         available_skills = sorted(skills or [], key=lambda s: s.get("level_req", 1), reverse=True)
@@ -84,6 +105,11 @@ class CombatEngine:
                         
                         # 设置CD
                         skill_cooldowns[skill_name] = cooldown
+                        
+                        # 记录技能使用
+                        skill_id = skill.get("skill_id", skill.get("id", ""))
+                        if skill_id and skill_id not in skills_used:
+                            skills_used.append(skill_id)
                         
                         logs.append(f"使用技能: {skill_name} Lv.{skill_level} (消耗{mp_cost}MP, CD:{cooldown}回合)")
                         
@@ -139,15 +165,11 @@ class CombatEngine:
             gold_gained = monster.get("gold", random.randint(1, monster.get("level", 1) * 10))
             logs.append(f"🎉 胜利! 获得 {exp_gained} 经验, {gold_gained} 金币")
             
-            # 掉落判定 - 使用掉落组系统
-            if drop_groups and data_loader:
-                drops = CombatEngine.calculate_drops_from_groups(drop_groups, monster.get("drops", []), data_loader)
-            else:
-                # 兼容旧的掉落方式
-                for drop in monster.get("drops", []):
-                    rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
-                    if random.random() < rate:
-                        drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(rate)})
+            # 掉落判定 - 直接使用怪物drops数组
+            for drop in monster.get("drops", []):
+                rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
+                if random.random() < rate:
+                    drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(rate)})
             
             for drop in drops:
                 logs.append(f"💎 获得物品: {drop['item_id']}")
@@ -160,7 +182,8 @@ class CombatEngine:
             exp_gained=exp_gained,
             gold_gained=gold_gained,
             drops=drops,
-            player_died=player_died
+            player_died=player_died,
+            skills_used=skills_used
         )
     
     @staticmethod

@@ -91,7 +91,7 @@ class GameEngine:
             for skill in learned_skills:
                 skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
                 if skill_info and skill_info.get("type") == "active":
-                    skill_data = {**skill_info, "level": skill.level}
+                    skill_data = {**skill_info, "level": skill.level, "skill_id": skill.skill_id}
                     active_skills.append(skill_data)
             
             # 计算战斗
@@ -116,6 +116,10 @@ class GameEngine:
                 # 添加掉落物品
                 for drop in result.drops:
                     await cls._add_item(char_id, drop["item_id"], drop["quality"], db)
+                
+                # 增加使用技能的熟练度
+                for skill_id in result.skills_used:
+                    await cls._increase_skill_proficiency(char_id, skill_id, db)
                 
                 await db.commit()
                 
@@ -203,7 +207,7 @@ class GameEngine:
                 "item_id": item.item_id,
                 "quality": item.quality,
                 "quantity": item.quantity,
-                "info": DataLoader.get_item(item.item_id)
+                "info": cls._apply_quality_bonus(DataLoader.get_item(item.item_id), item.quality)
             } for item in items]
         }
     
@@ -225,8 +229,7 @@ class GameEngine:
         for slot in slots:
             equip = next((e for e in equipment_list if e.slot == slot), None)
             if equip:
-                item_info = DataLoader.get_item(equip.item_id)
-                quality_info = DataLoader.get_quality(equip.quality)
+                item_info = cls._apply_quality_bonus(DataLoader.get_item(equip.item_id), equip.quality)
                 equipment[slot] = {
                     "item_id": equip.item_id,
                     "quality": equip.quality,
@@ -244,8 +247,10 @@ class GameEngine:
                 "level": total_stats["level"],
                 "hp": f"{char.hp}/{total_stats['max_hp']}",
                 "mp": f"{char.mp}/{total_stats['max_mp']}",
-                "attack": total_stats["attack"],
-                "defense": total_stats["defense"],
+                "attack": f"{total_stats['attack_min']}-{total_stats['attack_max']}",
+                "magic": f"{total_stats['magic_min']}-{total_stats['magic_max']}",
+                "defense": f"{total_stats['defense_min']}-{total_stats['defense_max']}",
+                "magic_defense": f"{total_stats['magic_defense_min']}-{total_stats['magic_defense_max']}",
                 "luck": total_stats["luck"]
             }
         }
@@ -264,7 +269,7 @@ class GameEngine:
     }
     
     @classmethod
-    async def equip_item(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
+    async def equip_item(cls, char_id: int, inventory_slot: int, db: AsyncSession, target_slot: str = None) -> dict:
         """装备物品"""
         # 获取背包物品
         result = await db.execute(
@@ -286,20 +291,24 @@ class GameEngine:
         item_slot = item_info.get("slot", "weapon")
         equip_slot = cls.SLOT_MAP.get(item_slot, item_slot)
         
-        # 对于戒指和手镯，检查左边是否已装备，如果是则装备到右边
+        # 对于戒指和手镯，如果指定了目标槽位则使用，否则自动选择
         if item_slot in ["ring", "bracelet"]:
             left_slot = f"{item_slot}_left"
             right_slot = f"{item_slot}_right"
-            result = await db.execute(
-                select(Equipment).where(
-                    Equipment.character_id == char_id,
-                    Equipment.slot == left_slot
-                )
-            )
-            if result.scalar_one_or_none():
-                equip_slot = right_slot
+            if target_slot in [left_slot, right_slot]:
+                equip_slot = target_slot
             else:
-                equip_slot = left_slot
+                # 自动选择：优先空槽位，否则左边
+                result = await db.execute(
+                    select(Equipment).where(
+                        Equipment.character_id == char_id,
+                        Equipment.slot == left_slot
+                    )
+                )
+                if result.scalar_one_or_none():
+                    equip_slot = right_slot
+                else:
+                    equip_slot = left_slot
         
         # 检查当前装备
         result = await db.execute(
@@ -362,6 +371,46 @@ class GameEngine:
         await db.commit()
         
         return {"success": True, "gold": gold, "yuanbao": yuanbao}
+    
+    @classmethod
+    async def recycle_all(cls, char_id: int, db: AsyncSession) -> dict:
+        """回收背包中所有物品"""
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == StorageType.INVENTORY
+            )
+        )
+        items = result.scalars().all()
+        
+        if not items:
+            return {"success": False, "error": "背包为空"}
+        
+        char = await db.get(Character, char_id)
+        total_gold = 0
+        total_yuanbao = 0
+        recycled_count = 0
+        
+        for inv_item in items:
+            item_info = DataLoader.get_item(inv_item.item_id)
+            quality_info = DataLoader.get_quality(inv_item.quality)
+            
+            gold = int(item_info.get("recycle_gold", 0) * quality_info.get("recycle_multiplier", 1))
+            yuanbao = int(item_info.get("recycle_yuanbao", 0) * quality_info.get("recycle_multiplier", 1))
+            
+            if gold > 0:
+                total_gold += gold * inv_item.quantity
+            if yuanbao > 0:
+                total_yuanbao += yuanbao * inv_item.quantity
+            
+            await db.delete(inv_item)
+            recycled_count += 1
+        
+        char.gold += total_gold
+        char.yuanbao += total_yuanbao
+        await db.commit()
+        
+        return {"success": True, "gold": total_gold, "yuanbao": total_yuanbao, "count": recycled_count}
     
     @classmethod
     async def move_to_warehouse(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
@@ -602,6 +651,48 @@ class GameEngine:
         return {"success": True, "level": skill.level, "proficiency": skill.proficiency}
     
     @classmethod
+    async def _increase_skill_proficiency(cls, char_id: int, skill_id: str, db: AsyncSession):
+        """增加技能熟练度（内部方法，不提交事务）"""
+        result = await db.execute(
+            select(CharacterSkill).where(
+                CharacterSkill.character_id == char_id,
+                CharacterSkill.skill_id == skill_id
+            )
+        )
+        skill = result.scalar_one_or_none()
+        
+        if not skill:
+            return
+        
+        # 增加熟练度
+        skill.proficiency += 10
+        
+        # 检查升级 (每1000熟练度升1级)
+        max_level = 3
+        while skill.proficiency >= 1000 and skill.level < max_level:
+            skill.proficiency -= 1000
+            skill.level += 1
+    
+    @classmethod
+    def _apply_quality_bonus(cls, item_info: dict, quality: str) -> dict:
+        """应用品质加成到物品属性"""
+        if not item_info:
+            return item_info
+        quality_info = DataLoader.get_quality(quality)
+        bonus = quality_info.get("bonus", 1.0) if quality_info else 1.0
+        if bonus == 1.0:
+            return item_info
+        
+        result = item_info.copy()
+        # 应用加成到所有数值属性
+        for key in ["attack_min", "attack_max", "magic_min", "magic_max",
+                    "defense_min", "defense_max", "magic_defense_min", "magic_defense_max",
+                    "hp_bonus", "mp_bonus"]:
+            if key in result:
+                result[key] = int(result[key] * bonus)
+        return result
+    
+    @classmethod
     async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1):
         """添加物品到背包"""
         # 找空位
@@ -629,17 +720,26 @@ class GameEngine:
     
     @classmethod
     async def _get_combat_stats(cls, char: Character, db: AsyncSession) -> dict:
-        """获取战斗属性"""
+        """获取战斗属性（支持攻击/魔法/防御/魔御的min-max范围）"""
         stats = {
             "id": char.id,
             "name": char.name,
             "level": char.level,
             "max_hp": char.max_hp,
             "max_mp": char.max_mp,
-            "attack": char.attack,
-            "defense": char.defense,
+            "attack_min": char.attack,
+            "attack_max": char.attack,
+            "magic_min": 0,
+            "magic_max": 0,
+            "defense_min": char.defense,
+            "defense_max": char.defense,
+            "magic_defense_min": 0,
+            "magic_defense_max": 0,
             "luck": char.luck
         }
+        # 兼容旧代码
+        stats["attack"] = char.attack
+        stats["defense"] = char.defense
         
         # 加上装备属性
         result = await db.execute(select(Equipment).where(Equipment.character_id == char.id))
@@ -648,8 +748,23 @@ class GameEngine:
             quality_info = DataLoader.get_quality(equip.quality)
             bonus = quality_info.get("bonus", 1.0)
             
-            stats["attack"] += int(item_info.get("attack", 0) * bonus)
-            stats["defense"] += int(item_info.get("defense", 0) * bonus)
+            # 支持min/max格式，也兼容旧的单值格式
+            atk = item_info.get("attack", 0)
+            stats["attack_min"] += int(item_info.get("attack_min", atk) * bonus)
+            stats["attack_max"] += int(item_info.get("attack_max", atk) * bonus)
+            
+            magic = item_info.get("magic", 0)
+            stats["magic_min"] += int(item_info.get("magic_min", magic) * bonus)
+            stats["magic_max"] += int(item_info.get("magic_max", magic) * bonus)
+            
+            defense = item_info.get("defense", 0)
+            stats["defense_min"] += int(item_info.get("defense_min", defense) * bonus)
+            stats["defense_max"] += int(item_info.get("defense_max", defense) * bonus)
+            
+            mac = item_info.get("magic_defense", 0)
+            stats["magic_defense_min"] += int(item_info.get("magic_defense_min", mac) * bonus)
+            stats["magic_defense_max"] += int(item_info.get("magic_defense_max", mac) * bonus)
+            
             stats["max_hp"] += int(item_info.get("hp_bonus", 0) * bonus)
             stats["max_mp"] += int(item_info.get("mp_bonus", 0) * bonus)
         
@@ -659,11 +774,17 @@ class GameEngine:
             skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
             if skill_info and skill_info.get("type") == "passive":
                 effect = skill_info.get("effect", {})
-                level_bonus = skill.level  # 技能等级加成
-                stats["attack"] += int(effect.get("attack_bonus", 0) * level_bonus)
-                stats["defense"] += int(effect.get("defense_bonus", 0) * level_bonus)
+                level_bonus = skill.level
+                stats["attack_min"] += int(effect.get("attack_bonus", 0) * level_bonus)
+                stats["attack_max"] += int(effect.get("attack_bonus", 0) * level_bonus)
+                stats["defense_min"] += int(effect.get("defense_bonus", 0) * level_bonus)
+                stats["defense_max"] += int(effect.get("defense_bonus", 0) * level_bonus)
                 stats["max_hp"] += int(effect.get("hp_bonus", 0) * level_bonus)
                 stats["max_mp"] += int(effect.get("mp_bonus", 0) * level_bonus)
+        
+        # 兼容旧代码：取平均值
+        stats["attack"] = (stats["attack_min"] + stats["attack_max"]) // 2
+        stats["defense"] = (stats["defense_min"] + stats["defense_max"]) // 2
         
         return stats
     
@@ -684,22 +805,30 @@ class GameEngine:
                 hp_gain = 25
                 mp_gain = 5
                 attack_gain = 4
+                magic_gain = 0
                 defense_gain = 3
+                magic_defense_gain = 1
             elif char.char_class.value == "mage":
                 hp_gain = 10
                 mp_gain = 20
-                attack_gain = 5
+                attack_gain = 1
+                magic_gain = 5
                 defense_gain = 1
+                magic_defense_gain = 2
             else:  # taoist
                 hp_gain = 15
                 mp_gain = 15
-                attack_gain = 3
+                attack_gain = 2
+                magic_gain = 3
                 defense_gain = 2
+                magic_defense_gain = 1
             
             char.max_hp += hp_gain
             char.max_mp += mp_gain
             char.attack += attack_gain
+            char.magic += magic_gain
             char.defense += defense_gain
+            char.magic_defense += magic_defense_gain
             
             # 每10级额外增加幸运值
             luck_gain = 0
@@ -718,7 +847,9 @@ class GameEngine:
                     "hp": hp_gain,
                     "mp": mp_gain,
                     "attack": attack_gain,
+                    "magic": magic_gain,
                     "defense": defense_gain,
+                    "magic_defense": magic_defense_gain,
                     "luck": luck_gain
                 }
             }
@@ -740,7 +871,9 @@ class GameEngine:
             "mp": char.mp,
             "max_mp": char.max_mp,
             "attack": char.attack,
+            "magic": getattr(char, 'magic', 0),
             "defense": char.defense,
+            "magic_defense": getattr(char, 'magic_defense', 0),
             "luck": char.luck,
             "map_id": char.map_id,
             "pos_x": char.pos_x,

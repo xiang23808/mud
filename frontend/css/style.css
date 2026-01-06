@@ -187,8 +187,18 @@ button:hover { background: #ff6b6b; }
 /* 战斗 */
 .combat-content { min-width: 500px; }
 #combat-log {
-    background: #000; padding: 15px; max-height: 400px; overflow-y: auto;
+    background: #000; padding: 15px;
     font-size: 14px; line-height: 1.8; margin-bottom: 15px;
+}
+#combat-hp-bar {
+    margin-bottom: 10px;
+}
+#monsters-hp-area {
+    max-height: none; overflow: visible;
+}
+#battle-info-area {
+    max-height: 250px; overflow-y: auto;
+    background: #111; padding: 10px; border-radius: 5px;
 }
 #combat-log .round { color: #ffd700; }
 #combat-log .damage { color: #ff6b6b; }

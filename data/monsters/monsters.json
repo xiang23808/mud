@@ -10,7 +10,10 @@
     "gold": 3,
     "drops": [
       {"item": "chicken_meat", "rate": "1/2"},
-      {"item": "hp_potion_small", "rate": "1/10"}
+      {"item": "hp_potion_small", "rate": "1/10"},
+      {"item": "cloth_armor", "rate": "1/100"},
+      {"item": "bronze_ring", "rate": "1/80"},
+      {"item": "bronze_necklace", "rate": "1/80"}
     ]
   },
   "deer": {
@@ -25,8 +28,11 @@
       {"item": "deer_meat", "rate": "1/3"},
       {"item": "bronze_ring", "rate": "1/50"},
       {"item": "bronze_necklace", "rate": "1/50"},
+      {"item": "bronze_bracelet", "rate": "1/50"},
       {"item": "hp_potion_small", "rate": "1/8"},
-      {"item": "cloth_cap", "rate": "1/60"}
+      {"item": "cloth_cap", "rate": "1/60"},
+      {"item": "cloth_armor", "rate": "1/80"},
+      {"item": "leather_belt", "rate": "1/70"}
     ]
   },
   "wolf": {
@@ -43,7 +49,10 @@
       {"item": "cloth_armor", "rate": "1/60"},
       {"item": "bronze_bracelet", "rate": "1/50"},
       {"item": "hp_potion_small", "rate": "1/6"},
-      {"item": "leather_cap", "rate": "1/80"}
+      {"item": "leather_cap", "rate": "1/80"},
+      {"item": "leather_armor", "rate": "1/100"},
+      {"item": "leather_boots", "rate": "1/80"},
+      {"item": "iron_ring", "rate": "1/120"}
     ]
   },
   "snake": {
@@ -58,7 +67,11 @@
       {"item": "snake_venom", "rate": "1/7"},
       {"item": "wooden_staff", "rate": "1/80"},
       {"item": "wooden_wand", "rate": "1/80"},
-      {"item": "leather_boots", "rate": "1/60"}
+      {"item": "leather_boots", "rate": "1/60"},
+      {"item": "leather_armor", "rate": "1/80"},
+      {"item": "poison_ring", "rate": "1/150"},
+      {"item": "hp_potion_small", "rate": "1/8"},
+      {"item": "mp_potion_small", "rate": "1/10"}
     ]
   },
   "zombie": {
@@ -76,7 +89,10 @@
       {"item": "iron_ring", "rate": "1/60"},
       {"item": "hp_potion_medium", "rate": "1/10"},
       {"item": "mage_hat", "rate": "1/100"},
-      {"item": "taoist_crown", "rate": "1/100"}
+      {"item": "taoist_crown", "rate": "1/100"},
+      {"item": "iron_boots", "rate": "1/120"},
+      {"item": "iron_belt", "rate": "1/120"},
+      {"item": "silver_necklace", "rate": "1/150"}
     ]
   },
   "zombie_warrior": {
@@ -93,7 +109,11 @@
       {"item": "iron_armor", "rate": "1/100"},
       {"item": "iron_helmet", "rate": "1/100"},
       {"item": "iron_bracelet", "rate": "1/80"},
-      {"item": "hp_potion_medium", "rate": "1/8"}
+      {"item": "hp_potion_medium", "rate": "1/8"},
+      {"item": "iron_boots", "rate": "1/100"},
+      {"item": "iron_belt", "rate": "1/100"},
+      {"item": "steel_sword", "rate": "1/200"},
+      {"item": "bone_bracelet", "rate": "1/150"}
     ]
   },
   "zombie_mage": {
@@ -107,7 +127,11 @@
     "drops": [
       {"item": "magic_stone", "rate": "1/7"},
       {"item": "mage_staff", "rate": "1/80"},
-      {"item": "magic_robe", "rate": "1/100"}
+      {"item": "magic_robe", "rate": "1/100"},
+      {"item": "mage_hat", "rate": "1/80"},
+      {"item": "mp_potion_medium", "rate": "1/10"},
+      {"item": "frost_ring", "rate": "1/200"},
+      {"item": "silver_wand", "rate": "1/120"}
     ]
   },
   "zombie_elite": {
@@ -122,7 +146,11 @@
       {"item": "bone_fragment", "rate": "1/4"},
       {"item": "steel_sword", "rate": "1/150"},
       {"item": "heavy_armor", "rate": "1/200"},
-      {"item": "bone_bracelet", "rate": "1/100"}
+      {"item": "bone_bracelet", "rate": "1/100"},
+      {"item": "bone_helmet", "rate": "1/150"},
+      {"item": "steel_helmet", "rate": "1/180"},
+      {"item": "hp_potion_medium", "rate": "1/6"},
+      {"item": "poison_ring", "rate": "1/120"}
     ]
   },
   "corpse_king": {
@@ -142,7 +170,11 @@
       {"item": "stab_sword", "rate": "1/10"},
       {"item": "hp_potion_large", "rate": "1/3"},
       {"item": "skeleton_helmet", "rate": "1/40"},
-      {"item": "healing_book", "rate": "1/20"}
+      {"item": "healing_book", "rate": "1/20"},
+      {"item": "bone_staff", "rate": "1/60"},
+      {"item": "blood_wand", "rate": "1/70"},
+      {"item": "bone_bracelet", "rate": "1/25"},
+      {"item": "shadow_armor", "rate": "1/100"}
     ]
   },
   "wild_boar": {
@@ -155,7 +187,11 @@
     "gold": 30,
     "drops": [
       {"item": "leather_armor", "rate": "1/60"},
-      {"item": "leather_belt", "rate": "1/50"}
+      {"item": "leather_belt", "rate": "1/50"},
+      {"item": "leather_boots", "rate": "1/60"},
+      {"item": "iron_sword", "rate": "1/100"},
+      {"item": "iron_ring", "rate": "1/80"},
+      {"item": "hp_potion_medium", "rate": "1/12"}
     ]
   },
   "boar_warrior": {
@@ -169,7 +205,11 @@
     "drops": [
       {"item": "iron_armor", "rate": "1/80"},
       {"item": "iron_boots", "rate": "1/80"},
-      {"item": "iron_belt", "rate": "1/80"}
+      {"item": "iron_belt", "rate": "1/80"},
+      {"item": "iron_helmet", "rate": "1/100"},
+      {"item": "iron_bracelet", "rate": "1/90"},
+      {"item": "steel_sword", "rate": "1/150"},
+      {"item": "hp_potion_medium", "rate": "1/10"}
     ]
   },
   "boar_elite": {
@@ -182,7 +222,12 @@
     "gold": 80,
     "drops": [
       {"item": "heavy_armor", "rate": "1/120"},
-      {"item": "steel_helmet", "rate": "1/120"}
+      {"item": "steel_helmet", "rate": "1/120"},
+      {"item": "steel_sword", "rate": "1/100"},
+      {"item": "bone_bracelet", "rate": "1/100"},
+      {"item": "bone_helmet", "rate": "1/150"},
+      {"item": "poison_ring", "rate": "1/120"},
+      {"item": "hp_potion_medium", "rate": "1/8"}
     ]
   },
   "wild_pig_king": {
@@ -195,7 +240,11 @@
     "gold": 180,
     "drops": [
       {"item": "heavy_armor", "rate": "1/60"},
-      {"item": "poison_ring", "rate": "1/40"}
+      {"item": "poison_ring", "rate": "1/40"},
+      {"item": "skeleton_helmet", "rate": "1/80"},
+      {"item": "bone_bracelet", "rate": "1/50"},
+      {"item": "death_necklace", "rate": "1/100"},
+      {"item": "hp_potion_large", "rate": "1/10"}
     ]
   },
   "pig_king": {
@@ -210,7 +259,13 @@
     "drops": [
       {"item": "bone_king_sword", "rate": "1/50"},
       {"item": "death_armor", "rate": "1/80"},
-      {"item": "iron_body", "rate": "1/15"}
+      {"item": "iron_body", "rate": "1/15"},
+      {"item": "skeleton_helmet", "rate": "1/40"},
+      {"item": "corpse_king_ring", "rate": "1/60"},
+      {"item": "death_necklace", "rate": "1/50"},
+      {"item": "bone_bracelet", "rate": "1/30"},
+      {"item": "hp_potion_large", "rate": "1/5"},
+      {"item": "half_moon", "rate": "1/25"}
     ]
   },
   "centipede": {
@@ -224,7 +279,11 @@
     "drops": [
       {"item": "centipede_leg", "rate": "1/5"},
       {"item": "silver_wand", "rate": "1/100"},
-      {"item": "silver_necklace", "rate": "1/80"}
+      {"item": "silver_necklace", "rate": "1/80"},
+      {"item": "poison_ring", "rate": "1/120"},
+      {"item": "mage_staff", "rate": "1/100"},
+      {"item": "magic_robe", "rate": "1/120"},
+      {"item": "hp_potion_medium", "rate": "1/10"}
     ]
   },
   "centipede_warrior": {
@@ -238,7 +297,11 @@
     "drops": [
       {"item": "centipede_leg", "rate": "1/3"},
       {"item": "poison_ring", "rate": "1/60"},
-      {"item": "bone_bracelet", "rate": "1/80"}
+      {"item": "bone_bracelet", "rate": "1/80"},
+      {"item": "blood_wand", "rate": "1/150"},
+      {"item": "bone_helmet", "rate": "1/100"},
+      {"item": "heavy_armor", "rate": "1/150"},
+      {"item": "hp_potion_medium", "rate": "1/8"}
     ]
   },
   "centipede_elite": {
@@ -252,7 +315,11 @@
     "drops": [
       {"item": "centipede_leg", "rate": "1/2"},
       {"item": "bone_helmet", "rate": "1/60"},
-      {"item": "bone_staff", "rate": "1/100"}
+      {"item": "bone_staff", "rate": "1/100"},
+      {"item": "skeleton_helmet", "rate": "1/80"},
+      {"item": "death_necklace", "rate": "1/120"},
+      {"item": "corpse_king_ring", "rate": "1/150"},
+      {"item": "hp_potion_large", "rate": "1/15"}
     ]
   },
   "skeleton": {
@@ -265,7 +332,11 @@
     "gold": 55,
     "drops": [
       {"item": "bone_fragment", "rate": "1/3"},
-      {"item": "skeleton_helmet", "rate": "1/80"}
+      {"item": "skeleton_helmet", "rate": "1/80"},
+      {"item": "bone_bracelet", "rate": "1/100"},
+      {"item": "bone_helmet", "rate": "1/100"},
+      {"item": "steel_sword", "rate": "1/120"},
+      {"item": "hp_potion_medium", "rate": "1/10"}
     ]
   },
   "skeleton_warrior": {
@@ -279,7 +350,11 @@
     "drops": [
       {"item": "bone_fragment", "rate": "1/2"},
       {"item": "skeleton_helmet", "rate": "1/50"},
-      {"item": "blood_wand", "rate": "1/100"}
+      {"item": "blood_wand", "rate": "1/100"},
+      {"item": "bone_staff", "rate": "1/120"},
+      {"item": "death_necklace", "rate": "1/150"},
+      {"item": "heavy_armor", "rate": "1/100"},
+      {"item": "hp_potion_medium", "rate": "1/8"}
     ]
   },
   "skeleton_king": {
@@ -295,7 +370,13 @@
       {"item": "bone_fragment", "rate": "1/1"},
       {"item": "bone_king_sword", "rate": "1/40"},
       {"item": "death_armor", "rate": "1/60"},
-      {"item": "half_moon", "rate": "1/20"}
+      {"item": "half_moon", "rate": "1/20"},
+      {"item": "skeleton_helmet", "rate": "1/25"},
+      {"item": "corpse_king_ring", "rate": "1/40"},
+      {"item": "death_necklace", "rate": "1/35"},
+      {"item": "bone_staff", "rate": "1/50"},
+      {"item": "hp_potion_large", "rate": "1/3"},
+      {"item": "stab_sword", "rate": "1/30"}
     ]
   },
   "woma_guard": {
@@ -309,7 +390,11 @@
     "drops": [
       {"item": "woma_horn", "rate": "1/10"},
       {"item": "steel_sword", "rate": "1/100"},
-      {"item": "heavy_armor", "rate": "1/150"}
+      {"item": "heavy_armor", "rate": "1/150"},
+      {"item": "skeleton_helmet", "rate": "1/100"},
+      {"item": "bone_bracelet", "rate": "1/80"},
+      {"item": "death_necklace", "rate": "1/150"},
+      {"item": "hp_potion_large", "rate": "1/20"}
     ]
   },
   "woma_warrior": {
@@ -323,7 +408,11 @@
     "drops": [
       {"item": "woma_horn", "rate": "1/7"},
       {"item": "dragon_sword", "rate": "1/200"},
-      {"item": "zuma_helmet", "rate": "1/150"}
+      {"item": "zuma_helmet", "rate": "1/150"},
+      {"item": "death_armor", "rate": "1/180"},
+      {"item": "corpse_king_ring", "rate": "1/100"},
+      {"item": "dragon_bracelet", "rate": "1/200"},
+      {"item": "hp_potion_large", "rate": "1/15"}
     ]
   },
   "woma_mage": {
@@ -336,7 +425,11 @@
     "gold": 130,
     "drops": [
       {"item": "magic_stone", "rate": "1/10"},
-      {"item": "dragon_staff", "rate": "1/200"}
+      {"item": "dragon_staff", "rate": "1/200"},
+      {"item": "bone_staff", "rate": "1/100"},
+      {"item": "arcane_hood", "rate": "1/150"},
+      {"item": "frost_ring", "rate": "1/100"},
+      {"item": "mp_potion_large", "rate": "1/15"}
     ]
   },
   "woma_elite": {
@@ -351,7 +444,11 @@
       {"item": "woma_horn", "rate": "1/4"},
       {"item": "dragon_sword", "rate": "1/100"},
       {"item": "zuma_armor", "rate": "1/150"},
-      {"item": "dragon_ring", "rate": "1/200"}
+      {"item": "dragon_ring", "rate": "1/200"},
+      {"item": "zuma_helmet", "rate": "1/100"},
+      {"item": "holy_armor", "rate": "1/200"},
+      {"item": "dragon_bracelet", "rate": "1/150"},
+      {"item": "hp_potion_large", "rate": "1/10"}
     ]
   },
   "woma_leader": {
@@ -374,7 +471,11 @@
       {"item": "arcane_hood", "rate": "1/60"},
       {"item": "spirit_crown", "rate": "1/60"},
       {"item": "summon_skeleton_book", "rate": "1/15"},
-      {"item": "lightning_book", "rate": "1/20"}
+      {"item": "lightning_book", "rate": "1/20"},
+      {"item": "dragon_ring", "rate": "1/40"},
+      {"item": "dragon_bracelet", "rate": "1/35"},
+      {"item": "zuma_armor", "rate": "1/60"},
+      {"item": "dragon_staff", "rate": "1/70"}
     ]
   },
   "zuma_guard": {
@@ -388,7 +489,11 @@
     "drops": [
       {"item": "zuma_piece", "rate": "1/5"},
       {"item": "zuma_helmet", "rate": "1/100"},
-      {"item": "dragon_bracelet", "rate": "1/150"}
+      {"item": "dragon_bracelet", "rate": "1/150"},
+      {"item": "zuma_armor", "rate": "1/200"},
+      {"item": "dragon_ring", "rate": "1/200"},
+      {"item": "holy_necklace", "rate": "1/200"},
+      {"item": "hp_potion_large", "rate": "1/12"}
     ]
   },
   "zuma_archer": {
@@ -402,7 +507,11 @@
     "drops": [
       {"item": "zuma_piece", "rate": "1/4"},
       {"item": "silver_necklace", "rate": "1/60"},
-      {"item": "dragon_wand", "rate": "1/200"}
+      {"item": "dragon_wand", "rate": "1/200"},
+      {"item": "hunter_bow", "rate": "1/100"},
+      {"item": "raven_bow", "rate": "1/200"},
+      {"item": "blood_wand", "rate": "1/120"},
+      {"item": "hp_potion_large", "rate": "1/10"}
     ]
   },
   "zuma_statue": {
@@ -416,7 +525,11 @@
     "drops": [
       {"item": "zuma_piece", "rate": "1/3"},
       {"item": "zuma_armor", "rate": "1/80"},
-      {"item": "holy_necklace", "rate": "1/150"}
+      {"item": "holy_necklace", "rate": "1/150"},
+      {"item": "zuma_helmet", "rate": "1/80"},
+      {"item": "dragon_ring", "rate": "1/120"},
+      {"item": "dragon_bracelet", "rate": "1/100"},
+      {"item": "hp_potion_large", "rate": "1/8"}
     ]
   },
   "zuma_elite": {
@@ -430,7 +543,12 @@
     "drops": [
       {"item": "zuma_piece", "rate": "1/2"},
       {"item": "dragon_ring", "rate": "1/80"},
-      {"item": "holy_armor", "rate": "1/120"}
+      {"item": "holy_armor", "rate": "1/120"},
+      {"item": "judgement", "rate": "1/200"},
+      {"item": "dragon_sword", "rate": "1/100"},
+      {"item": "dragon_staff", "rate": "1/120"},
+      {"item": "dragon_wand", "rate": "1/120"},
+      {"item": "hp_potion_large", "rate": "1/6"}
     ]
   },
   "zuma_leader": {
@@ -453,7 +571,11 @@
       {"item": "blood_helm", "rate": "1/50"},
       {"item": "group_healing_book", "rate": "1/25"},
       {"item": "summon_dog_book", "rate": "1/40"},
-      {"item": "ice_roar_book", "rate": "1/30"}
+      {"item": "ice_roar_book", "rate": "1/30"},
+      {"item": "dragon_bracelet", "rate": "1/25"},
+      {"item": "holy_necklace", "rate": "1/40"},
+      {"item": "zuma_armor", "rate": "1/35"},
+      {"item": "arcane_robe", "rate": "1/80"}
     ]
   },
   "demon_soldier": {

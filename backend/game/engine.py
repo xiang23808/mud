@@ -716,7 +716,25 @@ class GameEngine:
     
     @classmethod
     async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1):
-        """添加物品到背包"""
+        """添加物品到背包（消耗品可堆叠）"""
+        item_info = DataLoader.get_item(item_id)
+        is_stackable = item_info and item_info.get("type") in ["consumable", "material"]
+        
+        # 如果是可堆叠物品，先查找已有的同类物品
+        if is_stackable:
+            result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.character_id == char_id,
+                    InventoryItem.storage_type == StorageType.INVENTORY,
+                    InventoryItem.item_id == item_id,
+                    InventoryItem.quality == quality
+                ).limit(1)
+            )
+            existing = result.scalar()
+            if existing:
+                existing.quantity += quantity
+                return True
+        
         # 找空位
         result = await db.execute(
             select(InventoryItem.slot).where(

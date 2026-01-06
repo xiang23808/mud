@@ -369,6 +369,11 @@ canvas.onclick = e => {
     ws.send(JSON.stringify({ type: 'move', x, y }));
 };
 
+// 品质颜色映射
+const QUALITY_COLORS = {
+    white: '#fff', green: '#0f0', blue: '#00bfff', purple: '#a020f0', orange: '#ffa500'
+};
+
 // 战斗显示
 function showCombat(data) {
     show('combat-modal');
@@ -376,33 +381,71 @@ function showCombat(data) {
     log.innerHTML = '';
     $('combat-close').classList.add('hidden');
     
-    // 解析血量信息
+    // 解析初始状态
     let playerHp = currentChar.max_hp, playerMaxHp = currentChar.max_hp;
-    let monsterHp = 0, monsterMaxHp = 0, monsterName = '怪物';
+    let playerMp = currentChar.max_mp, playerMaxMp = currentChar.max_mp;
+    let monsters = []; // [{name, quality, hp, maxHp}]
     
-    // 从第一条日志解析初始血量
-    if (data.logs.length > 1) {
-        const initLog = data.logs[1];
-        const match = initLog.match(/你的HP: (\d+)\/(\d+).*?(\S+)的HP: (\d+)/);
-        if (match) {
-            playerHp = parseInt(match[1]);
-            playerMaxHp = parseInt(match[2]);
-            monsterName = match[3];
-            monsterHp = monsterMaxHp = parseInt(match[4]);
+    // 从COMBAT_INIT解析初始血量
+    for (const line of data.logs) {
+        if (line.startsWith('COMBAT_INIT|')) {
+            const parts = line.split('|');
+            const [pHp, pMaxHp] = parts[1].split('/').map(Number);
+            const [pMp, pMaxMp] = parts[2].split('/').map(Number);
+            playerHp = pHp; playerMaxHp = pMaxHp;
+            playerMp = pMp; playerMaxMp = pMaxMp;
+            // 解析怪物列表（从parts[3]开始都是怪物，格式：#idx名字[品质]:hp/maxHp）
+            for (let j = 3; j < parts.length; j++) {
+                const m = parts[j];
+                if (!m) continue;
+                const match = m.match(/#(\d+)(.+)\[(\w+)\]:(\d+)\/(\d+)/);
+                if (match) {
+                    monsters.push({idx: parseInt(match[1]), name: match[2], quality: match[3], hp: parseInt(match[4]), maxHp: parseInt(match[5])});
+                }
+            }
+            break;
         }
     }
     
-    // 血量条
+    // 构建血量显示区域（左边玩家，右边怪物）
     const hpBar = document.createElement('div');
     hpBar.id = 'combat-hp-bar';
-    hpBar.style.cssText = 'margin-bottom:10px;padding:10px;background:#1a1a2e;border-radius:5px;';
-    hpBar.innerHTML = `
-        <div style="margin-bottom:5px;"><span style="color:#0f0;">你</span>: <span id="player-hp">${playerHp}</span>/${playerMaxHp}</div>
-        <div style="height:8px;background:#333;border-radius:4px;margin-bottom:8px;"><div id="player-hp-fill" style="height:100%;width:100%;background:#0f0;border-radius:4px;transition:width 0.3s;"></div></div>
-        <div style="margin-bottom:5px;"><span style="color:#f00;">${monsterName}</span>: <span id="monster-hp">${monsterHp}</span>/${monsterMaxHp}</div>
-        <div style="height:8px;background:#333;border-radius:4px;"><div id="monster-hp-fill" style="height:100%;width:100%;background:#f00;border-radius:4px;transition:width 0.3s;"></div></div>
+    hpBar.style.cssText = 'display:flex;gap:15px;margin-bottom:10px;padding:10px;background:#1a1a2e;border-radius:5px;';
+    
+    // 左边：玩家HP/MP
+    const playerDiv = document.createElement('div');
+    playerDiv.style.cssText = 'flex:1;';
+    playerDiv.innerHTML = `
+        <div style="color:#0f0;font-weight:bold;margin-bottom:5px;">${currentChar.name}</div>
+        <div style="margin-bottom:3px;">HP: <span id="player-hp">${playerHp}</span>/${playerMaxHp}</div>
+        <div style="height:8px;background:#333;border-radius:4px;margin-bottom:5px;"><div id="player-hp-fill" style="height:100%;width:100%;background:#0f0;border-radius:4px;transition:width 0.3s;"></div></div>
+        <div style="margin-bottom:3px;">MP: <span id="player-mp">${playerMp}</span>/${playerMaxMp}</div>
+        <div style="height:8px;background:#333;border-radius:4px;"><div id="player-mp-fill" style="height:100%;width:100%;background:#00f;border-radius:4px;transition:width 0.3s;"></div></div>
     `;
+    hpBar.appendChild(playerDiv);
+    
+    // 右边：所有怪物HP（不限制高度，全部显示）
+    const monstersDiv = document.createElement('div');
+    monstersDiv.id = 'monsters-hp-area';
+    monstersDiv.style.cssText = 'flex:1;';
+    monsters.forEach(m => {
+        const color = QUALITY_COLORS[m.quality] || '#fff';
+        monstersDiv.innerHTML += `
+            <div style="margin-bottom:5px;">
+                <span style="color:${color};font-weight:bold;">${m.name}</span>
+                : <span id="monster-hp-${m.idx}">${m.hp}</span>/${m.maxHp}
+                <div style="height:6px;background:#333;border-radius:3px;"><div id="monster-hp-fill-${m.idx}" style="height:100%;width:100%;background:${color};border-radius:3px;transition:width 0.3s;"></div></div>
+            </div>
+        `;
+    });
+    hpBar.appendChild(monstersDiv);
     log.appendChild(hpBar);
+    
+    // 战斗信息区域
+    const battleInfo = document.createElement('div');
+    battleInfo.id = 'battle-info-area';
+    battleInfo.style.cssText = 'max-height:250px;overflow-y:auto;';
+    log.appendChild(battleInfo);
     
     let i = 0;
     const interval = setInterval(() => {
@@ -418,16 +461,37 @@ function showCombat(data) {
         }
         const line = data.logs[i];
         
-        // 更新血量显示
-        const hpMatch = line.match(/你的HP: (\d+).*?的HP: (\d+)/);
-        if (hpMatch) {
-            playerHp = parseInt(hpMatch[1]);
-            monsterHp = parseInt(hpMatch[2]);
-            $('player-hp').textContent = Math.max(0, playerHp);
-            $('monster-hp').textContent = Math.max(0, monsterHp);
-            $('player-hp-fill').style.width = Math.max(0, (playerHp / playerMaxHp) * 100) + '%';
-            $('monster-hp-fill').style.width = Math.max(0, (monsterHp / monsterMaxHp) * 100) + '%';
+        // 解析COMBAT_STATUS更新血量
+        if (line.startsWith('COMBAT_STATUS|')) {
+            const parts = line.split('|');
+            const [pHp] = parts[1].split('/').map(Number);
+            const [pMp] = parts[2].split('/').map(Number);
+            $('player-hp').textContent = Math.max(0, pHp);
+            $('player-mp').textContent = Math.max(0, pMp);
+            $('player-hp-fill').style.width = Math.max(0, (pHp / playerMaxHp) * 100) + '%';
+            $('player-mp-fill').style.width = Math.max(0, (pMp / playerMaxMp) * 100) + '%';
+            // 更新怪物血量（按索引匹配）
+            const monsterParts = parts.slice(3).filter(p => p);
+            for (const mp of monsterParts) {
+                const match = mp.match(/#(\d+).+:(\d+)\/(\d+)/);
+                if (match) {
+                    const idx = parseInt(match[1]);
+                    const hp = parseInt(match[2]);
+                    const hpEl = $(`monster-hp-${idx}`);
+                    const fillEl = $(`monster-hp-fill-${idx}`);
+                    const m = monsters.find(mon => mon.idx === idx);
+                    if (hpEl && fillEl && m) {
+                        hpEl.textContent = hp;
+                        fillEl.style.width = Math.max(0, (hp / m.maxHp) * 100) + '%';
+                    }
+                }
+            }
+            i++;
+            return;
         }
+        
+        // 跳过COMBAT_INIT行
+        if (line.startsWith('COMBAT_INIT|')) { i++; return; }
         
         const div = document.createElement('div');
         if (line.includes('回合')) div.className = 'round';
@@ -435,8 +499,8 @@ function showCombat(data) {
         else if (line.includes('胜利')) div.className = 'victory';
         else if (line.includes('失败')) div.className = 'defeat';
         div.textContent = line;
-        log.appendChild(div);
-        log.scrollTop = log.scrollHeight;
+        $('battle-info-area').appendChild(div);
+        $('battle-info-area').scrollTop = $('battle-info-area').scrollHeight;
         i++;
     }, 200);
 }

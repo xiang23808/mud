@@ -50,6 +50,9 @@ class CombatEngine:
         variance = random.uniform(0.9, 1.1)
         return max(1, int(base_damage * variance))
     
+    # 品质爆率加成
+    QUALITY_DROP_BONUS = {"white": 1.0, "green": 1.5, "blue": 2.0, "purple": 3.0, "orange": 5.0}
+    
     @staticmethod
     def pve_combat(player: dict, monsters: list, skills: List[dict] = None, drop_groups: List[str] = None, data_loader=None, inventory: List[dict] = None) -> CombatResult:
         """PVE战斗 - 支持多怪物"""
@@ -61,6 +64,7 @@ class CombatEngine:
         player_hp = player.get("max_hp", 100)
         player_mp = player.get("max_mp", 50)
         player_max_hp = player.get("max_hp", 100)
+        player_max_mp = player.get("max_mp", 50)
         player_name = player.get("name", "玩家")
         
         # 初始化怪物状态，应用品质加成
@@ -81,9 +85,16 @@ class CombatEngine:
                 "is_boss": m.get("is_boss", False)
             })
         
-        monster_names = ", ".join([f"{m['name']}({m['quality']})" for m in monster_states])
+        # 给每个怪物加上索引
+        for idx, m in enumerate(monster_states):
+            m['idx'] = idx
+        
+        # 构建怪物信息（带品质颜色标记）
+        monster_names = ", ".join([f"{m['name']}[{m['quality']}]" for m in monster_states])
         logs.append(f"⚔️ 战斗开始: {player_name} vs {monster_names}")
-        logs.append(f"你的HP: {player_hp}/{player_max_hp} MP: {player_mp}/{player.get('max_mp')} | 怪物数量: {len(monster_states)}")
+        # 第二行：玩家HP/MP和所有怪物HP（用于前端解析，带索引）
+        monster_hp_list = "|".join([f"#{m['idx']}{m['name']}[{m['quality']}]:{m['hp']}/{m['max_hp']}" for m in monster_states])
+        logs.append(f"COMBAT_INIT|{player_hp}/{player_max_hp}|{player_mp}/{player_max_mp}|{monster_hp_list}")
         
         round_num = 0
         max_rounds = 100
@@ -129,14 +140,15 @@ class CombatEngine:
                 if skill_cooldowns[skill_name] <= 0:
                     del skill_cooldowns[skill_name]
             
-            # 玩家攻击 - 选择第一个存活的怪物
-            target = next((m for m in monster_states if m["hp"] > 0), None)
-            if not target:
+            # 玩家攻击 - 选择存活的怪物
+            alive_targets = [m for m in monster_states if m["hp"] > 0]
+            if not alive_targets:
                 break
             
             used_skill = False
             extra_damage = 0
             skill_name = ""
+            is_aoe = False
             
             if available_skills and player_mp > 0 and random.random() < 0.5:
                 for skill in available_skills:
@@ -149,6 +161,7 @@ class CombatEngine:
                         skill_name = s_name
                         skill_level = skill.get("level", 1)
                         cooldown = skill.get("cooldown", 1)
+                        is_aoe = effect.get("aoe", False)
                         
                         skill_cooldowns[skill_name] = cooldown
                         
@@ -164,11 +177,11 @@ class CombatEngine:
                         if effect.get("magic_damage"):
                             extra_damage = int(effect["magic_damage"] * level_mult)
                         elif effect.get("damage_multiplier"):
-                            base = CombatEngine.calculate_damage(player, target)
+                            base = CombatEngine.calculate_damage(player, alive_targets[0])
                             extra_damage = int(base * (effect["damage_multiplier"] * level_mult - 1))
                         
                         if effect.get("ignore_defense"):
-                            extra_damage += int(target.get("defense", 0) * effect["ignore_defense"] * level_mult)
+                            extra_damage += int(alive_targets[0].get("defense", 0) * effect["ignore_defense"] * level_mult)
                         
                         if effect.get("fire_damage"):
                             extra_damage += int(effect["fire_damage"] * level_mult)
@@ -180,16 +193,25 @@ class CombatEngine:
                         
                         break
             
-            damage = CombatEngine.calculate_damage(player, target) + extra_damage
-            target["hp"] -= damage
-            
-            if used_skill:
-                logs.append(f"你对{target['name']}造成 {damage} 点技能伤害")
+            # AOE技能攻击多个目标（最多3个）
+            if is_aoe:
+                targets = alive_targets[:3]
+                for t in targets:
+                    damage = CombatEngine.calculate_damage(player, t) + extra_damage
+                    t["hp"] -= damage
+                    logs.append(f"你对{t['name']}造成 {damage} 点技能伤害")
+                    if t["hp"] <= 0:
+                        logs.append(f"💀 {t['name']} 被击败!")
             else:
-                logs.append(f"你对{target['name']}造成 {damage} 点伤害")
-            
-            if target["hp"] <= 0:
-                logs.append(f"💀 {target['name']} 被击败!")
+                target = alive_targets[0]
+                damage = CombatEngine.calculate_damage(player, target) + extra_damage
+                target["hp"] -= damage
+                if used_skill:
+                    logs.append(f"你对{target['name']}造成 {damage} 点技能伤害")
+                else:
+                    logs.append(f"你对{target['name']}造成 {damage} 点伤害")
+                if target["hp"] <= 0:
+                    logs.append(f"💀 {target['name']} 被击败!")
             
             # 所有存活怪物攻击玩家
             for m in monster_states:
@@ -200,9 +222,9 @@ class CombatEngine:
                     if player_hp <= 0:
                         break
             
-            alive_monsters = [m for m in monster_states if m["hp"] > 0]
-            monster_hp_info = ", ".join([f"{m['name']}:{m['hp']}" for m in alive_monsters]) if alive_monsters else "全部击败"
-            logs.append(f"你的HP: {player_hp} MP: {player_mp} | {monster_hp_info}")
+            # 发送所有怪物状态（包括死亡的，用于前端正确显示）
+            monster_hp_info = "|".join([f"#{m['idx']}{m['name']}[{m['quality']}]:{max(0, m['hp'])}/{m['max_hp']}" for m in monster_states])
+            logs.append(f"COMBAT_STATUS|{player_hp}/{player_max_hp}|{player_mp}/{player_max_mp}|{monster_hp_info}")
         
         victory = all(m["hp"] <= 0 for m in monster_states)
         player_died = player_hp <= 0
@@ -215,14 +237,24 @@ class CombatEngine:
             for m in monster_states:
                 exp_gained += m["exp"]
                 gold_gained += m["gold"]
+                # 根据怪物品质计算爆率加成
+                quality_drop_bonus = CombatEngine.QUALITY_DROP_BONUS.get(m["quality"], 1.0)
+                # 每个物品单独计算掉落
                 for drop in m["drops"]:
-                    rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
-                    if random.random() < rate:
-                        drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(rate)})
+                    base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
+                    final_rate = min(1.0, base_rate * quality_drop_bonus)  # 最高100%
+                    if random.random() < final_rate:
+                        drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(base_rate)})
             
             logs.append(f"🎉 胜利! 获得 {exp_gained} 经验, {gold_gained} 金币")
+            # 获取物品中文名称
             for drop in drops:
-                logs.append(f"💎 获得物品: {drop['item_id']}")
+                item_name = drop['item_id']
+                if data_loader:
+                    item_info = data_loader.get_item(drop['item_id'])
+                    if item_info:
+                        item_name = item_info.get('name', drop['item_id'])
+                logs.append(f"💎 获得物品: {item_name}")
         else:
             logs.append(f"💀 战斗失败...")
         

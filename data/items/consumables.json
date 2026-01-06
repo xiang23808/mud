@@ -231,5 +231,75 @@
     "buy_price": 0,
     "recycle_yuanbao": 20,
     "drop_only": true
+  },
+  "healing_book": {
+    "name": "治愈术技能书",
+    "type": "skillbook",
+    "skill_id": "healing",
+    "class": "taoist",
+    "description": "学习后可使用治愈术恢复生命",
+    "buy_price": 0,
+    "recycle_yuanbao": 8,
+    "drop_only": true
+  },
+  "group_healing_book": {
+    "name": "群体治愈术技能书",
+    "type": "skillbook",
+    "skill_id": "group_healing",
+    "class": "taoist",
+    "description": "学习后可使用群体治愈术",
+    "buy_price": 0,
+    "recycle_yuanbao": 25,
+    "drop_only": true
+  },
+  "summon_skeleton_book": {
+    "name": "召唤骷髅技能书",
+    "type": "skillbook",
+    "skill_id": "summon_skeleton",
+    "class": "taoist",
+    "description": "学习后可召唤骷髅战士",
+    "buy_price": 0,
+    "recycle_yuanbao": 15,
+    "drop_only": true
+  },
+  "summon_dog_book": {
+    "name": "召唤神兽技能书",
+    "type": "skillbook",
+    "skill_id": "summon_dog",
+    "class": "taoist",
+    "description": "学习后可召唤强大神兽",
+    "buy_price": 0,
+    "recycle_yuanbao": 30,
+    "drop_only": true
+  },
+  "magic_shield_book": {
+    "name": "魔法盾技能书",
+    "type": "skillbook",
+    "skill_id": "magic_shield",
+    "class": "mage",
+    "description": "学习后可使用魔法盾抵挡伤害",
+    "buy_price": 0,
+    "recycle_yuanbao": 15,
+    "drop_only": true
+  },
+  "lightning_book": {
+    "name": "雷电术技能书",
+    "type": "skillbook",
+    "skill_id": "lightning",
+    "class": "mage",
+    "description": "学习后可使用雷电术",
+    "buy_price": 0,
+    "recycle_yuanbao": 20,
+    "drop_only": true
+  },
+  "ice_roar_book": {
+    "name": "冰咆哮技能书",
+    "type": "skillbook",
+    "skill_id": "ice_roar",
+    "class": "mage",
+    "description": "学习后可使用冰咆哮",
+    "buy_price": 0,
+    "recycle_yuanbao": 28,
+    "drop_only": true
   }
 }

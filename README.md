@@ -110,6 +110,7 @@ python -m backend.main
 - 后端: Python 3.11+ / FastAPI / WebSocket
 - 数据库: PostgreSQL + Redis
 - 前端: HTML + CSS + JavaScript + Canvas
+- 响应式设计: 支持手机/平板/桌面端
 
 ## 项目结构
 
@@ -206,6 +207,14 @@ mud-legend/
 - `config/quality.json` - 品质配置
 
 ## 最近更新
+
+### v1.3.2 (2026-01-05) - 移动端适配
+- ✅ **响应式布局**
+  - 手机端自适应地图尺寸
+  - 游戏界面纵向排列
+  - 弹窗自适应屏幕宽度
+  - 背包网格3列显示
+  - 技能面板优化布局
 
 ### v1.3.1 (2026-01-04) - 地图系统重构
 - ✅ **彻底重写地图生成系统**

@@ -74,7 +74,7 @@ async function enterGame(charId) {
 }
 
 function updateCharInfo() {
-    const expNeeded = Math.floor(currentChar.level * 100 * Math.pow(1.1, currentChar.level - 1));
+    const expNeeded = Math.floor(currentChar.level * 150 * Math.pow(1.15, currentChar.level - 1));
     const expPercent = Math.floor((currentChar.exp / expNeeded) * 100);
     $('char-info').textContent = `${currentChar.name} | ${classNames[currentChar.char_class]} | Lv.${currentChar.level} | HP:${currentChar.hp}/${currentChar.max_hp} | MP:${currentChar.mp}/${currentChar.max_mp} | 经验:${currentChar.exp}/${expNeeded}(${expPercent}%) | 金币:${currentChar.gold} | 元宝:${currentChar.yuanbao}`;
 }
@@ -624,7 +624,9 @@ function renderEquipment(data) {
                                 ${item.info?.attack_min || item.info?.attack_max ? `DC:${item.info.attack_min||0}-${item.info.attack_max||0} ` : (item.info?.attack ? `DC:${item.info.attack} ` : '')}
                                 ${item.info?.magic_min || item.info?.magic_max ? `MC:${item.info.magic_min||0}-${item.info.magic_max||0} ` : (item.info?.magic ? `MC:${item.info.magic} ` : '')}
                                 ${item.info?.defense_min || item.info?.defense_max ? `AC:${item.info.defense_min||0}-${item.info.defense_max||0} ` : (item.info?.defense ? `AC:${item.info.defense} ` : '')}
-                                ${item.info?.magic_defense_min || item.info?.magic_defense_max ? `MAC:${item.info.magic_defense_min||0}-${item.info.magic_defense_max||0}` : (item.info?.magic_defense ? `MAC:${item.info.magic_defense}` : '')}
+                                ${item.info?.magic_defense_min || item.info?.magic_defense_max ? `MAC:${item.info.magic_defense_min||0}-${item.info.magic_defense_max||0} ` : (item.info?.magic_defense ? `MAC:${item.info.magic_defense} ` : '')}
+                                ${item.info?.hp_bonus ? `HP+${item.info.hp_bonus} ` : ''}
+                                ${item.info?.mp_bonus ? `MP+${item.info.mp_bonus}` : ''}
                             </div>
                         ` : '<div style="color: #666;">未装备</div>'}
                     </div>

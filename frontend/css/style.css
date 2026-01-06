@@ -194,3 +194,27 @@ button:hover { background: #ff6b6b; }
 #combat-log .damage { color: #ff6b6b; }
 #combat-log .victory { color: #0f0; font-size: 18px; }
 #combat-log .defeat { color: #f00; font-size: 18px; }
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    #app { padding: 10px; }
+    
+    #game-header { flex-direction: column; gap: 10px; }
+    .header-buttons { flex-wrap: wrap; justify-content: center; }
+    .header-buttons button { padding: 6px 10px; font-size: 12px; }
+    
+    #game-main { flex-direction: column; }
+    
+    #map-container { width: 100%; }
+    #map-canvas { width: 100%; height: auto; max-width: 100vw; }
+    
+    #game-info-panel { max-width: 100%; min-width: auto; }
+    
+    .modal-content { min-width: auto; width: 95vw; max-width: 95vw; padding: 15px; }
+    .combat-content { min-width: auto; }
+    
+    #inventory-grid { grid-template-columns: repeat(3, 1fr); }
+    
+    .skill-item { flex-direction: column; align-items: stretch; }
+    .skill-item button { min-width: auto; width: 100%; margin-top: 8px; }
+}

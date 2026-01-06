@@ -1,6 +1,6 @@
 import random
 from typing import List, Dict, Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from fractions import Fraction
 
 @dataclass
@@ -12,6 +12,7 @@ class CombatResult:
     drops: List[dict]
     player_died: bool
     skills_used: List[str]  # 记录使用的技能ID
+    passive_skills: List[str] = field(default_factory=list)  # 被动技能ID列表
 
 class CombatEngine:
     """战斗引擎 - 一次性计算完整战斗"""
@@ -50,31 +51,77 @@ class CombatEngine:
         return max(1, int(base_damage * variance))
     
     @staticmethod
-    def pve_combat(player: dict, monster: dict, skills: List[dict] = None, drop_groups: List[str] = None, data_loader=None) -> CombatResult:
-        """PVE战斗"""
+    def pve_combat(player: dict, monsters: list, skills: List[dict] = None, drop_groups: List[str] = None, data_loader=None, inventory: List[dict] = None) -> CombatResult:
+        """PVE战斗 - 支持多怪物"""
+        # 兼容单怪物传入
+        if isinstance(monsters, dict):
+            monsters = [monsters]
+        
         logs = []
         player_hp = player.get("max_hp", 100)
         player_mp = player.get("max_mp", 50)
-        monster_hp = monster.get("hp", 50)
-        monster_name = monster.get("name", "怪物")
+        player_max_hp = player.get("max_hp", 100)
         player_name = player.get("name", "玩家")
         
-        logs.append(f"⚔️ 战斗开始: {player_name} vs {monster_name}")
-        logs.append(f"你的HP: {player_hp}/{player.get('max_hp')} MP: {player_mp}/{player.get('max_mp')} | {monster_name}的HP: {monster_hp}")
+        # 初始化怪物状态，应用品质加成
+        monster_states = []
+        for m in monsters:
+            quality = m.get("quality", "white")
+            quality_bonus = {"white": 1.0, "green": 1.2, "blue": 1.5, "purple": 2.0, "orange": 3.0}.get(quality, 1.0)
+            monster_states.append({
+                "name": m.get("name", "怪物"),
+                "hp": int(m.get("hp", 50) * quality_bonus),
+                "max_hp": int(m.get("hp", 50) * quality_bonus),
+                "attack": int(m.get("attack", 10) * quality_bonus),
+                "defense": int(m.get("defense", 0) * quality_bonus),
+                "exp": int(m.get("exp", 10) * quality_bonus),
+                "gold": int(m.get("gold", 5) * quality_bonus),
+                "drops": m.get("drops", []),
+                "quality": quality,
+                "is_boss": m.get("is_boss", False)
+            })
+        
+        monster_names = ", ".join([f"{m['name']}({m['quality']})" for m in monster_states])
+        logs.append(f"⚔️ 战斗开始: {player_name} vs {monster_names}")
+        logs.append(f"你的HP: {player_hp}/{player_max_hp} MP: {player_mp}/{player.get('max_mp')} | 怪物数量: {len(monster_states)}")
         
         round_num = 0
-        max_rounds = 50
-        skills_used = []  # 记录使用的技能ID
+        max_rounds = 100
+        skills_used = []
+        passive_skills = []
         
-        # 可用技能列表 - 按等级要求降序排列（优先使用高级技能）
-        available_skills = sorted(skills or [], key=lambda s: s.get("level_req", 1), reverse=True)
+        # 分离主动和被动技能
+        active_skills = []
+        for skill in (skills or []):
+            if skill.get("type") == "passive":
+                skill_id = skill.get("skill_id", skill.get("id", ""))
+                if skill_id:
+                    passive_skills.append(skill_id)
+            else:
+                active_skills.append(skill)
         
-        # 技能CD追踪 {skill_name: remaining_cd}
+        available_skills = sorted(active_skills, key=lambda s: s.get("level_req", 1), reverse=True)
         skill_cooldowns = {}
         
-        while player_hp > 0 and monster_hp > 0 and round_num < max_rounds:
+        # 获取背包中的恢复物品
+        hp_potions = []
+        if inventory:
+            for item in inventory:
+                info = item.get("info", {})
+                if info.get("type") == "consumable" and info.get("effect", {}).get("heal_hp"):
+                    hp_potions.append(item)
+            hp_potions.sort(key=lambda x: x.get("info", {}).get("effect", {}).get("heal_hp", 0))
+        
+        while player_hp > 0 and any(m["hp"] > 0 for m in monster_states) and round_num < max_rounds:
             round_num += 1
             logs.append(f"--- 第{round_num}回合 ---")
+            
+            # 自动使用恢复物品（HP低于30%时）
+            if player_hp < player_max_hp * 0.3 and hp_potions:
+                potion = hp_potions.pop(0)
+                heal = potion.get("info", {}).get("effect", {}).get("heal_hp", 0)
+                player_hp = min(player_max_hp, player_hp + heal)
+                logs.append(f"🧪 自动使用 {potion.get('info', {}).get('name', '药水')} 恢复 {heal} HP")
             
             # 减少所有技能CD
             for skill_name in list(skill_cooldowns.keys()):
@@ -82,18 +129,18 @@ class CombatEngine:
                 if skill_cooldowns[skill_name] <= 0:
                     del skill_cooldowns[skill_name]
             
-            # 玩家攻击 - 优先使用高级技能
+            # 玩家攻击 - 选择第一个存活的怪物
+            target = next((m for m in monster_states if m["hp"] > 0), None)
+            if not target:
+                break
+            
             used_skill = False
             extra_damage = 0
-            mp_cost = 0
             skill_name = ""
             
-            # 50%概率使用技能
             if available_skills and player_mp > 0 and random.random() < 0.5:
-                # 按等级要求降序遍历，优先使用高级技能
                 for skill in available_skills:
                     s_name = skill.get("name", "技能")
-                    # 检查MP和CD
                     if skill.get("mp_cost", 0) <= player_mp and s_name not in skill_cooldowns:
                         mp_cost = skill.get("mp_cost", 0)
                         effect = skill.get("effect", {})
@@ -103,57 +150,61 @@ class CombatEngine:
                         skill_level = skill.get("level", 1)
                         cooldown = skill.get("cooldown", 1)
                         
-                        # 设置CD
                         skill_cooldowns[skill_name] = cooldown
                         
-                        # 记录技能使用
                         skill_id = skill.get("skill_id", skill.get("id", ""))
                         if skill_id and skill_id not in skills_used:
                             skills_used.append(skill_id)
                         
-                        logs.append(f"使用技能: {skill_name} Lv.{skill_level} (消耗{mp_cost}MP, CD:{cooldown}回合)")
+                        logs.append(f"使用技能: {skill_name} Lv.{skill_level} (消耗{mp_cost}MP)")
                         
-                        # 计算技能伤害
+                        # 技能效果随等级增强
+                        level_mult = 1 + (skill_level - 1) * 0.5  # 每级+50%效果
+                        
                         if effect.get("magic_damage"):
-                            extra_damage = int(effect["magic_damage"] * skill_level)
+                            extra_damage = int(effect["magic_damage"] * level_mult)
                         elif effect.get("damage_multiplier"):
-                            base = CombatEngine.calculate_damage(player, monster)
-                            extra_damage = int(base * (effect["damage_multiplier"] - 1) * skill_level)
+                            base = CombatEngine.calculate_damage(player, target)
+                            extra_damage = int(base * (effect["damage_multiplier"] * level_mult - 1))
                         
-                        # 无视防御
                         if effect.get("ignore_defense"):
-                            extra_damage += int(monster.get("defense", 0) * effect["ignore_defense"] * skill_level)
+                            extra_damage += int(target.get("defense", 0) * effect["ignore_defense"] * level_mult)
                         
-                        # 火焰伤害
                         if effect.get("fire_damage"):
-                            extra_damage += int(effect["fire_damage"] * skill_level)
+                            extra_damage += int(effect["fire_damage"] * level_mult)
                         
-                        # 治愈术
                         if effect.get("heal_hp"):
-                            heal = int(effect["heal_hp"] * skill_level)
-                            player_hp = min(player.get("max_hp", 100), player_hp + heal)
+                            heal = int(effect["heal_hp"] * level_mult)
+                            player_hp = min(player_max_hp, player_hp + heal)
                             logs.append(f"恢复 {heal} 点生命值")
                         
-                        break  # 使用一个技能后退出循环
+                        break
             
-            damage = CombatEngine.calculate_damage(player, monster) + extra_damage
-            monster_hp -= damage
+            damage = CombatEngine.calculate_damage(player, target) + extra_damage
+            target["hp"] -= damage
             
             if used_skill:
-                logs.append(f"你对{monster_name}造成 {damage} 点技能伤害")
+                logs.append(f"你对{target['name']}造成 {damage} 点技能伤害")
             else:
-                logs.append(f"你对{monster_name}造成 {damage} 点伤害")
+                logs.append(f"你对{target['name']}造成 {damage} 点伤害")
             
-            if monster_hp <= 0:
-                break
+            if target["hp"] <= 0:
+                logs.append(f"💀 {target['name']} 被击败!")
             
-            # 怪物攻击
-            damage = CombatEngine.calculate_damage(monster, player)
-            player_hp -= damage
-            logs.append(f"{monster_name}对你造成 {damage} 点伤害")
-            logs.append(f"你的HP: {player_hp} MP: {player_mp} | {monster_name}的HP: {monster_hp}")
+            # 所有存活怪物攻击玩家
+            for m in monster_states:
+                if m["hp"] > 0:
+                    damage = CombatEngine.calculate_damage(m, player)
+                    player_hp -= damage
+                    logs.append(f"{m['name']}对你造成 {damage} 点伤害")
+                    if player_hp <= 0:
+                        break
+            
+            alive_monsters = [m for m in monster_states if m["hp"] > 0]
+            monster_hp_info = ", ".join([f"{m['name']}:{m['hp']}" for m in alive_monsters]) if alive_monsters else "全部击败"
+            logs.append(f"你的HP: {player_hp} MP: {player_mp} | {monster_hp_info}")
         
-        victory = monster_hp <= 0
+        victory = all(m["hp"] <= 0 for m in monster_states)
         player_died = player_hp <= 0
         
         exp_gained = 0
@@ -161,16 +212,15 @@ class CombatEngine:
         drops = []
         
         if victory:
-            exp_gained = monster.get("exp", 10)
-            gold_gained = monster.get("gold", random.randint(1, monster.get("level", 1) * 10))
+            for m in monster_states:
+                exp_gained += m["exp"]
+                gold_gained += m["gold"]
+                for drop in m["drops"]:
+                    rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
+                    if random.random() < rate:
+                        drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(rate)})
+            
             logs.append(f"🎉 胜利! 获得 {exp_gained} 经验, {gold_gained} 金币")
-            
-            # 掉落判定 - 直接使用怪物drops数组
-            for drop in monster.get("drops", []):
-                rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
-                if random.random() < rate:
-                    drops.append({"item_id": drop["item"], "quality": CombatEngine._roll_quality(rate)})
-            
             for drop in drops:
                 logs.append(f"💎 获得物品: {drop['item_id']}")
         else:
@@ -183,7 +233,8 @@ class CombatEngine:
             gold_gained=gold_gained,
             drops=drops,
             player_died=player_died,
-            skills_used=skills_used
+            skills_used=skills_used,
+            passive_skills=passive_skills
         )
     
     @staticmethod

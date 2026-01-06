@@ -1,3 +1,4 @@
+import random
 from typing import Dict, Optional, Tuple
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -51,16 +52,14 @@ class GameEngine:
     
     @classmethod
     async def attack_monster(cls, char_id: int, monster_pos: Tuple[int, int], db: AsyncSession) -> dict:
-        """攻击怪物"""
+        """攻击怪物 - 支持多怪物战斗"""
         if cls.combat_locks.get(char_id):
             return {"success": False, "error": "已在战斗中"}
         
-        # 获取角色
         char = await db.get(Character, char_id)
         if not char:
             return {"success": False, "error": "角色不存在"}
         
-        # 获取地图实例
         map_id = map_manager.player_map.get(char_id)
         if not map_id:
             return {"success": False, "error": "不在地图中"}
@@ -69,7 +68,6 @@ class GameEngine:
         if not instance:
             return {"success": False, "error": "地图不存在"}
         
-        # 获取怪物
         monster_data = instance.monsters.get(monster_pos)
         if not monster_data:
             return {"success": False, "error": "怪物不存在"}
@@ -78,48 +76,75 @@ class GameEngine:
         if not monster_info:
             return {"success": False, "error": "怪物数据不存在"}
         
-        # 锁定战斗
         cls.combat_locks[char_id] = True
         
         try:
-            # 获取角色已学习的主动技能
+            # 获取角色所有技能（包括被动）
             skills_result = await db.execute(
                 select(CharacterSkill).where(CharacterSkill.character_id == char_id)
             )
             learned_skills = skills_result.scalars().all()
-            active_skills = []
+            all_skills = []
             for skill in learned_skills:
                 skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
-                if skill_info and skill_info.get("type") == "active":
+                if skill_info:
                     skill_data = {**skill_info, "level": skill.level, "skill_id": skill.skill_id}
-                    active_skills.append(skill_data)
+                    all_skills.append(skill_data)
             
-            # 计算战斗
+            # 获取背包中的恢复物品
+            inv_result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.character_id == char_id,
+                    InventoryItem.storage_type == StorageType.INVENTORY
+                )
+            )
+            inventory = []
+            for item in inv_result.scalars():
+                item_info = DataLoader.get_item(item.item_id)
+                if item_info and item_info.get("type") == "consumable":
+                    inventory.append({"slot": item.slot, "info": item_info, "db_item": item})
+            
+            # 生成多怪物（1-6个，根据地图难度）
+            monsters = [monster_info.copy()]
+            monsters[0]["quality"] = monster_data.get("quality", "white")
+            
+            # 随机添加额外怪物（最多5个额外）
+            extra_count = random.randint(0, min(5, char.level // 10))
+            for _ in range(extra_count):
+                extra_monster = monster_info.copy()
+                extra_monster["quality"] = random.choices(
+                    ["white", "green", "blue", "purple", "orange"],
+                    weights=[50, 30, 15, 4, 1]
+                )[0]
+                monsters.append(extra_monster)
+            
             player_stats = await cls._get_combat_stats(char, db)
-            drop_groups = monster_info.get("drop_groups", [])
-            result = CombatEngine.pve_combat(player_stats, monster_info, active_skills, drop_groups, DataLoader)
+            result = CombatEngine.pve_combat(player_stats, monsters, all_skills, [], DataLoader, inventory)
+            
+            # 消耗使用的药水
+            used_potions = len([item for item in inventory if item.get("used")])
             
             if result.victory:
-                # 移除怪物并移动玩家到怪物位置
                 instance.remove_monster(monster_pos)
                 map_manager.move(char_id, monster_pos)
                 char.pos_x = monster_pos[0]
                 char.pos_y = monster_pos[1]
                 
-                # 增加经验和金币
                 char.exp += result.exp_gained
                 char.gold += result.gold_gained
                 
-                # 检查升级
                 level_up = cls._check_level_up(char)
                 
-                # 添加掉落物品
                 for drop in result.drops:
                     await cls._add_item(char_id, drop["item_id"], drop["quality"], db)
                 
-                # 增加使用技能的熟练度
+                # 增加主动技能熟练度
                 for skill_id in result.skills_used:
                     await cls._increase_skill_proficiency(char_id, skill_id, db)
+                
+                # 增加被动技能熟练度（每次战斗+5）
+                for skill_id in result.passive_skills:
+                    await cls._increase_skill_proficiency(char_id, skill_id, db, amount=5)
                 
                 await db.commit()
                 
@@ -134,7 +159,6 @@ class GameEngine:
                     "character": cls._char_to_dict(char)
                 }
             else:
-                # 战斗失败，角色留在原地
                 return {
                     "success": True,
                     "victory": False,
@@ -651,7 +675,7 @@ class GameEngine:
         return {"success": True, "level": skill.level, "proficiency": skill.proficiency}
     
     @classmethod
-    async def _increase_skill_proficiency(cls, char_id: int, skill_id: str, db: AsyncSession):
+    async def _increase_skill_proficiency(cls, char_id: int, skill_id: str, db: AsyncSession, amount: int = 10):
         """增加技能熟练度（内部方法，不提交事务）"""
         result = await db.execute(
             select(CharacterSkill).where(
@@ -664,10 +688,8 @@ class GameEngine:
         if not skill:
             return
         
-        # 增加熟练度
-        skill.proficiency += 10
+        skill.proficiency += amount
         
-        # 检查升级 (每1000熟练度升1级)
         max_level = 3
         while skill.proficiency >= 1000 and skill.level < max_level:
             skill.proficiency -= 1000
@@ -793,8 +815,8 @@ class GameEngine:
         """检查升级，返回升级信息"""
         level_up_data = {"leveled_up": False, "new_level": char.level, "stats_gained": {}}
         
-        # 计算升级所需经验（指数增长）
-        exp_needed = int(char.level * 100 * (1.1 ** (char.level - 1)))
+        # 计算升级所需经验（更陡峭的指数增长）
+        exp_needed = int(char.level * 150 * (1.15 ** (char.level - 1)))
         
         if char.exp >= exp_needed:
             char.exp -= exp_needed

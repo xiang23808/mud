@@ -216,7 +216,16 @@ button:hover { background: #ff6b6b; }
     #game-main { flex-direction: column; }
     
     #map-container { width: 100%; }
-    #map-canvas { width: 100%; height: auto; max-width: 100vw; }
+    #map-canvas {
+        width: 100%;
+        height: auto;
+        max-width: 100vw;
+        /* Safari性能优化 */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
     
     #game-info-panel { max-width: 100%; min-width: auto; }
     
@@ -227,4 +236,10 @@ button:hover { background: #ff6b6b; }
     
     .skill-item { flex-direction: column; align-items: stretch; }
     .skill-item button { min-width: auto; width: 100%; margin-top: 8px; }
+}
+
+/* Safari Canvas优化 */
+#map-canvas {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }

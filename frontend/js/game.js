@@ -156,14 +156,26 @@ function handleMessage(msg) {
 // 地图渲染
 const CELL_SIZE = 20;
 const canvas = $('map-canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d', { alpha: false });
+
+// 离屏canvas用于优化渲染
+let offscreenCanvas = null;
+let offscreenCtx = null;
 
 function renderMap() {
     if (!mapState) return;
     
+    // 初始化离屏canvas（Safari优化）
+    if (!offscreenCanvas) {
+        offscreenCanvas = document.createElement('canvas');
+        offscreenCanvas.width = 480;
+        offscreenCanvas.height = 480;
+        offscreenCtx = offscreenCanvas.getContext('2d', { alpha: false });
+    }
+    
     $('map-name').textContent = mapState.map_name || mapState.map_id;
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, 480, 480);
+    offscreenCtx.fillStyle = '#000';
+    offscreenCtx.fillRect(0, 0, 480, 480);
     
     const revealed = new Set(mapState.revealed.map(p => `${p[0]},${p[1]}`));
     
@@ -173,20 +185,20 @@ function renderMap() {
             const py = y * CELL_SIZE;
             
             if (!revealed.has(`${x},${y}`)) {
-                ctx.fillStyle = '#222';
-                ctx.fillRect(px, py, CELL_SIZE - 1, CELL_SIZE - 1);
+                offscreenCtx.fillStyle = '#222';
+                offscreenCtx.fillRect(px, py, CELL_SIZE - 1, CELL_SIZE - 1);
                 continue;
             }
             
             const isWall = mapState.maze[y][x] === 1;
-            ctx.fillStyle = isWall ? '#444' : '#1a1a2e';
-            ctx.fillRect(px, py, CELL_SIZE - 1, CELL_SIZE - 1);
+            offscreenCtx.fillStyle = isWall ? '#444' : '#1a1a2e';
+            offscreenCtx.fillRect(px, py, CELL_SIZE - 1, CELL_SIZE - 1);
             
             // 标记出入口（非主城地图）- 只在特定位置显示
             if (mapState.map_id !== 'main_city') {
                 if ((x === 2 && y === 2) || (x === 21 && y === 21)) {
-                    ctx.fillStyle = '#0ff';
-                    ctx.fillRect(px + 5, py + 5, 10, 10);
+                    offscreenCtx.fillStyle = '#0ff';
+                    offscreenCtx.fillRect(px + 5, py + 5, 10, 10);
                 }
             }
         }
@@ -197,8 +209,8 @@ function renderMap() {
         for (const [id, entrance] of Object.entries(mapState.entrances)) {
             const [x, y] = entrance.position;
             if (revealed.has(`${x},${y}`)) {
-                ctx.fillStyle = '#ff0';
-                ctx.fillRect(x * CELL_SIZE + 5, y * CELL_SIZE + 5, 10, 10);
+                offscreenCtx.fillStyle = '#ff0';
+                offscreenCtx.fillRect(x * CELL_SIZE + 5, y * CELL_SIZE + 5, 10, 10);
             }
         }
     }
@@ -208,10 +220,10 @@ function renderMap() {
         for (const npc of mapState.npcs) {
             const [x, y] = npc.position;
             if (revealed.has(`${x},${y}`)) {
-                ctx.fillStyle = '#00f';
-                ctx.beginPath();
-                ctx.arc(x * CELL_SIZE + 10, y * CELL_SIZE + 10, 6, 0, Math.PI * 2);
-                ctx.fill();
+                offscreenCtx.fillStyle = '#00f';
+                offscreenCtx.beginPath();
+                offscreenCtx.arc(x * CELL_SIZE + 10, y * CELL_SIZE + 10, 6, 0, Math.PI * 2);
+                offscreenCtx.fill();
             }
         }
     }
@@ -221,20 +233,23 @@ function renderMap() {
         const [x, y] = pos.split(',').map(Number);
         const px = x * CELL_SIZE;
         const py = y * CELL_SIZE;
-        ctx.fillStyle = monster.is_boss ? '#ff0' : '#f00';
-        ctx.beginPath();
-        ctx.arc(px + 10, py + 10, 6, 0, Math.PI * 2);
-        ctx.fill();
+        offscreenCtx.fillStyle = monster.is_boss ? '#ff0' : '#f00';
+        offscreenCtx.beginPath();
+        offscreenCtx.arc(px + 10, py + 10, 6, 0, Math.PI * 2);
+        offscreenCtx.fill();
     }
     
     // 玩家
     if (mapState.position) {
         const [x, y] = mapState.position;
-        ctx.fillStyle = '#0f0';
-        ctx.beginPath();
-        ctx.arc(x * CELL_SIZE + 10, y * CELL_SIZE + 10, 8, 0, Math.PI * 2);
-        ctx.fill();
+        offscreenCtx.fillStyle = '#0f0';
+        offscreenCtx.beginPath();
+        offscreenCtx.arc(x * CELL_SIZE + 10, y * CELL_SIZE + 10, 8, 0, Math.PI * 2);
+        offscreenCtx.fill();
     }
+    
+    // 一次性绘制到主canvas
+    ctx.drawImage(offscreenCanvas, 0, 0);
     
     // 更新右侧信息面板
     updateMapInfo();
@@ -303,8 +318,11 @@ function toggleChat() {
 canvas.onclick = e => {
     if (!mapState) return;
     const rect = canvas.getBoundingClientRect();
-    const x = Math.floor((e.clientX - rect.left) / CELL_SIZE);
-    const y = Math.floor((e.clientY - rect.top) / CELL_SIZE);
+    // 计算缩放比例以修复手机端点击错位
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const x = Math.floor((e.clientX - rect.left) * scaleX / CELL_SIZE);
+    const y = Math.floor((e.clientY - rect.top) * scaleY / CELL_SIZE);
     
     // 检查是否在迷雾中（未揭示的区域）
     const revealed = new Set(mapState.revealed.map(p => `${p[0]},${p[1]}`));
@@ -649,8 +667,8 @@ function renderEquipment(data) {
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; color: #0f0;">
                 <div>等级: ${total_stats.level}</div>
                 <div>幸运: ${total_stats.luck}</div>
-                <div>生命: ${total_stats.hp}</div>
-                <div>魔法值: ${total_stats.mp}</div>
+                <div>HP: ${total_stats.hp}</div>
+                <div>MP: ${total_stats.mp}</div>
                 <div>攻击(DC): ${total_stats.attack}</div>
                 <div>魔法(MC): ${total_stats.magic}</div>
                 <div>防御(AC): ${total_stats.defense}</div>

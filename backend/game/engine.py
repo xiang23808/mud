@@ -122,7 +122,14 @@ class GameEngine:
             result = CombatEngine.pve_combat(player_stats, monsters, all_skills, [], DataLoader, inventory)
             
             # 消耗使用的药水
-            used_potions = len([item for item in inventory if item.get("used")])
+            for item in inventory:
+                if item.get("used"):
+                    db_item = item.get("db_item")
+                    if db_item:
+                        if db_item.quantity > 1:
+                            db_item.quantity -= 1
+                        else:
+                            await db.delete(db_item)
             
             if result.victory:
                 instance.remove_monster(monster_pos)
@@ -269,8 +276,8 @@ class GameEngine:
             "equipment": equipment,
             "total_stats": {
                 "level": total_stats["level"],
-                "hp": f"{char.hp}/{total_stats['max_hp']}",
-                "mp": f"{char.mp}/{total_stats['max_mp']}",
+                "hp": char.hp,
+                "mp": char.mp,
                 "attack": f"{total_stats['attack_min']}-{total_stats['attack_max']}",
                 "magic": f"{total_stats['magic_min']}-{total_stats['magic_max']}",
                 "defense": f"{total_stats['defense_min']}-{total_stats['defense_max']}",
@@ -688,12 +695,19 @@ class GameEngine:
         if not skill:
             return
         
+        max_level = 3
+        # 顶级技能不再增加熟练度
+        if skill.level >= max_level:
+            skill.proficiency = 0
+            return
+        
         skill.proficiency += amount
         
-        max_level = 3
         while skill.proficiency >= 1000 and skill.level < max_level:
             skill.proficiency -= 1000
             skill.level += 1
+            if skill.level >= max_level:
+                skill.proficiency = 0
     
     @classmethod
     def _apply_quality_bonus(cls, item_info: dict, quality: str) -> dict:
@@ -718,7 +732,11 @@ class GameEngine:
     async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1):
         """添加物品到背包（消耗品可堆叠）"""
         item_info = DataLoader.get_item(item_id)
-        is_stackable = item_info and item_info.get("type") in ["consumable", "material"]
+        item_type = item_info.get("type") if item_info else None
+        is_stackable = item_type in ["consumable", "material", "skillbook"]
+        # 非装备类型物品品质统一为普通
+        if item_type not in ["weapon", "armor", "accessory"]:
+            quality = "white"
         
         # 如果是可堆叠物品，先查找已有的同类物品
         if is_stackable:
@@ -808,19 +826,37 @@ class GameEngine:
             stats["max_hp"] += int(item_info.get("hp_bonus", 0) * bonus)
             stats["max_mp"] += int(item_info.get("mp_bonus", 0) * bonus)
         
-        # 加上被动技能属性
+        # 加上被动技能属性（按基础属性百分比增加）
         skills_result = await db.execute(select(CharacterSkill).where(CharacterSkill.character_id == char.id))
         for skill in skills_result.scalars():
             skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
             if skill_info and skill_info.get("type") == "passive":
                 effect = skill_info.get("effect", {})
                 level_bonus = skill.level
-                stats["attack_min"] += int(effect.get("attack_bonus", 0) * level_bonus)
-                stats["attack_max"] += int(effect.get("attack_bonus", 0) * level_bonus)
-                stats["defense_min"] += int(effect.get("defense_bonus", 0) * level_bonus)
-                stats["defense_max"] += int(effect.get("defense_bonus", 0) * level_bonus)
-                stats["max_hp"] += int(effect.get("hp_bonus", 0) * level_bonus)
-                stats["max_mp"] += int(effect.get("mp_bonus", 0) * level_bonus)
+                # 阶梯增长：1级5%，2级12%，3级20%
+                percent_bonus = [0.05, 0.12, 0.20][min(level_bonus, 3) - 1] if level_bonus > 0 else 0
+                
+                # 攻击加成（按百分比）
+                if effect.get("attack_bonus"):
+                    bonus = int(char.attack * percent_bonus)
+                    stats["attack_min"] += bonus
+                    stats["attack_max"] += bonus
+                # 防御加成（按百分比）
+                if effect.get("defense_bonus"):
+                    bonus = int(char.defense * percent_bonus)
+                    stats["defense_min"] += bonus
+                    stats["defense_max"] += bonus
+                # 魔御加成（按百分比）
+                if effect.get("magic_defense_bonus"):
+                    bonus = int(char.magic_defense * percent_bonus)
+                    stats["magic_defense_min"] += bonus
+                    stats["magic_defense_max"] += bonus
+                # HP加成（按百分比）
+                if effect.get("hp_bonus"):
+                    stats["max_hp"] += int(char.max_hp * percent_bonus)
+                # MP加成（按百分比）
+                if effect.get("mp_bonus"):
+                    stats["max_mp"] += int(char.max_mp * percent_bonus)
         
         # 兼容旧代码：取平均值
         stats["attack"] = (stats["attack_min"] + stats["attack_max"]) // 2

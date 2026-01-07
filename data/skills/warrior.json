@@ -77,8 +77,8 @@
     "class": "warrior",
     "level_req": 20,
     "type": "passive",
-    "description": "增加防御力和生命值",
-    "effect": {"defense_bonus": 20, "hp_bonus": 50},
+    "description": "增加防御力、魔御和生命值",
+    "effect": {"defense_bonus": 1, "magic_defense_bonus": 1, "hp_bonus": 1},
     "buy_price": 3000,
     "max_level": 3
   },

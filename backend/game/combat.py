@@ -116,23 +116,37 @@ class CombatEngine:
         
         # 获取背包中的恢复物品
         hp_potions = []
+        mp_potions = []
         if inventory:
             for item in inventory:
                 info = item.get("info", {})
-                if info.get("type") == "consumable" and info.get("effect", {}).get("heal_hp"):
-                    hp_potions.append(item)
+                if info.get("type") == "consumable":
+                    if info.get("effect", {}).get("heal_hp"):
+                        hp_potions.append(item)
+                    if info.get("effect", {}).get("heal_mp"):
+                        mp_potions.append(item)
             hp_potions.sort(key=lambda x: x.get("info", {}).get("effect", {}).get("heal_hp", 0))
+            mp_potions.sort(key=lambda x: x.get("info", {}).get("effect", {}).get("heal_mp", 0))
         
         while player_hp > 0 and any(m["hp"] > 0 for m in monster_states) and round_num < max_rounds:
             round_num += 1
             logs.append(f"--- 第{round_num}回合 ---")
             
-            # 自动使用恢复物品（HP低于30%时）
+            # 自动使用HP恢复物品（HP低于30%时）
             if player_hp < player_max_hp * 0.3 and hp_potions:
                 potion = hp_potions.pop(0)
                 heal = potion.get("info", {}).get("effect", {}).get("heal_hp", 0)
                 player_hp = min(player_max_hp, player_hp + heal)
+                potion["used"] = True
                 logs.append(f"🧪 自动使用 {potion.get('info', {}).get('name', '药水')} 恢复 {heal} HP")
+            
+            # 自动使用MP恢复物品（MP低于30%时）
+            if player_mp < player_max_mp * 0.3 and mp_potions:
+                potion = mp_potions.pop(0)
+                heal = potion.get("info", {}).get("effect", {}).get("heal_mp", 0)
+                player_mp = min(player_max_mp, player_mp + heal)
+                potion["used"] = True
+                logs.append(f"🧪 自动使用 {potion.get('info', {}).get('name', '药水')} 恢复 {heal} MP")
             
             # 减少所有技能CD
             for skill_name in list(skill_cooldowns.keys()):

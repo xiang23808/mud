@@ -286,6 +286,12 @@ function updateCharStatsFromEquipment(total_stats) {
         <div>魔御(MAC): ${total_stats.magic_defense}</div>
         <div>幸运: ${total_stats.luck}</div>
     `;
+    // 同步更新currentChar的max_hp/max_mp用于顶部面板显示
+    if (currentChar) {
+        currentChar.max_hp = total_stats.hp;
+        currentChar.max_mp = total_stats.mp;
+        updateCharInfo();
+    }
 }
 
 // 更新地图信息

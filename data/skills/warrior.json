@@ -39,7 +39,7 @@
     "level_req": 25,
     "type": "active",
     "description": "弧形斩击，范围攻击",
-    "effect": {"damage_multiplier": 1.8, "aoe": true},
+    "effect": {"damage_multiplier": 1.3, "aoe": true},
     "mp_cost": 15,
     "cooldown": 4,
     "buy_price": 0,

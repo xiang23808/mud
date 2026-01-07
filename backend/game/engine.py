@@ -112,15 +112,27 @@ class GameEngine:
             monsters = [monster_info.copy()]
             monsters[0]["quality"] = monster_data.get("quality", "white")
             
-            # 随机添加额外怪物（最多5个额外）
+            # 随机添加额外怪物（最多5个额外）- Boss战斗时额外怪物为同地图普通怪
             extra_count = random.randint(0, min(5, char.level // 10))
-            for _ in range(extra_count):
-                extra_monster = monster_info.copy()
-                extra_monster["quality"] = random.choices(
-                    ["white", "green", "blue", "purple", "orange"],
-                    weights=[50, 30, 15, 4, 1]
-                )[0]
-                monsters.append(extra_monster)
+            if extra_count > 0:
+                map_config = map_manager.map_configs.get(map_id, {})
+                normal_monster_types = map_config.get("monsters", [])
+                for _ in range(extra_count):
+                    # Boss战斗时，额外怪物从地图普通怪物中选择
+                    if monster_data.get("is_boss") and normal_monster_types:
+                        extra_type = random.choice(normal_monster_types)
+                        extra_info = DataLoader.get_monster(extra_type)
+                        if extra_info:
+                            extra_monster = extra_info.copy()
+                        else:
+                            continue
+                    else:
+                        extra_monster = monster_info.copy()
+                    extra_monster["quality"] = random.choices(
+                        ["white", "green", "blue", "purple", "orange"],
+                        weights=[50, 30, 15, 4, 1]
+                    )[0]
+                    monsters.append(extra_monster)
             
             player_stats = await cls._get_combat_stats(char, db)
             player_stats["char_class"] = char.char_class.value
@@ -290,8 +302,8 @@ class GameEngine:
             "equipment": equipment,
             "total_stats": {
                 "level": total_stats["level"],
-                "hp": char.hp,
-                "mp": char.mp,
+                "hp": total_stats["max_hp"],
+                "mp": total_stats["max_mp"],
                 "attack": f"{total_stats['attack_min']}-{total_stats['attack_max']}",
                 "magic": f"{total_stats['magic_min']}-{total_stats['magic_max']}",
                 "defense": f"{total_stats['defense_min']}-{total_stats['defense_max']}",

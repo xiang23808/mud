@@ -564,6 +564,7 @@
       {"item": "dragon_ring", "rate": "1/30"},
       {"item": "fire_sword", "rate": "1/20"},
       {"item": "sun_sword", "rate": "1/100"},
+      {"item": "shield_block", "rate": "1/100"},
       {"item": "hp_potion_large", "rate": "1/1"},
       {"item": "blood_helm", "rate": "1/50"},
       {"item": "group_healing_book", "rate": "1/25"},

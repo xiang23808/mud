@@ -388,7 +388,6 @@
     "exp": 300,
     "gold": 80,
     "drops": [
-      {"item": "woma_horn", "rate": "1/10"},
       {"item": "steel_sword", "rate": "1/100"},
       {"item": "heavy_armor", "rate": "1/150"},
       {"item": "skeleton_helmet", "rate": "1/100"},
@@ -406,7 +405,6 @@
     "exp": 420,
     "gold": 110,
     "drops": [
-      {"item": "woma_horn", "rate": "1/7"},
       {"item": "dragon_sword", "rate": "1/200"},
       {"item": "zuma_helmet", "rate": "1/150"},
       {"item": "death_armor", "rate": "1/180"},
@@ -441,7 +439,6 @@
     "exp": 700,
     "gold": 200,
     "drops": [
-      {"item": "woma_horn", "rate": "1/4"},
       {"item": "dragon_sword", "rate": "1/100"},
       {"item": "zuma_armor", "rate": "1/150"},
       {"item": "dragon_ring", "rate": "1/200"},
@@ -461,7 +458,7 @@
     "gold": 1500,
     "is_boss": true,
     "drops": [
-      {"item": "woma_horn", "rate": "1/1"},
+      {"item": "woma_horn", "rate": "1/10"},
       {"item": "judgement", "rate": "1/80"},
       {"item": "dragon_sword", "rate": "1/30"},
       {"item": "holy_armor", "rate": "1/100"},

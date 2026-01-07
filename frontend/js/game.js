@@ -125,6 +125,8 @@ function handleMessage(msg) {
             break;
         case 'equipment':
             renderEquipment(msg.data);
+            // 同时更新角色属性面板，使用装备界面的综合属性
+            updateCharStatsFromEquipment(msg.data.total_stats);
             break;
         case 'chat':
             const chatEl = $('chat-messages');
@@ -149,6 +151,12 @@ function handleMessage(msg) {
             } else {
                 output(`[失败] ${msg.data.error}`);
             }
+            break;
+        case 'disabled_skills':
+            window.disabledSkills = msg.data || [];
+            break;
+        case 'skill_toggled':
+            output(`[技能] ${msg.data.skill_id} ${msg.data.enabled ? '已启用' : '已禁用'}`);
             break;
     }
 }
@@ -258,17 +266,25 @@ function renderMap() {
 // 更新角色属性面板
 function updateCharStats() {
     if (!currentChar) return;
+    // 请求装备信息以获取完整属性
+    if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: 'get_equipment' }));
+    }
+}
+
+// 使用装备界面的综合属性更新角色属性面板
+function updateCharStatsFromEquipment(total_stats) {
     const el = $('char-stats-info');
     if (!el) return;
     el.innerHTML = `
-        <div>等级: ${currentChar.level}</div>
-        <div>HP: ${currentChar.hp}/${currentChar.max_hp}</div>
-        <div>MP: ${currentChar.mp}/${currentChar.max_mp}</div>
-        <div>攻击(DC): ${currentChar.attack}</div>
-        <div>魔法(MC): ${currentChar.magic || 0}</div>
-        <div>防御(AC): ${currentChar.defense}</div>
-        <div>魔御(MAC): ${currentChar.magic_defense || 0}</div>
-        <div>幸运: ${currentChar.luck}</div>
+        <div>等级: ${total_stats.level}</div>
+        <div>HP: ${total_stats.hp}</div>
+        <div>MP: ${total_stats.mp}</div>
+        <div>攻击(DC): ${total_stats.attack}</div>
+        <div>魔法(MC): ${total_stats.magic}</div>
+        <div>防御(AC): ${total_stats.defense}</div>
+        <div>魔御(MAC): ${total_stats.magic_defense}</div>
+        <div>幸运: ${total_stats.luck}</div>
     `;
 }
 
@@ -337,10 +353,21 @@ canvas.onclick = e => {
         return;
     }
     
-    // 检查是否点击怪物
+    // 检查是否点击怪物 - 需要先验证是否可达
     const monsterKey = `${x},${y}`;
     if (mapState.monsters && mapState.monsters[monsterKey]) {
-        ws.send(JSON.stringify({ type: 'attack', pos: [x, y] }));
+        // 获取当前位置
+        const currentPos = mapState.position;
+        // 检查是否相邻（可直接攻击）
+        const dx = Math.abs(x - currentPos[0]);
+        const dy = Math.abs(y - currentPos[1]);
+        if (dx <= 1 && dy <= 1) {
+            // 相邻位置，直接攻击
+            ws.send(JSON.stringify({ type: 'attack', pos: [x, y] }));
+        } else {
+            // 不相邻，尝试移动到怪物位置
+            ws.send(JSON.stringify({ type: 'move', x, y }));
+        }
         return;
     }
     
@@ -724,22 +751,36 @@ function renderEquipment(data) {
 // 技能
 async function openSkills() {
     show('skills-modal');
+    // 获取禁用技能列表
+    ws.send(JSON.stringify({ type: 'get_disabled_skills' }));
+    await new Promise(r => setTimeout(r, 100)); // 等待响应
+    const disabledSkills = window.disabledSkills || [];
+    
     const skillData = await api(`/api/skills/${currentChar.id}`);
     const list = $('skills-list');
     
-    // 已学习技能
+    // 已学习技能（带开关）
     const learnedHtml = skillData.learned.length > 0 ? `
         <div class="skills-section">
             <h3>已学习技能 (${skillData.learned.length})</h3>
-            ${skillData.learned.map(skill => `
+            ${skillData.learned.map(skill => {
+                const isDisabled = disabledSkills.includes(skill.skill_id);
+                const isActive = skill.info?.type === 'active';
+                return `
                 <div class="skill-item learned">
                     <div class="skill-info">
                         <div class="skill-name">✓ ${skill.info?.name || skill.skill_id}</div>
                         <div class="skill-desc">${skill.info?.description || ''}</div>
                         <div class="skill-level">等级: ${skill.level}/3 | 熟练度: ${skill.proficiency}/1000</div>
                     </div>
+                    ${isActive ? `
+                        <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+                            <input type="checkbox" ${isDisabled ? '' : 'checked'} onchange="toggleSkill('${skill.skill_id}', this.checked)">
+                            <span style="font-size:12px;">${isDisabled ? '已禁用' : '战斗中使用'}</span>
+                        </label>
+                    ` : '<span style="font-size:11px;color:#888;">被动</span>'}
                 </div>
-            `).join('')}
+            `;}).join('')}
         </div>
     ` : '';
     
@@ -787,6 +828,16 @@ async function openSkills() {
 function learnSkill(skillId) {
     ws.send(JSON.stringify({ type: 'learn_skill', skill_id: skillId }));
     setTimeout(() => openSkills(), 500);
+}
+
+function toggleSkill(skillId, enabled) {
+    ws.send(JSON.stringify({ type: 'toggle_skill', skill_id: skillId, enabled }));
+    if (!window.disabledSkills) window.disabledSkills = [];
+    if (enabled) {
+        window.disabledSkills = window.disabledSkills.filter(s => s !== skillId);
+    } else if (!window.disabledSkills.includes(skillId)) {
+        window.disabledSkills.push(skillId);
+    }
 }
 
 // 回城

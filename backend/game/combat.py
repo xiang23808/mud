@@ -13,6 +13,7 @@ class CombatResult:
     player_died: bool
     skills_used: List[str]  # 记录使用的技能ID
     passive_skills: List[str] = field(default_factory=list)  # 被动技能ID列表
+    summon_died: bool = False  # 召唤物是否死亡
 
 class CombatEngine:
     """战斗引擎 - 一次性计算完整战斗"""
@@ -54,8 +55,55 @@ class CombatEngine:
     QUALITY_DROP_BONUS = {"white": 1.0, "green": 1.5, "blue": 2.0, "purple": 3.0, "orange": 5.0}
     
     @staticmethod
-    def pve_combat(player: dict, monsters: list, skills: List[dict] = None, drop_groups: List[str] = None, data_loader=None, inventory: List[dict] = None) -> CombatResult:
-        """PVE战斗 - 支持多怪物"""
+    def calculate_skill_power(player: dict, skill: dict) -> int:
+        """根据职业计算技能威力：战士用攻击，法师道士用魔法"""
+        char_class = player.get("char_class", "warrior")
+        skill_level = skill.get("level", 1)
+        level_mult = 1 + (skill_level - 1) * 0.5  # 每级+50%
+        
+        if char_class == "warrior":
+            base = (player.get("attack_min", 10) + player.get("attack_max", 10)) // 2
+        else:  # mage, taoist
+            base = (player.get("magic_min", 10) + player.get("magic_max", 10)) // 2
+        
+        return int(base * level_mult)
+    
+    @staticmethod
+    def calculate_heal_amount(player: dict, skill: dict) -> int:
+        """计算治愈量：按魔法和等级计算"""
+        skill_level = skill.get("level", 1)
+        magic = (player.get("magic_min", 0) + player.get("magic_max", 0)) // 2
+        base_heal = skill.get("effect", {}).get("heal_hp", 50)
+        # 治愈量 = 基础值 + 魔法*0.5 + 等级加成
+        return int((base_heal + magic * 0.5) * (1 + (skill_level - 1) * 0.3))
+    
+    @staticmethod
+    def create_summon(player: dict, skill: dict) -> dict:
+        """创建召唤物：属性根据魔法和等级计算"""
+        skill_level = skill.get("level", 1)
+        magic = (player.get("magic_min", 0) + player.get("magic_max", 0)) // 2
+        summon_type = skill.get("effect", {}).get("summon", "skeleton")
+        
+        # 基础属性
+        base_hp = 100 if summon_type == "skeleton" else 200
+        base_atk = 15 if summon_type == "skeleton" else 30
+        base_def = 5 if summon_type == "skeleton" else 15
+        
+        # 根据魔法和等级计算
+        mult = 1 + magic * 0.02 + (skill_level - 1) * 0.3
+        return {
+            "name": "骷髅战士" if summon_type == "skeleton" else "神兽",
+            "type": summon_type,
+            "hp": int(base_hp * mult),
+            "max_hp": int(base_hp * mult),
+            "attack": int(base_atk * mult),
+            "defense": int(base_def * mult),
+            "alive": True
+        }
+    
+    @staticmethod
+    def pve_combat(player: dict, monsters: list, skills: List[dict] = None, drop_groups: List[str] = None, data_loader=None, inventory: List[dict] = None, summon: dict = None, disabled_skills: List[str] = None) -> CombatResult:
+        """PVE战斗 - 支持多怪物、召唤物、技能开关"""
         # 兼容单怪物传入
         if isinstance(monsters, dict):
             monsters = [monsters]
@@ -66,6 +114,8 @@ class CombatEngine:
         player_max_hp = player.get("max_hp", 100)
         player_max_mp = player.get("max_mp", 50)
         player_name = player.get("name", "玩家")
+        char_class = player.get("char_class", "warrior")
+        disabled_skills = disabled_skills or []
         
         # 初始化怪物状态，应用品质加成
         monster_states = []
@@ -101,11 +151,13 @@ class CombatEngine:
         skills_used = []
         passive_skills = []
         
-        # 分离主动和被动技能
+        # 分离主动和被动技能，过滤禁用的技能
         active_skills = []
         for skill in (skills or []):
+            skill_id = skill.get("skill_id", skill.get("id", ""))
+            if skill_id in disabled_skills:
+                continue  # 跳过禁用的技能
             if skill.get("type") == "passive":
-                skill_id = skill.get("skill_id", skill.get("id", ""))
                 if skill_id:
                     passive_skills.append(skill_id)
             else:
@@ -113,6 +165,13 @@ class CombatEngine:
         
         available_skills = sorted(active_skills, key=lambda s: s.get("level_req", 1), reverse=True)
         skill_cooldowns = {}
+        
+        # 召唤物状态
+        summon_state = None
+        summon_died = False
+        if summon and summon.get("alive"):
+            summon_state = summon.copy()
+            logs.append(f"🐾 {summon_state['name']} 参战 (HP:{summon_state['hp']})")
         
         # 获取背包中的恢复物品
         hp_potions = []
@@ -170,10 +229,25 @@ class CombatEngine:
                     if skill.get("mp_cost", 0) <= player_mp and s_name not in skill_cooldowns:
                         mp_cost = skill.get("mp_cost", 0)
                         effect = skill.get("effect", {})
+                        skill_level = skill.get("level", 1)
+                        
+                        # 召唤技能特殊处理
+                        if effect.get("summon"):
+                            if summon_state and summon_state.get("alive"):
+                                continue  # 已有召唤物，跳过
+                            player_mp -= mp_cost
+                            summon_state = CombatEngine.create_summon(player, skill)
+                            skill_cooldowns[s_name] = skill.get("cooldown", 1)
+                            logs.append(f"召唤: {summon_state['name']} (HP:{summon_state['hp']} ATK:{summon_state['attack']})")
+                            skill_id = skill.get("skill_id", skill.get("id", ""))
+                            if skill_id and skill_id not in skills_used:
+                                skills_used.append(skill_id)
+                            used_skill = True
+                            break
+                        
                         player_mp -= mp_cost
                         used_skill = True
                         skill_name = s_name
-                        skill_level = skill.get("level", 1)
                         cooldown = skill.get("cooldown", 1)
                         is_aoe = effect.get("aoe", False)
                         
@@ -185,40 +259,52 @@ class CombatEngine:
                         
                         logs.append(f"使用技能: {skill_name} Lv.{skill_level} (消耗{mp_cost}MP)")
                         
-                        # 技能效果随等级增强
-                        level_mult = 1 + (skill_level - 1) * 0.5  # 每级+50%效果
+                        # 根据职业计算技能威力
+                        skill_power = CombatEngine.calculate_skill_power(player, skill)
                         
                         if effect.get("magic_damage"):
-                            extra_damage = int(effect["magic_damage"] * level_mult)
+                            extra_damage = int(effect["magic_damage"] * (1 + skill_power * 0.02))
                         elif effect.get("damage_multiplier"):
-                            base = CombatEngine.calculate_damage(player, alive_targets[0])
-                            extra_damage = int(base * (effect["damage_multiplier"] * level_mult - 1))
+                            is_magic = char_class != "warrior"
+                            base = CombatEngine.calculate_damage(player, alive_targets[0], is_magic)
+                            extra_damage = int(base * (effect["damage_multiplier"] - 1) * (1 + skill_level * 0.3))
                         
                         if effect.get("ignore_defense"):
-                            extra_damage += int(alive_targets[0].get("defense", 0) * effect["ignore_defense"] * level_mult)
+                            extra_damage += int(alive_targets[0].get("defense", 0) * effect["ignore_defense"] * (1 + skill_level * 0.2))
                         
                         if effect.get("fire_damage"):
-                            extra_damage += int(effect["fire_damage"] * level_mult)
+                            extra_damage += int(effect["fire_damage"] * (1 + skill_power * 0.02))
                         
+                        # 治愈技能按魔法计算
                         if effect.get("heal_hp"):
-                            heal = int(effect["heal_hp"] * level_mult)
+                            heal = CombatEngine.calculate_heal_amount(player, skill)
                             player_hp = min(player_max_hp, player_hp + heal)
                             logs.append(f"恢复 {heal} 点生命值")
                         
                         break
             
+            # 召唤物攻击
+            if summon_state and summon_state.get("alive") and alive_targets:
+                target = alive_targets[0]
+                s_damage = CombatEngine.calculate_damage(summon_state, target)
+                target["hp"] -= s_damage
+                logs.append(f"{summon_state['name']}对{target['name']}造成 {s_damage} 点伤害")
+                if target["hp"] <= 0:
+                    logs.append(f"💀 {target['name']} 被击败!")
+            
             # AOE技能攻击多个目标（最多3个）
+            is_magic = char_class != "warrior"
             if is_aoe:
                 targets = alive_targets[:3]
                 for t in targets:
-                    damage = CombatEngine.calculate_damage(player, t) + extra_damage
+                    damage = CombatEngine.calculate_damage(player, t, is_magic) + extra_damage
                     t["hp"] -= damage
                     logs.append(f"你对{t['name']}造成 {damage} 点技能伤害")
                     if t["hp"] <= 0:
                         logs.append(f"💀 {t['name']} 被击败!")
             else:
                 target = alive_targets[0]
-                damage = CombatEngine.calculate_damage(player, target) + extra_damage
+                damage = CombatEngine.calculate_damage(player, target, is_magic) + extra_damage
                 target["hp"] -= damage
                 if used_skill:
                     logs.append(f"你对{target['name']}造成 {damage} 点技能伤害")
@@ -227,14 +313,24 @@ class CombatEngine:
                 if target["hp"] <= 0:
                     logs.append(f"💀 {target['name']} 被击败!")
             
-            # 所有存活怪物攻击玩家
+            # 所有存活怪物攻击（优先攻击召唤物）
             for m in monster_states:
                 if m["hp"] > 0:
-                    damage = CombatEngine.calculate_damage(m, player)
-                    player_hp -= damage
-                    logs.append(f"{m['name']}对你造成 {damage} 点伤害")
-                    if player_hp <= 0:
-                        break
+                    # 50%几率攻击召唤物
+                    if summon_state and summon_state.get("alive") and random.random() < 0.5:
+                        damage = CombatEngine.calculate_damage(m, summon_state)
+                        summon_state["hp"] -= damage
+                        logs.append(f"{m['name']}对{summon_state['name']}造成 {damage} 点伤害")
+                        if summon_state["hp"] <= 0:
+                            summon_state["alive"] = False
+                            summon_died = True
+                            logs.append(f"💀 {summon_state['name']} 死亡!")
+                    else:
+                        damage = CombatEngine.calculate_damage(m, player)
+                        player_hp -= damage
+                        logs.append(f"{m['name']}对你造成 {damage} 点伤害")
+                        if player_hp <= 0:
+                            break
             
             # 发送所有怪物状态（包括死亡的，用于前端正确显示）
             monster_hp_info = "|".join([f"#{m['idx']}{m['name']}[{m['quality']}]:{max(0, m['hp'])}/{m['max_hp']}" for m in monster_states])
@@ -280,7 +376,8 @@ class CombatEngine:
             drops=drops,
             player_died=player_died,
             skills_used=skills_used,
-            passive_skills=passive_skills
+            passive_skills=passive_skills,
+            summon_died=summon_died
         )
     
     @staticmethod

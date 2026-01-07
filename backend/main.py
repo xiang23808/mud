@@ -269,6 +269,21 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
             elif msg_type == "get_map_state":
                 await manager.send(char_id, {"type": "map_state", "data": map_manager.get_state(char_id)})
             
+            elif msg_type == "toggle_skill":
+                skill_id = data.get("skill_id")
+                enabled = data.get("enabled", True)
+                if char_id not in GameEngine.disabled_skills:
+                    GameEngine.disabled_skills[char_id] = []
+                if enabled and skill_id in GameEngine.disabled_skills[char_id]:
+                    GameEngine.disabled_skills[char_id].remove(skill_id)
+                elif not enabled and skill_id not in GameEngine.disabled_skills[char_id]:
+                    GameEngine.disabled_skills[char_id].append(skill_id)
+                await manager.send(char_id, {"type": "skill_toggled", "data": {"skill_id": skill_id, "enabled": enabled}})
+            
+            elif msg_type == "get_disabled_skills":
+                disabled = GameEngine.disabled_skills.get(char_id, [])
+                await manager.send(char_id, {"type": "disabled_skills", "data": disabled})
+            
             elif msg_type == "chat":
                 await manager.broadcast({"type": "chat", "char_id": char_id, "name": char.name, "message": data.get("message", "")})
             

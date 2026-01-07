@@ -12,6 +12,10 @@ class GameEngine:
     
     # 战斗锁 {char_id: True}
     combat_locks: Dict[int, bool] = {}
+    # 召唤物状态 {char_id: summon_dict}
+    summons: Dict[int, dict] = {}
+    # 禁用技能 {char_id: [skill_id, ...]}
+    disabled_skills: Dict[int, list] = {}
     
     @classmethod
     async def enter_game(cls, char_id: int, db: AsyncSession) -> dict:
@@ -119,7 +123,17 @@ class GameEngine:
                 monsters.append(extra_monster)
             
             player_stats = await cls._get_combat_stats(char, db)
-            result = CombatEngine.pve_combat(player_stats, monsters, all_skills, [], DataLoader, inventory)
+            player_stats["char_class"] = char.char_class.value
+            
+            # 获取召唤物和禁用技能
+            summon = cls.summons.get(char_id)
+            disabled = cls.disabled_skills.get(char_id, [])
+            
+            result = CombatEngine.pve_combat(player_stats, monsters, all_skills, [], DataLoader, inventory, summon, disabled)
+            
+            # 更新召唤物状态
+            if result.summon_died:
+                cls.summons.pop(char_id, None)
             
             # 消耗使用的药水
             for item in inventory:

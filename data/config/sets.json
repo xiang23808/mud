@@ -1,0 +1,112 @@
+{
+  "wildheart": {
+    "name": "野性套装",
+    "class": ["warrior", "taoist"],
+    "level": 15,
+    "pieces": ["wildheart_helm", "wildheart_armor", "wildheart_belt", "wildheart_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 30, "defense": 3},
+      "4": {"hp_bonus": 60, "defense": 8, "effects": {"hit_rate": 3}}
+    }
+  },
+  "magister": {
+    "name": "魔导套装",
+    "class": ["mage"],
+    "level": 15,
+    "pieces": ["magister_helm", "magister_armor", "magister_belt", "magister_boots"],
+    "bonuses": {
+      "2": {"mp_bonus": 50, "magic_defense": 4},
+      "4": {"mp_bonus": 100, "magic_defense": 10, "effects": {"crit_rate": 3}}
+    }
+  },
+  "molten": {
+    "name": "熔火套装",
+    "class": ["warrior"],
+    "level": 30,
+    "pieces": ["molten_helm", "molten_armor", "molten_belt", "molten_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 80, "defense": 8},
+      "4": {"hp_bonus": 160, "defense": 18, "effects": {"reflect": 5, "block_rate": 5}}
+    }
+  },
+  "arcanist": {
+    "name": "奥术套装",
+    "class": ["mage"],
+    "level": 30,
+    "pieces": ["arcanist_helm", "arcanist_armor", "arcanist_belt", "arcanist_boots"],
+    "bonuses": {
+      "2": {"mp_bonus": 100, "magic_defense": 10},
+      "4": {"mp_bonus": 200, "magic_defense": 22, "effects": {"crit_rate": 5, "crit_damage": 15}}
+    }
+  },
+  "cenarion": {
+    "name": "塞纳里奥套装",
+    "class": ["taoist"],
+    "level": 30,
+    "pieces": ["cenarion_helm", "cenarion_armor", "cenarion_belt", "cenarion_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 50, "mp_bonus": 45, "defense": 5},
+      "4": {"hp_bonus": 100, "mp_bonus": 90, "effects": {"lifesteal": 3, "hp_on_hit": 5}}
+    }
+  },
+  "dragon": {
+    "name": "龙鳞套装",
+    "class": ["warrior"],
+    "level": 45,
+    "pieces": ["dragon_helm", "dragon_armor", "dragon_belt", "dragon_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 150, "defense": 15},
+      "4": {"hp_bonus": 300, "defense": 35, "effects": {"crush": 8, "block_rate": 8, "block_power": 20}}
+    }
+  },
+  "nether": {
+    "name": "灵风套装",
+    "class": ["mage"],
+    "level": 45,
+    "pieces": ["nether_helm", "nether_armor", "nether_belt", "nether_boots"],
+    "bonuses": {
+      "2": {"mp_bonus": 180, "magic_defense": 18},
+      "4": {"mp_bonus": 360, "magic_defense": 40, "effects": {"crit_rate": 8, "ignore_magic_def": 10}}
+    }
+  },
+  "earth": {
+    "name": "碎地套装",
+    "class": ["taoist"],
+    "level": 45,
+    "pieces": ["earth_helm", "earth_armor", "earth_belt", "earth_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 100, "mp_bonus": 85, "defense": 10},
+      "4": {"hp_bonus": 200, "mp_bonus": 170, "effects": {"lifesteal": 5, "mp_on_hit": 8, "poison": 3}}
+    }
+  },
+  "icecrown": {
+    "name": "冰冠套装",
+    "class": ["warrior"],
+    "level": 60,
+    "pieces": ["ice_helm", "ice_armor", "ice_belt", "ice_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 280, "defense": 30},
+      "4": {"hp_bonus": 560, "defense": 65, "effects": {"crush": 12, "reflect": 10, "stun_rate": 8}}
+    }
+  },
+  "shadowfrost": {
+    "name": "暗影套装",
+    "class": ["mage"],
+    "level": 60,
+    "pieces": ["shadow_helm", "shadow_armor", "shadow_belt", "shadow_boots"],
+    "bonuses": {
+      "2": {"mp_bonus": 320, "magic_defense": 35},
+      "4": {"mp_bonus": 640, "magic_defense": 75, "effects": {"crit_rate": 12, "crit_damage": 30, "double_attack": 5}}
+    }
+  },
+  "lichking": {
+    "name": "巫妖套装",
+    "class": ["taoist"],
+    "level": 60,
+    "pieces": ["lich_helm", "lich_armor", "lich_belt", "lich_boots"],
+    "bonuses": {
+      "2": {"hp_bonus": 200, "mp_bonus": 170, "defense": 20},
+      "4": {"hp_bonus": 400, "mp_bonus": 340, "effects": {"lifesteal": 8, "poison": 5, "damage_reduce": 8}}
+    }
+  }
+}

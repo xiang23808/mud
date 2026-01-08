@@ -19,7 +19,10 @@
     "attack_min": 8,
     "attack_max": 16,
     "buy_price": 500,
-    "recycle_gold": 50
+    "recycle_gold": 50,
+    "effects": {
+      "crit_rate": 0.02
+    }
   },
   "steel_sword": {
     "name": "钢剑",
@@ -30,7 +33,11 @@
     "attack_min": 15,
     "attack_max": 29,
     "buy_price": 2000,
-    "recycle_gold": 200
+    "recycle_gold": 200,
+    "effects": {
+      "crit_rate": 0.03,
+      "hit_rate": 0.02
+    }
   },
   "dragon_sword": {
     "name": "龙纹剑",
@@ -42,7 +49,12 @@
     "attack_max": 45,
     "buy_price": 0,
     "recycle_yuanbao": 20,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crit_rate": 0.05,
+      "double_attack": 0.08,
+      "extra_phys": 5
+    }
   },
   "judgement": {
     "name": "裁决之杖",
@@ -54,7 +66,13 @@
     "attack_max": 65,
     "buy_price": 0,
     "recycle_yuanbao": 50,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crit_rate": 0.08,
+      "crush_rate": 0.1,
+      "ignore_defense": 0.1,
+      "stun_rate": 0.05
+    }
   },
   "bone_king_sword": {
     "name": "骨王之剑",
@@ -66,7 +84,13 @@
     "attack_max": 60,
     "buy_price": 0,
     "recycle_yuanbao": 30,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.05,
+      "crit_rate": 0.06,
+      "poison_damage": 8,
+      "poison_rounds": 3
+    }
   },
   "wooden_staff": {
     "name": "木杖",
@@ -90,7 +114,11 @@
     "magic_max": 12,
     "mp_bonus": 30,
     "buy_price": 800,
-    "recycle_gold": 80
+    "recycle_gold": 80,
+    "effects": {
+      "crit_rate": 0.02,
+      "mp_on_hit": 2
+    }
   },
   "bone_staff": {
     "name": "骨玉权杖",
@@ -103,7 +131,12 @@
     "mp_bonus": 60,
     "buy_price": 0,
     "recycle_yuanbao": 15,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crit_rate": 0.05,
+      "extra_magic": 8,
+      "ignore_magic_def": 0.08
+    }
   },
   "dragon_staff": {
     "name": "龙骨权杖",
@@ -116,7 +149,13 @@
     "mp_bonus": 100,
     "buy_price": 0,
     "recycle_yuanbao": 40,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crit_rate": 0.08,
+      "splash_rate": 0.15,
+      "extra_magic": 15,
+      "mp_on_hit": 5
+    }
   },
   "wooden_wand": {
     "name": "木制魔杖",
@@ -144,7 +183,11 @@
     "magic_max": 10,
     "mp_bonus": 25,
     "buy_price": 1000,
-    "recycle_gold": 100
+    "recycle_gold": 100,
+    "effects": {
+      "hp_on_hit": 3,
+      "crit_rate": 0.02
+    }
   },
   "blood_wand": {
     "name": "血饮",
@@ -159,7 +202,12 @@
     "mp_bonus": 50,
     "buy_price": 0,
     "recycle_yuanbao": 18,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.08,
+      "hp_on_hit": 5,
+      "crit_rate": 0.04
+    }
   },
   "dragon_wand": {
     "name": "龙牙",
@@ -174,7 +222,13 @@
     "mp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 35,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.1,
+      "poison_damage": 12,
+      "poison_rounds": 3,
+      "crit_rate": 0.06
+    }
   },
   "butcher_cleaver": {
     "name": "屠夫切肉刀",
@@ -187,7 +241,13 @@
     "hp_bonus": 50,
     "buy_price": 0,
     "recycle_yuanbao": 55,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crush_rate": 0.15,
+      "lifesteal": 0.1,
+      "crit_rate": 0.1,
+      "stun_rate": 0.08
+    }
   },
   "raven_bow": {
     "name": "血鸟之弓",
@@ -202,7 +262,12 @@
     "mp_bonus": 40,
     "buy_price": 0,
     "recycle_yuanbao": 28,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "double_attack": 0.12,
+      "crit_rate": 0.08,
+      "hit_rate": 0.05
+    }
   },
   "malchezaar_blade": {
     "name": "玛克扎尔之刃",
@@ -215,7 +280,14 @@
     "hp_bonus": 100,
     "buy_price": 0,
     "recycle_yuanbao": 80,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crush_rate": 0.12,
+      "ignore_defense": 0.15,
+      "crit_rate": 0.12,
+      "double_attack": 0.1,
+      "extra_phys": 20
+    }
   },
   "sulfuras": {
     "name": "逐风者·炎魔之手",
@@ -228,7 +300,14 @@
     "hp_bonus": 150,
     "buy_price": 0,
     "recycle_yuanbao": 120,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crush_rate": 0.18,
+      "splash_rate": 0.25,
+      "extra_phys": 30,
+      "crit_rate": 0.15,
+      "stun_rate": 0.1
+    }
   },
   "molten_destroyer": {
     "name": "熔火毁灭者",
@@ -241,7 +320,13 @@
     "hp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 90,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crush_rate": 0.15,
+      "extra_phys": 25,
+      "crit_rate": 0.1,
+      "ignore_defense": 0.12
+    }
   },
   "netherbane": {
     "name": "虚空克星",
@@ -255,7 +340,13 @@
     "defense_max": 20,
     "buy_price": 0,
     "recycle_yuanbao": 75,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "ignore_defense": 0.2,
+      "ignore_magic_def": 0.15,
+      "crit_rate": 0.1,
+      "reflect": 0.05
+    }
   },
   "soul_harvest": {
     "name": "灵魂收割者",
@@ -268,7 +359,13 @@
     "mp_bonus": 120,
     "buy_price": 0,
     "recycle_yuanbao": 60,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.12,
+      "extra_magic": 20,
+      "crit_rate": 0.1,
+      "mp_on_hit": 8
+    }
   },
   "hunter_bow": {
     "name": "猎手之弓",
@@ -283,7 +380,11 @@
     "mp_bonus": 20,
     "buy_price": 0,
     "recycle_gold": 150,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "double_attack": 0.08,
+      "hit_rate": 0.03
+    }
   },
   "rogue_dagger": {
     "name": "游侠匕首",
@@ -295,7 +396,12 @@
     "attack_max": 26,
     "buy_price": 0,
     "recycle_gold": 200,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "double_attack": 0.15,
+      "crit_rate": 0.08,
+      "dodge_rate": 0.03
+    }
   },
   "shaman_staff": {
     "name": "萨满法杖",
@@ -308,7 +414,13 @@
     "mp_bonus": 70,
     "buy_price": 0,
     "recycle_yuanbao": 22,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "poison_damage": 10,
+      "poison_rounds": 4,
+      "extra_magic": 10,
+      "crit_rate": 0.05
+    }
   },
   "bone_wand": {
     "name": "骨制魔杖",
@@ -321,7 +433,13 @@
     "mp_bonus": 90,
     "buy_price": 0,
     "recycle_yuanbao": 30,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "ignore_magic_def": 0.12,
+      "extra_magic": 12,
+      "crit_rate": 0.07,
+      "lifesteal": 0.05
+    }
   },
   "spellbinder_tome": {
     "name": "缚法者典籍",
@@ -334,7 +452,13 @@
     "mp_bonus": 150,
     "buy_price": 0,
     "recycle_yuanbao": 70,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "stun_rate": 0.12,
+      "extra_magic": 25,
+      "crit_rate": 0.12,
+      "splash_rate": 0.2
+    }
   },
   "ashkandi": {
     "name": "灰烬使者",
@@ -349,7 +473,15 @@
     "defense_max": 25,
     "buy_price": 0,
     "recycle_yuanbao": 200,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crush_rate": 0.2,
+      "double_attack": 0.15,
+      "lifesteal": 0.15,
+      "crit_rate": 0.18,
+      "extra_phys": 40,
+      "stun_rate": 0.12
+    }
   },
   "thunderfury": {
     "name": "雷霆之怒",
@@ -363,7 +495,14 @@
     "mp_bonus": 50,
     "buy_price": 0,
     "recycle_yuanbao": 180,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "splash_rate": 0.3,
+      "stun_rate": 0.15,
+      "crit_rate": 0.15,
+      "extra_phys": 35,
+      "ignore_defense": 0.15
+    }
   },
   "staff_of_dominance": {
     "name": "统御法杖",
@@ -376,7 +515,14 @@
     "mp_bonus": 250,
     "buy_price": 0,
     "recycle_yuanbao": 150,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "splash_rate": 0.25,
+      "extra_magic": 35,
+      "crit_rate": 0.15,
+      "ignore_magic_def": 0.18,
+      "mp_on_hit": 12
+    }
   },
   "benediction": {
     "name": "救赎",
@@ -392,6 +538,14 @@
     "hp_bonus": 100,
     "buy_price": 0,
     "recycle_yuanbao": 140,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.15,
+      "hp_on_hit": 15,
+      "mp_on_hit": 8,
+      "crit_rate": 0.12,
+      "poison_damage": 20,
+      "poison_rounds": 4
+    }
   }
 }

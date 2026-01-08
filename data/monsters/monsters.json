@@ -6,6 +6,7 @@
     "hp": 20,
     "attack": 2,
     "defense": 0,
+    "damage_type": "physical",
     "exp": 8,
     "gold": 3,
     "drops": [
@@ -22,6 +23,7 @@
     "hp": 35,
     "attack": 4,
     "defense": 1,
+    "damage_type": "physical",
     "exp": 15,
     "gold": 6,
     "drops": [
@@ -41,6 +43,7 @@
     "hp": 60,
     "attack": 8,
     "defense": 2,
+    "damage_type": "physical",
     "exp": 30,
     "gold": 12,
     "drops": [
@@ -61,6 +64,7 @@
     "hp": 90,
     "attack": 12,
     "defense": 3,
+    "damage_type": "physical",
     "exp": 50,
     "gold": 18,
     "drops": [
@@ -80,6 +84,7 @@
     "hp": 150,
     "attack": 18,
     "defense": 5,
+    "damage_type": "physical",
     "exp": 80,
     "gold": 25,
     "drops": [
@@ -101,6 +106,7 @@
     "hp": 250,
     "attack": 28,
     "defense": 10,
+    "damage_type": "physical",
     "exp": 150,
     "gold": 45,
     "drops": [
@@ -122,6 +128,7 @@
     "hp": 200,
     "attack": 35,
     "defense": 6,
+    "damage_type": "magic",
     "exp": 180,
     "gold": 55,
     "drops": [
@@ -140,6 +147,7 @@
     "hp": 450,
     "attack": 50,
     "defense": 18,
+    "damage_type": "physical",
     "exp": 350,
     "gold": 100,
     "drops": [
@@ -159,6 +167,7 @@
     "hp": 3500,
     "attack": 85,
     "defense": 30,
+    "damage_type": "physical",
     "exp": 3500,
     "gold": 800,
     "is_boss": true,
@@ -174,7 +183,11 @@
       {"item": "bone_staff", "rate": "1/60"},
       {"item": "blood_wand", "rate": "1/70"},
       {"item": "bone_bracelet", "rate": "1/25"},
-      {"item": "shadow_armor", "rate": "1/100"}
+      {"item": "shadow_armor", "rate": "1/100"},
+      {"item": "wildheart_helm", "rate": "1/80"},
+      {"item": "wildheart_armor", "rate": "1/120"},
+      {"item": "magister_helm", "rate": "1/80"},
+      {"item": "magister_armor", "rate": "1/120"}
     ]
   },
   "wild_boar": {
@@ -183,6 +196,7 @@
     "hp": 180,
     "attack": 22,
     "defense": 8,
+    "damage_type": "physical",
     "exp": 100,
     "gold": 30,
     "drops": [
@@ -200,6 +214,7 @@
     "hp": 280,
     "attack": 32,
     "defense": 14,
+    "damage_type": "physical",
     "exp": 180,
     "gold": 50,
     "drops": [
@@ -218,6 +233,7 @@
     "hp": 400,
     "attack": 45,
     "defense": 20,
+    "damage_type": "physical",
     "exp": 280,
     "gold": 80,
     "drops": [
@@ -236,6 +252,7 @@
     "hp": 1000,
     "attack": 65,
     "defense": 28,
+    "damage_type": "physical",
     "exp": 600,
     "gold": 180,
     "drops": [
@@ -253,6 +270,7 @@
     "hp": 3000,
     "attack": 95,
     "defense": 35,
+    "damage_type": "physical",
     "exp": 3000,
     "gold": 750,
     "is_boss": true,
@@ -274,6 +292,7 @@
     "hp": 220,
     "attack": 35,
     "defense": 12,
+    "damage_type": "physical",
     "exp": 160,
     "gold": 45,
     "drops": [
@@ -292,6 +311,7 @@
     "hp": 350,
     "attack": 48,
     "defense": 18,
+    "damage_type": "physical",
     "exp": 250,
     "gold": 70,
     "drops": [
@@ -310,6 +330,7 @@
     "hp": 550,
     "attack": 65,
     "defense": 25,
+    "damage_type": "physical",
     "exp": 400,
     "gold": 120,
     "drops": [
@@ -328,6 +349,7 @@
     "hp": 280,
     "attack": 42,
     "defense": 14,
+    "damage_type": "physical",
     "exp": 200,
     "gold": 55,
     "drops": [
@@ -345,6 +367,7 @@
     "hp": 420,
     "attack": 58,
     "defense": 22,
+    "damage_type": "physical",
     "exp": 320,
     "gold": 90,
     "drops": [
@@ -363,6 +386,7 @@
     "hp": 3200,
     "attack": 100,
     "defense": 38,
+    "damage_type": "physical",
     "exp": 3200,
     "gold": 800,
     "is_boss": true,
@@ -376,7 +400,14 @@
       {"item": "death_necklace", "rate": "1/35"},
       {"item": "bone_staff", "rate": "1/50"},
       {"item": "hp_potion_large", "rate": "1/3"},
-      {"item": "stab_sword", "rate": "1/30"}
+      {"item": "stab_sword", "rate": "1/30"},
+      {"item": "wildheart_belt", "rate": "1/60"},
+      {"item": "wildheart_boots", "rate": "1/60"},
+      {"item": "magister_belt", "rate": "1/60"},
+      {"item": "magister_boots", "rate": "1/60"},
+      {"item": "molten_helm", "rate": "1/150"},
+      {"item": "arcanist_helm", "rate": "1/150"},
+      {"item": "cenarion_helm", "rate": "1/150"}
     ]
   },
   "woma_guard": {
@@ -385,6 +416,7 @@
     "hp": 400,
     "attack": 55,
     "defense": 20,
+    "damage_type": "physical",
     "exp": 300,
     "gold": 80,
     "drops": [
@@ -402,6 +434,7 @@
     "hp": 550,
     "attack": 70,
     "defense": 28,
+    "damage_type": "physical",
     "exp": 420,
     "gold": 110,
     "drops": [
@@ -419,6 +452,7 @@
     "hp": 450,
     "attack": 85,
     "defense": 18,
+    "damage_type": "magic",
     "exp": 480,
     "gold": 130,
     "drops": [
@@ -436,6 +470,7 @@
     "hp": 800,
     "attack": 110,
     "defense": 38,
+    "damage_type": "physical",
     "exp": 700,
     "gold": 200,
     "drops": [
@@ -454,6 +489,7 @@
     "hp": 8000,
     "attack": 160,
     "defense": 55,
+    "damage_type": "magic",
     "exp": 8000,
     "gold": 1500,
     "is_boss": true,
@@ -472,7 +508,13 @@
       {"item": "dragon_ring", "rate": "1/40"},
       {"item": "dragon_bracelet", "rate": "1/35"},
       {"item": "zuma_armor", "rate": "1/60"},
-      {"item": "dragon_staff", "rate": "1/70"}
+      {"item": "dragon_staff", "rate": "1/70"},
+      {"item": "molten_armor", "rate": "1/100"},
+      {"item": "molten_belt", "rate": "1/80"},
+      {"item": "arcanist_armor", "rate": "1/100"},
+      {"item": "arcanist_belt", "rate": "1/80"},
+      {"item": "cenarion_armor", "rate": "1/100"},
+      {"item": "cenarion_belt", "rate": "1/80"}
     ]
   },
   "zuma_guard": {
@@ -481,10 +523,10 @@
     "hp": 900,
     "attack": 105,
     "defense": 45,
+    "damage_type": "physical",
     "exp": 750,
     "gold": 200,
     "drops": [
-      {"item": "zuma_piece", "rate": "1/5"},
       {"item": "zuma_helmet", "rate": "1/100"},
       {"item": "dragon_bracelet", "rate": "1/150"},
       {"item": "zuma_armor", "rate": "1/200"},
@@ -499,10 +541,10 @@
     "hp": 850,
     "attack": 115,
     "defense": 40,
+    "damage_type": "physical",
     "exp": 800,
     "gold": 220,
     "drops": [
-      {"item": "zuma_piece", "rate": "1/4"},
       {"item": "silver_necklace", "rate": "1/60"},
       {"item": "dragon_wand", "rate": "1/200"},
       {"item": "hunter_bow", "rate": "1/100"},
@@ -517,10 +559,10 @@
     "hp": 1200,
     "attack": 130,
     "defense": 60,
+    "damage_type": "magic",
     "exp": 1000,
     "gold": 280,
     "drops": [
-      {"item": "zuma_piece", "rate": "1/3"},
       {"item": "zuma_armor", "rate": "1/80"},
       {"item": "holy_necklace", "rate": "1/150"},
       {"item": "zuma_helmet", "rate": "1/80"},
@@ -535,10 +577,10 @@
     "hp": 1500,
     "attack": 155,
     "defense": 75,
+    "damage_type": "physical",
     "exp": 1300,
     "gold": 350,
     "drops": [
-      {"item": "zuma_piece", "rate": "1/2"},
       {"item": "dragon_ring", "rate": "1/80"},
       {"item": "holy_armor", "rate": "1/120"},
       {"item": "judgement", "rate": "1/200"},
@@ -554,11 +596,12 @@
     "hp": 12000,
     "attack": 220,
     "defense": 85,
+    "damage_type": "magic",
     "exp": 12000,
     "gold": 2500,
     "is_boss": true,
     "drops": [
-      {"item": "zuma_piece", "rate": "1/1"},
+      {"item": "zuma_piece", "rate": "1/10"},
       {"item": "judgement", "rate": "1/50"},
       {"item": "holy_armor", "rate": "1/60"},
       {"item": "dragon_ring", "rate": "1/30"},
@@ -573,7 +616,13 @@
       {"item": "dragon_bracelet", "rate": "1/25"},
       {"item": "holy_necklace", "rate": "1/40"},
       {"item": "zuma_armor", "rate": "1/35"},
-      {"item": "arcane_robe", "rate": "1/80"}
+      {"item": "arcane_robe", "rate": "1/80"},
+      {"item": "dragon_helm", "rate": "1/120"},
+      {"item": "dragon_armor", "rate": "1/180"},
+      {"item": "nether_helm", "rate": "1/120"},
+      {"item": "nether_armor", "rate": "1/180"},
+      {"item": "earth_helm", "rate": "1/120"},
+      {"item": "earth_armor", "rate": "1/180"}
     ]
   },
   "demon_soldier": {
@@ -582,6 +631,7 @@
     "hp": 1000,
     "attack": 120,
     "defense": 50,
+    "damage_type": "physical",
     "exp": 900,
     "gold": 250,
     "drops": [
@@ -595,6 +645,7 @@
     "hp": 950,
     "attack": 135,
     "defense": 45,
+    "damage_type": "physical",
     "exp": 1000,
     "gold": 280,
     "drops": [
@@ -608,6 +659,7 @@
     "hp": 1300,
     "attack": 160,
     "defense": 60,
+    "damage_type": "physical",
     "exp": 1200,
     "gold": 350,
     "drops": [
@@ -621,6 +673,7 @@
     "hp": 1600,
     "attack": 185,
     "defense": 75,
+    "damage_type": "magic",
     "exp": 1500,
     "gold": 450,
     "drops": [
@@ -634,6 +687,7 @@
     "hp": 10000,
     "attack": 240,
     "defense": 90,
+    "damage_type": "magic",
     "exp": 10000,
     "gold": 2000,
     "is_boss": true,
@@ -649,6 +703,7 @@
     "hp": 1400,
     "attack": 165,
     "defense": 70,
+    "damage_type": "physical",
     "exp": 1300,
     "gold": 380,
     "drops": [
@@ -662,6 +717,7 @@
     "hp": 1700,
     "attack": 190,
     "defense": 85,
+    "damage_type": "physical",
     "exp": 1600,
     "gold": 450,
     "drops": [
@@ -675,6 +731,7 @@
     "hp": 1400,
     "attack": 210,
     "defense": 65,
+    "damage_type": "magic",
     "exp": 1800,
     "gold": 500,
     "drops": [
@@ -687,6 +744,7 @@
     "hp": 2200,
     "attack": 240,
     "defense": 100,
+    "damage_type": "physical",
     "exp": 2200,
     "gold": 600,
     "drops": [
@@ -700,6 +758,7 @@
     "hp": 18000,
     "attack": 300,
     "defense": 120,
+    "damage_type": "magic",
     "exp": 18000,
     "gold": 4000,
     "is_boss": true,
@@ -710,7 +769,13 @@
       {"item": "meteor", "rate": "1/40"},
       {"item": "hp_potion_large", "rate": "1/1"},
       {"item": "void_hood", "rate": "1/40"},
-      {"item": "holy_crown", "rate": "1/40"}
+      {"item": "holy_crown", "rate": "1/40"},
+      {"item": "ice_helm", "rate": "1/200"},
+      {"item": "ice_armor", "rate": "1/300"},
+      {"item": "shadow_helm", "rate": "1/200"},
+      {"item": "shadow_armor", "rate": "1/300"},
+      {"item": "lich_helm", "rate": "1/200"},
+      {"item": "lich_armor", "rate": "1/300"}
     ]
   },
   "fallen_one": {
@@ -719,6 +784,7 @@
     "hp": 160,
     "attack": 25,
     "defense": 8,
+    "damage_type": "physical",
     "exp": 120,
     "gold": 35,
     "drops": [
@@ -731,6 +797,7 @@
     "hp": 240,
     "attack": 38,
     "defense": 14,
+    "damage_type": "physical",
     "exp": 180,
     "gold": 50,
     "drops": [
@@ -744,6 +811,7 @@
     "hp": 320,
     "attack": 48,
     "defense": 18,
+    "damage_type": "physical",
     "exp": 250,
     "gold": 70,
     "drops": [
@@ -757,6 +825,7 @@
     "hp": 480,
     "attack": 62,
     "defense": 28,
+    "damage_type": "physical",
     "exp": 380,
     "gold": 100,
     "drops": [
@@ -769,6 +838,7 @@
     "hp": 620,
     "attack": 80,
     "defense": 35,
+    "damage_type": "magic",
     "exp": 500,
     "gold": 140,
     "drops": [
@@ -781,6 +851,7 @@
     "hp": 800,
     "attack": 95,
     "defense": 50,
+    "damage_type": "magic",
     "exp": 650,
     "gold": 180,
     "drops": [
@@ -793,6 +864,7 @@
     "hp": 200,
     "attack": 52,
     "defense": 10,
+    "damage_type": "physical",
     "exp": 200,
     "gold": 55,
     "drops": [
@@ -805,6 +877,7 @@
     "hp": 140,
     "attack": 32,
     "defense": 6,
+    "damage_type": "physical",
     "exp": 130,
     "gold": 38,
     "drops": [
@@ -817,6 +890,7 @@
     "hp": 400,
     "attack": 58,
     "defense": 22,
+    "damage_type": "physical",
     "exp": 320,
     "gold": 85,
     "drops": [
@@ -829,6 +903,7 @@
     "hp": 5000,
     "attack": 140,
     "defense": 50,
+    "damage_type": "physical",
     "exp": 5000,
     "gold": 1200,
     "is_boss": true,
@@ -844,6 +919,7 @@
     "hp": 380,
     "attack": 72,
     "defense": 18,
+    "damage_type": "physical",
     "exp": 380,
     "gold": 100,
     "drops": [
@@ -856,6 +932,7 @@
     "hp": 520,
     "attack": 88,
     "defense": 25,
+    "damage_type": "magic",
     "exp": 500,
     "gold": 140,
     "drops": [
@@ -868,6 +945,7 @@
     "hp": 450,
     "attack": 78,
     "defense": 24,
+    "damage_type": "physical",
     "exp": 450,
     "gold": 120,
     "drops": [
@@ -880,6 +958,7 @@
     "hp": 480,
     "attack": 105,
     "defense": 22,
+    "damage_type": "magic",
     "exp": 600,
     "gold": 160,
     "drops": [
@@ -892,6 +971,7 @@
     "hp": 600,
     "attack": 115,
     "defense": 32,
+    "damage_type": "magic",
     "exp": 700,
     "gold": 190,
     "drops": [
@@ -904,6 +984,7 @@
     "hp": 720,
     "attack": 125,
     "defense": 40,
+    "damage_type": "magic",
     "exp": 800,
     "gold": 220,
     "drops": [
@@ -916,6 +997,7 @@
     "hp": 600,
     "attack": 145,
     "defense": 30,
+    "damage_type": "magic",
     "exp": 900,
     "gold": 250,
     "drops": [
@@ -929,6 +1011,7 @@
     "hp": 800,
     "attack": 155,
     "defense": 48,
+    "damage_type": "magic",
     "exp": 1000,
     "gold": 280,
     "drops": [
@@ -941,6 +1024,7 @@
     "hp": 700,
     "attack": 140,
     "defense": 42,
+    "damage_type": "physical",
     "exp": 950,
     "gold": 260,
     "drops": [
@@ -953,6 +1037,7 @@
     "hp": 950,
     "attack": 160,
     "defense": 58,
+    "damage_type": "physical",
     "exp": 1100,
     "gold": 320,
     "drops": [
@@ -965,6 +1050,7 @@
     "hp": 1000,
     "attack": 170,
     "defense": 62,
+    "damage_type": "physical",
     "exp": 1200,
     "gold": 350,
     "drops": [
@@ -977,6 +1063,7 @@
     "hp": 1100,
     "attack": 180,
     "defense": 55,
+    "damage_type": "magic",
     "exp": 1300,
     "gold": 380,
     "drops": [
@@ -989,6 +1076,7 @@
     "hp": 12000,
     "attack": 260,
     "defense": 95,
+    "damage_type": "physical",
     "exp": 12000,
     "gold": 3000,
     "is_boss": true,
@@ -1004,6 +1092,7 @@
     "hp": 1200,
     "attack": 190,
     "defense": 68,
+    "damage_type": "physical",
     "exp": 1400,
     "gold": 400,
     "drops": [
@@ -1016,6 +1105,7 @@
     "hp": 900,
     "attack": 220,
     "defense": 50,
+    "damage_type": "magic",
     "exp": 1600,
     "gold": 450,
     "drops": [
@@ -1028,6 +1118,7 @@
     "hp": 1300,
     "attack": 230,
     "defense": 65,
+    "damage_type": "magic",
     "exp": 1800,
     "gold": 500,
     "drops": [
@@ -1040,6 +1131,7 @@
     "hp": 1400,
     "attack": 235,
     "defense": 70,
+    "damage_type": "magic",
     "exp": 2000,
     "gold": 560,
     "drops": [
@@ -1052,6 +1144,7 @@
     "hp": 1350,
     "attack": 265,
     "defense": 65,
+    "damage_type": "magic",
     "exp": 2300,
     "gold": 650,
     "drops": [
@@ -1065,6 +1158,7 @@
     "hp": 1800,
     "attack": 280,
     "defense": 80,
+    "damage_type": "magic",
     "exp": 2600,
     "gold": 720,
     "drops": [
@@ -1078,6 +1172,7 @@
     "hp": 20000,
     "attack": 340,
     "defense": 110,
+    "damage_type": "magic",
     "exp": 20000,
     "gold": 5000,
     "is_boss": true,
@@ -1094,6 +1189,7 @@
     "hp": 2200,
     "attack": 230,
     "defense": 95,
+    "damage_type": "physical",
     "exp": 2200,
     "gold": 620,
     "drops": [
@@ -1106,6 +1202,7 @@
     "hp": 3200,
     "attack": 350,
     "defense": 125,
+    "damage_type": "magic",
     "exp": 4000,
     "gold": 1100,
     "drops": [
@@ -1118,6 +1215,7 @@
     "hp": 30000,
     "attack": 400,
     "defense": 130,
+    "damage_type": "magic",
     "exp": 30000,
     "gold": 8000,
     "is_boss": true,
@@ -1134,6 +1232,7 @@
     "hp": 5500,
     "attack": 460,
     "defense": 160,
+    "damage_type": "magic",
     "exp": 6500,
     "gold": 2000,
     "drops": [
@@ -1146,6 +1245,7 @@
     "hp": 50000,
     "attack": 550,
     "defense": 180,
+    "damage_type": "magic",
     "exp": 50000,
     "gold": 15000,
     "is_boss": true,

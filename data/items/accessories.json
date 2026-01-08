@@ -21,7 +21,10 @@
     "defense_min": 0,
     "defense_max": 2,
     "buy_price": 300,
-    "recycle_gold": 30
+    "recycle_gold": 30,
+    "effects": {
+      "crit_rate": 0.01
+    }
   },
   "poison_ring": {
     "name": "毒蛇戒指",
@@ -35,7 +38,12 @@
     "defense_max": 3,
     "buy_price": 0,
     "recycle_gold": 150,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "poison_damage": 5,
+      "poison_rounds": 3,
+      "crit_rate": 0.03
+    }
   },
   "corpse_king_ring": {
     "name": "尸王戒指",
@@ -50,7 +58,12 @@
     "hp_bonus": 50,
     "buy_price": 0,
     "recycle_yuanbao": 25,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.05,
+      "crit_rate": 0.05,
+      "extra_phys": 5
+    }
   },
   "dragon_ring": {
     "name": "龙之戒指",
@@ -66,7 +79,13 @@
     "mp_bonus": 40,
     "buy_price": 0,
     "recycle_yuanbao": 45,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crit_rate": 0.08,
+      "double_attack": 0.05,
+      "extra_phys": 8,
+      "extra_magic": 8
+    }
   },
   "bronze_necklace": {
     "name": "青铜项链",
@@ -91,7 +110,10 @@
     "hp_bonus": 30,
     "mp_bonus": 15,
     "buy_price": 500,
-    "recycle_gold": 50
+    "recycle_gold": 50,
+    "effects": {
+      "damage_reduction": 0.02
+    }
   },
   "death_necklace": {
     "name": "死神项链",
@@ -107,7 +129,12 @@
     "attack_max": 7,
     "buy_price": 0,
     "recycle_yuanbao": 30,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.06,
+      "damage_reduction": 0.05,
+      "reflect": 0.05
+    }
   },
   "holy_necklace": {
     "name": "圣战项链",
@@ -125,7 +152,13 @@
     "defense_max": 7,
     "buy_price": 0,
     "recycle_yuanbao": 40,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.08,
+      "block_rate": 0.05,
+      "reflect": 0.06,
+      "crit_rate": 0.05
+    }
   },
   "blood_ring": {
     "name": "血色戒指",
@@ -138,7 +171,12 @@
     "hp_bonus": 40,
     "buy_price": 0,
     "recycle_yuanbao": 22,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.08,
+      "hp_on_hit": 5,
+      "crit_rate": 0.04
+    }
   },
   "prince_ring": {
     "name": "王子之戒",
@@ -154,7 +192,14 @@
     "mp_bonus": 60,
     "buy_price": 0,
     "recycle_yuanbao": 70,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "crit_rate": 0.12,
+      "double_attack": 0.1,
+      "extra_phys": 15,
+      "extra_magic": 15,
+      "ignore_defense": 0.08
+    }
   },
   "void_crystal": {
     "name": "虚空水晶",
@@ -169,7 +214,13 @@
     "mp_bonus": 150,
     "buy_price": 0,
     "recycle_yuanbao": 65,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 20,
+      "ignore_magic_def": 0.12,
+      "mp_on_hit": 10,
+      "crit_rate": 0.08
+    }
   },
   "ragnaros_essence": {
     "name": "拉格纳罗斯精华",
@@ -187,7 +238,14 @@
     "defense_max": 14,
     "buy_price": 0,
     "recycle_yuanbao": 100,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.12,
+      "reflect": 0.1,
+      "extra_phys": 20,
+      "extra_magic": 20,
+      "crit_rate": 0.1
+    }
   },
   "aran_pendant": {
     "name": "埃兰吊坠",
@@ -202,7 +260,13 @@
     "mp_bonus": 120,
     "buy_price": 0,
     "recycle_yuanbao": 55,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 15,
+      "splash_rate": 0.1,
+      "mp_on_hit": 8,
+      "crit_rate": 0.06
+    }
   },
   "bronze_bracelet": {
     "name": "青铜手镯",
@@ -227,7 +291,10 @@
     "magic_defense_max": 2,
     "hp_bonus": 15,
     "buy_price": 400,
-    "recycle_gold": 40
+    "recycle_gold": 40,
+    "effects": {
+      "block_rate": 0.02
+    }
   },
   "bone_bracelet": {
     "name": "骨手镯",
@@ -244,7 +311,12 @@
     "hp_bonus": 30,
     "buy_price": 0,
     "recycle_gold": 200,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "block_rate": 0.05,
+      "block_amount": 0.3,
+      "damage_reduction": 0.03
+    }
   },
   "dragon_bracelet": {
     "name": "龙之手镯",
@@ -262,7 +334,13 @@
     "mp_bonus": 30,
     "buy_price": 0,
     "recycle_yuanbao": 35,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "block_rate": 0.08,
+      "block_amount": 0.4,
+      "damage_reduction": 0.06,
+      "reflect": 0.05
+    }
   },
   "molten_bracelet": {
     "name": "熔火手镯",
@@ -279,7 +357,14 @@
     "hp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 60,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "block_rate": 0.1,
+      "block_amount": 0.45,
+      "damage_reduction": 0.08,
+      "reflect": 0.08,
+      "extra_phys": 10
+    }
   },
   "frost_ring": {
     "name": "冰霜戒指",
@@ -292,7 +377,12 @@
     "mp_bonus": 40,
     "buy_price": 0,
     "recycle_gold": 180,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "stun_rate": 0.05,
+      "extra_magic": 5,
+      "crit_rate": 0.04
+    }
   },
   "arcane_ring": {
     "name": "奥术戒指",
@@ -305,7 +395,13 @@
     "mp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 45,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 12,
+      "ignore_magic_def": 0.1,
+      "crit_rate": 0.08,
+      "mp_on_hit": 5
+    }
   },
   "soul_necklace": {
     "name": "灵魂项链",
@@ -323,6 +419,12 @@
     "magic_max": 6,
     "buy_price": 0,
     "recycle_yuanbao": 38,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "hp_on_hit": 8,
+      "mp_on_hit": 5,
+      "lifesteal": 0.08,
+      "damage_reduction": 0.06
+    }
   }
 }

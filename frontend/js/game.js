@@ -125,8 +125,8 @@ function handleMessage(msg) {
             break;
         case 'equipment':
             renderEquipment(msg.data);
-            // 同时更新角色属性面板，使用装备界面的综合属性
-            updateCharStatsFromEquipment(msg.data.total_stats);
+            // 同时更新角色属性面板，使用装备界面的综合属性和特效
+            updateCharStatsFromEquipment(msg.data.total_stats, msg.data.total_effects);
             break;
         case 'chat':
             const chatEl = $('chat-messages');
@@ -273,9 +273,14 @@ function updateCharStats() {
 }
 
 // 使用装备界面的综合属性更新角色属性面板
-function updateCharStatsFromEquipment(total_stats) {
+function updateCharStatsFromEquipment(total_stats, total_effects) {
     const el = $('char-stats-info');
     if (!el) return;
+    const effectsHtml = total_effects && Object.keys(total_effects).length > 0 ? `
+        <div style="margin-top:8px;padding-top:8px;border-top:1px solid #333;color:#ff0;font-size:11px;">
+            ${Object.entries(total_effects).map(([k,v]) => formatEffect(k,v)).join(' ')}
+        </div>
+    ` : '';
     el.innerHTML = `
         <div>等级: ${total_stats.level}</div>
         <div>HP: ${total_stats.hp}</div>
@@ -285,6 +290,7 @@ function updateCharStatsFromEquipment(total_stats) {
         <div>防御(AC): ${total_stats.defense}</div>
         <div>魔御(MAC): ${total_stats.magic_defense}</div>
         <div>幸运: ${total_stats.luck}</div>
+        ${effectsHtml}
     `;
     // 同步更新currentChar的max_hp/max_mp用于顶部面板显示
     if (currentChar) {
@@ -425,6 +431,48 @@ const QUALITY_COLORS = {
     white: '#fff', green: '#0f0', blue: '#00bfff', purple: '#a020f0', orange: '#ffa500'
 };
 
+// 特效名称映射
+const EFFECT_NAMES = {
+    double_attack: '双击', hit_rate: '命中', dodge_rate: '闪避', crush_rate: '压碎',
+    lifesteal: '吸血', reflect: '反弹', hp_on_hit: '击回HP', mp_on_hit: '击回MP',
+    block_rate: '格挡率', block_amount: '格挡量', extra_phys: '附物伤', extra_magic: '附魔伤',
+    damage_reduction: '减伤', stun_rate: '眩晕', splash_rate: '溅射', poison_damage: '毒伤',
+    poison_rounds: '毒回合', ignore_defense: '穿防', ignore_magic_def: '穿魔御',
+    crit_rate: '暴击率', crit_damage: '暴击伤'
+};
+
+// 格式化特效值
+function formatEffect(key, value) {
+    if (['hp_on_hit', 'mp_on_hit', 'extra_phys', 'extra_magic', 'poison_damage', 'poison_rounds'].includes(key)) {
+        return `${EFFECT_NAMES[key]}+${value}`;
+    }
+    return `${EFFECT_NAMES[key]}${Math.round(value * 100)}%`;
+}
+
+// 生成特效显示HTML
+function renderEffects(effects) {
+    if (!effects || Object.keys(effects).length === 0) return '';
+    return Object.entries(effects)
+        .filter(([k, v]) => v > 0 && EFFECT_NAMES[k])
+        .map(([k, v]) => `<span style="color:#ff0;font-size:10px;">${formatEffect(k, v)}</span>`)
+        .join(' ');
+}
+
+// 格式化套装加成
+function formatSetBonus(bonus) {
+    const parts = [];
+    if (bonus.hp_bonus) parts.push(`HP+${bonus.hp_bonus}`);
+    if (bonus.mp_bonus) parts.push(`MP+${bonus.mp_bonus}`);
+    if (bonus.defense) parts.push(`防御+${bonus.defense}`);
+    if (bonus.magic_defense) parts.push(`魔御+${bonus.magic_defense}`);
+    if (bonus.effects) {
+        for (const [k, v] of Object.entries(bonus.effects)) {
+            if (EFFECT_NAMES[k]) parts.push(formatEffect(k, v));
+        }
+    }
+    return parts.join(' ');
+}
+
 // 战斗显示
 function showCombat(data) {
     show('combat-modal');
@@ -546,9 +594,17 @@ function showCombat(data) {
         
         const div = document.createElement('div');
         if (line.includes('回合')) div.className = 'round';
-        else if (line.includes('伤害')) div.className = 'damage';
         else if (line.includes('胜利')) div.className = 'victory';
         else if (line.includes('失败')) div.className = 'defeat';
+        else if (line.includes('暴击') || line.includes('压碎')) div.style.color = '#ff6600';
+        else if (line.includes('吸血') || line.includes('击回')) div.style.color = '#00ff88';
+        else if (line.includes('眩晕')) div.style.color = '#ffff00';
+        else if (line.includes('中毒') || line.includes('毒伤')) div.style.color = '#aa00ff';
+        else if (line.includes('溅射')) div.style.color = '#ff00ff';
+        else if (line.includes('格挡') || line.includes('减伤') || line.includes('反弹')) div.style.color = '#00aaff';
+        else if (line.includes('闪避')) div.style.color = '#88ff88';
+        else if (line.includes('双次攻击')) div.style.color = '#ffaa00';
+        else if (line.includes('伤害')) div.className = 'damage';
         div.textContent = line;
         $('battle-info-area').appendChild(div);
         $('battle-info-area').scrollTop = $('battle-info-area').scrollHeight;
@@ -606,6 +662,7 @@ function renderInventory(data) {
         else if (info.magic_defense) attrs.push(`MAC:${info.magic_defense}`);
         if (info.hp_bonus) attrs.push(`HP+${info.hp_bonus}`);
         if (info.mp_bonus) attrs.push(`MP+${info.mp_bonus}`);
+        const effectsHtml = renderEffects(info.effects);
         const moveBtn = storage_type === 'inventory'
             ? `<button onclick="moveToWarehouse(${item.slot})">存仓</button>`
             : `<button onclick="moveToInventory(${item.slot})">取出</button>`;
@@ -615,6 +672,7 @@ function renderInventory(data) {
         <div class="inv-slot quality-${item.quality}">
             <div class="item-name">${info.name || item.item_id}</div>
             ${attrs.length ? `<div style="font-size:10px;color:#8f8;">${attrs.join(' ')}</div>` : ''}
+            ${effectsHtml ? `<div>${effectsHtml}</div>` : ''}
             <div>x${item.quantity}</div>
             <div class="item-actions">
                 ${isEquipable && storage_type === 'inventory' ? `<button onclick="equipItem(${item.slot},'${info.slot || ''}')">装备</button>` : ''}
@@ -691,7 +749,34 @@ function openEquipment() {
 }
 
 function renderEquipment(data) {
-    const { equipment, total_stats } = data;
+    const { equipment, total_stats, total_effects, set_bonuses } = data;
+    
+    // 综合特效显示
+    const effectsHtml = total_effects && Object.keys(total_effects).length > 0 ? `
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid #333;">
+            <div style="color:#ff0;margin-bottom:5px;">综合特效:</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                ${Object.entries(total_effects).map(([k,v]) => `<span style="color:#ff0;font-size:11px;">${formatEffect(k,v)}</span>`).join('')}
+            </div>
+        </div>
+    ` : '';
+    
+    // 套装加成显示
+    const setBonusHtml = set_bonuses && set_bonuses.length > 0 ? `
+        <div style="margin-top:10px;padding-top:10px;border-top:1px solid #333;">
+            <div style="color:#a020f0;margin-bottom:5px;">套装效果:</div>
+            ${set_bonuses.map(s => `
+                <div style="margin-bottom:8px;">
+                    <span style="color:#ffd700;">${s.name}</span> <span style="color:#0f0;">(${s.count}件)</span>
+                    ${Object.entries(s.bonuses).map(([threshold, bonus]) => `
+                        <div style="font-size:11px;color:#8f8;margin-left:10px;">
+                            ${threshold}件: ${formatSetBonus(bonus)}
+                        </div>
+                    `).join('')}
+                </div>
+            `).join('')}
+        </div>
+    ` : '';
     
     // 显示综合属性
     const statsHtml = `
@@ -707,6 +792,8 @@ function renderEquipment(data) {
                 <div>防御(AC): ${total_stats.defense}</div>
                 <div>魔御(MAC): ${total_stats.magic_defense}</div>
             </div>
+            ${effectsHtml}
+            ${setBonusHtml}
         </div>
     `;
     
@@ -729,6 +816,7 @@ function renderEquipment(data) {
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
             ${Object.entries(slotNames).map(([slot, name]) => {
                 const item = equipment[slot];
+                const itemEffects = item?.info?.effects ? renderEffects(item.info.effects) : '';
                 return `
                     <div class="equip-slot ${item ? 'quality-' + item.quality : ''}"
                          style="background: #0f3460; padding: 12px; border-radius: 5px; min-height: 80px;">
@@ -743,6 +831,7 @@ function renderEquipment(data) {
                                 ${item.info?.hp_bonus ? `HP+${item.info.hp_bonus} ` : ''}
                                 ${item.info?.mp_bonus ? `MP+${item.info.mp_bonus}` : ''}
                             </div>
+                            ${itemEffects ? `<div style="margin-top:3px;">${itemEffects}</div>` : ''}
                         ` : '<div style="color: #666;">未装备</div>'}
                     </div>
                 `;

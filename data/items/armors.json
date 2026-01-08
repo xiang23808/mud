@@ -23,7 +23,10 @@
     "magic_defense_min": 1,
     "magic_defense_max": 2,
     "buy_price": 300,
-    "recycle_gold": 30
+    "recycle_gold": 30,
+    "effects": {
+      "dodge_rate": 0.02
+    }
   },
   "iron_armor": {
     "name": "铁甲",
@@ -37,7 +40,10 @@
     "magic_defense_max": 4,
     "hp_bonus": 20,
     "buy_price": 1000,
-    "recycle_gold": 100
+    "recycle_gold": 100,
+    "effects": {
+      "damage_reduction": 0.02
+    }
   },
   "heavy_armor": {
     "name": "重甲",
@@ -51,7 +57,11 @@
     "magic_defense_max": 6,
     "hp_bonus": 50,
     "buy_price": 5000,
-    "recycle_gold": 500
+    "recycle_gold": 500,
+    "effects": {
+      "damage_reduction": 0.05,
+      "block_rate": 0.05
+    }
   },
   "holy_armor": {
     "name": "圣战铠甲",
@@ -66,7 +76,13 @@
     "hp_bonus": 100,
     "buy_price": 0,
     "recycle_yuanbao": 40,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.1,
+      "block_rate": 0.1,
+      "block_amount": 0.4,
+      "reflect": 0.05
+    }
   },
   "death_armor": {
     "name": "死神铠甲",
@@ -83,7 +99,12 @@
     "attack_max": 7,
     "buy_price": 0,
     "recycle_yuanbao": 30,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.05,
+      "damage_reduction": 0.08,
+      "reflect": 0.08
+    }
   },
   "magic_robe": {
     "name": "魔法袍",
@@ -97,7 +118,10 @@
     "magic_defense_max": 8,
     "mp_bonus": 30,
     "buy_price": 600,
-    "recycle_gold": 60
+    "recycle_gold": 60,
+    "effects": {
+      "mp_on_hit": 2
+    }
   },
   "霓裳羽衣": {
     "name": "霓裳羽衣",
@@ -112,7 +136,12 @@
     "mp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 20,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.08,
+      "damage_reduction": 0.05,
+      "mp_on_hit": 5
+    }
   },
   "天尊道袍": {
     "name": "天尊道袍",
@@ -128,7 +157,12 @@
     "hp_bonus": 30,
     "buy_price": 0,
     "recycle_yuanbao": 22,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "hp_on_hit": 5,
+      "damage_reduction": 0.05,
+      "dodge_rate": 0.05
+    }
   },
   "bone_helmet": {
     "name": "骨头盔",
@@ -143,7 +177,10 @@
     "hp_bonus": 20,
     "buy_price": 0,
     "recycle_gold": 200,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.03
+    }
   },
   "skeleton_helmet": {
     "name": "骷髅头盔",
@@ -158,7 +195,11 @@
     "hp_bonus": 40,
     "buy_price": 0,
     "recycle_yuanbao": 15,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.05,
+      "reflect": 0.03
+    }
   },
   "zuma_helmet": {
     "name": "祖玛头盔",
@@ -173,7 +214,12 @@
     "hp_bonus": 60,
     "buy_price": 0,
     "recycle_yuanbao": 25,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.08,
+      "block_rate": 0.08,
+      "block_amount": 0.35
+    }
   },
   "zuma_armor": {
     "name": "祖玛铠甲",
@@ -190,7 +236,13 @@
     "attack_max": 5,
     "buy_price": 0,
     "recycle_yuanbao": 35,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.1,
+      "block_rate": 0.1,
+      "reflect": 0.05,
+      "crit_rate": 0.03
+    }
   },
   "blood_armor": {
     "name": "血色铠甲",
@@ -207,7 +259,13 @@
     "attack_max": 11,
     "buy_price": 0,
     "recycle_yuanbao": 50,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.08,
+      "damage_reduction": 0.12,
+      "reflect": 0.1,
+      "hp_on_hit": 10
+    }
   },
   "shadow_armor": {
     "name": "暗影铠甲",
@@ -222,7 +280,11 @@
     "hp_bonus": 70,
     "buy_price": 0,
     "recycle_yuanbao": 28,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.1,
+      "damage_reduction": 0.08
+    }
   },
   "fire_lord_crown": {
     "name": "炎魔之冠",
@@ -240,7 +302,13 @@
     "attack_max": 13,
     "buy_price": 0,
     "recycle_yuanbao": 100,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.12,
+      "reflect": 0.1,
+      "crit_rate": 0.08,
+      "extra_phys": 10
+    }
   },
   "arcane_robe": {
     "name": "奥术长袍",
@@ -257,7 +325,13 @@
     "magic_max": 8,
     "buy_price": 0,
     "recycle_yuanbao": 55,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.1,
+      "mp_on_hit": 8,
+      "extra_magic": 10,
+      "crit_rate": 0.05
+    }
   },
   "phantom_shroud": {
     "name": "幻影斗篷",
@@ -273,7 +347,12 @@
     "hp_bonus": 60,
     "buy_price": 0,
     "recycle_yuanbao": 60,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.15,
+      "damage_reduction": 0.1,
+      "reflect": 0.08
+    }
   },
   "molten_plate": {
     "name": "熔火板甲",
@@ -290,7 +369,13 @@
     "attack_max": 13,
     "buy_price": 0,
     "recycle_yuanbao": 75,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.15,
+      "reflect": 0.12,
+      "block_rate": 0.12,
+      "block_amount": 0.45
+    }
   },
   "void_mantle": {
     "name": "虚空披风",
@@ -307,7 +392,13 @@
     "magic_max": 16,
     "buy_price": 0,
     "recycle_yuanbao": 85,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.12,
+      "dodge_rate": 0.12,
+      "extra_magic": 15,
+      "mp_on_hit": 10
+    }
   },
   "iron_helmet": {
     "name": "铁头盔",
@@ -321,7 +412,10 @@
     "magic_defense_max": 3,
     "hp_bonus": 15,
     "buy_price": 800,
-    "recycle_gold": 80
+    "recycle_gold": 80,
+    "effects": {
+      "damage_reduction": 0.02
+    }
   },
   "steel_helmet": {
     "name": "钢盔",
@@ -335,7 +429,11 @@
     "magic_defense_max": 6,
     "hp_bonus": 30,
     "buy_price": 3000,
-    "recycle_gold": 300
+    "recycle_gold": 300,
+    "effects": {
+      "damage_reduction": 0.04,
+      "block_rate": 0.03
+    }
   },
   "leather_boots": {
     "name": "皮靴",
@@ -348,7 +446,10 @@
     "magic_defense_min": 0,
     "magic_defense_max": 1,
     "buy_price": 200,
-    "recycle_gold": 20
+    "recycle_gold": 20,
+    "effects": {
+      "dodge_rate": 0.02
+    }
   },
   "iron_boots": {
     "name": "铁靴",
@@ -362,7 +463,11 @@
     "magic_defense_max": 2,
     "hp_bonus": 10,
     "buy_price": 1200,
-    "recycle_gold": 120
+    "recycle_gold": 120,
+    "effects": {
+      "dodge_rate": 0.03,
+      "damage_reduction": 0.02
+    }
   },
   "leather_belt": {
     "name": "皮带",
@@ -390,7 +495,10 @@
     "magic_defense_max": 2,
     "hp_bonus": 20,
     "buy_price": 1000,
-    "recycle_gold": 100
+    "recycle_gold": 100,
+    "effects": {
+      "damage_reduction": 0.02
+    }
   },
   "dragon_lord_crown": {
     "name": "龙王之冠",
@@ -408,7 +516,13 @@
     "attack_max": 20,
     "buy_price": 0,
     "recycle_yuanbao": 180,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.15,
+      "reflect": 0.12,
+      "crit_rate": 0.1,
+      "block_rate": 0.1
+    }
   },
   "chromatic_boots": {
     "name": "多彩龙鳞靴",
@@ -423,7 +537,12 @@
     "hp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 120,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.15,
+      "damage_reduction": 0.1,
+      "reflect": 0.08
+    }
   },
   "tier2_warrior_chest": {
     "name": "勇士胸甲",
@@ -440,7 +559,14 @@
     "attack_max": 20,
     "buy_price": 0,
     "recycle_yuanbao": 150,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.18,
+      "block_rate": 0.15,
+      "block_amount": 0.5,
+      "reflect": 0.1,
+      "lifesteal": 0.05
+    }
   },
   "tier2_mage_robe": {
     "name": "大法师长袍",
@@ -457,7 +583,14 @@
     "magic_max": 24,
     "buy_price": 0,
     "recycle_yuanbao": 150,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.15,
+      "dodge_rate": 0.12,
+      "extra_magic": 20,
+      "mp_on_hit": 15,
+      "crit_rate": 0.08
+    }
   },
   "tier2_taoist_vest": {
     "name": "天师道袍",
@@ -473,7 +606,14 @@
     "mp_bonus": 150,
     "buy_price": 0,
     "recycle_yuanbao": 150,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.15,
+      "hp_on_hit": 12,
+      "mp_on_hit": 8,
+      "lifesteal": 0.08,
+      "dodge_rate": 0.1
+    }
   },
   "cloth_cap": {
     "name": "布帽",
@@ -514,7 +654,10 @@
     "magic_defense_max": 6,
     "mp_bonus": 30,
     "buy_price": 800,
-    "recycle_gold": 80
+    "recycle_gold": 80,
+    "effects": {
+      "mp_on_hit": 2
+    }
   },
   "taoist_crown": {
     "name": "道士冠",
@@ -529,7 +672,10 @@
     "hp_bonus": 15,
     "mp_bonus": 15,
     "buy_price": 800,
-    "recycle_gold": 80
+    "recycle_gold": 80,
+    "effects": {
+      "hp_on_hit": 2
+    }
   },
   "arcane_hood": {
     "name": "奥术兜帽",
@@ -546,7 +692,12 @@
     "magic_max": 5,
     "buy_price": 0,
     "recycle_yuanbao": 20,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.05,
+      "mp_on_hit": 5,
+      "extra_magic": 5
+    }
   },
   "spirit_crown": {
     "name": "灵魂之冠",
@@ -562,7 +713,12 @@
     "mp_bonus": 40,
     "buy_price": 0,
     "recycle_yuanbao": 20,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "hp_on_hit": 5,
+      "mp_on_hit": 3,
+      "damage_reduction": 0.05
+    }
   },
   "blood_helm": {
     "name": "血色头盔",
@@ -579,7 +735,12 @@
     "attack_max": 5,
     "buy_price": 0,
     "recycle_yuanbao": 35,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.05,
+      "damage_reduction": 0.08,
+      "block_rate": 0.08
+    }
   },
   "void_hood": {
     "name": "虚空兜帽",
@@ -596,7 +757,13 @@
     "magic_max": 12,
     "buy_price": 0,
     "recycle_yuanbao": 60,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "damage_reduction": 0.1,
+      "mp_on_hit": 10,
+      "extra_magic": 12,
+      "crit_rate": 0.05
+    }
   },
   "holy_crown": {
     "name": "圣光之冠",
@@ -612,6 +779,12 @@
     "mp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 60,
-    "drop_only": true
+    "drop_only": true,
+    "effects": {
+      "hp_on_hit": 10,
+      "mp_on_hit": 5,
+      "damage_reduction": 0.1,
+      "lifesteal": 0.05
+    }
   }
 }

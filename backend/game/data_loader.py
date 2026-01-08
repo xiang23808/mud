@@ -31,7 +31,7 @@ class DataLoader:
     def get_item(cls, item_id: str) -> dict:
         """获取物品数据"""
         # 搜索所有物品文件
-        for file in ["items/weapons.json", "items/armors.json", "items/consumables.json", "items/accessories.json"]:
+        for file in ["items/weapons.json", "items/armors.json", "items/consumables.json", "items/accessories.json", "items/set_items.json"]:
             items = cls.load(file)
             if item_id in items:
                 return items[item_id]
@@ -96,6 +96,17 @@ class DataLoader:
         
         # 过滤可购买物品
         return {k: v for k, v in items.items() if v.get("buy_price", 0) > 0}
+    
+    @classmethod
+    def get_sets(cls) -> dict:
+        """获取所有套装配置"""
+        return cls.load("config/sets.json")
+    
+    @classmethod
+    def get_set(cls, set_id: str) -> dict:
+        """获取单个套装配置"""
+        sets = cls.get_sets()
+        return sets.get(set_id, {})
     
     @classmethod
     def clear_cache(cls):

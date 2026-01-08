@@ -6,6 +6,7 @@ from backend.models import Character, InventoryItem, Equipment, CharacterSkill, 
 from backend.game.map_manager import map_manager
 from backend.game.combat import CombatEngine
 from backend.game.data_loader import DataLoader
+from backend.game.effects import EffectCalculator, calculate_set_bonuses
 
 class GameEngine:
     """游戏引擎 - 处理所有游戏逻辑"""
@@ -95,12 +96,12 @@ class GameEngine:
                     skill_data = {**skill_info, "level": skill.level, "skill_id": skill.skill_id}
                     all_skills.append(skill_data)
             
-            # 获取背包中的恢复物品
+            # 获取背包中的恢复物品（使用行锁避免并发冲突）
             inv_result = await db.execute(
                 select(InventoryItem).where(
                     InventoryItem.character_id == char_id,
                     InventoryItem.storage_type == StorageType.INVENTORY
-                )
+                ).with_for_update()
             )
             inventory = []
             for item in inv_result.scalars():
@@ -156,6 +157,9 @@ class GameEngine:
                             db_item.quantity -= 1
                         else:
                             await db.delete(db_item)
+            
+            # 先提交药水消耗，避免锁等待
+            await db.flush()
             
             if result.victory:
                 instance.remove_monster(monster_pos)
@@ -273,7 +277,7 @@ class GameEngine:
         """获取角色装备和综合属性"""
         char = await db.get(Character, char_id)
         if not char:
-            return {"equipment": {}, "total_stats": {}}
+            return {"equipment": {}, "total_stats": {}, "total_effects": {}, "set_bonuses": []}
         
         # 获取所有装备
         result = await db.execute(select(Equipment).where(Equipment.character_id == char_id))
@@ -282,6 +286,7 @@ class GameEngine:
         # 装备槽位
         slots = ["weapon", "helmet", "armor", "belt", "boots", "necklace", "ring_left", "ring_right", "bracelet_left", "bracelet_right"]
         equipment = {}
+        equip_list_for_effects = []
         
         for slot in slots:
             equip = next((e for e in equipment_list if e.slot == slot), None)
@@ -292,11 +297,41 @@ class GameEngine:
                     "quality": equip.quality,
                     "info": item_info
                 }
+                equip_list_for_effects.append({"info": item_info})
             else:
                 equipment[slot] = None
         
         # 计算综合属性
         total_stats = await cls._get_combat_stats(char, db)
+        
+        # 计算综合特效
+        total_effects = EffectCalculator.get_equipment_effects(equip_list_for_effects)
+        
+        # 计算套装加成
+        sets_config = DataLoader.get_sets()
+        set_result = calculate_set_bonuses(equip_list_for_effects, sets_config)
+        
+        # 合并套装特效
+        for k, v in set_result["total_effects"].items():
+            total_effects[k] = total_effects.get(k, 0) + v
+        
+        # 合并套装属性到total_stats
+        for k, v in set_result["total_stats"].items():
+            if k in total_stats:
+                total_stats[k] += v
+            elif k == "hp_bonus":
+                total_stats["max_hp"] += v
+            elif k == "mp_bonus":
+                total_stats["max_mp"] += v
+            elif k == "defense":
+                total_stats["defense_min"] += v
+                total_stats["defense_max"] += v
+            elif k == "magic_defense":
+                total_stats["magic_defense_min"] += v
+                total_stats["magic_defense_max"] += v
+        
+        # 过滤掉值为0的特效
+        total_effects = {k: v for k, v in total_effects.items() if v > 0}
         
         return {
             "equipment": equipment,
@@ -309,7 +344,9 @@ class GameEngine:
                 "defense": f"{total_stats['defense_min']}-{total_stats['defense_max']}",
                 "magic_defense": f"{total_stats['magic_defense_min']}-{total_stats['magic_defense_max']}",
                 "luck": total_stats["luck"]
-            }
+            },
+            "total_effects": total_effects,
+            "set_bonuses": set_result["active_sets"]
         }
     
     # 槽位映射：物品slot -> 装备slot

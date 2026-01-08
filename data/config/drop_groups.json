@@ -142,5 +142,69 @@
     "drops": [
       {"item": "blessing_oil", "rate": "1/100"}
     ]
+  },
+  "set_t0": {
+    "name": "T0套装(野性/魔导)",
+    "drops": [
+      {"item": "wildheart_helm", "rate": "1/200"},
+      {"item": "wildheart_armor", "rate": "1/300"},
+      {"item": "wildheart_belt", "rate": "1/150"},
+      {"item": "wildheart_boots", "rate": "1/150"},
+      {"item": "magister_helm", "rate": "1/200"},
+      {"item": "magister_armor", "rate": "1/300"},
+      {"item": "magister_belt", "rate": "1/150"},
+      {"item": "magister_boots", "rate": "1/150"}
+    ]
+  },
+  "set_t1": {
+    "name": "T1套装(熔火/奥术/塞纳里奥)",
+    "drops": [
+      {"item": "molten_helm", "rate": "1/400"},
+      {"item": "molten_armor", "rate": "1/600"},
+      {"item": "molten_belt", "rate": "1/300"},
+      {"item": "molten_boots", "rate": "1/300"},
+      {"item": "arcanist_helm", "rate": "1/400"},
+      {"item": "arcanist_armor", "rate": "1/600"},
+      {"item": "arcanist_belt", "rate": "1/300"},
+      {"item": "arcanist_boots", "rate": "1/300"},
+      {"item": "cenarion_helm", "rate": "1/400"},
+      {"item": "cenarion_armor", "rate": "1/600"},
+      {"item": "cenarion_belt", "rate": "1/300"},
+      {"item": "cenarion_boots", "rate": "1/300"}
+    ]
+  },
+  "set_t2": {
+    "name": "T2套装(龙鳞/灵风/碎地)",
+    "drops": [
+      {"item": "dragon_helm", "rate": "1/800"},
+      {"item": "dragon_armor", "rate": "1/1200"},
+      {"item": "dragon_belt", "rate": "1/600"},
+      {"item": "dragon_boots", "rate": "1/600"},
+      {"item": "nether_helm", "rate": "1/800"},
+      {"item": "nether_armor", "rate": "1/1200"},
+      {"item": "nether_belt", "rate": "1/600"},
+      {"item": "nether_boots", "rate": "1/600"},
+      {"item": "earth_helm", "rate": "1/800"},
+      {"item": "earth_armor", "rate": "1/1200"},
+      {"item": "earth_belt", "rate": "1/600"},
+      {"item": "earth_boots", "rate": "1/600"}
+    ]
+  },
+  "set_t3": {
+    "name": "T3套装(冰冠/暗影/巫妖)",
+    "drops": [
+      {"item": "ice_helm", "rate": "1/2000"},
+      {"item": "ice_armor", "rate": "1/3000"},
+      {"item": "ice_belt", "rate": "1/1500"},
+      {"item": "ice_boots", "rate": "1/1500"},
+      {"item": "shadow_helm", "rate": "1/2000"},
+      {"item": "shadow_armor", "rate": "1/3000"},
+      {"item": "shadow_belt", "rate": "1/1500"},
+      {"item": "shadow_boots", "rate": "1/1500"},
+      {"item": "lich_helm", "rate": "1/2000"},
+      {"item": "lich_armor", "rate": "1/3000"},
+      {"item": "lich_belt", "rate": "1/1500"},
+      {"item": "lich_boots", "rate": "1/1500"}
+    ]
   }
 }

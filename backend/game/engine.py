@@ -109,10 +109,10 @@ class GameEngine:
         if not monster_info:
             return {"success": False, "error": "怪物数据不存在"}
         
-        # 检查是否遇到哥布林 (1/2概率)
+        # 检查是否遇到哥布林 (1/10概率)
         goblin_encounter = False
         goblin_monster = None
-        if random.randint(1, 2) == 1 and map_id in cls.MAP_BOSS_MAPPING:
+        if random.randint(1, 10) == 1 and map_id in cls.MAP_BOSS_MAPPING:
             boss_type = cls.MAP_BOSS_MAPPING[map_id]
             boss_info = DataLoader.get_monster(boss_type)
             if boss_info:

@@ -3,7 +3,7 @@ import random
 from typing import List, Dict, Optional
 from dataclasses import dataclass, field
 from fractions import Fraction
-from .effects import EffectCalculator, roll_quality, apply_quality_bonus, EFFECT_CONFIG
+from .effects import EffectCalculator, roll_quality, apply_quality_bonus, EFFECT_CONFIG, EFFECT_NAMES
 
 @dataclass
 class CombatResult:
@@ -127,6 +127,18 @@ class CombatEngine:
         
         # 获取玩家装备特效
         player_effects = EffectCalculator.get_equipment_effects(equipment)
+        
+        # 显示玩家装备特效（如果有）
+        active_effects = {k: v for k, v in player_effects.items() if v > 0}
+        if active_effects:
+            effect_strs = []
+            for k, v in active_effects.items():
+                name = EFFECT_NAMES.get(k, k)
+                if k in ["hp_on_hit", "mp_on_hit", "extra_phys", "extra_magic", "poison_damage", "poison_rounds"]:
+                    effect_strs.append(f"{name}+{int(v)}")
+                else:
+                    effect_strs.append(f"{name}:{int(v*100)}%")
+            logs.append(f"⚔️ 装备特效: {', '.join(effect_strs)}")
         
         # 初始化怪物状态
         monster_states = []
@@ -355,29 +367,21 @@ class CombatEngine:
                                 continue
                             
                             t["hp"] -= result.damage
+                            # 收集所有特效标签
+                            effect_tags = [log for log in result.logs if not any(x in log for x in ["攻击未命中", "攻击被闪避"])]
                             log_msg = f"你对{t['name']}造成 {result.damage} 点技能伤害"
-                            effects_triggered = []
-                            if result.is_crit:
-                                effects_triggered.append("暴击")
-                            if result.is_crush:
-                                effects_triggered.append("压碎x1.5")
-                            if effects_triggered:
-                                log_msg += f" [{'/'.join(effects_triggered)}]"
+                            if effect_tags:
+                                log_msg += f" [{'/'.join(effect_tags)}]"
                             logs.append(log_msg)
                             
-                            # 处理特效日志
                             if result.heal_hp > 0:
                                 player_hp = min(player_max_hp, player_hp + result.heal_hp)
-                                logs.append(f"💚 吸血/击回恢复 {result.heal_hp} HP")
                             if result.heal_mp > 0:
                                 player_mp = min(player_max_mp, player_mp + result.heal_mp)
-                                logs.append(f"💙 击回恢复 {result.heal_mp} MP")
                             if result.is_stunned:
                                 t["stunned"] = True
-                                logs.append(f"😵 {t['name']} 被眩晕1回合!")
                             if result.poison_damage > 0:
                                 t["poison"] = PoisonState(result.poison_damage, result.poison_rounds)
-                                logs.append(f"🧪 {t['name']} 中毒! {result.poison_damage}伤害/{result.poison_rounds}回合")
                             
                             if t["hp"] <= 0:
                                 logs.append(f"💀 {t['name']} 被击败!")
@@ -405,30 +409,20 @@ class CombatEngine:
                             log_msg = f"你对{target['name']}造成 {result.damage} 点技能伤害"
                         else:
                             log_msg = f"你对{target['name']}造成 {result.damage} 点伤害"
-                        effects_triggered = []
-                        if result.is_crit:
-                            effects_triggered.append("暴击")
-                        if result.is_crush:
-                            effects_triggered.append("压碎x1.5")
-                        if result.is_blocked:
-                            effects_triggered.append("被格挡")
-                        if effects_triggered:
-                            log_msg += f" [{'/'.join(effects_triggered)}]"
+                        # 收集所有特效标签
+                        effect_tags = [log for log in result.logs if not any(x in log for x in ["攻击未命中", "攻击被闪避"])]
+                        if effect_tags:
+                            log_msg += f" [{'/'.join(effect_tags)}]"
                         logs.append(log_msg)
                         
-                        # 处理特效日志
                         if result.heal_hp > 0:
                             player_hp = min(player_max_hp, player_hp + result.heal_hp)
-                            logs.append(f"💚 吸血/击回恢复 {result.heal_hp} HP")
                         if result.heal_mp > 0:
                             player_mp = min(player_max_mp, player_mp + result.heal_mp)
-                            logs.append(f"💙 击回恢复 {result.heal_mp} MP")
                         if result.is_stunned:
                             target["stunned"] = True
-                            logs.append(f"😵 {target['name']} 被眩晕1回合!")
                         if result.poison_damage > 0:
                             target["poison"] = PoisonState(result.poison_damage, result.poison_rounds)
-                            logs.append(f"🧪 {target['name']} 中毒! {result.poison_damage}伤害/{result.poison_rounds}回合")
                         
                         if target["hp"] <= 0:
                             logs.append(f"💀 {target['name']} 被击败!")
@@ -463,15 +457,22 @@ class CombatEngine:
                     else:
                         base_damage = CombatEngine.calculate_damage(m, player, is_magic_attack)
                         
-                        # 应用玩家防御特效
-                        blocked, damage = EffectCalculator.calculate_block(player_effects, base_damage)
-                        damage = EffectCalculator.apply_damage_reduction(player_effects, damage)
-                        
+                        # 应用玩家防御特效（格挡和减伤只取其一，不叠加）
                         defense_effects = []
+                        blocked, blocked_damage = EffectCalculator.calculate_block(player_effects, base_damage)
+                        reduced_damage = EffectCalculator.apply_damage_reduction(player_effects, base_damage)
+                        
                         if blocked:
+                            damage = blocked_damage
                             defense_effects.append("格挡")
-                        if player_effects.get("damage_reduction", 0) > 0:
+                        elif player_effects.get("damage_reduction", 0) > 0:
+                            damage = reduced_damage
                             defense_effects.append(f"减伤{int(player_effects['damage_reduction']*100)}%")
+                        else:
+                            damage = base_damage
+                        
+                        # 确保最低伤害为基础伤害的50%
+                        damage = max(int(base_damage * 0.5), damage)
                         
                         # 反弹伤害
                         reflect_dmg = EffectCalculator.calculate_reflect(player_effects, damage)

@@ -251,6 +251,10 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
                 result = await GameEngine.use_skillbook(char_id, data["slot"], db)
                 await manager.send(char_id, {"type": "skillbook_result", "data": result})
             
+            elif msg_type == "use_boss_item":
+                result = await GameEngine.use_boss_item(char_id, data["slot"], db)
+                await manager.send(char_id, {"type": "combat_result", "data": result})
+            
             elif msg_type == "use_skill":
                 result = await GameEngine.use_skill(char_id, data["skill_id"], db)
                 await manager.send(char_id, {"type": "skill_used", "data": result})
@@ -267,6 +271,10 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
                     await manager.send(target_id, {"type": "pvp_attacked", "data": result})
             
             elif msg_type == "get_map_state":
+                await manager.send(char_id, {"type": "map_state", "data": map_manager.get_state(char_id)})
+            
+            elif msg_type == "reset_map":
+                map_manager.reset_map(char_id)
                 await manager.send(char_id, {"type": "map_state", "data": map_manager.get_state(char_id)})
             
             elif msg_type == "toggle_skill":

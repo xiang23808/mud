@@ -383,11 +383,21 @@ canvas.onclick = e => {
         return;
     }
     
-    // 检查是否点击NPC（只在已揭示区域）
+    // 检查是否点击NPC（只在已揭示区域）- 玩家需要在NPC附近才能对话
     if (mapState.npcs && revealed.has(`${x},${y}`)) {
         for (const npc of mapState.npcs) {
             if (npc.position[0] === x && npc.position[1] === y) {
-                handleNPCClick(npc);
+                // 检查玩家是否在NPC附近（相邻）
+                const currentPos = mapState.position;
+                const dx = Math.abs(x - currentPos[0]);
+                const dy = Math.abs(y - currentPos[1]);
+                if (dx <= 1 && dy <= 1) {
+                    // 在NPC附近，触发对话
+                    handleNPCClick(npc);
+                } else {
+                    // 不在附近，先移动到NPC位置附近
+                    ws.send(JSON.stringify({ type: 'move', x, y }));
+                }
                 return;
             }
         }
@@ -649,6 +659,7 @@ function renderInventory(data) {
     </div>` + items.map(item => {
         const isEquipable = item.info?.type === 'weapon' || item.info?.type === 'armor' || item.info?.type === 'accessory';
         const isSkillbook = item.info?.type === 'skillbook';
+        const isBossSummon = item.info?.type === 'boss_summon';
         const info = item.info || {};
         const attrs = [];
         // 支持min-max格式
@@ -668,15 +679,18 @@ function renderInventory(data) {
             : `<button onclick="moveToInventory(${item.slot})">取出</button>`;
         // 仓库不显示回收按钮
         const recycleBtn = storage_type === 'inventory' ? `<button onclick="recycleItem(${item.slot})">回收</button>` : '';
+        // 套装标识
+        const setTag = info.set_id ? '<span style="color:#a020f0;">[套]</span>' : '';
         return `
         <div class="inv-slot quality-${item.quality}">
-            <div class="item-name">${info.name || item.item_id}</div>
+            <div class="item-name">${setTag}${info.name || item.item_id}</div>
             ${attrs.length ? `<div style="font-size:10px;color:#8f8;">${attrs.join(' ')}</div>` : ''}
             ${effectsHtml ? `<div>${effectsHtml}</div>` : ''}
             <div>x${item.quantity}</div>
             <div class="item-actions">
                 ${isEquipable && storage_type === 'inventory' ? `<button onclick="equipItem(${item.slot},'${info.slot || ''}')">装备</button>` : ''}
                 ${isSkillbook && storage_type === 'inventory' ? `<button onclick="useSkillbook(${item.slot})">学习</button>` : ''}
+                ${isBossSummon && storage_type === 'inventory' ? `<button onclick="useBossItem(${item.slot})">使用</button>` : ''}
                 ${moveBtn}
                 ${recycleBtn}
             </div>
@@ -732,6 +746,12 @@ function useSkillbook(slot) {
     ws.send(JSON.stringify({ type: 'use_skillbook', slot }));
 }
 
+function useBossItem(slot) {
+    if (confirm('确定使用此物品召唤Boss战斗？')) {
+        ws.send(JSON.stringify({ type: 'use_boss_item', slot }));
+    }
+}
+
 function moveToWarehouse(slot) {
     ws.send(JSON.stringify({ type: 'move_to_warehouse', slot }));
     setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 300);
@@ -761,20 +781,25 @@ function renderEquipment(data) {
         </div>
     ` : '';
     
-    // 套装加成显示
+    // 套装加成显示（显示所有阶段，激活亮色，未激活灰色）
     const setBonusHtml = set_bonuses && set_bonuses.length > 0 ? `
         <div style="margin-top:10px;padding-top:10px;border-top:1px solid #333;">
             <div style="color:#a020f0;margin-bottom:5px;">套装效果:</div>
-            ${set_bonuses.map(s => `
+            ${set_bonuses.map(s => {
+                const fullBonuses = s.full_bonuses || s.bonuses;
+                return `
                 <div style="margin-bottom:8px;">
-                    <span style="color:#ffd700;">${s.name}</span> <span style="color:#0f0;">(${s.count}件)</span>
-                    ${Object.entries(s.bonuses).map(([threshold, bonus]) => `
-                        <div style="font-size:11px;color:#8f8;margin-left:10px;">
-                            ${threshold}件: ${formatSetBonus(bonus)}
+                    <span style="color:#ffd700;">${s.name}</span> <span style="color:#0f0;">(${s.count}/4件)</span>
+                    ${Object.entries(fullBonuses).map(([threshold, bonus]) => {
+                        const isActive = s.count >= parseInt(threshold);
+                        const color = isActive ? '#0f0' : '#666';
+                        return `
+                        <div style="font-size:11px;color:${color};margin-left:10px;">
+                            ${isActive ? '✓' : '○'} ${threshold}件: ${formatSetBonus(bonus)}
                         </div>
-                    `).join('')}
+                    `;}).join('')}
                 </div>
-            `).join('')}
+            `;}).join('')}
         </div>
     ` : '';
     
@@ -817,12 +842,13 @@ function renderEquipment(data) {
             ${Object.entries(slotNames).map(([slot, name]) => {
                 const item = equipment[slot];
                 const itemEffects = item?.info?.effects ? renderEffects(item.info.effects) : '';
+                const setTag = item?.info?.set_id ? '<span style="color:#a020f0;">[套]</span>' : '';
                 return `
                     <div class="equip-slot ${item ? 'quality-' + item.quality : ''}"
                          style="background: #0f3460; padding: 12px; border-radius: 5px; min-height: 80px;">
                         <div style="color: #ffd700; font-weight: bold; margin-bottom: 5px;">${name}</div>
                         ${item ? `
-                            <div style="font-size: 14px; margin-bottom: 3px;">${item.info?.name || item.item_id}</div>
+                            <div style="font-size: 14px; margin-bottom: 3px;">${setTag}${item.info?.name || item.item_id}</div>
                             <div style="font-size: 10px; color: #8f8;">
                                 ${item.info?.attack_min || item.info?.attack_max ? `DC:${item.info.attack_min||0}-${item.info.attack_max||0} ` : (item.info?.attack ? `DC:${item.info.attack} ` : '')}
                                 ${item.info?.magic_min || item.info?.magic_max ? `MC:${item.info.magic_min||0}-${item.info.magic_max||0} ` : (item.info?.magic ? `MC:${item.info.magic} ` : '')}
@@ -938,6 +964,14 @@ function toggleSkill(skillId, enabled) {
 // 回城
 function returnToCity() {
     ws.send(JSON.stringify({ type: 'return_city' }));
+}
+
+// 刷新地图
+function refreshMap() {
+    if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({ type: 'reset_map' }));
+        addBattleLog('[系统] 地图已重置');
+    }
 }
 
 // 聊天

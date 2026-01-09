@@ -51,7 +51,10 @@
             </div>
             <div id="game-main">
                 <div id="map-container">
-                    <div id="map-name"></div>
+                    <div id="map-header">
+                        <span id="map-name"></span>
+                        <button onclick="refreshMap()" title="刷新地图">🔄</button>
+                    </div>
                     <canvas id="map-canvas" width="480" height="480"></canvas>
                     <div id="map-legend">
                         <span class="legend-item"><span class="legend-color" style="background:#0f0"></span>玩家</span>

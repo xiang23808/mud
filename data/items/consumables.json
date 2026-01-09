@@ -106,8 +106,9 @@
   },
   "woma_horn": {
     "name": "沃玛号角",
-    "type": "material",
-    "description": "珍贵材料",
+    "type": "boss_summon",
+    "description": "使用后直接进入沃玛教主战斗",
+    "summon_boss": "woma_leader",
     "buy_price": 0,
     "recycle_gold": 20,
     "drop_only": true
@@ -138,18 +139,92 @@
   },
   "bone_fragment": {
     "name": "骨头碎片",
-    "type": "material",
-    "description": "制作材料",
+    "type": "boss_summon",
+    "description": "使用后直接进入尸王或骷髅王战斗",
+    "summon_boss": ["corpse_king", "skeleton_king"],
     "buy_price": 0,
     "recycle_gold": 10,
     "drop_only": true
   },
   "zuma_piece": {
     "name": "祖玛碎片",
-    "type": "material",
-    "description": "稀有材料",
+    "type": "boss_summon",
+    "description": "使用后直接进入祖玛教主战斗",
+    "summon_boss": "zuma_leader",
     "buy_price": 0,
     "recycle_gold": 50,
+    "drop_only": true
+  },
+  "pig_tusk": {
+    "name": "猪王獠牙",
+    "type": "boss_summon",
+    "description": "使用后直接进入猪王战斗",
+    "summon_boss": "pig_king",
+    "buy_price": 0,
+    "recycle_gold": 30,
+    "drop_only": true
+  },
+  "demon_heart": {
+    "name": "魔族之心",
+    "type": "boss_summon",
+    "description": "使用后直接进入魔族领主战斗",
+    "summon_boss": "demon_lord",
+    "buy_price": 0,
+    "recycle_gold": 80,
+    "drop_only": true
+  },
+  "red_moon_shard": {
+    "name": "赤月碎片",
+    "type": "boss_summon",
+    "description": "使用后直接进入赤月恶魔战斗",
+    "summon_boss": "red_moon_demon",
+    "buy_price": 0,
+    "recycle_gold": 100,
+    "drop_only": true
+  },
+  "blood_feather": {
+    "name": "血羽",
+    "type": "boss_summon",
+    "description": "使用后直接进入血鸟战斗",
+    "summon_boss": "blood_raven",
+    "buy_price": 0,
+    "recycle_gold": 40,
+    "drop_only": true
+  },
+  "butcher_hook": {
+    "name": "屠夫钩子",
+    "type": "boss_summon",
+    "description": "使用后直接进入屠夫战斗",
+    "summon_boss": "butcher",
+    "buy_price": 0,
+    "recycle_gold": 90,
+    "drop_only": true
+  },
+  "void_crystal": {
+    "name": "虚空水晶",
+    "type": "boss_summon",
+    "description": "使用后直接进入玛克扎尔王子战斗",
+    "summon_boss": "prince_malchezaar",
+    "buy_price": 0,
+    "recycle_gold": 120,
+    "drop_only": true
+  },
+  "ragnaros_essence": {
+    "name": "炎魔精华",
+    "type": "boss_summon",
+    "description": "使用后直接进入拉格纳罗斯战斗",
+    "summon_boss": "ragnaros",
+    "buy_price": 0,
+    "recycle_gold": 150,
+    "drop_only": true
+  },
+  "nefarian_scale": {
+    "name": "奈法利安龙鳞",
+    "type": "boss_summon",
+    "description": "使用后直接进入奈法利安战斗",
+    "summon_boss": "nefarian",
+    "buy_price": 0,
+    "recycle_gold": 200,
     "drop_only": true
   },
   "half_moon": {

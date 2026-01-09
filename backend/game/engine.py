@@ -55,9 +55,37 @@ class GameEngine:
         
         return result
     
+    # 地图区域对应的Boss映射
+    MAP_BOSS_MAPPING = {
+        # 沃玛区域
+        "woma_forest": "woma_leader", "woma_temple_1": "woma_leader", "woma_temple_2": "woma_leader", "woma_temple_3": "woma_leader",
+        # 僵尸洞区域
+        "zombie_cave_1": "corpse_king", "zombie_cave_2": "corpse_king", "zombie_cave_3": "corpse_king",
+        # 猪洞区域
+        "pig_cave_1": "pig_king", "pig_cave_2": "pig_king", "pig_cave_3": "pig_king",
+        # 祖玛区域
+        "zuma_temple_1": "zuma_leader", "zuma_temple_2": "zuma_leader", "zuma_temple_3": "zuma_leader", "zuma_temple_4": "zuma_leader", "zuma_temple_5": "zuma_leader",
+        # 封魔谷区域
+        "sealed_valley_1": "demon_lord", "sealed_valley_2": "demon_lord", "sealed_valley_3": "demon_lord",
+        # 赤月区域
+        "red_moon_canyon": "red_moon_demon", "red_moon_cave": "red_moon_demon", "red_moon_temple": "red_moon_demon",
+        # 暗黑区域
+        "dark_forest": "blood_raven", "cold_plains": "blood_raven", "blood_moor": "blood_raven",
+        # 崔斯特瑞姆区域
+        "tristram_ruins": "butcher", "cathedral_1": "butcher", "cathedral_2": "butcher", "cathedral_3": "butcher",
+        # 卡拉赞区域
+        "deadwind_pass": "prince_malchezaar", "karazhan_1": "prince_malchezaar", "karazhan_2": "prince_malchezaar", "karazhan_3": "prince_malchezaar",
+        # 熔火之心区域
+        "molten_core_entrance": "ragnaros", "molten_core_1": "ragnaros", "molten_core_2": "ragnaros",
+        # 蜈蚣洞区域
+        "centipede_cave_1": "skeleton_king", "centipede_cave_2": "skeleton_king", "centipede_cave_3": "skeleton_king",
+        # 黑石区域
+        "blackrock_depths": "nefarian", "blackrock_spire": "nefarian",
+    }
+    
     @classmethod
     async def attack_monster(cls, char_id: int, monster_pos: Tuple[int, int], db: AsyncSession) -> dict:
-        """攻击怪物 - 支持多怪物战斗"""
+        """攻击怪物 - 支持多怪物战斗和哥布林遭遇"""
         if cls.combat_locks.get(char_id):
             return {"success": False, "error": "已在战斗中"}
         
@@ -80,6 +108,29 @@ class GameEngine:
         monster_info = DataLoader.get_monster(monster_data["type"])
         if not monster_info:
             return {"success": False, "error": "怪物数据不存在"}
+        
+        # 检查是否遇到哥布林 (1/2概率)
+        goblin_encounter = False
+        goblin_monster = None
+        if random.randint(1, 2) == 1 and map_id in cls.MAP_BOSS_MAPPING:
+            boss_type = cls.MAP_BOSS_MAPPING[map_id]
+            boss_info = DataLoader.get_monster(boss_type)
+            if boss_info:
+                goblin_encounter = True
+                goblin_monster = boss_info.copy()
+                goblin_monster["name"] = "哥布林"
+                goblin_monster["is_goblin"] = True
+                # 掉落率提升10倍
+                enhanced_drops = []
+                for drop in goblin_monster.get("drops", []):
+                    new_drop = drop.copy()
+                    rate_str = str(drop.get("rate", "1/100"))
+                    if "/" in rate_str:
+                        parts = rate_str.split("/")
+                        new_rate = f"{int(parts[0]) * 10}/{parts[1]}"
+                        new_drop["rate"] = new_rate
+                    enhanced_drops.append(new_drop)
+                goblin_monster["drops"] = enhanced_drops
         
         cls.combat_locks[char_id] = True
         
@@ -110,8 +161,13 @@ class GameEngine:
                     inventory.append({"slot": item.slot, "info": item_info, "db_item": item})
             
             # 生成多怪物（1-6个，根据地图难度）
-            monsters = [monster_info.copy()]
-            monsters[0]["quality"] = monster_data.get("quality", "white")
+            # 如果遇到哥布林，替换第一个怪物
+            if goblin_encounter and goblin_monster:
+                monsters = [goblin_monster]
+                monsters[0]["quality"] = "white"  # 哥布林使用普通品质
+            else:
+                monsters = [monster_info.copy()]
+                monsters[0]["quality"] = monster_data.get("quality", "white")
             
             # 随机添加额外怪物（最多5个额外）- Boss战斗时额外怪物为同地图普通怪
             extra_count = random.randint(0, min(5, char.level // 10))
@@ -138,25 +194,36 @@ class GameEngine:
             player_stats = await cls._get_combat_stats(char, db)
             player_stats["char_class"] = char.char_class.value
             
+            # 获取装备列表用于特效计算
+            equip_result = await db.execute(select(Equipment).where(Equipment.character_id == char_id))
+            equipment_list = []
+            for equip in equip_result.scalars():
+                item_info = cls._apply_quality_bonus(DataLoader.get_item(equip.item_id), equip.quality)
+                if item_info:
+                    equipment_list.append({"info": item_info})
+            
             # 获取召唤物和禁用技能
             summon = cls.summons.get(char_id)
             disabled = cls.disabled_skills.get(char_id, [])
             
-            result = CombatEngine.pve_combat(player_stats, monsters, all_skills, [], DataLoader, inventory, summon, disabled)
+            result = CombatEngine.pve_combat(player_stats, monsters, all_skills, [], DataLoader, inventory, summon, disabled, equipment_list)
             
             # 更新召唤物状态
             if result.summon_died:
                 cls.summons.pop(char_id, None)
             
-            # 消耗使用的药水
+            # 消耗使用的药水（统计每个db_item使用次数）
+            used_counts = {}
             for item in inventory:
                 if item.get("used"):
                     db_item = item.get("db_item")
                     if db_item:
-                        if db_item.quantity > 1:
-                            db_item.quantity -= 1
-                        else:
-                            await db.delete(db_item)
+                        used_counts[db_item] = used_counts.get(db_item, 0) + 1
+            for db_item, count in used_counts.items():
+                if db_item.quantity > count:
+                    db_item.quantity -= count
+                else:
+                    await db.delete(db_item)
             
             # 先提交药水消耗，避免锁等待
             await db.flush()
@@ -307,9 +374,9 @@ class GameEngine:
         # 计算综合特效
         total_effects = EffectCalculator.get_equipment_effects(equip_list_for_effects)
         
-        # 计算套装加成
+        # 计算套装加成，并返回完整套装配置
         sets_config = DataLoader.get_sets()
-        set_result = calculate_set_bonuses(equip_list_for_effects, sets_config)
+        set_result = calculate_set_bonuses(equip_list_for_effects, sets_config, include_full_config=True)
         
         # 合并套装特效
         for k, v in set_result["total_effects"].items():
@@ -682,6 +749,147 @@ class GameEngine:
         return {"success": True, "skill_id": skill_id, "message": f"成功学习技能: {item_info.get('name')}"}
     
     @classmethod
+    async def use_boss_item(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
+        """使用专属物品召唤Boss战斗"""
+        if cls.combat_locks.get(char_id):
+            return {"success": False, "error": "已在战斗中"}
+        
+        # 获取背包物品
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == StorageType.INVENTORY,
+                InventoryItem.slot == inventory_slot
+            )
+        )
+        inv_item = result.scalar_one_or_none()
+        if not inv_item:
+            return {"success": False, "error": "物品不存在"}
+        
+        item_info = DataLoader.get_item(inv_item.item_id)
+        if not item_info or item_info.get("type") != "boss_summon":
+            return {"success": False, "error": "这不是Boss召唤物品"}
+        
+        # 获取Boss类型
+        summon_boss = item_info.get("summon_boss")
+        if isinstance(summon_boss, list):
+            boss_type = random.choice(summon_boss)
+        else:
+            boss_type = summon_boss
+        
+        monster_info = DataLoader.get_monster(boss_type)
+        if not monster_info:
+            return {"success": False, "error": "Boss数据不存在"}
+        
+        char = await db.get(Character, char_id)
+        cls.combat_locks[char_id] = True
+        
+        try:
+            # 获取角色技能
+            skills_result = await db.execute(
+                select(CharacterSkill).where(CharacterSkill.character_id == char_id)
+            )
+            all_skills = []
+            for skill in skills_result.scalars():
+                skill_info = DataLoader.get_skill(skill.skill_id, char.char_class.value)
+                if skill_info:
+                    all_skills.append({**skill_info, "level": skill.level, "skill_id": skill.skill_id})
+            
+            # 获取背包药水
+            inv_result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.character_id == char_id,
+                    InventoryItem.storage_type == StorageType.INVENTORY
+                ).with_for_update()
+            )
+            inventory = []
+            for item in inv_result.scalars():
+                info = DataLoader.get_item(item.item_id)
+                if info and info.get("type") == "consumable":
+                    for _ in range(item.quantity):
+                        inventory.append({"slot": item.slot, "info": info, "db_item": item})
+            
+            # Boss战斗
+            boss = monster_info.copy()
+            boss["quality"] = "orange"  # Boss固定橙色品质
+            
+            player_stats = await cls._get_combat_stats(char, db)
+            player_stats["char_class"] = char.char_class.value
+            
+            # 获取装备列表用于特效计算
+            equip_result = await db.execute(select(Equipment).where(Equipment.character_id == char_id))
+            equipment_list = []
+            for equip in equip_result.scalars():
+                item_info = cls._apply_quality_bonus(DataLoader.get_item(equip.item_id), equip.quality)
+                if item_info:
+                    equipment_list.append({"info": item_info})
+            
+            summon = cls.summons.get(char_id)
+            disabled = cls.disabled_skills.get(char_id, [])
+            
+            combat_result = CombatEngine.pve_combat(player_stats, [boss], all_skills, [], DataLoader, inventory, summon, disabled, equipment_list)
+            
+            # 更新召唤物状态
+            if combat_result.summon_died:
+                cls.summons.pop(char_id, None)
+            
+            # 消耗使用的药水
+            used_counts = {}
+            for item in inventory:
+                if item.get("used"):
+                    db_item = item.get("db_item")
+                    if db_item:
+                        used_counts[db_item] = used_counts.get(db_item, 0) + 1
+            for db_item, count in used_counts.items():
+                if db_item.quantity > count:
+                    db_item.quantity -= count
+                else:
+                    await db.delete(db_item)
+            
+            # 消耗召唤物品
+            if inv_item.quantity > 1:
+                inv_item.quantity -= 1
+            else:
+                await db.delete(inv_item)
+            
+            await db.flush()
+            
+            if combat_result.victory:
+                char.exp += combat_result.exp_gained
+                char.gold += combat_result.gold_gained
+                
+                level_up = cls._check_level_up(char)
+                
+                for drop in combat_result.drops:
+                    await cls._add_item(char_id, drop["item_id"], drop["quality"], db)
+                
+                for skill_id in combat_result.skills_used:
+                    await cls._increase_skill_proficiency(char_id, skill_id, db)
+                
+                await db.commit()
+                
+                return {
+                    "success": True,
+                    "victory": True,
+                    "logs": combat_result.logs,
+                    "exp_gained": combat_result.exp_gained,
+                    "gold_gained": combat_result.gold_gained,
+                    "drops": combat_result.drops,
+                    "level_up": level_up,
+                    "character": cls._char_to_dict(char)
+                }
+            else:
+                await db.commit()
+                return {
+                    "success": True,
+                    "victory": False,
+                    "logs": combat_result.logs,
+                    "player_died": combat_result.player_died
+                }
+        finally:
+            cls.combat_locks.pop(char_id, None)
+    
+    @classmethod
     async def get_character_skills(cls, char_id: int, db: AsyncSession) -> dict:
         """获取角色技能列表"""
         char = await db.get(Character, char_id)
@@ -774,12 +982,14 @@ class GameEngine:
     
     @classmethod
     def _apply_quality_bonus(cls, item_info: dict, quality: str) -> dict:
-        """应用品质加成到物品属性"""
+        """应用品质加成到物品属性和特效"""
         if not item_info:
             return item_info
         quality_info = DataLoader.get_quality(quality)
         bonus = quality_info.get("bonus", 1.0) if quality_info else 1.0
-        if bonus == 1.0:
+        effect_bonus = quality_info.get("effect_bonus", 0) if quality_info else 0
+        
+        if bonus == 1.0 and effect_bonus == 0:
             return item_info
         
         result = item_info.copy()
@@ -789,6 +999,19 @@ class GameEngine:
                     "hp_bonus", "mp_bonus"]:
             if key in result:
                 result[key] = int(result[key] * bonus)
+        
+        # 应用特效加成
+        if "effects" in result and effect_bonus > 0:
+            effects = result["effects"].copy()
+            # 整数类型特效
+            int_effects = {"poison_damage", "poison_rounds", "extra_phys", "extra_magic", "hp_on_hit", "mp_on_hit"}
+            for key, value in effects.items():
+                if isinstance(value, (int, float)) and value > 0:
+                    new_val = value * (1 + effect_bonus)
+                    # 整数特效取整，百分比特效保留3位小数
+                    effects[key] = int(new_val) if key in int_effects else round(new_val, 3)
+            result["effects"] = effects
+        
         return result
     
     @classmethod
@@ -796,7 +1019,7 @@ class GameEngine:
         """添加物品到背包（消耗品可堆叠）"""
         item_info = DataLoader.get_item(item_id)
         item_type = item_info.get("type") if item_info else None
-        is_stackable = item_type in ["consumable", "material", "skillbook"]
+        is_stackable = item_type in ["consumable", "material", "skillbook", "boss_summon"]
         # 非装备类型物品品质统一为普通
         if item_type not in ["weapon", "armor", "accessory"]:
             quality = "white"

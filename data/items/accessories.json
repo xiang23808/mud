@@ -23,7 +23,7 @@
     "buy_price": 300,
     "recycle_gold": 30,
     "effects": {
-      "crit_rate": 0.01
+      "crit_rate": 0.005
     }
   },
   "poison_ring": {
@@ -40,9 +40,9 @@
     "recycle_gold": 150,
     "drop_only": true,
     "effects": {
-      "poison_damage": 5,
-      "poison_rounds": 3,
-      "crit_rate": 0.03
+      "poison_damage": 2,
+      "poison_rounds": 2,
+      "crit_rate": 0.01
     }
   },
   "corpse_king_ring": {
@@ -60,9 +60,9 @@
     "recycle_yuanbao": 25,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.05,
-      "crit_rate": 0.05,
-      "extra_phys": 5
+      "lifesteal": 0.02,
+      "crit_rate": 0.02,
+      "extra_phys": 2
     }
   },
   "dragon_ring": {
@@ -81,10 +81,10 @@
     "recycle_yuanbao": 45,
     "drop_only": true,
     "effects": {
-      "crit_rate": 0.08,
-      "double_attack": 0.05,
-      "extra_phys": 8,
-      "extra_magic": 8
+      "crit_rate": 0.03,
+      "double_attack": 0.02,
+      "extra_phys": 3,
+      "extra_magic": 3
     }
   },
   "bronze_necklace": {
@@ -112,7 +112,7 @@
     "buy_price": 500,
     "recycle_gold": 50,
     "effects": {
-      "damage_reduction": 0.02
+      "damage_reduction": 0.01
     }
   },
   "death_necklace": {
@@ -131,9 +131,9 @@
     "recycle_yuanbao": 30,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.06,
-      "damage_reduction": 0.05,
-      "reflect": 0.05
+      "lifesteal": 0.02,
+      "damage_reduction": 0.02,
+      "reflect": 0.02
     }
   },
   "holy_necklace": {
@@ -154,10 +154,10 @@
     "recycle_yuanbao": 40,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.08,
-      "block_rate": 0.05,
-      "reflect": 0.06,
-      "crit_rate": 0.05
+      "damage_reduction": 0.01,
+      "block_rate": 0.01,
+      "reflect": 0.01,
+      "crit_rate": 0.01
     }
   },
   "blood_ring": {
@@ -173,9 +173,9 @@
     "recycle_yuanbao": 22,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.08,
-      "hp_on_hit": 5,
-      "crit_rate": 0.04
+      "lifesteal": 0.02,
+      "hp_on_hit": 2,
+      "crit_rate": 0.02
     }
   },
   "prince_ring": {
@@ -194,11 +194,11 @@
     "recycle_yuanbao": 70,
     "drop_only": true,
     "effects": {
-      "crit_rate": 0.12,
-      "double_attack": 0.1,
-      "extra_phys": 15,
-      "extra_magic": 15,
-      "ignore_defense": 0.08
+      "crit_rate": 0.04,
+      "double_attack": 0.03,
+      "extra_phys": 5,
+      "extra_magic": 5,
+      "ignore_defense": 0.03
     }
   },
   "void_crystal": {
@@ -216,10 +216,10 @@
     "recycle_yuanbao": 65,
     "drop_only": true,
     "effects": {
-      "extra_magic": 20,
-      "ignore_magic_def": 0.12,
-      "mp_on_hit": 10,
-      "crit_rate": 0.08
+      "extra_magic": 6,
+      "ignore_magic_def": 0.04,
+      "mp_on_hit": 3,
+      "crit_rate": 0.03
     }
   },
   "ragnaros_essence": {
@@ -240,11 +240,11 @@
     "recycle_yuanbao": 100,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.12,
-      "reflect": 0.1,
-      "extra_phys": 20,
-      "extra_magic": 20,
-      "crit_rate": 0.1
+      "damage_reduction": 0.02,
+      "reflect": 0.01,
+      "extra_phys": 4,
+      "extra_magic": 4,
+      "crit_rate": 0.02
     }
   },
   "aran_pendant": {
@@ -262,10 +262,10 @@
     "recycle_yuanbao": 55,
     "drop_only": true,
     "effects": {
-      "extra_magic": 15,
-      "splash_rate": 0.1,
-      "mp_on_hit": 8,
-      "crit_rate": 0.06
+      "extra_magic": 5,
+      "splash_rate": 0.03,
+      "mp_on_hit": 3,
+      "crit_rate": 0.02
     }
   },
   "bronze_bracelet": {
@@ -293,7 +293,7 @@
     "buy_price": 400,
     "recycle_gold": 40,
     "effects": {
-      "block_rate": 0.02
+      "block_rate": 0.01
     }
   },
   "bone_bracelet": {
@@ -313,9 +313,9 @@
     "recycle_gold": 200,
     "drop_only": true,
     "effects": {
-      "block_rate": 0.05,
-      "block_amount": 0.3,
-      "damage_reduction": 0.03
+      "block_rate": 0.01,
+      "block_amount": 0.08,
+      "damage_reduction": 0.005
     }
   },
   "dragon_bracelet": {
@@ -336,10 +336,10 @@
     "recycle_yuanbao": 35,
     "drop_only": true,
     "effects": {
-      "block_rate": 0.08,
-      "block_amount": 0.4,
-      "damage_reduction": 0.06,
-      "reflect": 0.05
+      "block_rate": 0.01,
+      "block_amount": 0.1,
+      "damage_reduction": 0.01,
+      "reflect": 0.01
     }
   },
   "molten_bracelet": {
@@ -359,11 +359,11 @@
     "recycle_yuanbao": 60,
     "drop_only": true,
     "effects": {
-      "block_rate": 0.1,
-      "block_amount": 0.45,
-      "damage_reduction": 0.08,
-      "reflect": 0.08,
-      "extra_phys": 10
+      "block_rate": 0.01,
+      "block_amount": 0.1,
+      "damage_reduction": 0.01,
+      "reflect": 0.01,
+      "extra_phys": 2
     }
   },
   "frost_ring": {
@@ -379,9 +379,9 @@
     "recycle_gold": 180,
     "drop_only": true,
     "effects": {
-      "stun_rate": 0.05,
-      "extra_magic": 5,
-      "crit_rate": 0.04
+      "stun_rate": 0.02,
+      "extra_magic": 2,
+      "crit_rate": 0.02
     }
   },
   "arcane_ring": {
@@ -397,10 +397,10 @@
     "recycle_yuanbao": 45,
     "drop_only": true,
     "effects": {
-      "extra_magic": 12,
-      "ignore_magic_def": 0.1,
-      "crit_rate": 0.08,
-      "mp_on_hit": 5
+      "extra_magic": 4,
+      "ignore_magic_def": 0.03,
+      "crit_rate": 0.03,
+      "mp_on_hit": 2
     }
   },
   "soul_necklace": {
@@ -421,10 +421,10 @@
     "recycle_yuanbao": 38,
     "drop_only": true,
     "effects": {
-      "hp_on_hit": 8,
-      "mp_on_hit": 5,
-      "lifesteal": 0.08,
-      "damage_reduction": 0.06
+      "hp_on_hit": 3,
+      "mp_on_hit": 2,
+      "lifesteal": 0.03,
+      "damage_reduction": 0.02
     }
   }
 }

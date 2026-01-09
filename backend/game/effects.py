@@ -10,9 +10,35 @@ EFFECT_CONFIG = {
     "default_crit_rate": 0.05,    # 默认暴击率
     "default_hit_rate": 0.95,     # 默认命中率
     "default_dodge_rate": 0.05,   # 默认闪避率
-    "max_damage_reduction": 0.8,  # 最大减伤比例
-    "max_block_rate": 0.5,        # 最大格挡几率
-    "max_lifesteal": 0.5,         # 最大吸血比例
+    "max_damage_reduction": 0.3,  # 最大减伤比例（降低）
+    "max_block_rate": 0.15,       # 最大格挡几率（降低）
+    "max_lifesteal": 0.2,         # 最大吸血比例（降低）
+    "max_block_amount": 0.3,      # 最大格挡伤害比例
+}
+
+# 特效中文名称映射
+EFFECT_NAMES = {
+    "double_attack": "双击",
+    "hit_rate": "命中",
+    "dodge_rate": "闪避",
+    "crush_rate": "压碎",
+    "lifesteal": "吸血",
+    "reflect": "反弹",
+    "hp_on_hit": "击回HP",
+    "mp_on_hit": "击回MP",
+    "block_rate": "格挡",
+    "block_amount": "格挡量",
+    "extra_phys": "附物伤",
+    "extra_magic": "附魔伤",
+    "damage_reduction": "减伤",
+    "stun_rate": "眩晕",
+    "splash_rate": "溅射",
+    "poison_damage": "毒伤",
+    "poison_rounds": "毒回合",
+    "ignore_defense": "穿防",
+    "ignore_magic_def": "穿魔防",
+    "crit_rate": "暴击",
+    "crit_damage": "暴伤",
 }
 
 @dataclass
@@ -113,24 +139,24 @@ class EffectCalculator:
     def calculate_block(defender_effects: dict, damage: int) -> Tuple[bool, int]:
         """计算格挡，返回 (是否格挡, 格挡后伤害)"""
         block_rate = min(defender_effects.get("block_rate", 0), EFFECT_CONFIG["max_block_rate"])
-        block_amount = defender_effects.get("block_amount", 0.5)  # 默认格挡50%伤害
+        block_amount = min(defender_effects.get("block_amount", 0.2), EFFECT_CONFIG["max_block_amount"])
         
         if block_rate > 0 and random.random() < block_rate:
             blocked_damage = int(damage * (1 - block_amount))
-            return True, max(1, blocked_damage)
+            return True, max(int(damage * 0.7), blocked_damage)  # 格挡最多减少30%伤害
         return False, damage
     
     @staticmethod
     def apply_damage_reduction(defender_effects: dict, damage: int) -> int:
         """应用减伤"""
         reduction = min(defender_effects.get("damage_reduction", 0), EFFECT_CONFIG["max_damage_reduction"])
-        return max(1, int(damage * (1 - reduction)))
+        return max(int(damage * 0.7), int(damage * (1 - reduction)))  # 减伤最多减少30%伤害
     
     @staticmethod
     def calculate_lifesteal(attacker_effects: dict, damage: int) -> int:
         """计算吸血回复量"""
         lifesteal = min(attacker_effects.get("lifesteal", 0), EFFECT_CONFIG["max_lifesteal"])
-        return int(damage * lifesteal)
+        return int(damage * lifesteal * 0.5)  # 吸血效果减半
     
     @staticmethod
     def calculate_reflect(defender_effects: dict, damage: int) -> int:
@@ -211,23 +237,23 @@ class EffectCalculator:
         if is_crit:
             damage = int(damage * crit_mult)
             result.is_crit = True
-            result.logs.append(f"暴击! x{crit_mult}")
+            result.logs.append(f"暴击x{crit_mult:.1f}")
         
         # 4. 压碎判定
         is_crush, crush_mult = cls.calculate_crush(atk_fx)
         if is_crush:
             damage = int(damage * crush_mult)
             result.is_crush = True
-            result.logs.append(f"压碎! x{crush_mult}")
+            result.logs.append(f"压碎x{crush_mult:.1f}")
         
         # 5. 附加伤害
         extra_phys, extra_magic = cls.get_extra_damage(atk_fx)
         if extra_phys > 0:
-            damage += extra_phys
-            result.logs.append(f"附加物理伤害 +{extra_phys}")
+            damage += int(extra_phys)
+            result.logs.append(f"附伤+{int(extra_phys)}")
         if extra_magic > 0:
-            damage += extra_magic
-            result.logs.append(f"附加魔法伤害 +{extra_magic}")
+            damage += int(extra_magic)
+            result.logs.append(f"魔伤+{int(extra_magic)}")
         
         # 6. 格挡判定
         blocked, damage = cls.calculate_block(def_fx, damage)
@@ -244,22 +270,28 @@ class EffectCalculator:
         lifesteal_hp = cls.calculate_lifesteal(atk_fx, damage)
         if lifesteal_hp > 0:
             result.heal_hp += lifesteal_hp
-            result.logs.append(f"吸血恢复 {lifesteal_hp} HP")
+            result.logs.append(f"吸血+{lifesteal_hp}HP")
         
         # 9. 击中回复
         hp_on_hit, mp_on_hit = cls.calculate_on_hit(atk_fx)
-        result.heal_hp += hp_on_hit
-        result.heal_mp += mp_on_hit
+        hp_on_hit = int(hp_on_hit)
+        mp_on_hit = int(mp_on_hit)
+        if hp_on_hit > 0:
+            result.heal_hp += hp_on_hit
+            result.logs.append(f"击回+{hp_on_hit}HP")
+        if mp_on_hit > 0:
+            result.heal_mp += mp_on_hit
+            result.logs.append(f"击回+{mp_on_hit}MP")
         
         # 10. 反弹伤害
         result.reflect_damage = cls.calculate_reflect(def_fx, damage)
         if result.reflect_damage > 0:
-            result.logs.append(f"反弹 {result.reflect_damage} 伤害")
+            result.logs.append(f"反弹{result.reflect_damage}")
         
         # 11. 眩晕判定
         result.is_stunned = cls.calculate_stun(atk_fx)
         if result.is_stunned:
-            result.logs.append("目标被眩晕!")
+            result.logs.append("眩晕")
         
         # 12. 溅射伤害
         result.splash_damage = cls.calculate_splash(atk_fx, damage)
@@ -267,14 +299,14 @@ class EffectCalculator:
         # 13. 毒伤
         poison_dmg, poison_rounds = cls.get_poison(atk_fx)
         if poison_dmg > 0 and poison_rounds > 0:
-            result.poison_damage = poison_dmg
-            result.poison_rounds = poison_rounds
-            result.logs.append(f"施加毒伤 {poison_dmg}/回合 持续{poison_rounds}回合")
+            result.poison_damage = int(poison_dmg)
+            result.poison_rounds = int(poison_rounds)
+            result.logs.append(f"毒伤{int(poison_dmg)}x{int(poison_rounds)}回合")
         
         # 14. 双次攻击
         result.extra_attacks = cls.check_double_attack(atk_fx)
         if result.extra_attacks > 0:
-            result.logs.append("触发双次攻击!")
+            result.logs.append("双击")
         
         return result
 
@@ -307,9 +339,12 @@ def apply_quality_bonus(item: dict, quality: str) -> dict:
     # 特效加成
     if "effects" in result:
         effects = result["effects"].copy()
+        # 整数类型特效
+        int_effects = {"poison_damage", "poison_rounds", "extra_phys", "extra_magic", "hp_on_hit", "mp_on_hit"}
         for key, value in effects.items():
             if isinstance(value, (int, float)) and value > 0:
-                effects[key] = value * (1 + effect_bonus)
+                new_val = value * (1 + effect_bonus)
+                effects[key] = int(new_val) if key in int_effects else round(new_val, 3)
         result["effects"] = effects
     
     return result
@@ -343,14 +378,15 @@ def roll_quality(base_rate: float = 1.0) -> str:
     return "white"
 
 
-def calculate_set_bonuses(equipment: list, sets_config: dict) -> dict:
+def calculate_set_bonuses(equipment: list, sets_config: dict, include_full_config: bool = False) -> dict:
     """计算套装加成
     Args:
         equipment: 装备列表，每个装备需要有info.set_id
         sets_config: 套装配置数据
+        include_full_config: 是否返回完整套装配置（用于前端显示）
     Returns:
         {
-            "active_sets": [{"set_id": str, "name": str, "count": int, "bonuses": dict}],
+            "active_sets": [{"set_id": str, "name": str, "count": int, "bonuses": dict, "full_bonuses": dict}],
             "total_stats": {"hp_bonus": int, "defense": int, ...},
             "total_effects": {"crit_rate": float, ...}
         }
@@ -376,6 +412,10 @@ def calculate_set_bonuses(equipment: list, sets_config: dict) -> dict:
         
         set_info = {"set_id": set_id, "name": set_cfg.get("name", set_id), "count": count, "bonuses": {}}
         
+        # 返回完整套装配置（包含所有阶段）
+        if include_full_config:
+            set_info["full_bonuses"] = set_cfg.get("bonuses", {})
+        
         # 检查各阶段加成
         for threshold in ["2", "4", "6"]:
             if count >= int(threshold) and threshold in set_cfg.get("bonuses", {}):
@@ -390,7 +430,7 @@ def calculate_set_bonuses(equipment: list, sets_config: dict) -> dict:
                     else:
                         total_stats[key] = total_stats.get(key, 0) + val
         
-        if set_info["bonuses"]:
+        if count >= 1:  # 只要有1件就显示套装信息
             active_sets.append(set_info)
     
     return {"active_sets": active_sets, "total_stats": total_stats, "total_effects": total_effects}

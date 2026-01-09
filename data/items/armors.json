@@ -25,7 +25,7 @@
     "buy_price": 300,
     "recycle_gold": 30,
     "effects": {
-      "dodge_rate": 0.02
+      "dodge_rate": 0.01
     }
   },
   "iron_armor": {
@@ -42,7 +42,7 @@
     "buy_price": 1000,
     "recycle_gold": 100,
     "effects": {
-      "damage_reduction": 0.02
+      "damage_reduction": 0.01
     }
   },
   "heavy_armor": {
@@ -59,8 +59,8 @@
     "buy_price": 5000,
     "recycle_gold": 500,
     "effects": {
-      "damage_reduction": 0.05,
-      "block_rate": 0.05
+      "damage_reduction": 0.01,
+      "block_rate": 0.01
     }
   },
   "holy_armor": {
@@ -78,10 +78,10 @@
     "recycle_yuanbao": 40,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.1,
-      "block_rate": 0.1,
-      "block_amount": 0.4,
-      "reflect": 0.05
+      "damage_reduction": 0.01,
+      "block_rate": 0.01,
+      "block_amount": 0.1,
+      "reflect": 0.01
     }
   },
   "death_armor": {
@@ -101,9 +101,9 @@
     "recycle_yuanbao": 30,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.05,
-      "damage_reduction": 0.08,
-      "reflect": 0.08
+      "lifesteal": 0.01,
+      "damage_reduction": 0.01,
+      "reflect": 0.01
     }
   },
   "magic_robe": {
@@ -120,7 +120,7 @@
     "buy_price": 600,
     "recycle_gold": 60,
     "effects": {
-      "mp_on_hit": 2
+      "mp_on_hit": 1
     }
   },
   "霓裳羽衣": {
@@ -138,9 +138,9 @@
     "recycle_yuanbao": 20,
     "drop_only": true,
     "effects": {
-      "dodge_rate": 0.08,
-      "damage_reduction": 0.05,
-      "mp_on_hit": 5
+      "dodge_rate": 0.03,
+      "damage_reduction": 0.02,
+      "mp_on_hit": 2
     }
   },
   "天尊道袍": {
@@ -159,9 +159,9 @@
     "recycle_yuanbao": 22,
     "drop_only": true,
     "effects": {
-      "hp_on_hit": 5,
-      "damage_reduction": 0.05,
-      "dodge_rate": 0.05
+      "hp_on_hit": 2,
+      "damage_reduction": 0.02,
+      "dodge_rate": 0.02
     }
   },
   "bone_helmet": {
@@ -179,7 +179,7 @@
     "recycle_gold": 200,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.03
+      "damage_reduction": 0.01
     }
   },
   "skeleton_helmet": {
@@ -197,8 +197,8 @@
     "recycle_yuanbao": 15,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.05,
-      "reflect": 0.03
+      "damage_reduction": 0.02,
+      "reflect": 0.01
     }
   },
   "zuma_helmet": {
@@ -216,9 +216,9 @@
     "recycle_yuanbao": 25,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.08,
-      "block_rate": 0.08,
-      "block_amount": 0.35
+      "damage_reduction": 0.01,
+      "block_rate": 0.01,
+      "block_amount": 0.08
     }
   },
   "zuma_armor": {
@@ -238,10 +238,10 @@
     "recycle_yuanbao": 35,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.1,
-      "block_rate": 0.1,
-      "reflect": 0.05,
-      "crit_rate": 0.03
+      "damage_reduction": 0.01,
+      "block_rate": 0.01,
+      "reflect": 0.01,
+      "crit_rate": 0.01
     }
   },
   "blood_armor": {
@@ -261,10 +261,10 @@
     "recycle_yuanbao": 50,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.08,
-      "damage_reduction": 0.12,
-      "reflect": 0.1,
-      "hp_on_hit": 10
+      "lifesteal": 0.01,
+      "damage_reduction": 0.02,
+      "reflect": 0.01,
+      "hp_on_hit": 2
     }
   },
   "shadow_armor": {
@@ -282,8 +282,8 @@
     "recycle_yuanbao": 28,
     "drop_only": true,
     "effects": {
-      "dodge_rate": 0.1,
-      "damage_reduction": 0.08
+      "dodge_rate": 0.02,
+      "damage_reduction": 0.01
     }
   },
   "fire_lord_crown": {
@@ -304,10 +304,10 @@
     "recycle_yuanbao": 100,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.12,
-      "reflect": 0.1,
-      "crit_rate": 0.08,
-      "extra_phys": 10
+      "damage_reduction": 0.02,
+      "reflect": 0.01,
+      "crit_rate": 0.02,
+      "extra_phys": 2
     }
   },
   "arcane_robe": {
@@ -327,10 +327,10 @@
     "recycle_yuanbao": 55,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.1,
-      "mp_on_hit": 8,
-      "extra_magic": 10,
-      "crit_rate": 0.05
+      "damage_reduction": 0.01,
+      "mp_on_hit": 2,
+      "extra_magic": 2,
+      "crit_rate": 0.01
     }
   },
   "phantom_shroud": {
@@ -349,9 +349,9 @@
     "recycle_yuanbao": 60,
     "drop_only": true,
     "effects": {
-      "dodge_rate": 0.15,
-      "damage_reduction": 0.1,
-      "reflect": 0.08
+      "dodge_rate": 0.02,
+      "damage_reduction": 0.01,
+      "reflect": 0.01
     }
   },
   "molten_plate": {
@@ -371,10 +371,10 @@
     "recycle_yuanbao": 75,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.15,
-      "reflect": 0.12,
-      "block_rate": 0.12,
-      "block_amount": 0.45
+      "damage_reduction": 0.02,
+      "reflect": 0.01,
+      "block_rate": 0.02,
+      "block_amount": 0.1
     }
   },
   "void_mantle": {
@@ -394,10 +394,10 @@
     "recycle_yuanbao": 85,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.12,
-      "dodge_rate": 0.12,
-      "extra_magic": 15,
-      "mp_on_hit": 10
+      "damage_reduction": 0.02,
+      "dodge_rate": 0.02,
+      "extra_magic": 3,
+      "mp_on_hit": 2
     }
   },
   "iron_helmet": {
@@ -414,7 +414,7 @@
     "buy_price": 800,
     "recycle_gold": 80,
     "effects": {
-      "damage_reduction": 0.02
+      "damage_reduction": 0.01
     }
   },
   "steel_helmet": {
@@ -431,8 +431,8 @@
     "buy_price": 3000,
     "recycle_gold": 300,
     "effects": {
-      "damage_reduction": 0.04,
-      "block_rate": 0.03
+      "damage_reduction": 0.02,
+      "block_rate": 0.01
     }
   },
   "leather_boots": {
@@ -448,7 +448,7 @@
     "buy_price": 200,
     "recycle_gold": 20,
     "effects": {
-      "dodge_rate": 0.02
+      "dodge_rate": 0.01
     }
   },
   "iron_boots": {
@@ -465,8 +465,8 @@
     "buy_price": 1200,
     "recycle_gold": 120,
     "effects": {
-      "dodge_rate": 0.03,
-      "damage_reduction": 0.02
+      "dodge_rate": 0.01,
+      "damage_reduction": 0.01
     }
   },
   "leather_belt": {
@@ -497,7 +497,7 @@
     "buy_price": 1000,
     "recycle_gold": 100,
     "effects": {
-      "damage_reduction": 0.02
+      "damage_reduction": 0.01
     }
   },
   "dragon_lord_crown": {
@@ -518,10 +518,10 @@
     "recycle_yuanbao": 180,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.15,
-      "reflect": 0.12,
-      "crit_rate": 0.1,
-      "block_rate": 0.1
+      "damage_reduction": 0.02,
+      "reflect": 0.02,
+      "crit_rate": 0.02,
+      "block_rate": 0.02
     }
   },
   "chromatic_boots": {
@@ -539,9 +539,9 @@
     "recycle_yuanbao": 120,
     "drop_only": true,
     "effects": {
-      "dodge_rate": 0.15,
-      "damage_reduction": 0.1,
-      "reflect": 0.08
+      "dodge_rate": 0.02,
+      "damage_reduction": 0.01,
+      "reflect": 0.01
     }
   },
   "tier2_warrior_chest": {
@@ -561,11 +561,11 @@
     "recycle_yuanbao": 150,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.18,
-      "block_rate": 0.15,
-      "block_amount": 0.5,
-      "reflect": 0.1,
-      "lifesteal": 0.05
+      "damage_reduction": 0.02,
+      "block_rate": 0.02,
+      "block_amount": 0.1,
+      "reflect": 0.01,
+      "lifesteal": 0.01
     }
   },
   "tier2_mage_robe": {
@@ -585,11 +585,11 @@
     "recycle_yuanbao": 150,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.15,
-      "dodge_rate": 0.12,
-      "extra_magic": 20,
-      "mp_on_hit": 15,
-      "crit_rate": 0.08
+      "damage_reduction": 0.02,
+      "dodge_rate": 0.02,
+      "extra_magic": 4,
+      "mp_on_hit": 3,
+      "crit_rate": 0.02
     }
   },
   "tier2_taoist_vest": {
@@ -608,11 +608,11 @@
     "recycle_yuanbao": 150,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.15,
-      "hp_on_hit": 12,
-      "mp_on_hit": 8,
-      "lifesteal": 0.08,
-      "dodge_rate": 0.1
+      "damage_reduction": 0.02,
+      "hp_on_hit": 2,
+      "mp_on_hit": 2,
+      "lifesteal": 0.01,
+      "dodge_rate": 0.02
     }
   },
   "cloth_cap": {
@@ -656,7 +656,7 @@
     "buy_price": 800,
     "recycle_gold": 80,
     "effects": {
-      "mp_on_hit": 2
+      "mp_on_hit": 1
     }
   },
   "taoist_crown": {
@@ -674,7 +674,7 @@
     "buy_price": 800,
     "recycle_gold": 80,
     "effects": {
-      "hp_on_hit": 2
+      "hp_on_hit": 1
     }
   },
   "arcane_hood": {
@@ -694,9 +694,9 @@
     "recycle_yuanbao": 20,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.05,
-      "mp_on_hit": 5,
-      "extra_magic": 5
+      "damage_reduction": 0.02,
+      "mp_on_hit": 2,
+      "extra_magic": 2
     }
   },
   "spirit_crown": {
@@ -715,9 +715,9 @@
     "recycle_yuanbao": 20,
     "drop_only": true,
     "effects": {
-      "hp_on_hit": 5,
-      "mp_on_hit": 3,
-      "damage_reduction": 0.05
+      "hp_on_hit": 2,
+      "mp_on_hit": 1,
+      "damage_reduction": 0.02
     }
   },
   "blood_helm": {
@@ -737,9 +737,9 @@
     "recycle_yuanbao": 35,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.05,
-      "damage_reduction": 0.08,
-      "block_rate": 0.08
+      "lifesteal": 0.01,
+      "damage_reduction": 0.01,
+      "block_rate": 0.01
     }
   },
   "void_hood": {
@@ -759,10 +759,10 @@
     "recycle_yuanbao": 60,
     "drop_only": true,
     "effects": {
-      "damage_reduction": 0.1,
-      "mp_on_hit": 10,
-      "extra_magic": 12,
-      "crit_rate": 0.05
+      "damage_reduction": 0.01,
+      "mp_on_hit": 2,
+      "extra_magic": 3,
+      "crit_rate": 0.01
     }
   },
   "holy_crown": {
@@ -781,10 +781,10 @@
     "recycle_yuanbao": 60,
     "drop_only": true,
     "effects": {
-      "hp_on_hit": 10,
-      "mp_on_hit": 5,
-      "damage_reduction": 0.1,
-      "lifesteal": 0.05
+      "hp_on_hit": 2,
+      "mp_on_hit": 1,
+      "damage_reduction": 0.01,
+      "lifesteal": 0.01
     }
   }
 }

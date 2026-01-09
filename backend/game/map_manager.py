@@ -38,10 +38,28 @@ class MapInstance:
             maze[y][0] = 1
             maze[y][23] = 1
         
+        # NPC位置和入口位置需要保持通畅
+        protected_positions = set()
+        # NPC位置
+        npc_positions = [(6, 8), (10, 8), (14, 8), (18, 8), (6, 16), (10, 16)]
+        # 入口位置（从config获取）
+        if entrances := self.config.get("entrances"):
+            for entrance in entrances:
+                pos = tuple(entrance["position"])
+                npc_positions.append(pos)
+        # 玩家出生点
+        npc_positions.append((12, 12))
+        
+        # 保护NPC及周围3x3区域
+        for pos in npc_positions:
+            for dy in range(-1, 2):
+                for dx in range(-1, 2):
+                    protected_positions.add((pos[0] + dx, pos[1] + dy))
+        
         # 添加一些随机装饰性墙壁（密度15%，比普通地图少）
         for y in range(2, 22):
             for x in range(2, 22):
-                if random.random() < 0.15:
+                if (x, y) not in protected_positions and random.random() < 0.15:
                     maze[y][x] = 1
         
         return maze
@@ -378,6 +396,23 @@ class MapManager:
         if not map_id or map_id not in self.instances:
             return None
         return self.instances[map_id].get_state(char_id)
+    
+    def reset_map(self, char_id: int) -> dict:
+        """重置当前地图（重新生成迷宫和怪物）"""
+        map_id = self.player_map.get(char_id)
+        if not map_id:
+            return {"success": False, "error": "不在任何地图中"}
+        
+        # 主城不能重置
+        if map_id == "main_city":
+            return {"success": False, "error": "主城无法重置"}
+        
+        # 删除旧实例并重新创建
+        if map_id in self.instances:
+            del self.instances[map_id]
+        
+        # 重新进入地图
+        return self.enter_map(char_id, map_id, True)
     
     def return_to_city(self, char_id: int) -> dict:
         """回城"""

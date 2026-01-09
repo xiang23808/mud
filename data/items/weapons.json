@@ -21,7 +21,7 @@
     "buy_price": 500,
     "recycle_gold": 50,
     "effects": {
-      "crit_rate": 0.02
+      "crit_rate": 0.01
     }
   },
   "steel_sword": {
@@ -35,8 +35,8 @@
     "buy_price": 2000,
     "recycle_gold": 200,
     "effects": {
-      "crit_rate": 0.03,
-      "hit_rate": 0.02
+      "crit_rate": 0.01,
+      "hit_rate": 0.01
     }
   },
   "dragon_sword": {
@@ -51,9 +51,9 @@
     "recycle_yuanbao": 20,
     "drop_only": true,
     "effects": {
-      "crit_rate": 0.05,
-      "double_attack": 0.08,
-      "extra_phys": 5
+      "crit_rate": 0.02,
+      "double_attack": 0.02,
+      "extra_phys": 2
     }
   },
   "judgement": {
@@ -68,10 +68,10 @@
     "recycle_yuanbao": 50,
     "drop_only": true,
     "effects": {
-      "crit_rate": 0.08,
-      "crush_rate": 0.1,
-      "ignore_defense": 0.1,
-      "stun_rate": 0.05
+      "crit_rate": 0.03,
+      "crush_rate": 0.03,
+      "ignore_defense": 0.03,
+      "stun_rate": 0.02
     }
   },
   "bone_king_sword": {
@@ -86,10 +86,10 @@
     "recycle_yuanbao": 30,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.05,
-      "crit_rate": 0.06,
-      "poison_damage": 8,
-      "poison_rounds": 3
+      "lifesteal": 0.02,
+      "crit_rate": 0.02,
+      "poison_damage": 3,
+      "poison_rounds": 2
     }
   },
   "wooden_staff": {
@@ -116,8 +116,8 @@
     "buy_price": 800,
     "recycle_gold": 80,
     "effects": {
-      "crit_rate": 0.02,
-      "mp_on_hit": 2
+      "crit_rate": 0.01,
+      "mp_on_hit": 1
     }
   },
   "bone_staff": {
@@ -133,9 +133,9 @@
     "recycle_yuanbao": 15,
     "drop_only": true,
     "effects": {
-      "crit_rate": 0.05,
-      "extra_magic": 8,
-      "ignore_magic_def": 0.08
+      "crit_rate": 0.02,
+      "extra_magic": 3,
+      "ignore_magic_def": 0.03
     }
   },
   "dragon_staff": {
@@ -151,10 +151,10 @@
     "recycle_yuanbao": 40,
     "drop_only": true,
     "effects": {
-      "crit_rate": 0.08,
-      "splash_rate": 0.15,
-      "extra_magic": 15,
-      "mp_on_hit": 5
+      "crit_rate": 0.03,
+      "splash_rate": 0.05,
+      "extra_magic": 5,
+      "mp_on_hit": 2
     }
   },
   "wooden_wand": {
@@ -185,8 +185,8 @@
     "buy_price": 1000,
     "recycle_gold": 100,
     "effects": {
-      "hp_on_hit": 3,
-      "crit_rate": 0.02
+      "hp_on_hit": 1,
+      "crit_rate": 0.01
     }
   },
   "blood_wand": {
@@ -204,9 +204,9 @@
     "recycle_yuanbao": 18,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.08,
-      "hp_on_hit": 5,
-      "crit_rate": 0.04
+      "lifesteal": 0.02,
+      "hp_on_hit": 2,
+      "crit_rate": 0.02
     }
   },
   "dragon_wand": {
@@ -224,10 +224,10 @@
     "recycle_yuanbao": 35,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.1,
-      "poison_damage": 12,
-      "poison_rounds": 3,
-      "crit_rate": 0.06
+      "lifesteal": 0.03,
+      "poison_damage": 4,
+      "poison_rounds": 2,
+      "crit_rate": 0.02
     }
   },
   "butcher_cleaver": {
@@ -243,10 +243,10 @@
     "recycle_yuanbao": 55,
     "drop_only": true,
     "effects": {
-      "crush_rate": 0.15,
-      "lifesteal": 0.1,
-      "crit_rate": 0.1,
-      "stun_rate": 0.08
+      "crush_rate": 0.04,
+      "lifesteal": 0.03,
+      "crit_rate": 0.03,
+      "stun_rate": 0.02
     }
   },
   "raven_bow": {
@@ -264,9 +264,9 @@
     "recycle_yuanbao": 28,
     "drop_only": true,
     "effects": {
-      "double_attack": 0.12,
-      "crit_rate": 0.08,
-      "hit_rate": 0.05
+      "double_attack": 0.03,
+      "crit_rate": 0.03,
+      "hit_rate": 0.02
     }
   },
   "malchezaar_blade": {
@@ -282,11 +282,11 @@
     "recycle_yuanbao": 80,
     "drop_only": true,
     "effects": {
-      "crush_rate": 0.12,
-      "ignore_defense": 0.15,
-      "crit_rate": 0.12,
-      "double_attack": 0.1,
-      "extra_phys": 20
+      "crush_rate": 0.04,
+      "ignore_defense": 0.05,
+      "crit_rate": 0.04,
+      "double_attack": 0.03,
+      "extra_phys": 6
     }
   },
   "sulfuras": {
@@ -302,11 +302,11 @@
     "recycle_yuanbao": 120,
     "drop_only": true,
     "effects": {
-      "crush_rate": 0.18,
-      "splash_rate": 0.25,
-      "extra_phys": 30,
-      "crit_rate": 0.15,
-      "stun_rate": 0.1
+      "crush_rate": 0.05,
+      "splash_rate": 0.08,
+      "extra_phys": 10,
+      "crit_rate": 0.05,
+      "stun_rate": 0.03
     }
   },
   "molten_destroyer": {
@@ -322,10 +322,10 @@
     "recycle_yuanbao": 90,
     "drop_only": true,
     "effects": {
-      "crush_rate": 0.15,
-      "extra_phys": 25,
-      "crit_rate": 0.1,
-      "ignore_defense": 0.12
+      "crush_rate": 0.04,
+      "extra_phys": 8,
+      "crit_rate": 0.03,
+      "ignore_defense": 0.04
     }
   },
   "netherbane": {
@@ -342,10 +342,10 @@
     "recycle_yuanbao": 75,
     "drop_only": true,
     "effects": {
-      "ignore_defense": 0.2,
-      "ignore_magic_def": 0.15,
-      "crit_rate": 0.1,
-      "reflect": 0.05
+      "ignore_defense": 0.05,
+      "ignore_magic_def": 0.05,
+      "crit_rate": 0.03,
+      "reflect": 0.02
     }
   },
   "soul_harvest": {
@@ -361,10 +361,10 @@
     "recycle_yuanbao": 60,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.12,
-      "extra_magic": 20,
-      "crit_rate": 0.1,
-      "mp_on_hit": 8
+      "lifesteal": 0.03,
+      "extra_magic": 6,
+      "crit_rate": 0.03,
+      "mp_on_hit": 3
     }
   },
   "hunter_bow": {
@@ -382,8 +382,8 @@
     "recycle_gold": 150,
     "drop_only": true,
     "effects": {
-      "double_attack": 0.08,
-      "hit_rate": 0.03
+      "double_attack": 0.02,
+      "hit_rate": 0.01
     }
   },
   "rogue_dagger": {
@@ -398,9 +398,9 @@
     "recycle_gold": 200,
     "drop_only": true,
     "effects": {
-      "double_attack": 0.15,
-      "crit_rate": 0.08,
-      "dodge_rate": 0.03
+      "double_attack": 0.04,
+      "crit_rate": 0.03,
+      "dodge_rate": 0.01
     }
   },
   "shaman_staff": {
@@ -416,10 +416,10 @@
     "recycle_yuanbao": 22,
     "drop_only": true,
     "effects": {
-      "poison_damage": 10,
-      "poison_rounds": 4,
-      "extra_magic": 10,
-      "crit_rate": 0.05
+      "poison_damage": 4,
+      "poison_rounds": 2,
+      "extra_magic": 3,
+      "crit_rate": 0.02
     }
   },
   "bone_wand": {
@@ -435,10 +435,10 @@
     "recycle_yuanbao": 30,
     "drop_only": true,
     "effects": {
-      "ignore_magic_def": 0.12,
-      "extra_magic": 12,
-      "crit_rate": 0.07,
-      "lifesteal": 0.05
+      "ignore_magic_def": 0.04,
+      "extra_magic": 4,
+      "crit_rate": 0.02,
+      "lifesteal": 0.02
     }
   },
   "spellbinder_tome": {
@@ -454,10 +454,10 @@
     "recycle_yuanbao": 70,
     "drop_only": true,
     "effects": {
-      "stun_rate": 0.12,
-      "extra_magic": 25,
-      "crit_rate": 0.12,
-      "splash_rate": 0.2
+      "stun_rate": 0.03,
+      "extra_magic": 8,
+      "crit_rate": 0.04,
+      "splash_rate": 0.06
     }
   },
   "ashkandi": {
@@ -475,12 +475,12 @@
     "recycle_yuanbao": 200,
     "drop_only": true,
     "effects": {
-      "crush_rate": 0.2,
-      "double_attack": 0.15,
-      "lifesteal": 0.15,
-      "crit_rate": 0.18,
-      "extra_phys": 40,
-      "stun_rate": 0.12
+      "crush_rate": 0.05,
+      "double_attack": 0.04,
+      "lifesteal": 0.04,
+      "crit_rate": 0.05,
+      "extra_phys": 12,
+      "stun_rate": 0.03
     }
   },
   "thunderfury": {
@@ -497,11 +497,11 @@
     "recycle_yuanbao": 180,
     "drop_only": true,
     "effects": {
-      "splash_rate": 0.3,
-      "stun_rate": 0.15,
-      "crit_rate": 0.15,
-      "extra_phys": 35,
-      "ignore_defense": 0.15
+      "splash_rate": 0.08,
+      "stun_rate": 0.04,
+      "crit_rate": 0.05,
+      "extra_phys": 10,
+      "ignore_defense": 0.05
     }
   },
   "staff_of_dominance": {
@@ -517,11 +517,11 @@
     "recycle_yuanbao": 150,
     "drop_only": true,
     "effects": {
-      "splash_rate": 0.25,
-      "extra_magic": 35,
-      "crit_rate": 0.15,
-      "ignore_magic_def": 0.18,
-      "mp_on_hit": 12
+      "splash_rate": 0.08,
+      "extra_magic": 10,
+      "crit_rate": 0.05,
+      "ignore_magic_def": 0.05,
+      "mp_on_hit": 4
     }
   },
   "benediction": {
@@ -540,12 +540,12 @@
     "recycle_yuanbao": 140,
     "drop_only": true,
     "effects": {
-      "lifesteal": 0.15,
-      "hp_on_hit": 15,
-      "mp_on_hit": 8,
-      "crit_rate": 0.12,
-      "poison_damage": 20,
-      "poison_rounds": 4
+      "lifesteal": 0.04,
+      "hp_on_hit": 5,
+      "mp_on_hit": 3,
+      "crit_rate": 0.04,
+      "poison_damage": 6,
+      "poison_rounds": 2
     }
   }
 }

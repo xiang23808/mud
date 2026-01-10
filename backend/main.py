@@ -109,11 +109,12 @@ async def buy_item(data: dict, token: str, db: AsyncSession = Depends(get_db)):
     item_id = data.get("item_id")
     quantity = data.get("quantity", 1)
     char_id = data.get("char_id")
+    currency = data.get("currency", "gold")
     
     if not item_id or not char_id:
         raise HTTPException(400, "缺少必要参数")
     
-    return await GameEngine.buy_item(char_id, item_id, quantity, db)
+    return await GameEngine.shop_buy(char_id, item_id, quantity, currency, db)
 
 # ============ 行会 ============
 @app.post("/api/guild/create")
@@ -238,6 +239,14 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
             elif msg_type == "move_to_warehouse":
                 result = await GameEngine.move_to_warehouse(char_id, data["slot"], db)
                 await manager.send(char_id, {"type": "move_result", "data": result})
+            
+            elif msg_type == "organize_inventory":
+                storage = data.get("storage", "inventory")
+                result = await GameEngine.organize_inventory(char_id, storage, db)
+                await manager.send(char_id, {"type": "organize_result", "data": result})
+                # 整理后自动返回最新背包数据
+                items = await GameEngine.get_inventory(char_id, storage, db)
+                await manager.send(char_id, {"type": "inventory", "data": items})
             
             elif msg_type == "move_to_inventory":
                 result = await GameEngine.move_to_inventory(char_id, data["slot"], db)

@@ -215,10 +215,10 @@ class GameEngine:
             # 消耗使用的药水（统计每个db_item使用次数）
             used_counts = {}
             for item in inventory:
-                if item.get("used"):
+                if item.get("used_count", 0) > 0:
                     db_item = item.get("db_item")
                     if db_item:
-                        used_counts[db_item] = used_counts.get(db_item, 0) + 1
+                        used_counts[db_item] = used_counts.get(db_item, 0) + item["used_count"]
             for db_item, count in used_counts.items():
                 if db_item.quantity > count:
                     db_item.quantity -= count
@@ -340,6 +340,44 @@ class GameEngine:
         }
     
     @classmethod
+    async def organize_inventory(cls, char_id: int, storage_type: str, db: AsyncSession) -> dict:
+        """整理背包/仓库 - 合并可叠加物品"""
+        st = StorageType.WAREHOUSE if storage_type == "warehouse" else StorageType.INVENTORY
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == st
+            )
+        )
+        items = list(result.scalars().all())
+        
+        # 按(item_id, quality)分组
+        groups = {}
+        for item in items:
+            item_info = DataLoader.get_item(item.item_id)
+            item_type = item_info.get("type") if item_info else None
+            is_stackable = item_type in ["consumable", "material", "skillbook", "boss_summon"]
+            if is_stackable:
+                key = (item.item_id, item.quality)
+                if key not in groups:
+                    groups[key] = []
+                groups[key].append(item)
+        
+        # 合并同类物品
+        merged = 0
+        for key, group in groups.items():
+            if len(group) > 1:
+                # 保留第一个，合并其他
+                first = group[0]
+                for other in group[1:]:
+                    first.quantity += other.quantity
+                    await db.delete(other)
+                    merged += 1
+        
+        await db.commit()
+        return {"success": True, "merged": merged}
+    
+    @classmethod
     async def get_equipment(cls, char_id: int, db: AsyncSession) -> dict:
         """获取角色装备和综合属性"""
         char = await db.get(Character, char_id)
@@ -447,6 +485,12 @@ class GameEngine:
         item_info = DataLoader.get_item(inv_item.item_id)
         if not item_info or item_info.get("type") not in ["weapon", "armor", "accessory"]:
             return {"success": False, "error": "无法装备此物品"}
+        
+        # 检查等级要求
+        char = await db.get(Character, char_id)
+        level_req = item_info.get("level_req", 1)
+        if char.level < level_req:
+            return {"success": False, "error": f"等级不足，需要{level_req}级"}
         
         # 获取物品槽位并映射到装备槽位
         item_slot = item_info.get("slot", "weapon")
@@ -672,6 +716,52 @@ class GameEngine:
         
         return {"success": True}
     
+    # 商城物品价格配置
+    SHOP_PRICES = {
+        # 药品
+        'hp_potion_small': {'gold': 20}, 'hp_potion_medium': {'gold': 60}, 'hp_potion_large': {'gold': 200},
+        'mp_potion_small': {'gold': 15}, 'mp_potion_medium': {'gold': 50}, 'mp_potion_large': {'gold': 150},
+        'return_scroll': {'gold': 50},
+        # 装备
+        'wooden_sword': {'gold': 100}, 'wooden_staff': {'gold': 100}, 'wooden_wand': {'gold': 100},
+        'cloth_armor': {'gold': 80}, 'leather_boots': {'gold': 200}, 'leather_belt': {'gold': 150},
+        # 特殊物品
+        'blessing_oil': {'yuanbao': 100}, 'woma_horn': {'yuanbao': 50}, 'zuma_piece': {'yuanbao': 80},
+        'demon_heart': {'yuanbao': 120}
+    }
+    
+    @classmethod
+    async def shop_buy(cls, char_id: int, item_id: str, quantity: int, currency: str, db: AsyncSession) -> dict:
+        """商城购买物品"""
+        price_info = cls.SHOP_PRICES.get(item_id)
+        if not price_info:
+            return {"success": False, "error": "商品不存在"}
+        
+        price = price_info.get(currency, 0)
+        if price <= 0:
+            return {"success": False, "error": "无法使用该货币购买"}
+        
+        total = price * quantity
+        char = await db.get(Character, char_id)
+        if not char:
+            return {"success": False, "error": "角色不存在"}
+        
+        if currency == 'yuanbao':
+            if char.yuanbao < total:
+                return {"success": False, "error": "元宝不足"}
+            char.yuanbao -= total
+        else:
+            if char.gold < total:
+                return {"success": False, "error": "金币不足"}
+            char.gold -= total
+        
+        success = await cls._add_item(char_id, item_id, "white", db, quantity)
+        if not success:
+            return {"success": False, "error": "背包已满"}
+        
+        await db.commit()
+        return {"success": True}
+    
     @classmethod
     async def learn_skill(cls, char_id: int, skill_id: str, db: AsyncSession) -> dict:
         """学习技能"""
@@ -836,10 +926,10 @@ class GameEngine:
             # 消耗使用的药水
             used_counts = {}
             for item in inventory:
-                if item.get("used"):
+                if item.get("used_count", 0) > 0:
                     db_item = item.get("db_item")
                     if db_item:
-                        used_counts[db_item] = used_counts.get(db_item, 0) + 1
+                        used_counts[db_item] = used_counts.get(db_item, 0) + item["used_count"]
             for db_item, count in used_counts.items():
                 if db_item.quantity > count:
                     db_item.quantity -= count

@@ -654,8 +654,9 @@ function renderInventory(data) {
     const recycleAllBtn = storage_type === 'inventory' && items.length > 0
         ? `<button onclick="recycleAll()" style="background:#c00;margin-left:10px;">全部回收</button>`
         : '';
+    const organizeBtn = `<button onclick="organizeInventory('${storage_type}')" style="background:#060;margin-left:10px;">整理</button>`;
     grid.innerHTML = `<div style="grid-column: 1/-1; color: #ffd700; text-align: center; margin-bottom: 10px;">
-        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots} ${recycleAllBtn}
+        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots} ${organizeBtn} ${recycleAllBtn}
     </div>` + items.map(item => {
         const isEquipable = item.info?.type === 'weapon' || item.info?.type === 'armor' || item.info?.type === 'accessory';
         const isSkillbook = item.info?.type === 'skillbook';
@@ -755,6 +756,10 @@ function useBossItem(slot) {
 function moveToWarehouse(slot) {
     ws.send(JSON.stringify({ type: 'move_to_warehouse', slot }));
     setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 300);
+}
+
+function organizeInventory(storage) {
+    ws.send(JSON.stringify({ type: 'organize_inventory', storage }));
 }
 
 function moveToInventory(slot) {
@@ -966,6 +971,98 @@ function returnToCity() {
     ws.send(JSON.stringify({ type: 'return_city' }));
 }
 
+// 商城
+let currentShopTab = 'consumable';
+const SHOP_ITEMS = {
+    consumable: [
+        { id: 'hp_potion_small', name: '小红瓶', price: 20, currency: 'gold', desc: '恢复50HP' },
+        { id: 'hp_potion_medium', name: '中红瓶', price: 60, currency: 'gold', desc: '恢复150HP' },
+        { id: 'hp_potion_large', name: '大红瓶', price: 200, currency: 'gold', desc: '恢复500HP' },
+        { id: 'mp_potion_small', name: '小蓝瓶', price: 15, currency: 'gold', desc: '恢复30MP' },
+        { id: 'mp_potion_medium', name: '中蓝瓶', price: 50, currency: 'gold', desc: '恢复100MP' },
+        { id: 'mp_potion_large', name: '大蓝瓶', price: 150, currency: 'gold', desc: '恢复300MP' },
+        { id: 'return_scroll', name: '回城卷', price: 50, currency: 'gold', desc: '传送回主城' }
+    ],
+    equipment: [
+        { id: 'wooden_sword', name: '木剑', price: 100, currency: 'gold', desc: '战士初级武器' },
+        { id: 'wooden_staff', name: '木杖', price: 100, currency: 'gold', desc: '法师初级武器' },
+        { id: 'wooden_wand', name: '木制魔杖', price: 100, currency: 'gold', desc: '道士初级武器' },
+        { id: 'cloth_armor', name: '布衣', price: 80, currency: 'gold', desc: '通用初级防具' },
+        { id: 'leather_boots', name: '皮靴', price: 200, currency: 'gold', desc: '通用初级鞋子' },
+        { id: 'leather_belt', name: '皮带', price: 150, currency: 'gold', desc: '通用初级腰带' }
+    ],
+    special: [
+        { id: 'blessing_oil', name: '祝福油', price: 100, currency: 'yuanbao', desc: '永久+1幸运' },
+        { id: 'woma_horn', name: '沃玛号角', price: 50, currency: 'yuanbao', desc: '召唤沃玛教主' },
+        { id: 'zuma_piece', name: '祖玛碎片', price: 80, currency: 'yuanbao', desc: '召唤祖玛教主' },
+        { id: 'demon_heart', name: '魔族之心', price: 120, currency: 'yuanbao', desc: '召唤魔族领主' }
+    ]
+};
+
+function openShop() {
+    show('shop-modal');
+    renderShop();
+}
+
+function switchShopTab(tab) {
+    currentShopTab = tab;
+    document.querySelectorAll('#shop-modal .tab').forEach((t, i) => {
+        t.classList.toggle('active', ['consumable', 'equipment', 'special'][i] === tab);
+    });
+    renderShop();
+}
+
+function renderShop() {
+    const items = SHOP_ITEMS[currentShopTab] || [];
+    $('shop-grid').innerHTML = items.map(item => `
+        <div class="inv-slot" style="background:#1a1a2e;">
+            <div class="item-name" style="color:#ffd700;">${item.name}</div>
+            <div style="font-size:11px;color:#888;">${item.desc}</div>
+            <div style="color:${item.currency === 'yuanbao' ? '#ff0' : '#0f0'};">
+                ${item.price} ${item.currency === 'yuanbao' ? '元宝' : '金币'}
+            </div>
+            <div class="item-actions">
+                <button onclick="shopBuy('${item.id}', 1, '${item.currency}', ${item.price})">购买x1</button>
+                <button onclick="shopBuy('${item.id}', 10, '${item.currency}', ${item.price})">x10</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+async function shopBuy(itemId, quantity, currency, price) {
+    const total = price * quantity;
+    const currencyName = currency === 'yuanbao' ? '元宝' : '金币';
+    const balance = currency === 'yuanbao' ? currentChar.yuanbao : currentChar.gold;
+    
+    if (balance < total) {
+        output(`[商城] ${currencyName}不足`);
+        return;
+    }
+    
+    try {
+        const res = await fetch(`/api/shop/buy?token=${token}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ item_id: itemId, quantity, char_id: currentChar.id, currency })
+        });
+        const result = await res.json();
+        if (result.success) {
+            output(`[商城] 购买成功`);
+            if (currency === 'yuanbao') currentChar.yuanbao -= total;
+            else currentChar.gold -= total;
+            updateCharInfo();
+            // 刷新背包
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' }));
+            }
+        } else {
+            output(`[商城] ${result.error || '购买失败'}`);
+        }
+    } catch (e) {
+        output(`[商城] 购买失败`);
+    }
+}
+
 // 刷新地图
 function refreshMap() {
     if (ws && ws.readyState === WebSocket.OPEN) {
@@ -1078,9 +1175,7 @@ async function buyItem(itemId, quantity) {
 
 // 输出
 function output(msg) {
-    const el = $('output');
-    el.innerHTML += `<div>${msg}</div>`;
-    el.scrollTop = el.scrollHeight;
+    addBattleLog(msg);
 }
 
 // 关闭弹窗

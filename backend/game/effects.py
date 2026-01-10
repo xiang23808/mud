@@ -296,9 +296,9 @@ class EffectCalculator:
         # 12. 溅射伤害
         result.splash_damage = cls.calculate_splash(atk_fx, damage)
         
-        # 13. 毒伤
+        # 13. 毒伤 (1/10概率触发)
         poison_dmg, poison_rounds = cls.get_poison(atk_fx)
-        if poison_dmg > 0 and poison_rounds > 0:
+        if poison_dmg > 0 and poison_rounds > 0 and random.randint(1, 10) == 1:
             result.poison_damage = int(poison_dmg)
             result.poison_rounds = int(poison_rounds)
             result.logs.append(f"毒伤{int(poison_dmg)}x{int(poison_rounds)}回合")

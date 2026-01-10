@@ -242,20 +242,28 @@ class CombatEngine:
                 logs.append("😵 你被眩晕，无法行动!")
                 player_stunned = False
             else:
-                # 自动使用药水
+                # 自动使用药水（HP一半以下使用，可重复使用）
                 if player_hp < player_max_hp * 0.3 and hp_potions:
-                    potion = hp_potions.pop(0)
+                    potion = hp_potions[0]
                     heal = potion.get("info", {}).get("effect", {}).get("heal_hp", 0)
                     player_hp = min(player_max_hp, player_hp + heal)
-                    potion["used"] = True
+                    potion["used_count"] = potion.get("used_count", 0) + 1
                     logs.append(f"🧪 自动使用 {potion.get('info', {}).get('name', '药水')} 恢复 {heal} HP")
+                    # 检查是否用完
+                    db_item = potion.get("db_item")
+                    if db_item and potion["used_count"] >= db_item.quantity:
+                        hp_potions.pop(0)
                 
                 if player_mp < player_max_mp * 0.3 and mp_potions:
-                    potion = mp_potions.pop(0)
+                    potion = mp_potions[0]
                     heal = potion.get("info", {}).get("effect", {}).get("heal_mp", 0)
                     player_mp = min(player_max_mp, player_mp + heal)
-                    potion["used"] = True
+                    potion["used_count"] = potion.get("used_count", 0) + 1
                     logs.append(f"🧪 自动使用 {potion.get('info', {}).get('name', '药水')} 恢复 {heal} MP")
+                    # 检查是否用完
+                    db_item = potion.get("db_item")
+                    if db_item and potion["used_count"] >= db_item.quantity:
+                        mp_potions.pop(0)
                 
                 # 减少技能CD
                 for skill_name in list(skill_cooldowns.keys()):

@@ -289,6 +289,11 @@ class CombatEngine:
                             effect = skill.get("effect", {})
                             skill_level = skill.get("level", 1)
                             
+                            # 治愈术只在HP低于60%时使用
+                            if effect.get("heal_hp") and not effect.get("aoe"):
+                                if player_hp >= player_max_hp * 0.6:
+                                    continue
+                            
                             if effect.get("summon"):
                                 if summon_state and summon_state.get("alive"):
                                     continue

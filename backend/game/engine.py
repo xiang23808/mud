@@ -112,7 +112,7 @@ class GameEngine:
         # 检查是否遇到哥布林 (1/10概率)
         goblin_encounter = False
         goblin_monster = None
-        if random.randint(1, 10) == 1 and map_id in cls.MAP_BOSS_MAPPING:
+        if random.randint(1, 5) == 1 and map_id in cls.MAP_BOSS_MAPPING:
             boss_type = cls.MAP_BOSS_MAPPING[map_id]
             boss_info = DataLoader.get_monster(boss_type)
             if boss_info:
@@ -318,14 +318,28 @@ class GameEngine:
     
     @classmethod
     async def get_inventory(cls, char_id: int, storage_type: str, db: AsyncSession) -> dict:
-        """获取背包/仓库"""
+        """获取背包/仓库（仓库按user_id共享）"""
+        from sqlalchemy import or_
         st = StorageType.WAREHOUSE if storage_type == "warehouse" else StorageType.INVENTORY
-        result = await db.execute(
-            select(InventoryItem).where(
-                InventoryItem.character_id == char_id,
-                InventoryItem.storage_type == st
+        
+        if st == StorageType.WAREHOUSE:
+            char = await db.get(Character, char_id)
+            result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.storage_type == st,
+                    or_(
+                        InventoryItem.user_id == char.user_id,
+                        InventoryItem.character_id == char_id
+                    )
+                )
             )
-        )
+        else:
+            result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.character_id == char_id,
+                    InventoryItem.storage_type == st
+                )
+            )
         items = result.scalars().all()
         
         return {
@@ -341,14 +355,28 @@ class GameEngine:
     
     @classmethod
     async def organize_inventory(cls, char_id: int, storage_type: str, db: AsyncSession) -> dict:
-        """整理背包/仓库 - 合并可叠加物品"""
+        """整理背包/仓库 - 合并可叠加物品（仓库按user_id共享）"""
+        from sqlalchemy import or_
         st = StorageType.WAREHOUSE if storage_type == "warehouse" else StorageType.INVENTORY
-        result = await db.execute(
-            select(InventoryItem).where(
-                InventoryItem.character_id == char_id,
-                InventoryItem.storage_type == st
+        
+        if st == StorageType.WAREHOUSE:
+            char = await db.get(Character, char_id)
+            result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.storage_type == st,
+                    or_(
+                        InventoryItem.user_id == char.user_id,
+                        InventoryItem.character_id == char_id
+                    )
+                )
             )
-        )
+        else:
+            result = await db.execute(
+                select(InventoryItem).where(
+                    InventoryItem.character_id == char_id,
+                    InventoryItem.storage_type == st
+                )
+            )
         items = list(result.scalars().all())
         
         # 按(item_id, quality)分组
@@ -492,6 +520,14 @@ class GameEngine:
         if char.level < level_req:
             return {"success": False, "error": f"等级不足，需要{level_req}级"}
         
+        # 检查职业限制
+        allowed_classes = item_info.get("class")
+        if allowed_classes:
+            if isinstance(allowed_classes, str):
+                allowed_classes = [allowed_classes]
+            if char.char_class.value not in allowed_classes:
+                return {"success": False, "error": f"职业不符，该装备限{'/'.join(allowed_classes)}"}
+        
         # 获取物品槽位并映射到装备槽位
         item_slot = item_info.get("slot", "weapon")
         equip_slot = cls.SLOT_MAP.get(item_slot, item_slot)
@@ -619,7 +655,10 @@ class GameEngine:
     
     @classmethod
     async def move_to_warehouse(cls, char_id: int, inventory_slot: int, db: AsyncSession) -> dict:
-        """将背包物品移到仓库"""
+        """将背包物品移到仓库（仓库按user_id共享）"""
+        from sqlalchemy import or_
+        char = await db.get(Character, char_id)
+        
         # 获取背包物品
         result = await db.execute(
             select(InventoryItem).where(
@@ -632,11 +671,14 @@ class GameEngine:
         if not inv_item:
             return {"success": False, "error": "物品不存在"}
         
-        # 找仓库空位
+        # 找仓库空位（按user_id共享）
         result = await db.execute(
             select(InventoryItem.slot).where(
-                InventoryItem.character_id == char_id,
-                InventoryItem.storage_type == StorageType.WAREHOUSE
+                InventoryItem.storage_type == StorageType.WAREHOUSE,
+                or_(
+                    InventoryItem.user_id == char.user_id,
+                    InventoryItem.character_id == char_id
+                )
             )
         )
         used_slots = {row[0] for row in result.fetchall()}
@@ -650,22 +692,29 @@ class GameEngine:
         if warehouse_slot is None:
             return {"success": False, "error": "仓库已满"}
         
-        # 移动物品
+        # 移动物品到共享仓库
         inv_item.storage_type = StorageType.WAREHOUSE
         inv_item.slot = warehouse_slot
+        inv_item.user_id = char.user_id
         await db.commit()
         
         return {"success": True}
     
     @classmethod
     async def move_to_inventory(cls, char_id: int, warehouse_slot: int, db: AsyncSession) -> dict:
-        """将仓库物品移到背包"""
-        # 获取仓库物品
+        """将仓库物品移到背包（仓库按user_id共享）"""
+        from sqlalchemy import or_
+        char = await db.get(Character, char_id)
+        
+        # 获取仓库物品（按user_id共享）
         result = await db.execute(
             select(InventoryItem).where(
-                InventoryItem.character_id == char_id,
                 InventoryItem.storage_type == StorageType.WAREHOUSE,
-                InventoryItem.slot == warehouse_slot
+                InventoryItem.slot == warehouse_slot,
+                or_(
+                    InventoryItem.user_id == char.user_id,
+                    InventoryItem.character_id == char_id
+                )
             )
         )
         wh_item = result.scalar_one_or_none()
@@ -690,9 +739,11 @@ class GameEngine:
         if inv_slot is None:
             return {"success": False, "error": "背包已满"}
         
-        # 移动物品
+        # 移动物品到角色背包
         wh_item.storage_type = StorageType.INVENTORY
         wh_item.slot = inv_slot
+        wh_item.character_id = char_id
+        wh_item.user_id = char.user_id
         await db.commit()
         
         return {"success": True}
@@ -1107,6 +1158,10 @@ class GameEngine:
     @classmethod
     async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1):
         """添加物品到背包（消耗品可堆叠）"""
+        # 获取角色的user_id用于仓库共享
+        char = await db.get(Character, char_id)
+        user_id = char.user_id if char else None
+        
         item_info = DataLoader.get_item(item_id)
         item_type = item_info.get("type") if item_info else None
         is_stackable = item_type in ["consumable", "material", "skillbook", "boss_summon"]
@@ -1142,6 +1197,7 @@ class GameEngine:
             if slot not in used_slots:
                 item = InventoryItem(
                     character_id=char_id,
+                    user_id=user_id,
                     storage_type=StorageType.INVENTORY,
                     item_id=item_id,
                     quality=quality,

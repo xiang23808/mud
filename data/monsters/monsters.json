@@ -1260,5 +1260,213 @@
       {"item": "tier2_mage_robe", "rate": "1/50"},
       {"item": "tier2_taoist_vest", "rate": "1/50"}
     ]
+  },
+  "restless_spirit": {
+    "name": "不安亡魂",
+    "level": 52,
+    "hp": 1100,
+    "attack": 210,
+    "defense": 55,
+    "damage_type": "magic",
+    "exp": 1700,
+    "gold": 480,
+    "drops": [
+      {"item": "death_necklace", "rate": "1/100"}
+    ]
+  },
+  "mana_fiend": {
+    "name": "法力恶魔",
+    "level": 54,
+    "hp": 1250,
+    "attack": 225,
+    "defense": 60,
+    "damage_type": "magic",
+    "exp": 1900,
+    "gold": 520,
+    "drops": [
+      {"item": "arcane_ring", "rate": "1/80"}
+    ]
+  },
+  "spectral_servant": {
+    "name": "幽灵仆从",
+    "level": 53,
+    "hp": 1150,
+    "attack": 215,
+    "defense": 58,
+    "damage_type": "magic",
+    "exp": 1800,
+    "gold": 500,
+    "drops": [
+      {"item": "silver_necklace", "rate": "1/60"}
+    ]
+  },
+  "ghostly_steward": {
+    "name": "幽灵管家",
+    "level": 55,
+    "hp": 1350,
+    "attack": 240,
+    "defense": 68,
+    "damage_type": "magic",
+    "exp": 2100,
+    "gold": 580,
+    "drops": [
+      {"item": "holy_necklace", "rate": "1/120"}
+    ]
+  },
+  "arcane_anomaly": {
+    "name": "奥术畸体",
+    "level": 57,
+    "hp": 1600,
+    "attack": 270,
+    "defense": 75,
+    "damage_type": "magic",
+    "exp": 2400,
+    "gold": 680,
+    "drops": [
+      {"item": "dragon_staff", "rate": "1/100"}
+    ]
+  },
+  "lava_surger": {
+    "name": "熔岩奔涌者",
+    "level": 55,
+    "hp": 2000,
+    "attack": 235,
+    "defense": 90,
+    "damage_type": "magic",
+    "exp": 2300,
+    "gold": 650,
+    "drops": [
+      {"item": "fire_sword", "rate": "1/150"}
+    ]
+  },
+  "fire_imp": {
+    "name": "火焰小鬼",
+    "level": 52,
+    "hp": 900,
+    "attack": 200,
+    "defense": 45,
+    "damage_type": "magic",
+    "exp": 1600,
+    "gold": 450,
+    "drops": [
+      {"item": "frost_ring", "rate": "1/80"}
+    ]
+  },
+  "flamewaker": {
+    "name": "烈焰行者",
+    "level": 58,
+    "hp": 2400,
+    "attack": 280,
+    "defense": 100,
+    "damage_type": "magic",
+    "exp": 2800,
+    "gold": 780,
+    "drops": [
+      {"item": "dragon_ring", "rate": "1/100"}
+    ]
+  },
+  "core_hound": {
+    "name": "熔火犬",
+    "level": 60,
+    "hp": 2800,
+    "attack": 300,
+    "defense": 110,
+    "damage_type": "physical",
+    "exp": 3200,
+    "gold": 900,
+    "drops": [
+      {"item": "dragon_bracelet", "rate": "1/80"}
+    ]
+  },
+  "lava_elemental": {
+    "name": "熔岩元素",
+    "level": 59,
+    "hp": 2600,
+    "attack": 290,
+    "defense": 105,
+    "damage_type": "magic",
+    "exp": 3000,
+    "gold": 850,
+    "drops": [
+      {"item": "holy_armor", "rate": "1/150"}
+    ]
+  },
+  "flamewaker_elite": {
+    "name": "烈焰行者精英",
+    "level": 64,
+    "hp": 3500,
+    "attack": 360,
+    "defense": 130,
+    "damage_type": "magic",
+    "exp": 4200,
+    "gold": 1200,
+    "drops": [
+      {"item": "judgement", "rate": "1/200"}
+    ]
+  },
+  "ancient_core_hound": {
+    "name": "上古熔火犬",
+    "level": 66,
+    "hp": 4000,
+    "attack": 380,
+    "defense": 140,
+    "damage_type": "physical",
+    "exp": 4800,
+    "gold": 1400,
+    "drops": [
+      {"item": "sun_sword", "rate": "1/150"}
+    ]
+  },
+  "dark_iron_dwarf": {
+    "name": "黑铁矮人",
+    "level": 62,
+    "hp": 3000,
+    "attack": 320,
+    "defense": 120,
+    "damage_type": "physical",
+    "exp": 3600,
+    "gold": 1000,
+    "drops": [
+      {"item": "heavy_armor", "rate": "1/100"}
+    ]
+  },
+  "molten_destroyer": {
+    "name": "熔火毁灭者",
+    "level": 68,
+    "hp": 4500,
+    "attack": 400,
+    "defense": 150,
+    "damage_type": "magic",
+    "exp": 5500,
+    "gold": 1600,
+    "drops": [
+      {"item": "dragon_sword", "rate": "1/80"}
+    ]
+  },
+  "black_dragonkin": {
+    "name": "黑龙人",
+    "level": 70,
+    "hp": 5000,
+    "attack": 440,
+    "defense": 155,
+    "damage_type": "physical",
+    "exp": 6000,
+    "gold": 1800,
+    "drops": [
+      {"item": "zuma_armor", "rate": "1/60"}
+    ]
+  },
+  "dragonspawn": {
+    "name": "龙人",
+    "level": 72,
+    "hp": 5200,
+    "attack": 480,
+    "defense": 165,
+    "damage_type": "physical",
+    "exp": 6500,
+    "gold": 2000,
+    "drops": [
+      {"item": "holy_armor", "rate": "1/80"}
+    ]
   }
 }

@@ -68,7 +68,15 @@ async def create_character(data: CharacterCreate, token: str, db: AsyncSession =
     user_id = decode_token(token)
     if not user_id:
         raise HTTPException(401, "无效token")
-    existing = await db.execute(select(Character).where(Character.name == data.name))
+    
+    # 角色名校验
+    name = data.name.strip()
+    if not name or len(name) < 2:
+        raise HTTPException(400, "角色名至少2个字符")
+    if len(name) > 12:
+        raise HTTPException(400, "角色名最多12个字符")
+    
+    existing = await db.execute(select(Character).where(Character.name == name))
     if existing.scalar_one_or_none():
         raise HTTPException(400, "角色名已存在")
     
@@ -79,7 +87,7 @@ async def create_character(data: CharacterCreate, token: str, db: AsyncSession =
     }
     stats = base_stats[data.char_class]
     char = Character(
-        user_id=user_id, name=data.name, char_class=data.char_class,
+        user_id=user_id, name=name, char_class=data.char_class,
         hp=stats["hp"], max_hp=stats["hp"], mp=stats["mp"], max_mp=stats["mp"],
         attack=stats["attack"], magic=stats["magic"], defense=stats["defense"], magic_defense=stats["magic_defense"]
     )
@@ -87,6 +95,31 @@ async def create_character(data: CharacterCreate, token: str, db: AsyncSession =
     await db.commit()
     await db.refresh(char)
     return char
+
+@app.delete("/api/characters/{char_id}")
+async def delete_character(char_id: int, token: str, db: AsyncSession = Depends(get_db)):
+    user_id = decode_token(token)
+    if not user_id:
+        raise HTTPException(401, "无效token")
+    
+    char = await db.get(Character, char_id)
+    if not char or char.user_id != user_id:
+        raise HTTPException(400, "角色不存在或无权限")
+    
+    # 删除角色相关数据
+    from backend.models import InventoryItem, Equipment, CharacterSkill
+    await db.execute(select(InventoryItem).where(InventoryItem.character_id == char_id).execution_options(synchronize_session="fetch"))
+    await db.execute(select(Equipment).where(Equipment.character_id == char_id).execution_options(synchronize_session="fetch"))
+    await db.execute(select(CharacterSkill).where(CharacterSkill.character_id == char_id).execution_options(synchronize_session="fetch"))
+    
+    from sqlalchemy import delete
+    await db.execute(delete(InventoryItem).where(InventoryItem.character_id == char_id))
+    await db.execute(delete(Equipment).where(Equipment.character_id == char_id))
+    await db.execute(delete(CharacterSkill).where(CharacterSkill.character_id == char_id))
+    await db.delete(char)
+    await db.commit()
+    
+    return {"success": True}
 
 # ============ 商店 ============
 @app.get("/api/shop/{shop_type}")

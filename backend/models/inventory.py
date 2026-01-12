@@ -10,7 +10,8 @@ class InventoryItem(Base):
     __tablename__ = "inventory_items"
     
     id = Column(Integer, primary_key=True, index=True)
-    character_id = Column(Integer, ForeignKey("characters.id"), nullable=False, index=True)
+    character_id = Column(Integer, ForeignKey("characters.id"), nullable=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True, index=True)  # 仓库共享用
     storage_type = Column(Enum(StorageType), default=StorageType.INVENTORY)
     item_id = Column(String(50), nullable=False)
     quality = Column(String(20), default="white")

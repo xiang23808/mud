@@ -663,6 +663,8 @@ function renderInventory(data) {
         const isBossSummon = item.info?.type === 'boss_summon';
         const info = item.info || {};
         const attrs = [];
+        // 等级需求
+        if (info.level_req && info.level_req > 1) attrs.push(`需Lv.${info.level_req}`);
         // 支持min-max格式
         if (info.attack_min || info.attack_max) attrs.push(`DC:${info.attack_min||0}-${info.attack_max||0}`);
         else if (info.attack) attrs.push(`DC:${info.attack}`);
@@ -854,6 +856,7 @@ function renderEquipment(data) {
                         <div style="color: #ffd700; font-weight: bold; margin-bottom: 5px;">${name}</div>
                         ${item ? `
                             <div style="font-size: 14px; margin-bottom: 3px;">${setTag}${item.info?.name || item.item_id}</div>
+                            ${item.info?.level_req > 1 ? `<div style="font-size: 10px; color: #aaa;">需Lv.${item.info.level_req}</div>` : ''}
                             <div style="font-size: 10px; color: #8f8;">
                                 ${item.info?.attack_min || item.info?.attack_max ? `DC:${item.info.attack_min||0}-${item.info.attack_max||0} ` : (item.info?.attack ? `DC:${item.info.attack} ` : '')}
                                 ${item.info?.magic_min || item.info?.magic_max ? `MC:${item.info.magic_min||0}-${item.info.magic_max||0} ` : (item.info?.magic ? `MC:${item.info.magic} ` : '')}

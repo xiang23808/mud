@@ -462,6 +462,12 @@ class GameEngine:
             elif k == "magic_defense":
                 total_stats["magic_defense_min"] += v
                 total_stats["magic_defense_max"] += v
+            elif k == "attack_bonus":
+                total_stats["attack_min"] += v
+                total_stats["attack_max"] += v
+            elif k == "magic_bonus":
+                total_stats["magic_min"] += v
+                total_stats["magic_max"] += v
         
         # 过滤掉值为0的特效
         total_effects = {k: v for k, v in total_effects.items() if v > 0}
@@ -504,9 +510,9 @@ class GameEngine:
                 InventoryItem.character_id == char_id,
                 InventoryItem.storage_type == StorageType.INVENTORY,
                 InventoryItem.slot == inventory_slot
-            )
+            ).limit(1)
         )
-        inv_item = result.scalar_one_or_none()
+        inv_item = result.scalar()
         if not inv_item:
             return {"success": False, "error": "物品不存在"}
         

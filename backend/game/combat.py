@@ -85,6 +85,19 @@ class CombatEngine:
         return int((base_heal + magic * 0.5) * (1 + (skill_level - 1) * 0.3))
     
     @staticmethod
+    def calculate_poison_damage(player: dict, skill: dict) -> tuple:
+        """计算施毒术伤害 - 与技能等级和魔法值相关"""
+        skill_level = skill.get("level", 1)
+        magic = (player.get("magic_min", 0) + player.get("magic_max", 0)) // 2
+        base_damage = skill.get("effect", {}).get("poison_damage", 10)
+        duration = skill.get("effect", {}).get("duration", 5)
+        # 毒伤 = (基础伤害 + 魔法值*0.3) * (1 + (技能等级-1)*0.5)
+        damage = int((base_damage + magic * 0.3) * (1 + (skill_level - 1) * 0.5))
+        # 持续回合随等级增加
+        rounds = duration + (skill_level - 1)
+        return damage, rounds
+    
+    @staticmethod
     def create_summon(player: dict, skill: dict) -> dict:
         """创建召唤物"""
         skill_level = skill.get("level", 1)
@@ -336,6 +349,13 @@ class CombatEngine:
                             if effect.get("fire_damage"):
                                 extra_damage += int(effect["fire_damage"] * (1 + skill_power * 0.02))
                             
+                            # 施毒术 - 对目标施加持续毒伤
+                            if effect.get("poison_damage") and effect.get("duration"):
+                                poison_dmg, poison_rounds = CombatEngine.calculate_poison_damage(player, skill)
+                                target = alive_targets[0]
+                                target["poison"] = PoisonState(poison_dmg, poison_rounds)
+                                logs.append(f"🧪 对{target['name']}施加毒素! 每回合{poison_dmg}点毒伤，持续{poison_rounds}回合")
+                            
                             if effect.get("heal_hp"):
                                 heal = CombatEngine.calculate_heal_amount(player, skill)
                                 player_hp = min(player_max_hp, player_hp + heal)
@@ -503,7 +523,8 @@ class CombatEngine:
             
             # 状态更新
             monster_hp_info = "|".join([f"#{m['idx']}{m['name']}[{m['quality']}]:{max(0, m['hp'])}/{m['max_hp']}" for m in monster_states])
-            logs.append(f"COMBAT_STATUS|{player_hp}/{player_max_hp}|{player_mp}/{player_max_mp}|{monster_hp_info}")
+            summon_info = f"|SUMMON:{summon_state['name']}:{summon_state['hp']}/{summon_state['max_hp']}" if summon_state and summon_state.get("alive") else ""
+            logs.append(f"COMBAT_STATUS|{player_hp}/{player_max_hp}|{player_mp}/{player_max_mp}|{monster_hp_info}{summon_info}")
         
         victory = all(m["hp"] <= 0 for m in monster_states)
         player_died = player_hp <= 0

@@ -521,7 +521,7 @@ function showCombat(data) {
     hpBar.id = 'combat-hp-bar';
     hpBar.style.cssText = 'display:flex;gap:15px;margin-bottom:10px;padding:10px;background:#1a1a2e;border-radius:5px;';
     
-    // 左边：玩家HP/MP
+    // 左边：玩家HP/MP + 召唤物
     const playerDiv = document.createElement('div');
     playerDiv.style.cssText = 'flex:1;';
     playerDiv.innerHTML = `
@@ -530,6 +530,11 @@ function showCombat(data) {
         <div style="height:8px;background:#333;border-radius:4px;margin-bottom:5px;"><div id="player-hp-fill" style="height:100%;width:100%;background:#0f0;border-radius:4px;transition:width 0.3s;"></div></div>
         <div style="margin-bottom:3px;">MP: <span id="player-mp">${playerMp}</span>/${playerMaxMp}</div>
         <div style="height:8px;background:#333;border-radius:4px;"><div id="player-mp-fill" style="height:100%;width:100%;background:#00f;border-radius:4px;transition:width 0.3s;"></div></div>
+        <div id="summon-hp-area" style="margin-top:8px;display:none;">
+            <div style="color:#ff0;font-weight:bold;margin-bottom:3px;"><span id="summon-name">召唤物</span></div>
+            <div style="margin-bottom:3px;">HP: <span id="summon-hp">0</span>/<span id="summon-max-hp">0</span></div>
+            <div style="height:6px;background:#333;border-radius:3px;"><div id="summon-hp-fill" style="height:100%;width:100%;background:#ff0;border-radius:3px;transition:width 0.3s;"></div></div>
+        </div>
     `;
     hpBar.appendChild(playerDiv);
     
@@ -579,9 +584,24 @@ function showCombat(data) {
             $('player-mp').textContent = Math.max(0, pMp);
             $('player-hp-fill').style.width = Math.max(0, (pHp / playerMaxHp) * 100) + '%';
             $('player-mp-fill').style.width = Math.max(0, (pMp / playerMaxMp) * 100) + '%';
-            // 更新怪物血量（按索引匹配）
+            // 更新怪物血量和召唤物血量
             const monsterParts = parts.slice(3).filter(p => p);
+            let hasSummon = false;
             for (const mp of monsterParts) {
+                // 召唤物血量格式: SUMMON:名字:hp/maxHp
+                const summonMatch = mp.match(/SUMMON:(.+):(\d+)\/(\d+)/);
+                if (summonMatch) {
+                    hasSummon = true;
+                    const summonArea = $('summon-hp-area');
+                    if (summonArea) {
+                        summonArea.style.display = 'block';
+                        $('summon-name').textContent = summonMatch[1];
+                        $('summon-hp').textContent = summonMatch[2];
+                        $('summon-max-hp').textContent = summonMatch[3];
+                        $('summon-hp-fill').style.width = Math.max(0, (parseInt(summonMatch[2]) / parseInt(summonMatch[3])) * 100) + '%';
+                    }
+                    continue;
+                }
                 const match = mp.match(/#(\d+).+:(\d+)\/(\d+)/);
                 if (match) {
                     const idx = parseInt(match[1]);
@@ -594,6 +614,11 @@ function showCombat(data) {
                         fillEl.style.width = Math.max(0, (hp / m.maxHp) * 100) + '%';
                     }
                 }
+            }
+            // 如果没有召唤物信息，隐藏召唤物区域
+            if (!hasSummon) {
+                const summonArea = $('summon-hp-area');
+                if (summonArea) summonArea.style.display = 'none';
             }
             i++;
             return;

@@ -907,9 +907,9 @@ class GameEngine:
                 InventoryItem.character_id == char_id,
                 InventoryItem.storage_type == StorageType.INVENTORY,
                 InventoryItem.slot == inventory_slot
-            )
+            ).limit(1)
         )
-        inv_item = result.scalar_one_or_none()
+        inv_item = result.scalar()
         if not inv_item:
             return {"success": False, "error": "物品不存在"}
         

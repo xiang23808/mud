@@ -318,6 +318,61 @@
       "damage_reduction": 0.005
     }
   },
+  "magic_bracelet": {
+    "name": "魔力手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 15,
+    "magic_min": 2,
+    "magic_max": 5,
+    "mp_bonus": 30,
+    "buy_price": 0,
+    "recycle_gold": 150,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 1
+    }
+  },
+  "arcane_bracelet": {
+    "name": "奥术手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 30,
+    "magic_min": 5,
+    "magic_max": 10,
+    "magic_defense_min": 2,
+    "magic_defense_max": 5,
+    "mp_bonus": 60,
+    "buy_price": 0,
+    "recycle_yuanbao": 25,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 3,
+      "mp_on_hit": 2
+    }
+  },
+  "void_bracelet": {
+    "name": "虚空手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 45,
+    "magic_min": 8,
+    "magic_max": 15,
+    "magic_defense_min": 4,
+    "magic_defense_max": 8,
+    "mp_bonus": 100,
+    "buy_price": 0,
+    "recycle_yuanbao": 50,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 5,
+      "ignore_magic_def": 0.02,
+      "mp_on_hit": 3
+    }
+  },
   "dragon_bracelet": {
     "name": "龙之手镯",
     "type": "accessory",
@@ -425,6 +480,230 @@
       "mp_on_hit": 2,
       "lifesteal": 0.03,
       "damage_reduction": 0.02
+    }
+  },
+  "flame_ring": {
+    "name": "烈焰戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 12,
+    "magic_min": 1,
+    "magic_max": 4,
+    "mp_bonus": 25,
+    "buy_price": 0,
+    "recycle_gold": 120,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 1
+    }
+  },
+  "thunder_ring": {
+    "name": "雷电戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 32,
+    "magic_min": 5,
+    "magic_max": 10,
+    "mp_bonus": 60,
+    "buy_price": 0,
+    "recycle_yuanbao": 28,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 3,
+      "stun_rate": 0.02,
+      "crit_rate": 0.02
+    }
+  },
+  "shadow_ring": {
+    "name": "暗影戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 52,
+    "magic_min": 10,
+    "magic_max": 18,
+    "mp_bonus": 120,
+    "buy_price": 0,
+    "recycle_yuanbao": 75,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 6,
+      "ignore_magic_def": 0.04,
+      "crit_rate": 0.04
+    }
+  },
+  "fury_ring": {
+    "name": "狂怒戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 18,
+    "attack_min": 3,
+    "attack_max": 7,
+    "hp_bonus": 25,
+    "buy_price": 0,
+    "recycle_gold": 160,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 1,
+      "crit_rate": 0.015
+    }
+  },
+  "berserker_ring": {
+    "name": "狂战戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 40,
+    "attack_min": 7,
+    "attack_max": 14,
+    "hp_bonus": 70,
+    "buy_price": 0,
+    "recycle_yuanbao": 42,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 4,
+      "crit_rate": 0.03,
+      "double_attack": 0.02
+    }
+  },
+  "titan_ring": {
+    "name": "泰坦戒指",
+    "type": "accessory",
+    "slot": "ring",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 55,
+    "attack_min": 12,
+    "attack_max": 22,
+    "defense_min": 6,
+    "defense_max": 12,
+    "hp_bonus": 120,
+    "buy_price": 0,
+    "recycle_yuanbao": 90,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 7,
+      "ignore_defense": 0.04,
+      "crit_rate": 0.04
+    }
+  },
+  "storm_bracelet": {
+    "name": "风暴手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 22,
+    "magic_min": 3,
+    "magic_max": 7,
+    "mp_bonus": 45,
+    "buy_price": 0,
+    "recycle_gold": 180,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 2
+    }
+  },
+  "shadow_bracelet": {
+    "name": "暗影手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 38,
+    "magic_min": 6,
+    "magic_max": 12,
+    "magic_defense_min": 3,
+    "magic_defense_max": 6,
+    "mp_bonus": 80,
+    "buy_price": 0,
+    "recycle_yuanbao": 38,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 4,
+      "mp_on_hit": 2,
+      "crit_rate": 0.02
+    }
+  },
+  "nether_bracelet": {
+    "name": "灵风手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 55,
+    "magic_min": 10,
+    "magic_max": 18,
+    "magic_defense_min": 5,
+    "magic_defense_max": 10,
+    "mp_bonus": 130,
+    "buy_price": 0,
+    "recycle_yuanbao": 80,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 7,
+      "ignore_magic_def": 0.03,
+      "mp_on_hit": 4,
+      "crit_rate": 0.03
+    }
+  },
+  "warrior_bracelet": {
+    "name": "战士手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 25,
+    "attack_min": 3,
+    "attack_max": 6,
+    "defense_min": 2,
+    "defense_max": 5,
+    "hp_bonus": 35,
+    "buy_price": 0,
+    "recycle_gold": 200,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 2,
+      "block_rate": 0.01
+    }
+  },
+  "fury_bracelet": {
+    "name": "狂怒手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 40,
+    "attack_min": 5,
+    "attack_max": 10,
+    "defense_min": 4,
+    "defense_max": 8,
+    "hp_bonus": 65,
+    "buy_price": 0,
+    "recycle_yuanbao": 40,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 3,
+      "crit_rate": 0.02,
+      "block_rate": 0.01
+    }
+  },
+  "titan_bracelet": {
+    "name": "泰坦手镯",
+    "type": "accessory",
+    "slot": "bracelet",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 55,
+    "attack_min": 9,
+    "attack_max": 16,
+    "defense_min": 6,
+    "defense_max": 12,
+    "hp_bonus": 100,
+    "buy_price": 0,
+    "recycle_yuanbao": 85,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 5,
+      "ignore_defense": 0.03,
+      "crit_rate": 0.03,
+      "block_rate": 0.02
     }
   }
 }

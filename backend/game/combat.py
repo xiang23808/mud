@@ -190,6 +190,7 @@ class CombatEngine:
         passive_skills = []
         player_poison = None  # 玩家毒伤状态
         player_stunned = False
+        player_invisible = 0  # 隐身剩余回合数
         
         # 分离技能
         active_skills = []
@@ -293,8 +294,9 @@ class CombatEngine:
                 skill_name = ""
                 is_aoe = False
                 
-                # 技能使用
-                if available_skills and player_mp > 0 and random.random() < 0.5:
+                # 技能使用 - 法师90%、道士80%、战士50%
+                skill_chance = {"mage": 0.9, "taoist": 0.8, "warrior": 0.5}.get(char_class, 0.5)
+                if available_skills and player_mp > 0 and random.random() < skill_chance:
                     for skill in available_skills:
                         s_name = skill.get("name", "技能")
                         if skill.get("mp_cost", 0) <= player_mp and s_name not in skill_cooldowns:
@@ -302,9 +304,9 @@ class CombatEngine:
                             effect = skill.get("effect", {})
                             skill_level = skill.get("level", 1)
                             
-                            # 治愈术只在HP低于60%时使用
+                            # 治愈术只在HP低于70%时使用
                             if effect.get("heal_hp") and not effect.get("aoe"):
-                                if player_hp >= player_max_hp * 0.6:
+                                if player_hp >= player_max_hp * 0.7:
                                     continue
                             
                             if effect.get("summon"):
@@ -360,6 +362,19 @@ class CombatEngine:
                                 heal = CombatEngine.calculate_heal_amount(player, skill)
                                 player_hp = min(player_max_hp, player_hp + heal)
                                 logs.append(f"恢复 {heal} 点生命值")
+                            
+                            # 隐身术
+                            if effect.get("invisible"):
+                                duration_min = effect.get("duration_min", 1)
+                                duration_max = effect.get("duration_max", 5)
+                                weight = effect.get("duration_weight_per_level", 10) * skill_level
+                                # 技能等级越高，持续时间越长的概率越大
+                                duration = random.choices(
+                                    range(duration_min, duration_max + 1),
+                                    weights=[1 + weight * (i - duration_min) for i in range(duration_min, duration_max + 1)]
+                                )[0]
+                                player_invisible = duration
+                                logs.append(f"👻 进入隐身状态，持续{duration}回合")
                             
                             break
                 
@@ -476,6 +491,22 @@ class CombatEngine:
                         m["stunned"] = False
                         continue
                     
+                    # 玩家隐身时怪物无法攻击玩家
+                    if player_invisible > 0:
+                        # 但可以攻击召唤物
+                        if summon_state and summon_state.get("alive"):
+                            is_magic_attack = m.get("damage_type") == "magic"
+                            damage = CombatEngine.calculate_damage(m, summon_state, is_magic_attack)
+                            summon_state["hp"] -= damage
+                            logs.append(f"{m['name']}对{summon_state['name']}造成 {damage} 点伤害")
+                            if summon_state["hp"] <= 0:
+                                summon_state["alive"] = False
+                                summon_died = True
+                                logs.append(f"💀 {summon_state['name']} 死亡!")
+                        else:
+                            logs.append(f"👻 {m['name']}无法发现隐身的你!")
+                        continue
+                    
                     is_magic_attack = m.get("damage_type") == "magic"
                     
                     # 50%几率攻击召唤物
@@ -520,6 +551,12 @@ class CombatEngine:
                         logs.append(log_msg)
                         if player_hp <= 0:
                             break
+            
+            # 隐身回合递减
+            if player_invisible > 0:
+                player_invisible -= 1
+                if player_invisible == 0:
+                    logs.append("👻 隐身状态结束")
             
             # 状态更新
             monster_hp_info = "|".join([f"#{m['idx']}{m['name']}[{m['quality']}]:{max(0, m['hp'])}/{m['max_hp']}" for m in monster_states])

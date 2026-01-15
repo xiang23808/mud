@@ -376,5 +376,15 @@
     "buy_price": 0,
     "recycle_yuanbao": 28,
     "drop_only": true
+  },
+  "invisibility_book": {
+    "name": "隐身术技能书",
+    "type": "skillbook",
+    "skill_id": "invisibility",
+    "class": "taoist",
+    "description": "学习后可使用隐身术躲避怪物",
+    "buy_price": 0,
+    "recycle_yuanbao": 20,
+    "drop_only": true
   }
 }

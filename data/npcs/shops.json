@@ -7,12 +7,12 @@
   "armor_shop": {
     "name": "防具店",
     "npc_name": "裁缝李大娘",
-    "items": ["cloth_armor", "leather_armor", "iron_armor", "mage_robe", "taoist_robe", "leather_helmet", "iron_helmet", "leather_boots", "iron_boots"]
+    "items": ["cloth_armor", "leather_armor", "iron_armor", "mage_robe", "taoist_robe", "leather_helmet", "iron_helmet", "steel_helmet", "leather_boots", "iron_boots", "steel_boots", "leather_belt", "iron_belt"]
   },
   "potion_shop": {
     "name": "药店",
     "npc_name": "药师孙老头",
-    "items": ["hp_potion_small", "hp_potion_medium", "hp_potion_large", "mp_potion_small", "mp_potion_medium", "mp_potion_large", "town_scroll"]
+    "items": ["hp_potion_small", "hp_potion_small_100", "hp_potion_medium", "hp_potion_medium_100", "hp_potion_large", "hp_potion_large_100", "hp_potion_super", "hp_potion_super_100", "mp_potion_small", "mp_potion_small_100", "mp_potion_medium", "mp_potion_medium_100", "mp_potion_large", "mp_potion_large_100", "mp_potion_super", "mp_potion_super_100", "town_scroll"]
   },
   "skill_shop": {
     "name": "书店",

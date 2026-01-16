@@ -7,12 +7,30 @@
     "buy_price": 20,
     "recycle_gold": 2
   },
+  "hp_potion_small_100": {
+    "name": "小红瓶(100个)",
+    "type": "consumable",
+    "description": "恢复50点生命值，一次购买100个",
+    "effect": {"heal_hp": 50},
+    "buy_price": 1800,
+    "buy_quantity": 100,
+    "recycle_gold": 2
+  },
   "hp_potion_medium": {
     "name": "中红瓶",
     "type": "consumable",
     "description": "恢复150点生命值",
     "effect": {"heal_hp": 150},
     "buy_price": 60,
+    "recycle_gold": 6
+  },
+  "hp_potion_medium_100": {
+    "name": "中红瓶(100个)",
+    "type": "consumable",
+    "description": "恢复150点生命值，一次购买100个",
+    "effect": {"heal_hp": 150},
+    "buy_price": 5400,
+    "buy_quantity": 100,
     "recycle_gold": 6
   },
   "hp_potion_large": {
@@ -23,12 +41,47 @@
     "buy_price": 200,
     "recycle_gold": 20
   },
+  "hp_potion_large_100": {
+    "name": "大红瓶(100个)",
+    "type": "consumable",
+    "description": "恢复500点生命值，一次购买100个",
+    "effect": {"heal_hp": 500},
+    "buy_price": 18000,
+    "buy_quantity": 100,
+    "recycle_gold": 20
+  },
+  "hp_potion_super": {
+    "name": "特大红瓶",
+    "type": "consumable",
+    "description": "恢复1500点生命值",
+    "effect": {"heal_hp": 1500},
+    "buy_price": 500,
+    "recycle_gold": 50
+  },
+  "hp_potion_super_100": {
+    "name": "特大红瓶(100个)",
+    "type": "consumable",
+    "description": "恢复1500点生命值，一次购买100个",
+    "effect": {"heal_hp": 1500},
+    "buy_price": 45000,
+    "buy_quantity": 100,
+    "recycle_gold": 50
+  },
   "mp_potion_small": {
     "name": "小蓝瓶",
     "type": "consumable",
     "description": "恢复30点魔法值",
     "effect": {"heal_mp": 30},
     "buy_price": 15,
+    "recycle_gold": 1
+  },
+  "mp_potion_small_100": {
+    "name": "小蓝瓶(100个)",
+    "type": "consumable",
+    "description": "恢复30点魔法值，一次购买100个",
+    "effect": {"heal_mp": 30},
+    "buy_price": 1350,
+    "buy_quantity": 100,
     "recycle_gold": 1
   },
   "mp_potion_medium": {
@@ -39,6 +92,15 @@
     "buy_price": 50,
     "recycle_gold": 5
   },
+  "mp_potion_medium_100": {
+    "name": "中蓝瓶(100个)",
+    "type": "consumable",
+    "description": "恢复100点魔法值，一次购买100个",
+    "effect": {"heal_mp": 100},
+    "buy_price": 4500,
+    "buy_quantity": 100,
+    "recycle_gold": 5
+  },
   "mp_potion_large": {
     "name": "大蓝瓶",
     "type": "consumable",
@@ -46,6 +108,32 @@
     "effect": {"heal_mp": 300},
     "buy_price": 150,
     "recycle_gold": 15
+  },
+  "mp_potion_large_100": {
+    "name": "大蓝瓶(100个)",
+    "type": "consumable",
+    "description": "恢复300点魔法值，一次购买100个",
+    "effect": {"heal_mp": 300},
+    "buy_price": 13500,
+    "buy_quantity": 100,
+    "recycle_gold": 15
+  },
+  "mp_potion_super": {
+    "name": "特大蓝瓶",
+    "type": "consumable",
+    "description": "恢复800点魔法值",
+    "effect": {"heal_mp": 800},
+    "buy_price": 400,
+    "recycle_gold": 40
+  },
+  "mp_potion_super_100": {
+    "name": "特大蓝瓶(100个)",
+    "type": "consumable",
+    "description": "恢复800点魔法值，一次购买100个",
+    "effect": {"heal_mp": 800},
+    "buy_price": 36000,
+    "buy_quantity": 100,
+    "recycle_gold": 40
   },
   "random_teleport": {
     "name": "随机传送卷",
@@ -277,6 +365,16 @@
     "recycle_yuanbao": 12,
     "drop_only": true
   },
+  "shield_block": {
+    "name": "盾牌格挡技能书",
+    "type": "skillbook",
+    "skill_id": "shield_block",
+    "class": "warrior",
+    "description": "学习后可使用盾牌格挡技能，有几率格挡攻击",
+    "buy_price": 0,
+    "recycle_yuanbao": 18,
+    "drop_only": true
+  },
   "divine_shield": {
     "name": "神圣战甲术技能书",
     "type": "skillbook",
@@ -385,6 +483,16 @@
     "description": "学习后可使用隐身术躲避怪物",
     "buy_price": 0,
     "recycle_yuanbao": 20,
+    "drop_only": true
+  },
+  "summon_kylin_book": {
+    "name": "召唤麒麟技能书",
+    "type": "skillbook",
+    "skill_id": "summon_kylin",
+    "class": "taoist",
+    "description": "学习后可召唤上古神兽麒麟，比神兽更强大",
+    "buy_price": 0,
+    "recycle_yuanbao": 50,
     "drop_only": true
   }
 }

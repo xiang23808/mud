@@ -61,7 +61,7 @@
     "drops": [
       {"item": "cloth_armor", "rate": "1/30"},
       {"item": "leather_armor", "rate": "1/60"},
-      {"item": "leather_boots", "rate": "1/40"},
+      {"item": "leather_boots", "rate": "1/30"},
       {"item": "leather_belt", "rate": "1/40"}
     ]
   },
@@ -71,7 +71,9 @@
       {"item": "iron_armor", "rate": "1/150"},
       {"item": "heavy_armor", "rate": "1/300"},
       {"item": "iron_helmet", "rate": "1/150"},
-      {"item": "iron_boots", "rate": "1/150"},
+      {"item": "iron_boots", "rate": "1/100"},
+      {"item": "steel_boots", "rate": "1/150"},
+      {"item": "bone_boots", "rate": "1/180"},
       {"item": "iron_belt", "rate": "1/150"},
       {"item": "magic_robe", "rate": "1/150"}
     ]
@@ -83,6 +85,12 @@
       {"item": "death_armor", "rate": "1/600"},
       {"item": "zuma_armor", "rate": "1/500"},
       {"item": "zuma_helmet", "rate": "1/400"},
+      {"item": "zuma_boots", "rate": "1/300"},
+      {"item": "blood_boots", "rate": "1/400"},
+      {"item": "holy_boots", "rate": "1/500"},
+      {"item": "arcane_boots", "rate": "1/450"},
+      {"item": "shadow_boots", "rate": "1/600"},
+      {"item": "void_boots", "rate": "1/800"},
       {"item": "bone_helmet", "rate": "1/300"},
       {"item": "skeleton_helmet", "rate": "1/400"}
     ]

@@ -14,7 +14,8 @@
       {"id": "dark_forest", "name": "黑暗森林", "position": [14, 14], "description": "暗黑风格区域"},
       {"id": "tristram_ruins", "name": "崔斯特瑞姆", "position": [18, 14], "description": "暗黑风格区域"},
       {"id": "deadwind_pass", "name": "逆风小径", "position": [6, 18], "description": "魔兽风格区域"},
-      {"id": "molten_core_entrance", "name": "熔火之心", "position": [10, 18], "description": "魔兽风格区域"}
+      {"id": "molten_core_entrance", "name": "熔火之心", "position": [10, 18], "description": "魔兽风格区域"},
+      {"id": "blackrock_depths", "name": "黑石深渊", "position": [14, 18], "description": "黑石区域入口"}
     ]
   },
   "woma_forest": {
@@ -364,7 +365,7 @@
     "monster_count": 50,
     "monsters": ["dark_iron_dwarf", "fire_guard", "molten_destroyer"],
     "exits": {
-      "molten_core_2": [1, 0],
+      "main_city": [1, 0],
       "blackrock_spire": [22, 23]
     }
   },

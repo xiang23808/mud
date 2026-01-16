@@ -469,6 +469,167 @@
       "damage_reduction": 0.01
     }
   },
+  "steel_boots": {
+    "name": "钢靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 22,
+    "defense_min": 5,
+    "defense_max": 10,
+    "magic_defense_min": 2,
+    "magic_defense_max": 4,
+    "hp_bonus": 20,
+    "buy_price": 0,
+    "recycle_gold": 300,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.02,
+      "damage_reduction": 0.01
+    }
+  },
+  "bone_boots": {
+    "name": "骨靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 25,
+    "defense_min": 6,
+    "defense_max": 12,
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 30,
+    "buy_price": 0,
+    "recycle_yuanbao": 15,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.02,
+      "damage_reduction": 0.01,
+      "hp_on_hit": 1
+    }
+  },
+  "zuma_boots": {
+    "name": "祖玛战靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 32,
+    "defense_min": 8,
+    "defense_max": 16,
+    "magic_defense_min": 4,
+    "magic_defense_max": 8,
+    "hp_bonus": 50,
+    "buy_price": 0,
+    "recycle_yuanbao": 25,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.02,
+      "damage_reduction": 0.02,
+      "hp_on_hit": 2
+    }
+  },
+  "blood_boots": {
+    "name": "血色战靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 38,
+    "defense_min": 10,
+    "defense_max": 20,
+    "magic_defense_min": 5,
+    "magic_defense_max": 10,
+    "hp_bonus": 70,
+    "buy_price": 0,
+    "recycle_yuanbao": 35,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.02,
+      "lifesteal": 0.01,
+      "damage_reduction": 0.02
+    }
+  },
+  "holy_boots": {
+    "name": "圣战靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 45,
+    "defense_min": 12,
+    "defense_max": 24,
+    "magic_defense_min": 8,
+    "magic_defense_max": 15,
+    "hp_bonus": 90,
+    "buy_price": 0,
+    "recycle_yuanbao": 50,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.03,
+      "damage_reduction": 0.02,
+      "reflect": 0.01
+    }
+  },
+  "arcane_boots": {
+    "name": "奥术之靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 40,
+    "defense_min": 6,
+    "defense_max": 12,
+    "magic_defense_min": 10,
+    "magic_defense_max": 18,
+    "mp_bonus": 80,
+    "buy_price": 0,
+    "recycle_yuanbao": 40,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.02,
+      "mp_on_hit": 2,
+      "extra_magic": 2
+    }
+  },
+  "shadow_boots": {
+    "name": "暗影之靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 48,
+    "defense_min": 14,
+    "defense_max": 26,
+    "magic_defense_min": 10,
+    "magic_defense_max": 18,
+    "hp_bonus": 100,
+    "buy_price": 0,
+    "recycle_yuanbao": 70,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.03,
+      "damage_reduction": 0.02,
+      "lifesteal": 0.01
+    }
+  },
+  "void_boots": {
+    "name": "虚空之靴",
+    "type": "armor",
+    "slot": "boots",
+    "class": ["warrior", "mage", "taoist"],
+    "level_req": 52,
+    "defense_min": 16,
+    "defense_max": 30,
+    "magic_defense_min": 12,
+    "magic_defense_max": 22,
+    "hp_bonus": 120,
+    "mp_bonus": 60,
+    "buy_price": 0,
+    "recycle_yuanbao": 90,
+    "drop_only": true,
+    "effects": {
+      "dodge_rate": 0.03,
+      "damage_reduction": 0.02,
+      "reflect": 0.01,
+      "hp_on_hit": 2
+    }
+  },
   "leather_belt": {
     "name": "皮带",
     "type": "armor",

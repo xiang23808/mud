@@ -161,6 +161,7 @@
       {"item": "bone_bracelet", "rate": "1/100"},
       {"item": "bone_helmet", "rate": "1/150"},
       {"item": "steel_helmet", "rate": "1/180"},
+      {"item": "steel_boots", "rate": "1/120"},
       {"item": "hp_potion_medium", "rate": "1/6"},
       {"item": "poison_ring", "rate": "1/120"},
       {"item": "fury_ring", "rate": "1/100"},
@@ -246,6 +247,7 @@
     "drops": [
       {"item": "heavy_armor", "rate": "1/120"},
       {"item": "steel_helmet", "rate": "1/120"},
+      {"item": "steel_boots", "rate": "1/100"},
       {"item": "steel_sword", "rate": "1/100"},
       {"item": "bone_bracelet", "rate": "1/100"},
       {"item": "bone_helmet", "rate": "1/150"},
@@ -349,6 +351,7 @@
     "drops": [
       {"item": "centipede_leg", "rate": "1/2"},
       {"item": "bone_helmet", "rate": "1/60"},
+      {"item": "bone_boots", "rate": "1/80"},
       {"item": "bone_staff", "rate": "1/100"},
       {"item": "skeleton_helmet", "rate": "1/80"},
       {"item": "death_necklace", "rate": "1/120"},
@@ -547,6 +550,7 @@
     "gold": 200,
     "drops": [
       {"item": "zuma_helmet", "rate": "1/100"},
+      {"item": "zuma_boots", "rate": "1/80"},
       {"item": "dragon_bracelet", "rate": "1/150"},
       {"item": "zuma_armor", "rate": "1/200"},
       {"item": "dragon_ring", "rate": "1/200"},
@@ -604,6 +608,8 @@
     "drops": [
       {"item": "dragon_ring", "rate": "1/80"},
       {"item": "holy_armor", "rate": "1/120"},
+      {"item": "blood_boots", "rate": "1/100"},
+      {"item": "arcane_boots", "rate": "1/120"},
       {"item": "judgement", "rate": "1/200"},
       {"item": "dragon_sword", "rate": "1/100"},
       {"item": "dragon_staff", "rate": "1/120"},
@@ -627,6 +633,7 @@
       {"item": "zuma_piece", "rate": "1/10"},
       {"item": "judgement", "rate": "1/50"},
       {"item": "holy_armor", "rate": "1/60"},
+      {"item": "holy_boots", "rate": "1/40"},
       {"item": "dragon_ring", "rate": "1/30"},
       {"item": "fire_sword", "rate": "1/20"},
       {"item": "sun_sword", "rate": "1/100"},
@@ -635,6 +642,7 @@
       {"item": "blood_helm", "rate": "1/50"},
       {"item": "group_healing_book", "rate": "1/25"},
       {"item": "summon_dog_book", "rate": "1/40"},
+      {"item": "summon_kylin_book", "rate": "1/80"},
       {"item": "ice_roar_book", "rate": "1/30"},
       {"item": "dragon_bracelet", "rate": "1/25"},
       {"item": "holy_necklace", "rate": "1/40"},
@@ -785,6 +793,8 @@
     "gold": 600,
     "drops": [
       {"item": "holy_armor", "rate": "1/80"},
+      {"item": "shadow_boots", "rate": "1/80"},
+      {"item": "void_boots", "rate": "1/120"},
       {"item": "holy_necklace", "rate": "1/100"},
       {"item": "titan_ring", "rate": "1/100"},
       {"item": "titan_bracelet", "rate": "1/100"},

@@ -665,6 +665,7 @@ function switchStorage(type) {
 }
 
 let currentStorageType = 'inventory';
+let currentItemFilter = 'all';
 
 function renderInventory(data) {
     const items = data.items || data;
@@ -674,15 +675,38 @@ function renderInventory(data) {
     const used_slots = items.length;
     const free_slots = max_slots - used_slots;
     
+    // 根据筛选条件过滤物品
+    const filteredItems = currentItemFilter === 'all' ? items : items.filter(item => {
+        const type = item.info?.type;
+        const slot = item.info?.slot;
+        if (currentItemFilter === 'weapon') return type === 'weapon';
+        if (currentItemFilter === 'armor') return type === 'armor' && (slot === 'body' || slot === 'helmet' || slot === 'head');
+        if (currentItemFilter === 'accessory') return type === 'accessory' || (type === 'armor' && ['boots', 'belt'].includes(slot));
+        if (currentItemFilter === 'consumable') return type === 'consumable';
+        if (currentItemFilter === 'material') return type === 'material' || type === 'boss_summon' || type === 'skillbook';
+        return true;
+    });
+    
     const grid = $('inventory-grid');
+    // 筛选按钮
+    const filterBtns = `
+        <div style="grid-column: 1/-1; margin-bottom: 10px; display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;">
+            <button onclick="setItemFilter('all')" style="background:${currentItemFilter === 'all' ? '#0a0' : '#333'};">全部</button>
+            <button onclick="setItemFilter('weapon')" style="background:${currentItemFilter === 'weapon' ? '#0a0' : '#333'};">武器</button>
+            <button onclick="setItemFilter('armor')" style="background:${currentItemFilter === 'armor' ? '#0a0' : '#333'};">衣服</button>
+            <button onclick="setItemFilter('accessory')" style="background:${currentItemFilter === 'accessory' ? '#0a0' : '#333'};">饰品</button>
+            <button onclick="setItemFilter('consumable')" style="background:${currentItemFilter === 'consumable' ? '#0a0' : '#333'};">消耗品</button>
+            <button onclick="setItemFilter('material')" style="background:${currentItemFilter === 'material' ? '#0a0' : '#333'};">材料</button>
+        </div>
+    `;
     // 背包显示全部回收按钮，仓库不显示
     const recycleAllBtn = storage_type === 'inventory' && items.length > 0
         ? `<button onclick="recycleAll()" style="background:#c00;margin-left:10px;">全部回收</button>`
         : '';
     const organizeBtn = `<button onclick="organizeInventory('${storage_type}')" style="background:#060;margin-left:10px;">整理</button>`;
-    grid.innerHTML = `<div style="grid-column: 1/-1; color: #ffd700; text-align: center; margin-bottom: 10px;">
-        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots} ${organizeBtn} ${recycleAllBtn}
-    </div>` + items.map(item => {
+    grid.innerHTML = filterBtns + `<div style="grid-column: 1/-1; color: #ffd700; text-align: center; margin-bottom: 10px;">
+        已使用: ${used_slots}/${max_slots} | 可用空间: ${free_slots} | 显示: ${filteredItems.length}/${items.length} ${organizeBtn} ${recycleAllBtn}
+    </div>` + filteredItems.map(item => {
         const isEquipable = item.info?.type === 'weapon' || item.info?.type === 'armor' || item.info?.type === 'accessory';
         const isSkillbook = item.info?.type === 'skillbook';
         const isBossSummon = item.info?.type === 'boss_summon';
@@ -792,6 +816,11 @@ function organizeInventory(storage) {
 function moveToInventory(slot) {
     ws.send(JSON.stringify({ type: 'move_to_inventory', slot }));
     setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'warehouse' })), 300);
+}
+
+function setItemFilter(filter) {
+    currentItemFilter = filter;
+    ws.send(JSON.stringify({ type: 'get_inventory', storage: currentStorageType }));
 }
 
 // 装备
@@ -1004,11 +1033,21 @@ let currentShopTab = 'consumable';
 const SHOP_ITEMS = {
     consumable: [
         { id: 'hp_potion_small', name: '小红瓶', price: 20, currency: 'gold', desc: '恢复50HP' },
+        { id: 'hp_potion_small_100', name: '小红瓶(100个)', price: 1800, currency: 'gold', desc: '恢复50HP x100' },
         { id: 'hp_potion_medium', name: '中红瓶', price: 60, currency: 'gold', desc: '恢复150HP' },
+        { id: 'hp_potion_medium_100', name: '中红瓶(100个)', price: 5400, currency: 'gold', desc: '恢复150HP x100' },
         { id: 'hp_potion_large', name: '大红瓶', price: 200, currency: 'gold', desc: '恢复500HP' },
+        { id: 'hp_potion_large_100', name: '大红瓶(100个)', price: 18000, currency: 'gold', desc: '恢复500HP x100' },
+        { id: 'hp_potion_super', name: '特大红瓶', price: 500, currency: 'gold', desc: '恢复1500HP' },
+        { id: 'hp_potion_super_100', name: '特大红瓶(100个)', price: 45000, currency: 'gold', desc: '恢复1500HP x100' },
         { id: 'mp_potion_small', name: '小蓝瓶', price: 15, currency: 'gold', desc: '恢复30MP' },
+        { id: 'mp_potion_small_100', name: '小蓝瓶(100个)', price: 1350, currency: 'gold', desc: '恢复30MP x100' },
         { id: 'mp_potion_medium', name: '中蓝瓶', price: 50, currency: 'gold', desc: '恢复100MP' },
+        { id: 'mp_potion_medium_100', name: '中蓝瓶(100个)', price: 4500, currency: 'gold', desc: '恢复100MP x100' },
         { id: 'mp_potion_large', name: '大蓝瓶', price: 150, currency: 'gold', desc: '恢复300MP' },
+        { id: 'mp_potion_large_100', name: '大蓝瓶(100个)', price: 13500, currency: 'gold', desc: '恢复300MP x100' },
+        { id: 'mp_potion_super', name: '特大蓝瓶', price: 400, currency: 'gold', desc: '恢复800MP' },
+        { id: 'mp_potion_super_100', name: '特大蓝瓶(100个)', price: 36000, currency: 'gold', desc: '恢复800MP x100' },
         { id: 'return_scroll', name: '回城卷', price: 50, currency: 'gold', desc: '传送回主城' }
     ],
     equipment: [

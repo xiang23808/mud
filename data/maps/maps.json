@@ -15,7 +15,17 @@
       {"id": "tristram_ruins", "name": "崔斯特瑞姆", "position": [18, 14], "description": "暗黑风格区域"},
       {"id": "deadwind_pass", "name": "逆风小径", "position": [6, 18], "description": "魔兽风格区域"},
       {"id": "molten_core_entrance", "name": "熔火之心", "position": [10, 18], "description": "魔兽风格区域"},
-      {"id": "blackrock_depths", "name": "黑石深渊", "position": [14, 18], "description": "黑石区域入口"}
+      {"id": "blackrock_depths", "name": "黑石深渊", "position": [14, 18], "description": "黑石区域入口"},
+      {"id": "ahn_qiraj_ruins", "name": "安其拉废墟", "position": [18, 18], "description": "50级副本"},
+      {"id": "ahn_qiraj_temple", "name": "安其拉神殿", "position": [6, 22], "description": "60级副本"},
+      {"id": "karazhan_raid", "name": "卡拉赞副本", "position": [10, 22], "description": "70级副本"},
+      {"id": "gruul_lair", "name": "格鲁尔的巢穴", "position": [14, 22], "description": "70级副本"},
+      {"id": "magtheridon_lair", "name": "玛瑟里顿的巢穴", "position": [18, 22], "description": "70级副本"},
+      {"id": "serpentshrine_cavern", "name": "毒蛇神殿", "position": [22, 6], "description": "70级副本"},
+      {"id": "black_temple", "name": "黑暗神殿", "position": [22, 10], "description": "70级副本"},
+      {"id": "hyjal_summit", "name": "海加尔山之战", "position": [22, 14], "description": "70级副本"},
+      {"id": "tempest_keep", "name": "风暴要塞", "position": [22, 18], "description": "70级副本"},
+      {"id": "sunwell_plateau", "name": "太阳之井高地", "position": [22, 22], "description": "70级副本"}
     ]
   },
   "woma_forest": {
@@ -376,6 +386,106 @@
     "boss": "nefarian",
     "exits": {
       "blackrock_depths": [1, 0]
+    }
+  },
+  "ahn_qiraj_ruins": {
+    "name": "安其拉废墟",
+    "monster_count": 40,
+    "monsters": ["qiraji_warrior", "anubisath_sentinel", "obsidian_destroyer"],
+    "boss": "rajaxx",
+    "level_requirement": 50,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "ahn_qiraj_temple": {
+    "name": "安其拉神殿",
+    "monster_count": 35,
+    "monsters": ["qiraji_emperor", "anubisath_defender", "vekniss_warrior"],
+    "boss": "cthun",
+    "level_requirement": 60,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "karazhan_raid": {
+    "name": "卡拉赞副本",
+    "monster_count": 35,
+    "monsters": ["spectral_servant", "phantom_guest", "ethereal_spellbinder"],
+    "boss": "shade_of_medivh",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "gruul_lair": {
+    "name": "格鲁尔的巢穴",
+    "monster_count": 30,
+    "monsters": ["gronn_priest", "lair_brute", "wild_fel_stalker"],
+    "boss": "gruul",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "magtheridon_lair": {
+    "name": "玛瑟里顿的巢穴",
+    "monster_count": 30,
+    "monsters": ["hellfire_channeler", "abyssal_guard", "fel_orc_convert"],
+    "boss": "magtheridon",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "serpentshrine_cavern": {
+    "name": "毒蛇神殿",
+    "monster_count": 35,
+    "monsters": ["coilfang_elite", "tidewalker_warrior", "naga_mystic"],
+    "boss": "lady_vashj",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "black_temple": {
+    "name": "黑暗神殿",
+    "monster_count": 30,
+    "monsters": ["illidari_council", "shadowmoon_soldier", "ashtongue_defender"],
+    "boss": "illidan",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "hyjal_summit": {
+    "name": "海加尔山之战",
+    "monster_count": 35,
+    "monsters": ["abyssal_infernal", "fel_stalker", "necromancer"],
+    "boss": "archimonde",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "tempest_keep": {
+    "name": "风暴要塞",
+    "monster_count": 30,
+    "monsters": ["phoenix_guard", "astromancer", "bloodwarder"],
+    "boss": "kaelthas",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
+    }
+  },
+  "sunwell_plateau": {
+    "name": "太阳之井高地",
+    "monster_count": 30,
+    "monsters": ["sunblade_protector", "dawnblade_summoner", "shadowsword_commander"],
+    "boss": "kiljaeden",
+    "level_requirement": 70,
+    "exits": {
+      "main_city": [1, 0]
     }
   }
 }

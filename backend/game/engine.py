@@ -81,6 +81,26 @@ class GameEngine:
         "centipede_cave_1": "skeleton_king", "centipede_cave_2": "skeleton_king", "centipede_cave_3": "skeleton_king",
         # 黑石区域
         "blackrock_depths": "nefarian", "blackrock_spire": "nefarian",
+        # 安其拉废墟（T4副本）
+        "ahn_qiraj_ruins": "rajaxx",
+        # 安其拉神殿（T5副本）
+        "ahn_qiraj_temple": "cthun",
+        # 卡拉赞副本（T4副本）
+        "karazhan_raid": "prince_malchezaar",
+        # 格鲁尔的巢穴（T4副本）
+        "gruul_lair": "gruul",
+        # 玛瑟里顿的巢穴（T4副本）
+        "magtheridon_lair": "magtheridon",
+        # 毒蛇神殿（T5副本）
+        "serpentshrine_cavern": "lady_vashj",
+        # 黑暗神殿（T6副本）
+        "black_temple": "illidan",
+        # 海加尔山之战（T6副本）
+        "hyjal_summit": "archimonde",
+        # 风暴要塞（T5副本）
+        "tempest_keep": "kaelthas",
+        # 太阳之井高地（T6副本）
+        "sunwell_plateau": "kiljaeden",
     }
     
     @classmethod
@@ -768,7 +788,9 @@ class GameEngine:
             return {"success": False, "error": "金币不足"}
         
         char.gold -= total_price
-        await cls._add_item(char_id, item_id, "white", db, quantity)
+        # 支持buy_quantity字段（如100个装药水）
+        actual_quantity = item_info.get("buy_quantity", 1) * quantity
+        await cls._add_item(char_id, item_id, "white", db, actual_quantity)
         await db.commit()
         
         return {"success": True}
@@ -776,8 +798,14 @@ class GameEngine:
     # 商城物品价格配置
     SHOP_PRICES = {
         # 药品
-        'hp_potion_small': {'gold': 20}, 'hp_potion_medium': {'gold': 60}, 'hp_potion_large': {'gold': 200},
-        'mp_potion_small': {'gold': 15}, 'mp_potion_medium': {'gold': 50}, 'mp_potion_large': {'gold': 150},
+        'hp_potion_small': {'gold': 20}, 'hp_potion_small_100': {'gold': 1800},
+        'hp_potion_medium': {'gold': 60}, 'hp_potion_medium_100': {'gold': 5400},
+        'hp_potion_large': {'gold': 200}, 'hp_potion_large_100': {'gold': 18000},
+        'hp_potion_super': {'gold': 500}, 'hp_potion_super_100': {'gold': 45000},
+        'mp_potion_small': {'gold': 15}, 'mp_potion_small_100': {'gold': 1350},
+        'mp_potion_medium': {'gold': 50}, 'mp_potion_medium_100': {'gold': 4500},
+        'mp_potion_large': {'gold': 150}, 'mp_potion_large_100': {'gold': 13500},
+        'mp_potion_super': {'gold': 400}, 'mp_potion_super_100': {'gold': 36000},
         'return_scroll': {'gold': 50},
         # 装备
         'wooden_sword': {'gold': 100}, 'wooden_staff': {'gold': 100}, 'wooden_wand': {'gold': 100},
@@ -812,7 +840,10 @@ class GameEngine:
                 return {"success": False, "error": "金币不足"}
             char.gold -= total
         
-        success = await cls._add_item(char_id, item_id, "white", db, quantity)
+        # 支持buy_quantity字段（如100个装药水）
+        item_info = DataLoader.get_item(item_id)
+        actual_quantity = item_info.get("buy_quantity", 1) * quantity if item_info else quantity
+        success = await cls._add_item(char_id, item_id, "white", db, actual_quantity)
         if not success:
             return {"success": False, "error": "背包已满"}
         

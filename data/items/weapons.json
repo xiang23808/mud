@@ -3,7 +3,11 @@
     "name": "木剑",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 1,
     "attack_min": 3,
     "attack_max": 7,
@@ -14,7 +18,11 @@
     "name": "铁剑",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 8,
     "attack_min": 8,
     "attack_max": 16,
@@ -28,7 +36,11 @@
     "name": "钢剑",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 15,
     "attack_min": 15,
     "attack_max": 29,
@@ -43,7 +55,11 @@
     "name": "龙纹剑",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 25,
     "attack_min": 25,
     "attack_max": 45,
@@ -60,7 +76,11 @@
     "name": "裁决之杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 35,
     "attack_min": 35,
     "attack_max": 65,
@@ -78,7 +98,11 @@
     "name": "骨王之剑",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 30,
     "attack_min": 30,
     "attack_max": 60,
@@ -96,7 +120,11 @@
     "name": "木杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 1,
     "magic_min": 3,
     "magic_max": 6,
@@ -108,7 +136,11 @@
     "name": "法师之杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 10,
     "magic_min": 6,
     "magic_max": 12,
@@ -124,7 +156,11 @@
     "name": "骨玉权杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 20,
     "magic_min": 12,
     "magic_max": 22,
@@ -142,7 +178,11 @@
     "name": "龙骨权杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 30,
     "magic_min": 18,
     "magic_max": 35,
@@ -161,7 +201,11 @@
     "name": "木制魔杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 1,
     "attack_min": 2,
     "attack_max": 5,
@@ -175,7 +219,11 @@
     "name": "银蛇",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 12,
     "attack_min": 6,
     "attack_max": 14,
@@ -193,7 +241,11 @@
     "name": "血饮",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 22,
     "attack_min": 12,
     "attack_max": 24,
@@ -213,7 +265,11 @@
     "name": "龙牙",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 32,
     "attack_min": 18,
     "attack_max": 38,
@@ -234,7 +290,11 @@
     "name": "屠夫切肉刀",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 38,
     "attack_min": 40,
     "attack_max": 76,
@@ -253,7 +313,11 @@
     "name": "血鸟之弓",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 28,
     "attack_min": 20,
     "attack_max": 44,
@@ -273,7 +337,11 @@
     "name": "玛克扎尔之刃",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 48,
     "attack_min": 55,
     "attack_max": 95,
@@ -293,7 +361,11 @@
     "name": "逐风者·炎魔之手",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 52,
     "attack_min": 70,
     "attack_max": 120,
@@ -313,7 +385,11 @@
     "name": "熔火毁灭者",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 50,
     "attack_min": 58,
     "attack_max": 102,
@@ -332,7 +408,11 @@
     "name": "虚空克星",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 48,
     "attack_min": 50,
     "attack_max": 90,
@@ -352,7 +432,11 @@
     "name": "灵魂收割者",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 40,
     "magic_min": 25,
     "magic_max": 48,
@@ -371,7 +455,11 @@
     "name": "猎手之弓",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 12,
     "attack_min": 10,
     "attack_max": 20,
@@ -390,7 +478,11 @@
     "name": "游侠匕首",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 15,
     "attack_min": 14,
     "attack_max": 26,
@@ -407,7 +499,11 @@
     "name": "萨满法杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 26,
     "magic_min": 15,
     "magic_max": 30,
@@ -426,7 +522,11 @@
     "name": "骨制魔杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 32,
     "magic_min": 20,
     "magic_max": 38,
@@ -445,7 +545,11 @@
     "name": "缚法者典籍",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 46,
     "magic_min": 30,
     "magic_max": 55,
@@ -464,7 +568,11 @@
     "name": "灰烬使者",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 60,
     "attack_min": 90,
     "attack_max": 150,
@@ -487,7 +595,11 @@
     "name": "雷霆之怒",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 58,
     "attack_min": 78,
     "attack_max": 132,
@@ -508,7 +620,11 @@
     "name": "统御法杖",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 55,
     "magic_min": 42,
     "magic_max": 72,
@@ -528,7 +644,11 @@
     "name": "救赎",
     "type": "weapon",
     "slot": "weapon",
-    "class": ["warrior", "mage", "taoist"],
+    "class": [
+      "warrior",
+      "mage",
+      "taoist"
+    ],
     "level_req": 55,
     "attack_min": 30,
     "attack_max": 60,
@@ -546,6 +666,234 @@
       "crit_rate": 0.04,
       "poison_damage": 6,
       "poison_rounds": 2
+    }
+  },
+  "thunderfury_legendary": {
+    "name": "雷霆之怒·逐风者的祝福之剑",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "warrior"
+    ],
+    "level_req": 60,
+    "quality": "orange",
+    "attack_min": 80,
+    "attack_max": 150,
+    "hp_bonus": 500,
+    "defense_min": 50,
+    "defense_max": 50,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "splash_rate": 0.15,
+      "crit_rate": 0.15,
+      "crush_rate": 0.2,
+      "double_attack": 0.15,
+      "extra_phys": 30,
+      "stun_rate": 0.08
+    }
+  },
+  "sulfuras_legendary": {
+    "name": "萨弗拉斯·炎魔拉格纳罗斯之手",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "warrior"
+    ],
+    "level_req": 60,
+    "quality": "orange",
+    "attack_min": 120,
+    "attack_max": 200,
+    "hp_bonus": 600,
+    "attack_bonus": 80,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 50,
+      "splash_rate": 0.3,
+      "ignore_defense": 0.25,
+      "hp_on_hit": 20,
+      "crush_rate": 0.18,
+      "crit_rate": 0.12
+    }
+  },
+  "warglaives": {
+    "name": "埃辛诺斯战刃",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "warrior",
+      "taoist"
+    ],
+    "level_req": 70,
+    "quality": "orange",
+    "attack_min": 70,
+    "attack_max": 130,
+    "attack_bonus": 60,
+    "dodge_rate_bonus": 0.15,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "double_attack": 0.2,
+      "lifesteal": 0.15,
+      "crit_rate": 0.18,
+      "hit_rate": 0.12,
+      "extra_phys": 25
+    }
+  },
+  "thori_dal": {
+    "name": "索利达尔·群星之怒",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "mage"
+    ],
+    "level_req": 70,
+    "quality": "orange",
+    "magic_min": 120,
+    "magic_max": 180,
+    "mp_bonus": 800,
+    "magic_defense_min": 80,
+    "magic_defense_max": 80,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 50,
+      "crit_rate": 0.2,
+      "crit_damage": 0.6,
+      "ignore_magic_def": 0.3,
+      "mp_on_hit": 30,
+      "splash_rate": 0.15
+    }
+  },
+  "valanyr": {
+    "name": "瓦兰奈尔·远古王者之锤",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "taoist"
+    ],
+    "level_req": 70,
+    "quality": "orange",
+    "attack_min": 60,
+    "attack_max": 100,
+    "magic_min": 60,
+    "magic_max": 100,
+    "hp_bonus": 400,
+    "mp_bonus": 400,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "lifesteal": 0.12,
+      "hp_on_hit": 25,
+      "mp_on_hit": 20,
+      "damage_reduction": 0.15,
+      "crit_rate": 0.1,
+      "poison_damage": 10,
+      "poison_rounds": 3
+    }
+  },
+  "frostmourne": {
+    "name": "影之哀伤",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "warrior"
+    ],
+    "level_req": 80,
+    "quality": "orange",
+    "attack_min": 150,
+    "attack_max": 250,
+    "hp_bonus": 700,
+    "attack_bonus": 100,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 50,
+      "crush_rate": 0.25,
+      "lifesteal": 0.18,
+      "stun_rate": 0.15,
+      "ignore_defense": 0.2,
+      "crit_rate": 0.15,
+      "double_attack": 0.12
+    }
+  },
+  "dragonwrath": {
+    "name": "巨龙之怒·泰蕾苟萨的寄魂杖",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "mage"
+    ],
+    "level_req": 80,
+    "quality": "orange",
+    "magic_min": 140,
+    "magic_max": 200,
+    "mp_bonus": 900,
+    "magic_bonus": 120,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "extra_magic": 50,
+      "crit_rate": 0.25,
+      "double_attack": 0.15,
+      "splash_rate": 0.25,
+      "ignore_magic_def": 0.25,
+      "crit_damage": 0.5,
+      "mp_on_hit": 25
+    }
+  },
+  "fangs_of_the_father": {
+    "name": "龙父之牙",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "taoist"
+    ],
+    "level_req": 70,
+    "quality": "orange",
+    "attack_min": 50,
+    "attack_max": 90,
+    "attack_bonus": 50,
+    "dodge_rate_bonus": 0.2,
+    "buy_price": 0,
+    "recycle_yuanbao": 500,
+    "drop_only": true,
+    "effects": {
+      "poison_damage": 15,
+      "poison_rounds": 5,
+      "double_attack": 0.25,
+      "crit_rate": 0.2,
+      "ignore_defense": 0.2,
+      "lifesteal": 0.1,
+      "hit_rate": 0.15
+    }
+  },
+  "dragonslayer_spear": {
+    "name": "屠龙长矛",
+    "type": "weapon",
+    "slot": "weapon",
+    "class": [
+      "warrior"
+    ],
+    "level_req": 70,
+    "attack_min": 45,
+    "attack_max": 85,
+    "hp_bonus": 150,
+    "buy_price": 0,
+    "recycle_yuanbao": 80,
+    "drop_only": true,
+    "effects": {
+      "extra_phys": 15,
+      "crit_rate": 0.08,
+      "ignore_defense": 0.15
     }
   }
 }

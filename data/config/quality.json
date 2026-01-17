@@ -43,5 +43,14 @@
     "currency": "yuanbao",
     "recycle_multiplier": 2.0,
     "drop_weight": 1
+  },
+  "orange": {
+    "name": "神器",
+    "color": "#FF8800",
+    "bonus": 3.0,
+    "effect_bonus": 1.0,
+    "currency": "yuanbao",
+    "recycle_multiplier": 5.0,
+    "drop_weight": 0.1
   }
 }

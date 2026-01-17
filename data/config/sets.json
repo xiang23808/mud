@@ -108,5 +108,195 @@
       "2": {"hp_bonus": 200, "mp_bonus": 170, "defense": 20, "attack_bonus": 18, "magic_bonus": 18},
       "4": {"hp_bonus": 400, "mp_bonus": 340, "attack_bonus": 40, "magic_bonus": 40, "effects": {"lifesteal": 2, "poison": 1, "damage_reduce": 1}}
     }
+  },
+  "insect_warrior": {
+    "name": "昆虫战甲",
+    "class": ["warrior"],
+    "level": 50,
+    "pieces": ["insect_helm_warrior", "insect_armor_warrior", "insect_belt_warrior", "insect_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 200, "defense": 25, "attack_bonus": 20},
+      "4": {"hp_bonus": 400, "defense": 55, "attack_bonus": 45, "effects": {"block_rate": 3, "reflect": 2}}
+    }
+  },
+  "insect_mage": {
+    "name": "昆虫法袍",
+    "class": ["mage"],
+    "level": 50,
+    "pieces": ["insect_helm_mage", "insect_armor_mage", "insect_belt_mage", "insect_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 250, "magic_defense": 28, "magic_bonus": 30},
+      "4": {"mp_bonus": 500, "magic_defense": 60, "magic_bonus": 70, "effects": {"crit_rate": 3, "ignore_magic_def": 5}}
+    }
+  },
+  "arcane_warrior": {
+    "name": "奥术战铠",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["arcane_helm_warrior", "arcane_armor_warrior", "arcane_belt_warrior", "arcane_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 220, "defense": 28, "attack_bonus": 22},
+      "4": {"hp_bonus": 440, "defense": 60, "attack_bonus": 50, "effects": {"crush": 3, "hit_rate": 2}}
+    }
+  },
+  "arcane_mage": {
+    "name": "奥术秘法",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["arcane_helm_mage", "arcane_armor_mage", "arcane_belt_mage", "arcane_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 280, "magic_defense": 30, "magic_bonus": 35},
+      "4": {"mp_bonus": 560, "magic_defense": 65, "magic_bonus": 80, "effects": {"crit_rate": 4, "crit_damage": 8}}
+    }
+  },
+  "dragonscale_warrior": {
+    "name": "龙鳞重甲",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["dragonscale_helm_warrior", "dragonscale_armor_warrior", "dragonscale_belt_warrior", "dragonscale_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 240, "defense": 30, "attack_bonus": 25},
+      "4": {"hp_bonus": 480, "defense": 65, "attack_bonus": 55, "effects": {"crush": 4, "damage_reduce": 3}}
+    }
+  },
+  "abyss_warrior": {
+    "name": "深渊战甲",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["abyss_helm_warrior", "abyss_armor_warrior", "abyss_belt_warrior", "abyss_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 230, "defense": 28, "attack_bonus": 23},
+      "4": {"hp_bonus": 460, "defense": 62, "attack_bonus": 52, "effects": {"reflect": 4, "lifesteal": 2}}
+    }
+  },
+  "abyss_mage": {
+    "name": "深渊魔纹",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["abyss_helm_mage", "abyss_armor_mage", "abyss_belt_mage", "abyss_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 270, "magic_defense": 30, "magic_bonus": 33},
+      "4": {"mp_bonus": 540, "magic_defense": 65, "magic_bonus": 75, "effects": {"crit_rate": 3, "extra_magic": 7}}
+    }
+  },
+  "qiraji_warrior": {
+    "name": "其拉战甲",
+    "class": ["warrior"],
+    "level": 60,
+    "pieces": ["qiraji_helm_warrior", "qiraji_armor_warrior", "qiraji_belt_warrior", "qiraji_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 300, "defense": 40, "attack_bonus": 35},
+      "4": {"hp_bonus": 600, "defense": 85, "attack_bonus": 75, "effects": {"block_rate": 5, "stun_rate": 3}}
+    }
+  },
+  "qiraji_mage": {
+    "name": "其拉法袍",
+    "class": ["mage"],
+    "level": 60,
+    "pieces": ["qiraji_helm_mage", "qiraji_armor_mage", "qiraji_belt_mage", "qiraji_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 380, "magic_defense": 45, "magic_bonus": 50},
+      "4": {"mp_bonus": 760, "magic_defense": 95, "magic_bonus": 110, "effects": {"crit_rate": 5, "double_attack": 2}}
+    }
+  },
+  "tidecaller_warrior": {
+    "name": "潮汐战铠",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["tidecaller_helm_warrior", "tidecaller_armor_warrior", "tidecaller_belt_warrior", "tidecaller_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 320, "defense": 42, "attack_bonus": 38},
+      "4": {"hp_bonus": 640, "defense": 90, "attack_bonus": 80, "effects": {"crush": 5, "hp_on_hit": 5}}
+    }
+  },
+  "tidecaller_mage": {
+    "name": "潮汐秘法",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["tidecaller_helm_mage", "tidecaller_armor_mage", "tidecaller_belt_mage", "tidecaller_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 400, "magic_defense": 48, "magic_bonus": 55},
+      "4": {"mp_bonus": 800, "magic_defense": 100, "magic_bonus": 120, "effects": {"crit_rate": 5, "ignore_magic_def": 7}}
+    }
+  },
+  "phoenix_warrior": {
+    "name": "凤凰战甲",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["phoenix_helm_warrior", "phoenix_armor_warrior", "phoenix_belt_warrior", "phoenix_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 340, "defense": 45, "attack_bonus": 40},
+      "4": {"hp_bonus": 680, "defense": 95, "attack_bonus": 85, "effects": {"reflect": 5, "dodge_rate": 3}}
+    }
+  },
+  "phoenix_mage": {
+    "name": "凤凰法袍",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["phoenix_helm_mage", "phoenix_armor_mage", "phoenix_belt_mage", "phoenix_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 420, "magic_defense": 50, "magic_bonus": 58},
+      "4": {"mp_bonus": 840, "magic_defense": 105, "magic_bonus": 130, "effects": {"crit_rate": 6, "crit_damage": 13}}
+    }
+  },
+  "shadowfiend_warrior": {
+    "name": "影魔战铠",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["shadowfiend_helm_warrior", "shadowfiend_armor_warrior", "shadowfiend_belt_warrior", "shadowfiend_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 400, "defense": 55, "attack_bonus": 50},
+      "4": {"hp_bonus": 800, "defense": 115, "attack_bonus": 105, "effects": {"crush": 6, "lifesteal": 3}}
+    }
+  },
+  "shadowfiend_mage": {
+    "name": "影魔法袍",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["shadowfiend_helm_mage", "shadowfiend_armor_mage", "shadowfiend_belt_mage", "shadowfiend_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 500, "magic_defense": 60, "magic_bonus": 70},
+      "4": {"mp_bonus": 1000, "magic_defense": 125, "magic_bonus": 155, "effects": {"crit_rate": 7, "double_attack": 4}}
+    }
+  },
+  "fury_warrior": {
+    "name": "怒火战甲",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["fury_helm_warrior", "fury_armor_warrior", "fury_belt_warrior", "fury_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 420, "defense": 58, "attack_bonus": 52},
+      "4": {"hp_bonus": 840, "defense": 120, "attack_bonus": 110, "effects": {"block_rate": 7, "damage_reduce": 5}}
+    }
+  },
+  "fury_mage": {
+    "name": "怒火法袍",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["fury_helm_mage", "fury_armor_mage", "fury_belt_mage", "fury_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 520, "magic_defense": 62, "magic_bonus": 72},
+      "4": {"mp_bonus": 1040, "magic_defense": 130, "magic_bonus": 160, "effects": {"crit_rate": 7, "ignore_magic_def": 8}}
+    }
+  },
+  "sunfury_warrior": {
+    "name": "日怒战铠",
+    "class": ["warrior"],
+    "level": 70,
+    "pieces": ["sunfury_helm_warrior", "sunfury_armor_warrior", "sunfury_belt_warrior", "sunfury_boots_warrior"],
+    "bonuses": {
+      "2": {"hp_bonus": 450, "defense": 60, "attack_bonus": 55},
+      "4": {"hp_bonus": 900, "defense": 130, "attack_bonus": 120, "effects": {"crush": 7, "reflect": 6}}
+    }
+  },
+  "sunfury_mage": {
+    "name": "日怒秘法",
+    "class": ["mage"],
+    "level": 70,
+    "pieces": ["sunfury_helm_mage", "sunfury_armor_mage", "sunfury_belt_mage", "sunfury_boots_mage"],
+    "bonuses": {
+      "2": {"mp_bonus": 550, "magic_defense": 65, "magic_bonus": 75},
+      "4": {"mp_bonus": 1100, "magic_defense": 135, "magic_bonus": 170, "effects": {"crit_rate": 8, "crit_damage": 17}}
+    }
   }
 }

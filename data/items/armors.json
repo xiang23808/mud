@@ -123,7 +123,7 @@
       "mp_on_hit": 1
     }
   },
-  "霓裳羽衣": {
+  "rainbow_feather_robe": {
     "name": "霓裳羽衣",
     "type": "armor",
     "slot": "body",
@@ -167,7 +167,7 @@
   "bone_helmet": {
     "name": "骨头盔",
     "type": "armor",
-    "slot": "head",
+    "slot": "helmet",
     "class": ["warrior", "mage", "taoist"],
     "level_req": 18,
     "defense_min": 5,
@@ -185,7 +185,7 @@
   "skeleton_helmet": {
     "name": "骷髅头盔",
     "type": "armor",
-    "slot": "head",
+    "slot": "helmet",
     "class": ["warrior", "mage", "taoist"],
     "level_req": 22,
     "defense_min": 8,
@@ -204,7 +204,7 @@
   "zuma_helmet": {
     "name": "祖玛头盔",
     "type": "armor",
-    "slot": "head",
+    "slot": "helmet",
     "class": ["warrior", "mage", "taoist"],
     "level_req": 32,
     "defense_min": 12,

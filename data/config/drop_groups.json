@@ -154,12 +154,12 @@
   "set_t0": {
     "name": "T0套装(野性/魔导)",
     "drops": [
-      {"item": "wildheart_helm", "rate": "1/200"},
-      {"item": "wildheart_armor", "rate": "1/300"},
+      {"item": "wildheart_helm", "rate": "1/150"},
+      {"item": "wildheart_armor", "rate": "1/150"},
       {"item": "wildheart_belt", "rate": "1/150"},
       {"item": "wildheart_boots", "rate": "1/150"},
-      {"item": "magister_helm", "rate": "1/200"},
-      {"item": "magister_armor", "rate": "1/300"},
+      {"item": "magister_helm", "rate": "1/150"},
+      {"item": "magister_armor", "rate": "1/150"},
       {"item": "magister_belt", "rate": "1/150"},
       {"item": "magister_boots", "rate": "1/150"}
     ]
@@ -167,16 +167,16 @@
   "set_t1": {
     "name": "T1套装(熔火/奥术/塞纳里奥)",
     "drops": [
-      {"item": "molten_helm", "rate": "1/400"},
-      {"item": "molten_armor", "rate": "1/600"},
+      {"item": "molten_helm", "rate": "1/300"},
+      {"item": "molten_armor", "rate": "1/300"},
       {"item": "molten_belt", "rate": "1/300"},
       {"item": "molten_boots", "rate": "1/300"},
-      {"item": "arcanist_helm", "rate": "1/400"},
-      {"item": "arcanist_armor", "rate": "1/600"},
+      {"item": "arcanist_helm", "rate": "1/300"},
+      {"item": "arcanist_armor", "rate": "1/300"},
       {"item": "arcanist_belt", "rate": "1/300"},
       {"item": "arcanist_boots", "rate": "1/300"},
-      {"item": "cenarion_helm", "rate": "1/400"},
-      {"item": "cenarion_armor", "rate": "1/600"},
+      {"item": "cenarion_helm", "rate": "1/300"},
+      {"item": "cenarion_armor", "rate": "1/300"},
       {"item": "cenarion_belt", "rate": "1/300"},
       {"item": "cenarion_boots", "rate": "1/300"}
     ]
@@ -184,16 +184,16 @@
   "set_t2": {
     "name": "T2套装(龙鳞/灵风/碎地)",
     "drops": [
-      {"item": "dragon_helm", "rate": "1/800"},
-      {"item": "dragon_armor", "rate": "1/1200"},
+      {"item": "dragon_helm", "rate": "1/600"},
+      {"item": "dragon_armor", "rate": "1/600"},
       {"item": "dragon_belt", "rate": "1/600"},
       {"item": "dragon_boots", "rate": "1/600"},
-      {"item": "nether_helm", "rate": "1/800"},
-      {"item": "nether_armor", "rate": "1/1200"},
+      {"item": "nether_helm", "rate": "1/600"},
+      {"item": "nether_armor", "rate": "1/600"},
       {"item": "nether_belt", "rate": "1/600"},
       {"item": "nether_boots", "rate": "1/600"},
-      {"item": "earth_helm", "rate": "1/800"},
-      {"item": "earth_armor", "rate": "1/1200"},
+      {"item": "earth_helm", "rate": "1/600"},
+      {"item": "earth_armor", "rate": "1/600"},
       {"item": "earth_belt", "rate": "1/600"},
       {"item": "earth_boots", "rate": "1/600"}
     ]
@@ -201,16 +201,16 @@
   "set_t3": {
     "name": "T3套装(冰冠/暗影/巫妖)",
     "drops": [
-      {"item": "ice_helm", "rate": "1/2000"},
-      {"item": "ice_armor", "rate": "1/3000"},
+      {"item": "ice_helm", "rate": "1/1500"},
+      {"item": "ice_armor", "rate": "1/1500"},
       {"item": "ice_belt", "rate": "1/1500"},
       {"item": "ice_boots", "rate": "1/1500"},
-      {"item": "shadow_helm", "rate": "1/2000"},
-      {"item": "shadow_armor", "rate": "1/3000"},
+      {"item": "shadow_helm", "rate": "1/1500"},
+      {"item": "shadow_armor", "rate": "1/1500"},
       {"item": "shadow_belt", "rate": "1/1500"},
       {"item": "shadow_boots", "rate": "1/1500"},
-      {"item": "lich_helm", "rate": "1/2000"},
-      {"item": "lich_armor", "rate": "1/3000"},
+      {"item": "lich_helm", "rate": "1/1500"},
+      {"item": "lich_armor", "rate": "1/1500"},
       {"item": "lich_belt", "rate": "1/1500"},
       {"item": "lich_boots", "rate": "1/1500"}
     ]
@@ -218,12 +218,12 @@
   "set_t4_insect": {
     "name": "T4昆虫套装",
     "drops": [
-      {"item": "insect_helm_warrior", "rate": "1/1000"},
-      {"item": "insect_armor_warrior", "rate": "1/1500"},
+      {"item": "insect_helm_warrior", "rate": "1/800"},
+      {"item": "insect_armor_warrior", "rate": "1/800"},
       {"item": "insect_belt_warrior", "rate": "1/800"},
       {"item": "insect_boots_warrior", "rate": "1/800"},
-      {"item": "insect_helm_mage", "rate": "1/1000"},
-      {"item": "insect_armor_mage", "rate": "1/1500"},
+      {"item": "insect_helm_mage", "rate": "1/800"},
+      {"item": "insect_armor_mage", "rate": "1/800"},
       {"item": "insect_belt_mage", "rate": "1/800"},
       {"item": "insect_boots_mage", "rate": "1/800"}
     ]
@@ -231,12 +231,12 @@
   "set_t5_qiraji": {
     "name": "T5其拉套装",
     "drops": [
-      {"item": "qiraji_helm_warrior", "rate": "1/2000"},
-      {"item": "qiraji_armor_warrior", "rate": "1/3000"},
+      {"item": "qiraji_helm_warrior", "rate": "1/1500"},
+      {"item": "qiraji_armor_warrior", "rate": "1/1500"},
       {"item": "qiraji_belt_warrior", "rate": "1/1500"},
       {"item": "qiraji_boots_warrior", "rate": "1/1500"},
-      {"item": "qiraji_helm_mage", "rate": "1/2000"},
-      {"item": "qiraji_armor_mage", "rate": "1/3000"},
+      {"item": "qiraji_helm_mage", "rate": "1/1500"},
+      {"item": "qiraji_armor_mage", "rate": "1/1500"},
       {"item": "qiraji_belt_mage", "rate": "1/1500"},
       {"item": "qiraji_boots_mage", "rate": "1/1500"}
     ]
@@ -244,8 +244,8 @@
   "set_t4_dragonscale": {
     "name": "T4龙鳞套装",
     "drops": [
-      {"item": "dragonscale_helm_warrior", "rate": "1/1200"},
-      {"item": "dragonscale_armor_warrior", "rate": "1/1800"},
+      {"item": "dragonscale_helm_warrior", "rate": "1/900"},
+      {"item": "dragonscale_armor_warrior", "rate": "1/900"},
       {"item": "dragonscale_belt_warrior", "rate": "1/900"},
       {"item": "dragonscale_boots_warrior", "rate": "1/900"}
     ]
@@ -253,12 +253,12 @@
   "set_t4_abyss": {
     "name": "T4深渊套装",
     "drops": [
-      {"item": "abyss_helm_warrior", "rate": "1/1200"},
-      {"item": "abyss_armor_warrior", "rate": "1/1800"},
+      {"item": "abyss_helm_warrior", "rate": "1/900"},
+      {"item": "abyss_armor_warrior", "rate": "1/900"},
       {"item": "abyss_belt_warrior", "rate": "1/900"},
       {"item": "abyss_boots_warrior", "rate": "1/900"},
-      {"item": "abyss_helm_mage", "rate": "1/1200"},
-      {"item": "abyss_armor_mage", "rate": "1/1800"},
+      {"item": "abyss_helm_mage", "rate": "1/900"},
+      {"item": "abyss_armor_mage", "rate": "1/900"},
       {"item": "abyss_belt_mage", "rate": "1/900"},
       {"item": "abyss_boots_mage", "rate": "1/900"}
     ]
@@ -266,12 +266,12 @@
   "set_t5_tidecaller": {
     "name": "T5潮汐套装",
     "drops": [
-      {"item": "tidecaller_helm_warrior", "rate": "1/2200"},
-      {"item": "tidecaller_armor_warrior", "rate": "1/3300"},
+      {"item": "tidecaller_helm_warrior", "rate": "1/1600"},
+      {"item": "tidecaller_armor_warrior", "rate": "1/1600"},
       {"item": "tidecaller_belt_warrior", "rate": "1/1600"},
       {"item": "tidecaller_boots_warrior", "rate": "1/1600"},
-      {"item": "tidecaller_helm_mage", "rate": "1/2200"},
-      {"item": "tidecaller_armor_mage", "rate": "1/3300"},
+      {"item": "tidecaller_helm_mage", "rate": "1/1600"},
+      {"item": "tidecaller_armor_mage", "rate": "1/1600"},
       {"item": "tidecaller_belt_mage", "rate": "1/1600"},
       {"item": "tidecaller_boots_mage", "rate": "1/1600"}
     ]
@@ -279,12 +279,12 @@
   "set_t5_phoenix": {
     "name": "T5凤凰套装",
     "drops": [
-      {"item": "phoenix_helm_warrior", "rate": "1/2200"},
-      {"item": "phoenix_armor_warrior", "rate": "1/3300"},
+      {"item": "phoenix_helm_warrior", "rate": "1/1600"},
+      {"item": "phoenix_armor_warrior", "rate": "1/1600"},
       {"item": "phoenix_belt_warrior", "rate": "1/1600"},
       {"item": "phoenix_boots_warrior", "rate": "1/1600"},
-      {"item": "phoenix_helm_mage", "rate": "1/2200"},
-      {"item": "phoenix_armor_mage", "rate": "1/3300"},
+      {"item": "phoenix_helm_mage", "rate": "1/1600"},
+      {"item": "phoenix_armor_mage", "rate": "1/1600"},
       {"item": "phoenix_belt_mage", "rate": "1/1600"},
       {"item": "phoenix_boots_mage", "rate": "1/1600"}
     ]
@@ -292,12 +292,12 @@
   "set_t6_shadowfiend": {
     "name": "T6影魔套装",
     "drops": [
-      {"item": "shadowfiend_helm_warrior", "rate": "1/3000"},
-      {"item": "shadowfiend_armor_warrior", "rate": "1/4500"},
+      {"item": "shadowfiend_helm_warrior", "rate": "1/2000"},
+      {"item": "shadowfiend_armor_warrior", "rate": "1/2000"},
       {"item": "shadowfiend_belt_warrior", "rate": "1/2000"},
       {"item": "shadowfiend_boots_warrior", "rate": "1/2000"},
-      {"item": "shadowfiend_helm_mage", "rate": "1/3000"},
-      {"item": "shadowfiend_armor_mage", "rate": "1/4500"},
+      {"item": "shadowfiend_helm_mage", "rate": "1/2000"},
+      {"item": "shadowfiend_armor_mage", "rate": "1/2000"},
       {"item": "shadowfiend_belt_mage", "rate": "1/2000"},
       {"item": "shadowfiend_boots_mage", "rate": "1/2000"}
     ]
@@ -305,12 +305,12 @@
   "set_t6_fury": {
     "name": "T6怒火套装",
     "drops": [
-      {"item": "fury_helm_warrior", "rate": "1/3500"},
-      {"item": "fury_armor_warrior", "rate": "1/5000"},
+      {"item": "fury_helm_warrior", "rate": "1/2500"},
+      {"item": "fury_armor_warrior", "rate": "1/2500"},
       {"item": "fury_belt_warrior", "rate": "1/2500"},
       {"item": "fury_boots_warrior", "rate": "1/2500"},
-      {"item": "fury_helm_mage", "rate": "1/3500"},
-      {"item": "fury_armor_mage", "rate": "1/5000"},
+      {"item": "fury_helm_mage", "rate": "1/2500"},
+      {"item": "fury_armor_mage", "rate": "1/2500"},
       {"item": "fury_belt_mage", "rate": "1/2500"},
       {"item": "fury_boots_mage", "rate": "1/2500"}
     ]
@@ -318,12 +318,12 @@
   "set_t6_sunfury": {
     "name": "T6日怒套装",
     "drops": [
-      {"item": "sunfury_helm_warrior", "rate": "1/3500"},
-      {"item": "sunfury_armor_warrior", "rate": "1/5000"},
+      {"item": "sunfury_helm_warrior", "rate": "1/2500"},
+      {"item": "sunfury_armor_warrior", "rate": "1/2500"},
       {"item": "sunfury_belt_warrior", "rate": "1/2500"},
       {"item": "sunfury_boots_warrior", "rate": "1/2500"},
-      {"item": "sunfury_helm_mage", "rate": "1/3500"},
-      {"item": "sunfury_armor_mage", "rate": "1/5000"},
+      {"item": "sunfury_helm_mage", "rate": "1/2500"},
+      {"item": "sunfury_armor_mage", "rate": "1/2500"},
       {"item": "sunfury_belt_mage", "rate": "1/2500"},
       {"item": "sunfury_boots_mage", "rate": "1/2500"}
     ]

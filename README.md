@@ -338,6 +338,21 @@ mud-legend/
 - `items/*.json` - 物品属性（武器、防具、饰品、消耗品，含特效）
 - `skills/*.json` - 技能属性（战士、法师、道士）
 - `config/quality.json` - 品质配置（含特效加成）
+- `config/game_config.json` - 游戏全局配置（经验倍率、爆率倍率等）
+
+### 全局倍率配置
+
+在 `data/config/game_config.json` 中可以调整游戏倍率：
+
+```json
+{
+  "exp_multiplier": 5.0,        // 经验倍率（当前5倍）
+  "drop_rate_multiplier": 5.0,  // 爆率倍率（当前5倍）
+  "gold_multiplier": 1.0         // 金币倍率（当前1倍）
+}
+```
+
+修改后重启服务器即可生效。
 
 ### 装备特效配置示例
 ```json

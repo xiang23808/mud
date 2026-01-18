@@ -4,6 +4,7 @@ from typing import List, Dict, Optional
 from dataclasses import dataclass, field
 from fractions import Fraction
 from .effects import EffectCalculator, roll_quality, apply_quality_bonus, EFFECT_CONFIG, EFFECT_NAMES
+from backend.config import game_config
 
 @dataclass
 class CombatResult:
@@ -577,10 +578,14 @@ class CombatEngine:
                 quality_drop_bonus = CombatEngine.QUALITY_DROP_BONUS.get(m["quality"], 1.0)
                 for drop in m["drops"]:
                     base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
-                    final_rate = min(1.0, base_rate * quality_drop_bonus)
+                    # 应用全局爆率倍数
+                    final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER)
                     if random.random() < final_rate:
                         drops.append({"item_id": drop["item"], "quality": roll_quality(base_rate)})
             
+            # 应用全局倍数
+            exp_gained = int(exp_gained * game_config.EXP_MULTIPLIER)
+            gold_gained = int(gold_gained * game_config.GOLD_MULTIPLIER)
             logs.append(f"🎉 胜利! 获得 {exp_gained} 经验, {gold_gained} 金币")
             for drop in drops:
                 item_name = drop['item_id']

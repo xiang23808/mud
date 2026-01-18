@@ -576,12 +576,25 @@ class CombatEngine:
                 exp_gained += m["exp"]
                 gold_gained += m["gold"]
                 quality_drop_bonus = CombatEngine.QUALITY_DROP_BONUS.get(m["quality"], 1.0)
+                
+                # 处理直接掉落
                 for drop in m["drops"]:
                     base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
                     # 应用全局爆率倍数
                     final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER)
                     if random.random() < final_rate:
                         drops.append({"item_id": drop["item"], "quality": roll_quality(base_rate)})
+                
+                # 处理掉落组
+                drop_groups = m.get("drop_groups", [])
+                if drop_groups and data_loader:
+                    for group_id in drop_groups:
+                        group = data_loader.get_drop_group(group_id)
+                        for drop in group.get("drops", []):
+                            base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
+                            final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER)
+                            if random.random() < final_rate:
+                                drops.append({"item_id": drop["item"], "quality": roll_quality(base_rate)})
             
             # 应用全局倍数
             exp_gained = int(exp_gained * game_config.EXP_MULTIPLIER)

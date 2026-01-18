@@ -178,6 +178,7 @@
     "exp": 3500,
     "gold": 800,
     "is_boss": true,
+    "drop_groups": ["set_t0"],
     "drops": [
       {"item": "bone_fragment", "rate": "1/10"},
       {"item": "corpse_king_ring", "rate": "1/30"},
@@ -283,6 +284,7 @@
     "exp": 3000,
     "gold": 750,
     "is_boss": true,
+    "drop_groups": ["set_t0", "set_t1"],
     "drops": [
       {"item": "pig_tusk", "rate": "1/10"},
       {"item": "bone_king_sword", "rate": "1/50"},
@@ -406,6 +408,7 @@
     "exp": 3200,
     "gold": 800,
     "is_boss": true,
+    "drop_groups": ["set_t0", "set_t1"],
     "drops": [
       {"item": "bone_fragment", "rate": "1/10"},
       {"item": "bone_king_sword", "rate": "1/40"},
@@ -515,6 +518,7 @@
     "exp": 8000,
     "gold": 1500,
     "is_boss": true,
+    "drop_groups": ["set_t1", "set_t2"],
     "drops": [
       {"item": "woma_horn", "rate": "1/10"},
       {"item": "judgement", "rate": "1/80"},
@@ -629,6 +633,7 @@
     "exp": 12000,
     "gold": 2500,
     "is_boss": true,
+    "drop_groups": ["set_t2"],
     "drops": [
       {"item": "zuma_piece", "rate": "1/10"},
       {"item": "judgement", "rate": "1/50"},
@@ -727,6 +732,7 @@
     "exp": 10000,
     "gold": 2000,
     "is_boss": true,
+    "drop_groups": ["set_t2"],
     "drops": [
       {"item": "demon_heart", "rate": "1/10"},
       {"item": "dragon_wand", "rate": "1/40"},
@@ -811,6 +817,7 @@
     "exp": 18000,
     "gold": 4000,
     "is_boss": true,
+    "drop_groups": ["set_t3"],
     "drops": [
       {"item": "red_moon_shard", "rate": "1/10"},
       {"item": "judgement", "rate": "1/30"},
@@ -965,6 +972,7 @@
     "exp": 5000,
     "gold": 1200,
     "is_boss": true,
+    "drop_groups": ["set_t1"],
     "drops": [
       {"item": "blood_feather", "rate": "1/10"},
       {"item": "raven_bow", "rate": "1/25"},
@@ -1139,6 +1147,7 @@
     "exp": 12000,
     "gold": 3000,
     "is_boss": true,
+    "drop_groups": ["set_t2"],
     "drops": [
       {"item": "butcher_hook", "rate": "1/10"},
       {"item": "butcher_cleaver", "rate": "1/20"},
@@ -1238,6 +1247,7 @@
     "exp": 20000,
     "gold": 5000,
     "is_boss": true,
+    "drop_groups": ["set_t2", "set_t3"],
     "drops": [
       {"item": "malchezaar_blade", "rate": "1/25"},
       {"item": "prince_ring", "rate": "1/30"},
@@ -1281,6 +1291,7 @@
     "exp": 30000,
     "gold": 8000,
     "is_boss": true,
+    "drop_groups": ["set_t3"],
     "drops": [
       {"item": "thunderfury_legendary", "rate": "1/200"},
       {"item": "ragnaros_essence", "rate": "1/10"},
@@ -1311,6 +1322,7 @@
     "exp": 50000,
     "gold": 15000,
     "is_boss": true,
+    "drop_groups": ["set_t3"],
     "drops": [
       {"item": "nefarian_scale", "rate": "1/10"},
       {"item": "ashkandi", "rate": "1/40"},
@@ -1578,6 +1590,7 @@
     "exp": 25000,
     "gold": 6000,
     "is_boss": true,
+    "drop_groups": ["set_t4_insect"],
     "drops": [
       {"item": "rajaxx_insignia", "rate": "1/10"},
       {"item": "insect_helm_warrior", "rate": "1/40"},
@@ -1633,6 +1646,7 @@
     "exp": 40000,
     "gold": 10000,
     "is_boss": true,
+    "drop_groups": ["set_t5_qiraji"],
     "drops": [
       {"item": "eye_of_cthun", "rate": "1/10"},
       {"item": "qiraji_helm_warrior", "rate": "1/35"},
@@ -1689,6 +1703,7 @@
     "exp": 45000,
     "gold": 12000,
     "is_boss": true,
+    "drop_groups": ["set_t4_dragonscale"],
     "drops": [
       {"item": "gruul_eye", "rate": "1/10"},
       {"item": "dragonscale_helm_warrior", "rate": "1/35"},
@@ -1741,6 +1756,7 @@
     "exp": 45000,
     "gold": 12000,
     "is_boss": true,
+    "drop_groups": ["set_t4_abyss"],
     "drops": [
       {"item": "magtheridon_head", "rate": "1/10"},
       {"item": "abyss_helm_warrior", "rate": "1/35"},
@@ -1796,6 +1812,7 @@
     "exp": 48000,
     "gold": 13000,
     "is_boss": true,
+    "drop_groups": ["set_t5_tidecaller"],
     "drops": [
       {"item": "vashj_vial", "rate": "1/10"},
       {"item": "tidecaller_helm_warrior", "rate": "1/35"},
@@ -1851,6 +1868,7 @@
     "exp": 55000,
     "gold": 15000,
     "is_boss": true,
+    "drop_groups": ["set_t6_shadowfiend"],
     "drops": [
       {"item": "illidan_soul", "rate": "1/10"},
       {"item": "warglaives", "rate": "1/150"},
@@ -1907,6 +1925,7 @@
     "exp": 55000,
     "gold": 15000,
     "is_boss": true,
+    "drop_groups": ["set_t6_fury"],
     "drops": [
       {"item": "archimonde_essence", "rate": "1/10"},
       {"item": "fury_helm_warrior", "rate": "1/30"},
@@ -1963,6 +1982,7 @@
     "exp": 50000,
     "gold": 14000,
     "is_boss": true,
+    "drop_groups": ["set_t5_phoenix"],
     "drops": [
       {"item": "kaelthas_sphere", "rate": "1/10"},
       {"item": "phoenix_helm_warrior", "rate": "1/32"},
@@ -2019,6 +2039,7 @@
     "exp": 60000,
     "gold": 18000,
     "is_boss": true,
+    "drop_groups": ["set_t6_sunfury"],
     "drops": [
       {"item": "kiljaeden_crown", "rate": "1/10"},
       {"item": "sunfury_helm_warrior", "rate": "1/28"},

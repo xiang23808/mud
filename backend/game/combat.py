@@ -192,6 +192,8 @@ class CombatEngine:
         player_poison = None  # 玩家毒伤状态
         player_stunned = False
         player_invisible = 0  # 隐身剩余回合数
+        magic_shield_rounds = 0  # 魔法盾剩余回合数
+        magic_shield_reduction = 0.0  # 魔法盾减伤比例
         
         # 分离技能
         active_skills = []
@@ -251,6 +253,21 @@ class CombatEngine:
                         logs.append(f"💀 {m['name']} 被毒死!")
                     if m["poison"].rounds <= 0:
                         m["poison"] = None
+            
+            # 圣言术判定（法师被动技能）
+            if char_class == "mage" and "holy_word" in passive_skills:
+                alive_targets = [m for m in monster_states if m["hp"] > 0]
+                if alive_targets:
+                    # 获取圣言术技能等级
+                    holy_word_skill = next((s for s in (skills or []) if s.get("skill_id") == "holy_word"), None)
+                    if holy_word_skill:
+                        skill_level = holy_word_skill.get("level", 1)
+                        # 根据等级计算触发率：1级5%，2级8%，3级12%
+                        trigger_rate = 0.05 + (skill_level - 1) * 0.03
+                        if random.random() < trigger_rate:
+                            target = random.choice(alive_targets)
+                            target["hp"] = 0
+                            logs.append(f"✨ 圣言术发动! {target['name']} 被神圣之力瞬间消灭!")
             
             # 检查玩家眩晕
             if player_stunned:
@@ -376,6 +393,14 @@ class CombatEngine:
                                 )[0]
                                 player_invisible = duration
                                 logs.append(f"👻 进入隐身状态，持续{duration}回合")
+                            
+                            # 魔法盾
+                            if effect.get("damage_reduction") and effect.get("duration_rounds"):
+                                # 根据技能等级计算持续回合和减伤比例
+                                # 1级：2回合15%，2级：4回合30%，3级：6回合45%
+                                magic_shield_rounds = effect["duration_rounds"] * skill_level
+                                magic_shield_reduction = effect["damage_reduction"] * skill_level
+                                logs.append(f"🛡️ 魔法盾激活! 持续{magic_shield_rounds}回合，减伤{int(magic_shield_reduction*100)}%")
                             
                             break
                 
@@ -536,6 +561,12 @@ class CombatEngine:
                         else:
                             damage = base_damage
                         
+                        # 应用魔法盾减伤
+                        if magic_shield_rounds > 0:
+                            shield_reduced = int(damage * magic_shield_reduction)
+                            damage = damage - shield_reduced
+                            defense_effects.append(f"魔法盾减伤{int(magic_shield_reduction*100)}%")
+                        
                         # 确保最低伤害为基础伤害的50%
                         damage = max(int(base_damage * 0.5), damage)
                         
@@ -558,6 +589,13 @@ class CombatEngine:
                 player_invisible -= 1
                 if player_invisible == 0:
                     logs.append("👻 隐身状态结束")
+            
+            # 魔法盾回合递减
+            if magic_shield_rounds > 0:
+                magic_shield_rounds -= 1
+                if magic_shield_rounds == 0:
+                    logs.append("🛡️ 魔法盾效果结束")
+                    magic_shield_reduction = 0.0
             
             # 状态更新
             monster_hp_info = "|".join([f"#{m['idx']}{m['name']}[{m['quality']}]:{max(0, m['hp'])}/{m['max_hp']}" for m in monster_states])

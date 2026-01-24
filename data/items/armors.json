@@ -116,7 +116,9 @@
     "defense_max": 9,
     "magic_defense_min": 4,
     "magic_defense_max": 8,
-    "mp_bonus": 30,
+    "mp_bonus": 40,
+    "magic_min": 2,
+    "magic_max": 5,
     "buy_price": 600,
     "recycle_gold": 60,
     "effects": {
@@ -133,7 +135,9 @@
     "defense_max": 16,
     "magic_defense_min": 8,
     "magic_defense_max": 15,
-    "mp_bonus": 80,
+    "mp_bonus": 100,
+    "magic_min": 3,
+    "magic_max": 7,
     "buy_price": 0,
     "recycle_yuanbao": 20,
     "drop_only": true,
@@ -813,7 +817,9 @@
     "defense_max": 3,
     "magic_defense_min": 3,
     "magic_defense_max": 6,
-    "mp_bonus": 30,
+    "mp_bonus": 35,
+    "magic_min": 1,
+    "magic_max": 3,
     "buy_price": 800,
     "recycle_gold": 80,
     "effects": {
@@ -848,16 +854,16 @@
     "defense_max": 8,
     "magic_defense_min": 8,
     "magic_defense_max": 15,
-    "mp_bonus": 80,
-    "magic_min": 2,
-    "magic_max": 5,
+    "mp_bonus": 90,
+    "magic_min": 3,
+    "magic_max": 7,
     "buy_price": 0,
     "recycle_yuanbao": 20,
     "drop_only": true,
     "effects": {
       "damage_reduction": 0.02,
       "mp_on_hit": 2,
-      "extra_magic": 2
+      "extra_magic": 3
     }
   },
   "spirit_crown": {

@@ -21,8 +21,8 @@ from backend.api.recharge import router as recharge_router
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_db()
-    # 启动怪物刷新器
-    asyncio.create_task(spawner.start())
+    # 怪物刷新器已禁用
+    # asyncio.create_task(spawner.start())
     yield
     spawner.stop()
 

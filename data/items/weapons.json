@@ -128,7 +128,7 @@
     "level_req": 1,
     "magic_min": 3,
     "magic_max": 6,
-    "mp_bonus": 10,
+    "mp_bonus": 15,
     "buy_price": 100,
     "recycle_gold": 10
   },
@@ -142,9 +142,9 @@
       "taoist"
     ],
     "level_req": 10,
-    "magic_min": 6,
-    "magic_max": 12,
-    "mp_bonus": 30,
+    "magic_min": 8,
+    "magic_max": 15,
+    "mp_bonus": 40,
     "buy_price": 800,
     "recycle_gold": 80,
     "effects": {
@@ -162,15 +162,15 @@
       "taoist"
     ],
     "level_req": 20,
-    "magic_min": 12,
-    "magic_max": 22,
-    "mp_bonus": 60,
+    "magic_min": 15,
+    "magic_max": 28,
+    "mp_bonus": 80,
     "buy_price": 0,
     "recycle_yuanbao": 15,
     "drop_only": true,
     "effects": {
       "crit_rate": 0.02,
-      "extra_magic": 3,
+      "extra_magic": 5,
       "ignore_magic_def": 0.03
     }
   },

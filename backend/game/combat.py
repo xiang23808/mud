@@ -174,6 +174,7 @@ class CombatEngine:
                 "is_boss": m.get("is_boss", False),
                 "damage_type": damage_type,
                 "poison": None,  # 毒伤状态
+                "burn": None,  # 灼烧状态
                 "stunned": False  # 眩晕状态
             })
         
@@ -254,6 +255,17 @@ class CombatEngine:
                     if m["poison"].rounds <= 0:
                         m["poison"] = None
             
+            # 处理怪物灼烧
+            for m in monster_states:
+                if m["hp"] > 0 and m.get("burn") and m["burn"].rounds > 0:
+                    m["hp"] -= m["burn"].damage
+                    m["burn"].rounds -= 1
+                    logs.append(f"🔥 {m['name']} 灼烧! 受到 {m['burn'].damage} 点火焰伤害")
+                    if m["hp"] <= 0:
+                        logs.append(f"💀 {m['name']} 被烧死!")
+                    if m["burn"].rounds <= 0:
+                        m["burn"] = None
+            
             # 圣言术判定（法师被动技能）
             if char_class == "mage" and "holy_word" in passive_skills:
                 alive_targets = [m for m in monster_states if m["hp"] > 0]
@@ -262,8 +274,8 @@ class CombatEngine:
                     holy_word_skill = next((s for s in (skills or []) if s.get("skill_id") == "holy_word"), None)
                     if holy_word_skill:
                         skill_level = holy_word_skill.get("level", 1)
-                        # 根据等级计算触发率：1级5%，2级8%，3级12%
-                        trigger_rate = 0.05 + (skill_level - 1) * 0.03
+                        # 根据等级计算触发率：1级1%，2级2%，3级3%
+                        trigger_rate = skill_level * 0.01
                         if random.random() < trigger_rate:
                             target = random.choice(alive_targets)
                             target["hp"] = 0
@@ -375,6 +387,20 @@ class CombatEngine:
                                 target = alive_targets[0]
                                 target["poison"] = PoisonState(poison_dmg, poison_rounds)
                                 logs.append(f"🧪 对{target['name']}施加毒素! 每回合{poison_dmg}点毒伤，持续{poison_rounds}回合")
+                            
+                            # 流星火雨 - 对目标施加持续灼烧
+                            if effect.get("burn_damage") and effect.get("burn_rounds"):
+                                burn_dmg = int(effect["burn_damage"] * (1 + skill_power * 0.02))
+                                burn_rounds = effect["burn_rounds"]
+                                if is_aoe:
+                                    # AOE技能对所有目标施加灼烧
+                                    for t in alive_targets[:3]:
+                                        t["burn"] = PoisonState(burn_dmg, burn_rounds)
+                                    logs.append(f"🔥 对所有目标施加灼烧! 每回合{burn_dmg}点火焰伤害，持续{burn_rounds}回合")
+                                else:
+                                    target = alive_targets[0]
+                                    target["burn"] = PoisonState(burn_dmg, burn_rounds)
+                                    logs.append(f"🔥 对{target['name']}施加灼烧! 每回合{burn_dmg}点火焰伤害，持续{burn_rounds}回合")
                             
                             if effect.get("heal_hp"):
                                 heal = CombatEngine.calculate_heal_amount(player, skill)

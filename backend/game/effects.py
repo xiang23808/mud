@@ -416,12 +416,12 @@ def calculate_set_bonuses(equipment: list, sets_config: dict, include_full_confi
         if include_full_config:
             set_info["full_bonuses"] = set_cfg.get("bonuses", {})
         
-        # 检查各阶段加成
-        for threshold in ["2", "4", "6"]:
+        # 检查各阶段加成（支持2/4/6/8/9件）
+        for threshold in ["2", "4", "6", "8", "9"]:
             if count >= int(threshold) and threshold in set_cfg.get("bonuses", {}):
                 bonus = set_cfg["bonuses"][threshold]
                 set_info["bonuses"][threshold] = bonus
-                
+
                 # 累加属性
                 for key, val in bonus.items():
                     if key == "effects":

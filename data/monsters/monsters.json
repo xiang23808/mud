@@ -612,6 +612,10 @@
     "damage_type": "physical",
     "exp": 600,
     "gold": 180,
+    "drop_groups": [
+      "set_t0",
+      "set_t20"
+    ],
     "drops": [
       {
         "item": "heavy_armor",
@@ -837,6 +841,9 @@
     "damage_type": "physical",
     "exp": 250,
     "gold": 70,
+    "drop_groups": [
+      "set_t20"
+    ],
     "drops": [
       {
         "item": "centipede_leg",
@@ -1008,7 +1015,8 @@
     "is_boss": true,
     "drop_groups": [
       "set_t0",
-      "set_t1"
+      "set_t1",
+      "set_t25"
     ],
     "drops": [
       {
@@ -1823,6 +1831,9 @@
     "damage_type": "physical",
     "exp": 1000,
     "gold": 280,
+    "drop_groups": [
+      "set_t35"
+    ],
     "drops": [
       {
         "item": "poison_ring",
@@ -2011,6 +2022,9 @@
     "damage_type": "physical",
     "exp": 1600,
     "gold": 450,
+    "drop_groups": [
+      "set_t40"
+    ],
     "drops": [
       {
         "item": "zuma_armor",
@@ -2063,6 +2077,9 @@
     "damage_type": "physical",
     "exp": 2200,
     "gold": 600,
+    "drop_groups": [
+      "set_t55"
+    ],
     "drops": [
       {
         "item": "holy_armor",
@@ -2105,7 +2122,8 @@
     "gold": 4000,
     "is_boss": true,
     "drop_groups": [
-      "set_t3"
+      "set_t3",
+      "set_t55"
     ],
     "drops": [
       {
@@ -2243,6 +2261,9 @@
     "damage_type": "physical",
     "exp": 250,
     "gold": 70,
+    "drop_groups": [
+      "set_t20"
+    ],
     "drops": [
       {
         "item": "rogue_dagger",
@@ -2361,7 +2382,8 @@
     "gold": 1200,
     "is_boss": true,
     "drop_groups": [
-      "set_t1"
+      "set_t1",
+      "set_t35"
     ],
     "drops": [
       {
@@ -2455,6 +2477,9 @@
     "damage_type": "magic",
     "exp": 500,
     "gold": 140,
+    "drop_groups": [
+      "set_t25"
+    ],
     "drops": [
       {
         "item": "fire_sword",
@@ -2535,6 +2560,9 @@
     "damage_type": "magic",
     "exp": 900,
     "gold": 250,
+    "drop_groups": [
+      "set_t35"
+    ],
     "drops": [
       {
         "item": "bone_wand",
@@ -2603,6 +2631,9 @@
     "damage_type": "physical",
     "exp": 1200,
     "gold": 350,
+    "drop_groups": [
+      "set_t40"
+    ],
     "drops": [
       {
         "item": "soul_necklace",
@@ -2637,7 +2668,8 @@
     "gold": 3000,
     "is_boss": true,
     "drop_groups": [
-      "set_t2"
+      "set_t2",
+      "set_t40"
     ],
     "drops": [
       {
@@ -2830,7 +2862,8 @@
     "is_boss": true,
     "drop_groups": [
       "set_t2",
-      "set_t3"
+      "set_t3",
+      "set_t55"
     ],
     "drops": [
       {
@@ -2972,6 +3005,9 @@
     "damage_type": "magic",
     "exp": 4000,
     "gold": 1100,
+    "drop_groups": [
+      "set_t65"
+    ],
     "drops": [
       {
         "item": "fire_lord_crown",
@@ -2990,7 +3026,8 @@
     "gold": 8000,
     "is_boss": true,
     "drop_groups": [
-      "set_t3"
+      "set_t3",
+      "set_t65"
     ],
     "drops": [
       {
@@ -3086,7 +3123,8 @@
     "gold": 15000,
     "is_boss": true,
     "drop_groups": [
-      "set_t3"
+      "set_t3",
+      "set_t65"
     ],
     "drops": [
       {
@@ -3228,6 +3266,9 @@
     "damage_type": "magic",
     "exp": 2100,
     "gold": 580,
+    "drop_groups": [
+      "set_t55"
+    ],
     "drops": [
       {
         "item": "holy_necklace",
@@ -3260,6 +3301,9 @@
     "damage_type": "magic",
     "exp": 2300,
     "gold": 650,
+    "drop_groups": [
+      "set_t55"
+    ],
     "drops": [
       {
         "item": "fire_sword",
@@ -3340,6 +3384,9 @@
     "damage_type": "magic",
     "exp": 4200,
     "gold": 1200,
+    "drop_groups": [
+      "set_t65"
+    ],
     "drops": [
       {
         "item": "judgement",
@@ -3702,7 +3749,8 @@
     "gold": 12000,
     "is_boss": true,
     "drop_groups": [
-      "set_t4_dragonscale"
+      "set_t4_dragonscale",
+      "set_t65"
     ],
     "drops": [
       {
@@ -3790,7 +3838,8 @@
     "gold": 12000,
     "is_boss": true,
     "drop_groups": [
-      "set_t4_abyss"
+      "set_t4_abyss",
+      "set_t65"
     ],
     "drops": [
       {
@@ -3890,7 +3939,8 @@
     "gold": 13000,
     "is_boss": true,
     "drop_groups": [
-      "set_t5_tidecaller"
+      "set_t5_tidecaller",
+      "set_t65"
     ],
     "drops": [
       {
@@ -3990,7 +4040,8 @@
     "gold": 15000,
     "is_boss": true,
     "drop_groups": [
-      "set_t6_shadowfiend"
+      "set_t6_shadowfiend",
+      "set_t65"
     ],
     "drops": [
       {
@@ -4094,7 +4145,8 @@
     "gold": 15000,
     "is_boss": true,
     "drop_groups": [
-      "set_t6_fury"
+      "set_t6_fury",
+      "set_t65"
     ],
     "drops": [
       {
@@ -4198,7 +4250,8 @@
     "gold": 14000,
     "is_boss": true,
     "drop_groups": [
-      "set_t5_phoenix"
+      "set_t5_phoenix",
+      "set_t65"
     ],
     "drops": [
       {
@@ -4302,7 +4355,8 @@
     "gold": 18000,
     "is_boss": true,
     "drop_groups": [
-      "set_t6_sunfury"
+      "set_t6_sunfury",
+      "set_t65"
     ],
     "drops": [
       {

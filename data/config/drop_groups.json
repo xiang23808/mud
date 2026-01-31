@@ -2,330 +2,2105 @@
   "common_material": {
     "name": "普通材料",
     "drops": [
-      {"item": "chicken_meat", "rate": "1/2"},
-      {"item": "deer_meat", "rate": "1/3"},
-      {"item": "wolf_fang", "rate": "1/5"},
-      {"item": "snake_venom", "rate": "1/7"}
+      {
+        "item": "chicken_meat",
+        "rate": "1/2"
+      },
+      {
+        "item": "deer_meat",
+        "rate": "1/3"
+      },
+      {
+        "item": "wolf_fang",
+        "rate": "1/5"
+      },
+      {
+        "item": "snake_venom",
+        "rate": "1/7"
+      }
     ]
   },
   "zombie_drops": {
     "name": "僵尸掉落",
     "drops": [
-      {"item": "zombie_meat", "rate": "1/3"},
-      {"item": "bone_fragment", "rate": "1/5"}
+      {
+        "item": "zombie_meat",
+        "rate": "1/3"
+      },
+      {
+        "item": "bone_fragment",
+        "rate": "1/5"
+      }
     ]
   },
   "woma_drops": {
     "name": "沃玛掉落",
     "drops": [
-      {"item": "woma_horn", "rate": "1/10"},
-      {"item": "magic_stone", "rate": "1/8"}
+      {
+        "item": "woma_horn",
+        "rate": "1/10"
+      },
+      {
+        "item": "magic_stone",
+        "rate": "1/8"
+      }
     ]
   },
   "zuma_drops": {
     "name": "祖玛掉落",
     "drops": [
-      {"item": "zuma_piece", "rate": "1/6"}
+      {
+        "item": "zuma_piece",
+        "rate": "1/6"
+      }
     ]
   },
   "low_weapon": {
     "name": "低级武器",
     "drops": [
-      {"item": "wooden_sword", "rate": "1/50"},
-      {"item": "iron_sword", "rate": "1/100"},
-      {"item": "wooden_staff", "rate": "1/50"},
-      {"item": "wooden_wand", "rate": "1/50"}
+      {
+        "item": "wooden_sword",
+        "rate": "1/50"
+      },
+      {
+        "item": "iron_sword",
+        "rate": "1/100"
+      },
+      {
+        "item": "wooden_staff",
+        "rate": "1/50"
+      },
+      {
+        "item": "wooden_wand",
+        "rate": "1/50"
+      }
     ]
   },
   "mid_weapon": {
     "name": "中级武器",
     "drops": [
-      {"item": "steel_sword", "rate": "1/200"},
-      {"item": "mage_staff", "rate": "1/200"},
-      {"item": "silver_wand", "rate": "1/200"}
+      {
+        "item": "steel_sword",
+        "rate": "1/200"
+      },
+      {
+        "item": "mage_staff",
+        "rate": "1/200"
+      },
+      {
+        "item": "silver_wand",
+        "rate": "1/200"
+      }
     ]
   },
   "high_weapon": {
     "name": "高级武器",
     "drops": [
-      {"item": "dragon_sword", "rate": "1/500"},
-      {"item": "bone_staff", "rate": "1/500"},
-      {"item": "blood_wand", "rate": "1/500"},
-      {"item": "judgement", "rate": "1/2000"},
-      {"item": "dragon_staff", "rate": "1/1000"},
-      {"item": "dragon_wand", "rate": "1/1000"}
+      {
+        "item": "dragon_sword",
+        "rate": "1/500"
+      },
+      {
+        "item": "bone_staff",
+        "rate": "1/500"
+      },
+      {
+        "item": "blood_wand",
+        "rate": "1/500"
+      },
+      {
+        "item": "judgement",
+        "rate": "1/2000"
+      },
+      {
+        "item": "dragon_staff",
+        "rate": "1/1000"
+      },
+      {
+        "item": "dragon_wand",
+        "rate": "1/1000"
+      }
     ]
   },
   "low_armor": {
     "name": "低级防具",
     "drops": [
-      {"item": "cloth_armor", "rate": "1/30"},
-      {"item": "leather_armor", "rate": "1/60"},
-      {"item": "leather_boots", "rate": "1/30"},
-      {"item": "leather_belt", "rate": "1/40"}
+      {
+        "item": "cloth_armor",
+        "rate": "1/30"
+      },
+      {
+        "item": "leather_armor",
+        "rate": "1/60"
+      },
+      {
+        "item": "leather_boots",
+        "rate": "1/30"
+      },
+      {
+        "item": "leather_belt",
+        "rate": "1/40"
+      }
     ]
   },
   "mid_armor": {
     "name": "中级防具",
     "drops": [
-      {"item": "iron_armor", "rate": "1/150"},
-      {"item": "heavy_armor", "rate": "1/300"},
-      {"item": "iron_helmet", "rate": "1/150"},
-      {"item": "iron_boots", "rate": "1/100"},
-      {"item": "steel_boots", "rate": "1/150"},
-      {"item": "bone_boots", "rate": "1/180"},
-      {"item": "iron_belt", "rate": "1/150"},
-      {"item": "magic_robe", "rate": "1/150"}
+      {
+        "item": "iron_armor",
+        "rate": "1/150"
+      },
+      {
+        "item": "heavy_armor",
+        "rate": "1/300"
+      },
+      {
+        "item": "iron_helmet",
+        "rate": "1/150"
+      },
+      {
+        "item": "iron_boots",
+        "rate": "1/100"
+      },
+      {
+        "item": "steel_boots",
+        "rate": "1/150"
+      },
+      {
+        "item": "bone_boots",
+        "rate": "1/180"
+      },
+      {
+        "item": "iron_belt",
+        "rate": "1/150"
+      },
+      {
+        "item": "magic_robe",
+        "rate": "1/150"
+      }
     ]
   },
   "high_armor": {
     "name": "高级防具",
     "drops": [
-      {"item": "holy_armor", "rate": "1/800"},
-      {"item": "death_armor", "rate": "1/600"},
-      {"item": "zuma_armor", "rate": "1/500"},
-      {"item": "zuma_helmet", "rate": "1/400"},
-      {"item": "zuma_boots", "rate": "1/300"},
-      {"item": "blood_boots", "rate": "1/400"},
-      {"item": "holy_boots", "rate": "1/500"},
-      {"item": "arcane_boots", "rate": "1/450"},
-      {"item": "shadow_boots", "rate": "1/600"},
-      {"item": "void_boots", "rate": "1/800"},
-      {"item": "bone_helmet", "rate": "1/300"},
-      {"item": "skeleton_helmet", "rate": "1/400"}
+      {
+        "item": "holy_armor",
+        "rate": "1/800"
+      },
+      {
+        "item": "death_armor",
+        "rate": "1/600"
+      },
+      {
+        "item": "zuma_armor",
+        "rate": "1/500"
+      },
+      {
+        "item": "zuma_helmet",
+        "rate": "1/400"
+      },
+      {
+        "item": "zuma_boots",
+        "rate": "1/300"
+      },
+      {
+        "item": "blood_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "holy_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "arcane_boots",
+        "rate": "1/450"
+      },
+      {
+        "item": "shadow_boots",
+        "rate": "1/600"
+      },
+      {
+        "item": "void_boots",
+        "rate": "1/800"
+      },
+      {
+        "item": "bone_helmet",
+        "rate": "1/300"
+      },
+      {
+        "item": "skeleton_helmet",
+        "rate": "1/400"
+      }
     ]
   },
   "low_accessory": {
     "name": "低级饰品",
     "drops": [
-      {"item": "bronze_ring", "rate": "1/30"},
-      {"item": "bronze_necklace", "rate": "1/30"},
-      {"item": "bronze_bracelet", "rate": "1/30"},
-      {"item": "iron_ring", "rate": "1/80"},
-      {"item": "iron_bracelet", "rate": "1/80"}
+      {
+        "item": "bronze_ring",
+        "rate": "1/30"
+      },
+      {
+        "item": "bronze_necklace",
+        "rate": "1/30"
+      },
+      {
+        "item": "bronze_bracelet",
+        "rate": "1/30"
+      },
+      {
+        "item": "iron_ring",
+        "rate": "1/80"
+      },
+      {
+        "item": "iron_bracelet",
+        "rate": "1/80"
+      }
     ]
   },
   "mid_accessory": {
     "name": "中级饰品",
     "drops": [
-      {"item": "poison_ring", "rate": "1/200"},
-      {"item": "silver_necklace", "rate": "1/150"},
-      {"item": "bone_bracelet", "rate": "1/200"}
+      {
+        "item": "poison_ring",
+        "rate": "1/200"
+      },
+      {
+        "item": "silver_necklace",
+        "rate": "1/150"
+      },
+      {
+        "item": "bone_bracelet",
+        "rate": "1/200"
+      }
     ]
   },
   "high_accessory": {
     "name": "高级饰品",
     "drops": [
-      {"item": "corpse_king_ring", "rate": "1/500"},
-      {"item": "dragon_ring", "rate": "1/1000"},
-      {"item": "death_necklace", "rate": "1/600"},
-      {"item": "holy_necklace", "rate": "1/800"},
-      {"item": "dragon_bracelet", "rate": "1/800"}
+      {
+        "item": "corpse_king_ring",
+        "rate": "1/500"
+      },
+      {
+        "item": "dragon_ring",
+        "rate": "1/1000"
+      },
+      {
+        "item": "death_necklace",
+        "rate": "1/600"
+      },
+      {
+        "item": "holy_necklace",
+        "rate": "1/800"
+      },
+      {
+        "item": "dragon_bracelet",
+        "rate": "1/800"
+      }
     ]
   },
   "warrior_skillbook": {
     "name": "战士技能书",
     "drops": [
-      {"item": "half_moon", "rate": "1/500"},
-      {"item": "fire_sword", "rate": "1/1000"},
-      {"item": "sun_sword", "rate": "1/2000"},
-      {"item": "iron_body", "rate": "1/300"},
-      {"item": "stab_sword", "rate": "1/200"}
+      {
+        "item": "half_moon",
+        "rate": "1/500"
+      },
+      {
+        "item": "fire_sword",
+        "rate": "1/1000"
+      },
+      {
+        "item": "sun_sword",
+        "rate": "1/2000"
+      },
+      {
+        "item": "iron_body",
+        "rate": "1/300"
+      },
+      {
+        "item": "stab_sword",
+        "rate": "1/200"
+      }
     ]
   },
   "mage_skillbook": {
     "name": "法师技能书",
     "drops": [
-      {"item": "meteor", "rate": "1/1500"}
+      {
+        "item": "meteor",
+        "rate": "1/1500"
+      }
     ]
   },
   "taoist_skillbook": {
     "name": "道士技能书",
     "drops": [
-      {"item": "divine_shield", "rate": "1/800"}
+      {
+        "item": "divine_shield",
+        "rate": "1/800"
+      }
     ]
   },
   "boss_special": {
     "name": "Boss特殊掉落",
     "drops": [
-      {"item": "blessing_oil", "rate": "1/100"}
+      {
+        "item": "blessing_oil",
+        "rate": "1/100"
+      }
     ]
   },
   "set_t0": {
     "name": "T0套装(野性/魔导)",
     "drops": [
-      {"item": "wildheart_helm", "rate": "1/150"},
-      {"item": "wildheart_armor", "rate": "1/150"},
-      {"item": "wildheart_belt", "rate": "1/150"},
-      {"item": "wildheart_boots", "rate": "1/150"},
-      {"item": "magister_helm", "rate": "1/150"},
-      {"item": "magister_armor", "rate": "1/150"},
-      {"item": "magister_belt", "rate": "1/150"},
-      {"item": "magister_boots", "rate": "1/150"}
+      {
+        "item": "wildheart_helm",
+        "rate": "1/150"
+      },
+      {
+        "item": "wildheart_armor",
+        "rate": "1/150"
+      },
+      {
+        "item": "wildheart_belt",
+        "rate": "1/150"
+      },
+      {
+        "item": "wildheart_boots",
+        "rate": "1/150"
+      },
+      {
+        "item": "wildheart_necklace",
+        "rate": "1/180"
+      },
+      {
+        "item": "wildheart_ring",
+        "rate": "1/180"
+      },
+      {
+        "item": "wildheart_ring2",
+        "rate": "1/180"
+      },
+      {
+        "item": "wildheart_bracelet",
+        "rate": "1/180"
+      },
+      {
+        "item": "wildheart_bracelet2",
+        "rate": "1/180"
+      },
+      {
+        "item": "magister_helm",
+        "rate": "1/150"
+      },
+      {
+        "item": "magister_armor",
+        "rate": "1/150"
+      },
+      {
+        "item": "magister_belt",
+        "rate": "1/150"
+      },
+      {
+        "item": "magister_boots",
+        "rate": "1/150"
+      },
+      {
+        "item": "magister_necklace",
+        "rate": "1/180"
+      },
+      {
+        "item": "magister_ring",
+        "rate": "1/180"
+      },
+      {
+        "item": "magister_ring2",
+        "rate": "1/180"
+      },
+      {
+        "item": "magister_bracelet",
+        "rate": "1/180"
+      },
+      {
+        "item": "magister_bracelet2",
+        "rate": "1/180"
+      }
+    ]
+  },
+  "set_t20": {
+    "name": "20级套装(勇气/光辉/自然)",
+    "drops": [
+      {
+        "item": "courage_helm",
+        "rate": "1/200"
+      },
+      {
+        "item": "courage_armor",
+        "rate": "1/200"
+      },
+      {
+        "item": "courage_belt",
+        "rate": "1/200"
+      },
+      {
+        "item": "courage_boots",
+        "rate": "1/200"
+      },
+      {
+        "item": "courage_necklace",
+        "rate": "1/250"
+      },
+      {
+        "item": "courage_ring",
+        "rate": "1/250"
+      },
+      {
+        "item": "courage_ring2",
+        "rate": "1/250"
+      },
+      {
+        "item": "courage_bracelet",
+        "rate": "1/250"
+      },
+      {
+        "item": "courage_bracelet2",
+        "rate": "1/250"
+      },
+      {
+        "item": "illumination_helm",
+        "rate": "1/200"
+      },
+      {
+        "item": "illumination_armor",
+        "rate": "1/200"
+      },
+      {
+        "item": "illumination_belt",
+        "rate": "1/200"
+      },
+      {
+        "item": "illumination_boots",
+        "rate": "1/200"
+      },
+      {
+        "item": "illumination_necklace",
+        "rate": "1/250"
+      },
+      {
+        "item": "illumination_ring",
+        "rate": "1/250"
+      },
+      {
+        "item": "illumination_ring2",
+        "rate": "1/250"
+      },
+      {
+        "item": "illumination_bracelet",
+        "rate": "1/250"
+      },
+      {
+        "item": "illumination_bracelet2",
+        "rate": "1/250"
+      },
+      {
+        "item": "nature_helm",
+        "rate": "1/200"
+      },
+      {
+        "item": "nature_armor",
+        "rate": "1/200"
+      },
+      {
+        "item": "nature_belt",
+        "rate": "1/200"
+      },
+      {
+        "item": "nature_boots",
+        "rate": "1/200"
+      },
+      {
+        "item": "nature_necklace",
+        "rate": "1/250"
+      },
+      {
+        "item": "nature_ring",
+        "rate": "1/250"
+      },
+      {
+        "item": "nature_ring2",
+        "rate": "1/250"
+      },
+      {
+        "item": "nature_bracelet",
+        "rate": "1/250"
+      },
+      {
+        "item": "nature_bracelet2",
+        "rate": "1/250"
+      }
+    ]
+  },
+  "set_t25": {
+    "name": "25级套装(守护/奥秘/野性之灵)",
+    "drops": [
+      {
+        "item": "guardian_helm",
+        "rate": "1/250"
+      },
+      {
+        "item": "guardian_armor",
+        "rate": "1/250"
+      },
+      {
+        "item": "guardian_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "guardian_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "guardian_necklace",
+        "rate": "1/300"
+      },
+      {
+        "item": "guardian_ring",
+        "rate": "1/300"
+      },
+      {
+        "item": "guardian_ring2",
+        "rate": "1/300"
+      },
+      {
+        "item": "guardian_bracelet",
+        "rate": "1/300"
+      },
+      {
+        "item": "guardian_bracelet2",
+        "rate": "1/300"
+      },
+      {
+        "item": "mystic_helm",
+        "rate": "1/250"
+      },
+      {
+        "item": "mystic_armor",
+        "rate": "1/250"
+      },
+      {
+        "item": "mystic_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "mystic_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "mystic_necklace",
+        "rate": "1/300"
+      },
+      {
+        "item": "mystic_ring",
+        "rate": "1/300"
+      },
+      {
+        "item": "mystic_ring2",
+        "rate": "1/300"
+      },
+      {
+        "item": "mystic_bracelet",
+        "rate": "1/300"
+      },
+      {
+        "item": "mystic_bracelet2",
+        "rate": "1/300"
+      },
+      {
+        "item": "spirit_helm",
+        "rate": "1/250"
+      },
+      {
+        "item": "spirit_armor",
+        "rate": "1/250"
+      },
+      {
+        "item": "spirit_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "spirit_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "spirit_necklace",
+        "rate": "1/300"
+      },
+      {
+        "item": "spirit_ring",
+        "rate": "1/300"
+      },
+      {
+        "item": "spirit_ring2",
+        "rate": "1/300"
+      },
+      {
+        "item": "spirit_bracelet",
+        "rate": "1/300"
+      },
+      {
+        "item": "spirit_bracelet2",
+        "rate": "1/300"
+      }
     ]
   },
   "set_t1": {
     "name": "T1套装(熔火/奥术/塞纳里奥)",
     "drops": [
-      {"item": "molten_helm", "rate": "1/300"},
-      {"item": "molten_armor", "rate": "1/300"},
-      {"item": "molten_belt", "rate": "1/300"},
-      {"item": "molten_boots", "rate": "1/300"},
-      {"item": "arcanist_helm", "rate": "1/300"},
-      {"item": "arcanist_armor", "rate": "1/300"},
-      {"item": "arcanist_belt", "rate": "1/300"},
-      {"item": "arcanist_boots", "rate": "1/300"},
-      {"item": "cenarion_helm", "rate": "1/300"},
-      {"item": "cenarion_armor", "rate": "1/300"},
-      {"item": "cenarion_belt", "rate": "1/300"},
-      {"item": "cenarion_boots", "rate": "1/300"}
+      {
+        "item": "molten_helm",
+        "rate": "1/300"
+      },
+      {
+        "item": "molten_armor",
+        "rate": "1/300"
+      },
+      {
+        "item": "molten_belt",
+        "rate": "1/300"
+      },
+      {
+        "item": "molten_boots",
+        "rate": "1/300"
+      },
+      {
+        "item": "molten_necklace",
+        "rate": "1/350"
+      },
+      {
+        "item": "molten_ring",
+        "rate": "1/350"
+      },
+      {
+        "item": "molten_ring2",
+        "rate": "1/350"
+      },
+      {
+        "item": "molten_bracelet",
+        "rate": "1/350"
+      },
+      {
+        "item": "molten_bracelet2",
+        "rate": "1/350"
+      },
+      {
+        "item": "arcanist_helm",
+        "rate": "1/300"
+      },
+      {
+        "item": "arcanist_armor",
+        "rate": "1/300"
+      },
+      {
+        "item": "arcanist_belt",
+        "rate": "1/300"
+      },
+      {
+        "item": "arcanist_boots",
+        "rate": "1/300"
+      },
+      {
+        "item": "arcanist_necklace",
+        "rate": "1/350"
+      },
+      {
+        "item": "arcanist_ring",
+        "rate": "1/350"
+      },
+      {
+        "item": "arcanist_ring2",
+        "rate": "1/350"
+      },
+      {
+        "item": "arcanist_bracelet",
+        "rate": "1/350"
+      },
+      {
+        "item": "arcanist_bracelet2",
+        "rate": "1/350"
+      },
+      {
+        "item": "cenarion_helm",
+        "rate": "1/300"
+      },
+      {
+        "item": "cenarion_armor",
+        "rate": "1/300"
+      },
+      {
+        "item": "cenarion_belt",
+        "rate": "1/300"
+      },
+      {
+        "item": "cenarion_boots",
+        "rate": "1/300"
+      },
+      {
+        "item": "cenarion_necklace",
+        "rate": "1/350"
+      },
+      {
+        "item": "cenarion_ring",
+        "rate": "1/350"
+      },
+      {
+        "item": "cenarion_ring2",
+        "rate": "1/350"
+      },
+      {
+        "item": "cenarion_bracelet",
+        "rate": "1/350"
+      },
+      {
+        "item": "cenarion_bracelet2",
+        "rate": "1/350"
+      }
+    ]
+  },
+  "set_t35": {
+    "name": "35级套装(烈焰/寒冰/剧毒)",
+    "drops": [
+      {
+        "item": "flame_helm",
+        "rate": "1/400"
+      },
+      {
+        "item": "flame_armor",
+        "rate": "1/400"
+      },
+      {
+        "item": "flame_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "flame_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "flame_necklace",
+        "rate": "1/450"
+      },
+      {
+        "item": "flame_ring",
+        "rate": "1/450"
+      },
+      {
+        "item": "flame_ring2",
+        "rate": "1/450"
+      },
+      {
+        "item": "flame_bracelet",
+        "rate": "1/450"
+      },
+      {
+        "item": "flame_bracelet2",
+        "rate": "1/450"
+      },
+      {
+        "item": "frost_helm",
+        "rate": "1/400"
+      },
+      {
+        "item": "frost_armor",
+        "rate": "1/400"
+      },
+      {
+        "item": "frost_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "frost_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "frost_necklace",
+        "rate": "1/450"
+      },
+      {
+        "item": "frost_ring",
+        "rate": "1/450"
+      },
+      {
+        "item": "frost_ring2",
+        "rate": "1/450"
+      },
+      {
+        "item": "frost_bracelet",
+        "rate": "1/450"
+      },
+      {
+        "item": "frost_bracelet2",
+        "rate": "1/450"
+      },
+      {
+        "item": "poison_helm",
+        "rate": "1/400"
+      },
+      {
+        "item": "poison_armor",
+        "rate": "1/400"
+      },
+      {
+        "item": "poison_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "poison_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "poison_necklace",
+        "rate": "1/450"
+      },
+      {
+        "item": "poison_ring",
+        "rate": "1/450"
+      },
+      {
+        "item": "poison_ring2",
+        "rate": "1/450"
+      },
+      {
+        "item": "poison_bracelet",
+        "rate": "1/450"
+      },
+      {
+        "item": "poison_bracelet2",
+        "rate": "1/450"
+      }
+    ]
+  },
+  "set_t40": {
+    "name": "40级套装(勇气/魔能/治愈)",
+    "drops": [
+      {
+        "item": "valor_helm",
+        "rate": "1/500"
+      },
+      {
+        "item": "valor_armor",
+        "rate": "1/500"
+      },
+      {
+        "item": "valor_belt",
+        "rate": "1/500"
+      },
+      {
+        "item": "valor_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "valor_necklace",
+        "rate": "1/550"
+      },
+      {
+        "item": "valor_ring",
+        "rate": "1/550"
+      },
+      {
+        "item": "valor_ring2",
+        "rate": "1/550"
+      },
+      {
+        "item": "valor_bracelet",
+        "rate": "1/550"
+      },
+      {
+        "item": "valor_bracelet2",
+        "rate": "1/550"
+      },
+      {
+        "item": "arcane_helm",
+        "rate": "1/500"
+      },
+      {
+        "item": "arcane_armor",
+        "rate": "1/500"
+      },
+      {
+        "item": "arcane_belt",
+        "rate": "1/500"
+      },
+      {
+        "item": "arcane_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "arcane_necklace",
+        "rate": "1/550"
+      },
+      {
+        "item": "arcane_ring",
+        "rate": "1/550"
+      },
+      {
+        "item": "arcane_ring2",
+        "rate": "1/550"
+      },
+      {
+        "item": "arcane_bracelet",
+        "rate": "1/550"
+      },
+      {
+        "item": "arcane_bracelet2",
+        "rate": "1/550"
+      },
+      {
+        "item": "healing_helm",
+        "rate": "1/500"
+      },
+      {
+        "item": "healing_armor",
+        "rate": "1/500"
+      },
+      {
+        "item": "healing_belt",
+        "rate": "1/500"
+      },
+      {
+        "item": "healing_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "healing_necklace",
+        "rate": "1/550"
+      },
+      {
+        "item": "healing_ring",
+        "rate": "1/550"
+      },
+      {
+        "item": "healing_ring2",
+        "rate": "1/550"
+      },
+      {
+        "item": "healing_bracelet",
+        "rate": "1/550"
+      },
+      {
+        "item": "healing_bracelet2",
+        "rate": "1/550"
+      }
     ]
   },
   "set_t2": {
     "name": "T2套装(龙鳞/灵风/碎地)",
     "drops": [
-      {"item": "dragon_helm", "rate": "1/600"},
-      {"item": "dragon_armor", "rate": "1/600"},
-      {"item": "dragon_belt", "rate": "1/600"},
-      {"item": "dragon_boots", "rate": "1/600"},
-      {"item": "nether_helm", "rate": "1/600"},
-      {"item": "nether_armor", "rate": "1/600"},
-      {"item": "nether_belt", "rate": "1/600"},
-      {"item": "nether_boots", "rate": "1/600"},
-      {"item": "earth_helm", "rate": "1/600"},
-      {"item": "earth_armor", "rate": "1/600"},
-      {"item": "earth_belt", "rate": "1/600"},
-      {"item": "earth_boots", "rate": "1/600"}
-    ]
-  },
-  "set_t3": {
-    "name": "T3套装(冰冠/暗影/巫妖)",
-    "drops": [
-      {"item": "ice_helm", "rate": "1/1500"},
-      {"item": "ice_armor", "rate": "1/1500"},
-      {"item": "ice_belt", "rate": "1/1500"},
-      {"item": "ice_boots", "rate": "1/1500"},
-      {"item": "shadow_helm", "rate": "1/1500"},
-      {"item": "shadow_armor", "rate": "1/1500"},
-      {"item": "shadow_belt", "rate": "1/1500"},
-      {"item": "shadow_boots", "rate": "1/1500"},
-      {"item": "lich_helm", "rate": "1/1500"},
-      {"item": "lich_armor", "rate": "1/1500"},
-      {"item": "lich_belt", "rate": "1/1500"},
-      {"item": "lich_boots", "rate": "1/1500"}
+      {
+        "item": "dragon_helm",
+        "rate": "1/600"
+      },
+      {
+        "item": "dragon_armor",
+        "rate": "1/600"
+      },
+      {
+        "item": "dragon_belt",
+        "rate": "1/600"
+      },
+      {
+        "item": "dragon_boots",
+        "rate": "1/600"
+      },
+      {
+        "item": "dragon_necklace",
+        "rate": "1/700"
+      },
+      {
+        "item": "dragon_ring",
+        "rate": "1/700"
+      },
+      {
+        "item": "dragon_ring2",
+        "rate": "1/700"
+      },
+      {
+        "item": "dragon_bracelet",
+        "rate": "1/700"
+      },
+      {
+        "item": "dragon_bracelet2",
+        "rate": "1/700"
+      },
+      {
+        "item": "nether_helm",
+        "rate": "1/600"
+      },
+      {
+        "item": "nether_armor",
+        "rate": "1/600"
+      },
+      {
+        "item": "nether_belt",
+        "rate": "1/600"
+      },
+      {
+        "item": "nether_boots",
+        "rate": "1/600"
+      },
+      {
+        "item": "nether_necklace",
+        "rate": "1/700"
+      },
+      {
+        "item": "nether_ring",
+        "rate": "1/700"
+      },
+      {
+        "item": "nether_ring2",
+        "rate": "1/700"
+      },
+      {
+        "item": "nether_bracelet",
+        "rate": "1/700"
+      },
+      {
+        "item": "nether_bracelet2",
+        "rate": "1/700"
+      },
+      {
+        "item": "earth_helm",
+        "rate": "1/600"
+      },
+      {
+        "item": "earth_armor",
+        "rate": "1/600"
+      },
+      {
+        "item": "earth_belt",
+        "rate": "1/600"
+      },
+      {
+        "item": "earth_boots",
+        "rate": "1/600"
+      },
+      {
+        "item": "earth_necklace",
+        "rate": "1/700"
+      },
+      {
+        "item": "earth_ring",
+        "rate": "1/700"
+      },
+      {
+        "item": "earth_ring2",
+        "rate": "1/700"
+      },
+      {
+        "item": "earth_bracelet",
+        "rate": "1/700"
+      },
+      {
+        "item": "earth_bracelet2",
+        "rate": "1/700"
+      }
     ]
   },
   "set_t4_insect": {
     "name": "T4昆虫套装",
     "drops": [
-      {"item": "insect_helm_warrior", "rate": "1/800"},
-      {"item": "insect_armor_warrior", "rate": "1/800"},
-      {"item": "insect_belt_warrior", "rate": "1/800"},
-      {"item": "insect_boots_warrior", "rate": "1/800"},
-      {"item": "insect_helm_mage", "rate": "1/800"},
-      {"item": "insect_armor_mage", "rate": "1/800"},
-      {"item": "insect_belt_mage", "rate": "1/800"},
-      {"item": "insect_boots_mage", "rate": "1/800"}
+      {
+        "item": "insect_helm_warrior",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_armor_warrior",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_belt_warrior",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_boots_warrior",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_necklace_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_ring_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_ring2_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_bracelet_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_bracelet2_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_helm_mage",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_armor_mage",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_belt_mage",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_boots_mage",
+        "rate": "1/800"
+      },
+      {
+        "item": "insect_necklace_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_ring_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_ring2_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_bracelet_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "insect_bracelet2_mage",
+        "rate": "1/900"
+      }
+    ]
+  },
+  "set_t55": {
+    "name": "55级套装(雷霆/虚空/暗影)",
+    "drops": [
+      {
+        "item": "thunder_helm",
+        "rate": "1/900"
+      },
+      {
+        "item": "thunder_armor",
+        "rate": "1/900"
+      },
+      {
+        "item": "thunder_belt",
+        "rate": "1/900"
+      },
+      {
+        "item": "thunder_boots",
+        "rate": "1/900"
+      },
+      {
+        "item": "thunder_necklace",
+        "rate": "1/1000"
+      },
+      {
+        "item": "thunder_ring",
+        "rate": "1/1000"
+      },
+      {
+        "item": "thunder_ring2",
+        "rate": "1/1000"
+      },
+      {
+        "item": "thunder_bracelet",
+        "rate": "1/1000"
+      },
+      {
+        "item": "thunder_bracelet2",
+        "rate": "1/1000"
+      },
+      {
+        "item": "void_helm",
+        "rate": "1/900"
+      },
+      {
+        "item": "void_armor",
+        "rate": "1/900"
+      },
+      {
+        "item": "void_belt",
+        "rate": "1/900"
+      },
+      {
+        "item": "void_boots",
+        "rate": "1/900"
+      },
+      {
+        "item": "void_necklace",
+        "rate": "1/1000"
+      },
+      {
+        "item": "void_ring",
+        "rate": "1/1000"
+      },
+      {
+        "item": "void_ring2",
+        "rate": "1/1000"
+      },
+      {
+        "item": "void_bracelet",
+        "rate": "1/1000"
+      },
+      {
+        "item": "void_bracelet2",
+        "rate": "1/1000"
+      },
+      {
+        "item": "shadow_helm",
+        "rate": "1/900"
+      },
+      {
+        "item": "shadow_armor",
+        "rate": "1/900"
+      },
+      {
+        "item": "shadow_belt",
+        "rate": "1/900"
+      },
+      {
+        "item": "shadow_boots",
+        "rate": "1/900"
+      },
+      {
+        "item": "shadow_necklace",
+        "rate": "1/1000"
+      },
+      {
+        "item": "shadow_ring",
+        "rate": "1/1000"
+      },
+      {
+        "item": "shadow_ring2",
+        "rate": "1/1000"
+      },
+      {
+        "item": "shadow_bracelet",
+        "rate": "1/1000"
+      },
+      {
+        "item": "shadow_bracelet2",
+        "rate": "1/1000"
+      }
+    ]
+  },
+  "set_t3": {
+    "name": "T3套装(冰冠/暗影/巫妖)",
+    "drops": [
+      {
+        "item": "ice_helm",
+        "rate": "1/1500"
+      },
+      {
+        "item": "ice_armor",
+        "rate": "1/1500"
+      },
+      {
+        "item": "ice_belt",
+        "rate": "1/1500"
+      },
+      {
+        "item": "ice_boots",
+        "rate": "1/1500"
+      },
+      {
+        "item": "ice_necklace",
+        "rate": "1/1700"
+      },
+      {
+        "item": "ice_ring",
+        "rate": "1/1700"
+      },
+      {
+        "item": "ice_ring2",
+        "rate": "1/1700"
+      },
+      {
+        "item": "ice_bracelet",
+        "rate": "1/1700"
+      },
+      {
+        "item": "ice_bracelet2",
+        "rate": "1/1700"
+      },
+      {
+        "item": "shadow_helm",
+        "rate": "1/1500"
+      },
+      {
+        "item": "shadow_armor",
+        "rate": "1/1500"
+      },
+      {
+        "item": "shadow_belt",
+        "rate": "1/1500"
+      },
+      {
+        "item": "shadow_boots",
+        "rate": "1/1500"
+      },
+      {
+        "item": "shadow_necklace",
+        "rate": "1/1700"
+      },
+      {
+        "item": "shadow_ring",
+        "rate": "1/1700"
+      },
+      {
+        "item": "shadow_ring2",
+        "rate": "1/1700"
+      },
+      {
+        "item": "shadow_bracelet",
+        "rate": "1/1700"
+      },
+      {
+        "item": "shadow_bracelet2",
+        "rate": "1/1700"
+      },
+      {
+        "item": "lich_helm",
+        "rate": "1/1500"
+      },
+      {
+        "item": "lich_armor",
+        "rate": "1/1500"
+      },
+      {
+        "item": "lich_belt",
+        "rate": "1/1500"
+      },
+      {
+        "item": "lich_boots",
+        "rate": "1/1500"
+      },
+      {
+        "item": "lich_necklace",
+        "rate": "1/1700"
+      },
+      {
+        "item": "lich_ring",
+        "rate": "1/1700"
+      },
+      {
+        "item": "lich_ring2",
+        "rate": "1/1700"
+      },
+      {
+        "item": "lich_bracelet",
+        "rate": "1/1700"
+      },
+      {
+        "item": "lich_bracelet2",
+        "rate": "1/1700"
+      }
+    ]
+  },
+  "set_t65": {
+    "name": "65级套装(风暴/熔岩/神圣)",
+    "drops": [
+      {
+        "item": "storm_helm",
+        "rate": "1/1800"
+      },
+      {
+        "item": "storm_armor",
+        "rate": "1/1800"
+      },
+      {
+        "item": "storm_belt",
+        "rate": "1/1800"
+      },
+      {
+        "item": "storm_boots",
+        "rate": "1/1800"
+      },
+      {
+        "item": "storm_necklace",
+        "rate": "1/2000"
+      },
+      {
+        "item": "storm_ring",
+        "rate": "1/2000"
+      },
+      {
+        "item": "storm_ring2",
+        "rate": "1/2000"
+      },
+      {
+        "item": "storm_bracelet",
+        "rate": "1/2000"
+      },
+      {
+        "item": "storm_bracelet2",
+        "rate": "1/2000"
+      },
+      {
+        "item": "lava_helm",
+        "rate": "1/1800"
+      },
+      {
+        "item": "lava_armor",
+        "rate": "1/1800"
+      },
+      {
+        "item": "lava_belt",
+        "rate": "1/1800"
+      },
+      {
+        "item": "lava_boots",
+        "rate": "1/1800"
+      },
+      {
+        "item": "lava_necklace",
+        "rate": "1/2000"
+      },
+      {
+        "item": "lava_ring",
+        "rate": "1/2000"
+      },
+      {
+        "item": "lava_ring2",
+        "rate": "1/2000"
+      },
+      {
+        "item": "lava_bracelet",
+        "rate": "1/2000"
+      },
+      {
+        "item": "lava_bracelet2",
+        "rate": "1/2000"
+      },
+      {
+        "item": "divine_helm",
+        "rate": "1/1800"
+      },
+      {
+        "item": "divine_armor",
+        "rate": "1/1800"
+      },
+      {
+        "item": "divine_belt",
+        "rate": "1/1800"
+      },
+      {
+        "item": "divine_boots",
+        "rate": "1/1800"
+      },
+      {
+        "item": "divine_necklace",
+        "rate": "1/2000"
+      },
+      {
+        "item": "divine_ring",
+        "rate": "1/2000"
+      },
+      {
+        "item": "divine_ring2",
+        "rate": "1/2000"
+      },
+      {
+        "item": "divine_bracelet",
+        "rate": "1/2000"
+      },
+      {
+        "item": "divine_bracelet2",
+        "rate": "1/2000"
+      }
     ]
   },
   "set_t5_qiraji": {
     "name": "T5其拉套装",
     "drops": [
-      {"item": "qiraji_helm_warrior", "rate": "1/1500"},
-      {"item": "qiraji_armor_warrior", "rate": "1/1500"},
-      {"item": "qiraji_belt_warrior", "rate": "1/1500"},
-      {"item": "qiraji_boots_warrior", "rate": "1/1500"},
-      {"item": "qiraji_helm_mage", "rate": "1/1500"},
-      {"item": "qiraji_armor_mage", "rate": "1/1500"},
-      {"item": "qiraji_belt_mage", "rate": "1/1500"},
-      {"item": "qiraji_boots_mage", "rate": "1/1500"}
+      {
+        "item": "qiraji_helm_warrior",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_armor_warrior",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_belt_warrior",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_boots_warrior",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_necklace_warrior",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_ring_warrior",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_ring2_warrior",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_bracelet_warrior",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_bracelet2_warrior",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_helm_mage",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_armor_mage",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_belt_mage",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_boots_mage",
+        "rate": "1/1500"
+      },
+      {
+        "item": "qiraji_necklace_mage",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_ring_mage",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_ring2_mage",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_bracelet_mage",
+        "rate": "1/1700"
+      },
+      {
+        "item": "qiraji_bracelet2_mage",
+        "rate": "1/1700"
+      }
     ]
   },
   "set_t4_dragonscale": {
     "name": "T4龙鳞套装",
     "drops": [
-      {"item": "dragonscale_helm_warrior", "rate": "1/900"},
-      {"item": "dragonscale_armor_warrior", "rate": "1/900"},
-      {"item": "dragonscale_belt_warrior", "rate": "1/900"},
-      {"item": "dragonscale_boots_warrior", "rate": "1/900"}
+      {
+        "item": "dragonscale_helm_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "dragonscale_armor_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "dragonscale_belt_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "dragonscale_boots_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "dragonscale_necklace_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "dragonscale_ring_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "dragonscale_ring2_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "dragonscale_bracelet_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "dragonscale_bracelet2_warrior",
+        "rate": "1/1000"
+      }
     ]
   },
   "set_t4_abyss": {
     "name": "T4深渊套装",
     "drops": [
-      {"item": "abyss_helm_warrior", "rate": "1/900"},
-      {"item": "abyss_armor_warrior", "rate": "1/900"},
-      {"item": "abyss_belt_warrior", "rate": "1/900"},
-      {"item": "abyss_boots_warrior", "rate": "1/900"},
-      {"item": "abyss_helm_mage", "rate": "1/900"},
-      {"item": "abyss_armor_mage", "rate": "1/900"},
-      {"item": "abyss_belt_mage", "rate": "1/900"},
-      {"item": "abyss_boots_mage", "rate": "1/900"}
+      {
+        "item": "abyss_helm_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_armor_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_belt_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_boots_warrior",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_necklace_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_ring_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_ring2_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_bracelet_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_bracelet2_warrior",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_helm_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_armor_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_belt_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_boots_mage",
+        "rate": "1/900"
+      },
+      {
+        "item": "abyss_necklace_mage",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_ring_mage",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_ring2_mage",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_bracelet_mage",
+        "rate": "1/1000"
+      },
+      {
+        "item": "abyss_bracelet2_mage",
+        "rate": "1/1000"
+      }
     ]
   },
   "set_t5_tidecaller": {
     "name": "T5潮汐套装",
     "drops": [
-      {"item": "tidecaller_helm_warrior", "rate": "1/1600"},
-      {"item": "tidecaller_armor_warrior", "rate": "1/1600"},
-      {"item": "tidecaller_belt_warrior", "rate": "1/1600"},
-      {"item": "tidecaller_boots_warrior", "rate": "1/1600"},
-      {"item": "tidecaller_helm_mage", "rate": "1/1600"},
-      {"item": "tidecaller_armor_mage", "rate": "1/1600"},
-      {"item": "tidecaller_belt_mage", "rate": "1/1600"},
-      {"item": "tidecaller_boots_mage", "rate": "1/1600"}
+      {
+        "item": "tidecaller_helm_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_armor_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_belt_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_boots_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_necklace_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_ring_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_ring2_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_bracelet_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_bracelet2_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_helm_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_armor_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_belt_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_boots_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "tidecaller_necklace_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_ring_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_ring2_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_bracelet_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "tidecaller_bracelet2_mage",
+        "rate": "1/1800"
+      }
     ]
   },
   "set_t5_phoenix": {
     "name": "T5凤凰套装",
     "drops": [
-      {"item": "phoenix_helm_warrior", "rate": "1/1600"},
-      {"item": "phoenix_armor_warrior", "rate": "1/1600"},
-      {"item": "phoenix_belt_warrior", "rate": "1/1600"},
-      {"item": "phoenix_boots_warrior", "rate": "1/1600"},
-      {"item": "phoenix_helm_mage", "rate": "1/1600"},
-      {"item": "phoenix_armor_mage", "rate": "1/1600"},
-      {"item": "phoenix_belt_mage", "rate": "1/1600"},
-      {"item": "phoenix_boots_mage", "rate": "1/1600"}
+      {
+        "item": "phoenix_helm_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_armor_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_belt_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_boots_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_necklace_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_ring_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_ring2_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_bracelet_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_bracelet2_warrior",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_helm_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_armor_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_belt_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_boots_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "phoenix_necklace_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_ring_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_ring2_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_bracelet_mage",
+        "rate": "1/1800"
+      },
+      {
+        "item": "phoenix_bracelet2_mage",
+        "rate": "1/1800"
+      }
     ]
   },
   "set_t6_shadowfiend": {
     "name": "T6影魔套装",
     "drops": [
-      {"item": "shadowfiend_helm_warrior", "rate": "1/2000"},
-      {"item": "shadowfiend_armor_warrior", "rate": "1/2000"},
-      {"item": "shadowfiend_belt_warrior", "rate": "1/2000"},
-      {"item": "shadowfiend_boots_warrior", "rate": "1/2000"},
-      {"item": "shadowfiend_helm_mage", "rate": "1/2000"},
-      {"item": "shadowfiend_armor_mage", "rate": "1/2000"},
-      {"item": "shadowfiend_belt_mage", "rate": "1/2000"},
-      {"item": "shadowfiend_boots_mage", "rate": "1/2000"}
+      {
+        "item": "shadowfiend_helm_warrior",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_armor_warrior",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_belt_warrior",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_boots_warrior",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_necklace_warrior",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_ring_warrior",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_ring2_warrior",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_bracelet_warrior",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_bracelet2_warrior",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_helm_mage",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_armor_mage",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_belt_mage",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_boots_mage",
+        "rate": "1/2000"
+      },
+      {
+        "item": "shadowfiend_necklace_mage",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_ring_mage",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_ring2_mage",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_bracelet_mage",
+        "rate": "1/2200"
+      },
+      {
+        "item": "shadowfiend_bracelet2_mage",
+        "rate": "1/2200"
+      }
     ]
   },
   "set_t6_fury": {
     "name": "T6怒火套装",
     "drops": [
-      {"item": "fury_helm_warrior", "rate": "1/2500"},
-      {"item": "fury_armor_warrior", "rate": "1/2500"},
-      {"item": "fury_belt_warrior", "rate": "1/2500"},
-      {"item": "fury_boots_warrior", "rate": "1/2500"},
-      {"item": "fury_helm_mage", "rate": "1/2500"},
-      {"item": "fury_armor_mage", "rate": "1/2500"},
-      {"item": "fury_belt_mage", "rate": "1/2500"},
-      {"item": "fury_boots_mage", "rate": "1/2500"}
+      {
+        "item": "fury_helm_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_armor_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_belt_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_boots_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_necklace_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_ring_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_ring2_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_bracelet_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_bracelet2_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_helm_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_armor_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_belt_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_boots_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "fury_necklace_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_ring_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_ring2_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_bracelet_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "fury_bracelet2_mage",
+        "rate": "1/2800"
+      }
     ]
   },
   "set_t6_sunfury": {
     "name": "T6日怒套装",
     "drops": [
-      {"item": "sunfury_helm_warrior", "rate": "1/2500"},
-      {"item": "sunfury_armor_warrior", "rate": "1/2500"},
-      {"item": "sunfury_belt_warrior", "rate": "1/2500"},
-      {"item": "sunfury_boots_warrior", "rate": "1/2500"},
-      {"item": "sunfury_helm_mage", "rate": "1/2500"},
-      {"item": "sunfury_armor_mage", "rate": "1/2500"},
-      {"item": "sunfury_belt_mage", "rate": "1/2500"},
-      {"item": "sunfury_boots_mage", "rate": "1/2500"}
+      {
+        "item": "sunfury_helm_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_armor_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_belt_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_boots_warrior",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_necklace_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_ring_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_ring2_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_bracelet_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_bracelet2_warrior",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_helm_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_armor_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_belt_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_boots_mage",
+        "rate": "1/2500"
+      },
+      {
+        "item": "sunfury_necklace_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_ring_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_ring2_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_bracelet_mage",
+        "rate": "1/2800"
+      },
+      {
+        "item": "sunfury_bracelet2_mage",
+        "rate": "1/2800"
+      }
     ]
   }
 }

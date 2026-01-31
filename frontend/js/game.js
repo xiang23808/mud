@@ -850,7 +850,7 @@ function renderEquipment(data) {
                 const fullBonuses = s.full_bonuses || s.bonuses;
                 return `
                 <div style="margin-bottom:8px;">
-                    <span style="color:#ffd700;">${s.name}</span> <span style="color:#0f0;">(${s.count}/4件)</span>
+                    <span style="color:#ffd700;">${s.name}</span> <span style="color:#0f0;">(${s.count}/9件)</span>
                     ${Object.entries(fullBonuses).map(([threshold, bonus]) => {
                         const isActive = s.count >= parseInt(threshold);
                         const color = isActive ? '#0f0' : '#666';

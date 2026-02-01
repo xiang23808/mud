@@ -3,6 +3,32 @@ import random
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass, field
 
+# 从配置文件加载品质配置（支持区间随机）
+QUALITY_CONFIG = {
+    "white": {"name": "普通", "attr_range": [0.95, 1.05], "effect_range": [0.95, 1.05], "drop_weight": 50},
+    "green": {"name": "优秀", "attr_range": [1.05, 1.15], "effect_range": [1.05, 1.20], "drop_weight": 30},
+    "blue": {"name": "精良", "attr_range": [1.18, 1.32], "effect_range": [1.15, 1.30], "drop_weight": 15},
+    "purple": {"name": "史诗", "attr_range": [1.40, 1.60], "effect_range": [1.30, 1.45], "drop_weight": 4},
+    "red": {"name": "传说", "attr_range": [1.85, 2.15], "effect_range": [1.45, 1.60], "drop_weight": 1},
+    "orange": {"name": "神器", "attr_range": [2.80, 3.20], "effect_range": [1.90, 2.15], "drop_weight": 0.1},
+}
+
+# 兼容旧代码：保留固定bonus字段（从区间平均值计算）
+def _get_bonus_from_range(range_vals: List[float]) -> float:
+    """从区间计算平均倍率，用于兼容旧代码"""
+    return round((range_vals[0] + range_vals[1]) / 2, 2)
+
+def get_quality_config(quality: str) -> dict:
+    """获取品质配置，优先从DataLoader获取，否则使用内置默认值"""
+    try:
+        from backend.game.data_loader import DataLoader
+        config = DataLoader.get_quality(quality)
+        if config and "attr_range" in config:
+            return config
+    except:
+        pass
+    return QUALITY_CONFIG.get(quality, QUALITY_CONFIG["white"])
+
 # 特效配置 - 可在此处调整各特效的基础参数
 EFFECT_CONFIG = {
     "crush_multiplier": 1.5,      # 压碎伤害倍率
@@ -311,31 +337,30 @@ class EffectCalculator:
         return result
 
 
-# 品质加成配置
-QUALITY_CONFIG = {
-    "white": {"name": "普通", "bonus": 1.0, "effect_bonus": 0, "drop_weight": 50},
-    "green": {"name": "优秀", "bonus": 1.1, "effect_bonus": 0.1, "drop_weight": 30},
-    "blue": {"name": "精良", "bonus": 1.25, "effect_bonus": 0.2, "drop_weight": 15},
-    "purple": {"name": "史诗", "bonus": 1.5, "effect_bonus": 0.35, "drop_weight": 4},
-    "red": {"name": "传说", "bonus": 2.0, "effect_bonus": 0.5, "drop_weight": 1},
-}
-
 def apply_quality_bonus(item: dict, quality: str) -> dict:
-    """应用品质加成到物品属性"""
-    config = QUALITY_CONFIG.get(quality, QUALITY_CONFIG["white"])
-    bonus = config["bonus"]
-    effect_bonus = config["effect_bonus"]
-    
+    """
+    应用品质加成到物品属性（兼容旧代码，使用区间平均值）
+
+    注意：新掉落的装备应使用 roll_item_attributes() 生成随机属性
+    """
+    config = get_quality_config(quality)
+
+    # 从区间计算平均倍率，保持兼容性
+    attr_range = config.get("attr_range", [0.95, 1.05])
+    effect_range = config.get("effect_range", [0.95, 1.05])
+    bonus = (attr_range[0] + attr_range[1]) / 2
+    effect_bonus = (effect_range[0] + effect_range[1]) / 2 - 1
+
     result = item.copy()
-    
+
     # 数值属性加成
-    numeric_attrs = ["attack_min", "attack_max", "magic_min", "magic_max", 
+    numeric_attrs = ["attack_min", "attack_max", "magic_min", "magic_max",
                      "defense_min", "defense_max", "magic_defense_min", "magic_defense_max",
                      "hp_bonus", "mp_bonus"]
     for attr in numeric_attrs:
         if attr in result:
             result[attr] = int(result[attr] * bonus)
-    
+
     # 特效加成
     if "effects" in result:
         effects = result["effects"].copy()
@@ -346,21 +371,23 @@ def apply_quality_bonus(item: dict, quality: str) -> dict:
                 new_val = value * (1 + effect_bonus)
                 effects[key] = int(new_val) if key in int_effects else round(new_val, 3)
         result["effects"] = effects
-    
+
     return result
 
 def roll_quality(base_rate: float = 1.0) -> str:
     """根据掉率随机品质 - 掉率越低品质越高概率"""
     weights = []
     qualities = []
-    
+
     # 基础掉率越低，高品质权重越高
     rarity_boost = min(0.5, (1 - base_rate) * 0.8)
-    
-    for q, cfg in QUALITY_CONFIG.items():
+
+    # 使用新的品质配置
+    for q in ["white", "green", "blue", "purple", "red", "orange"]:
+        config = get_quality_config(q)
         qualities.append(q)
-        weight = cfg["drop_weight"]
-        if q in ["purple", "red"]:
+        weight = config.get("drop_weight", 50)
+        if q in ["purple", "red", "orange"]:
             weight *= (1 + rarity_boost * 3)
         elif q == "blue":
             weight *= (1 + rarity_boost * 2)
@@ -434,3 +461,188 @@ def calculate_set_bonuses(equipment: list, sets_config: dict, include_full_confi
             active_sets.append(set_info)
     
     return {"active_sets": active_sets, "total_stats": total_stats, "total_effects": total_effects}
+
+
+# ==================== 装备随机属性系统 ====================
+
+def roll_item_attributes(item: dict, quality: str) -> dict:
+    """
+    生成装备时，在品质区间内随机生成属性值
+
+    Args:
+        item: 基础装备数据（从JSON文件读取的模板）
+        quality: 品质等级 (white/green/blue/purple/red/orange)
+
+    Returns:
+        包含随机属性的装备信息，格式:
+        {
+            ...原item字段...,
+            "_random_attrs": {"attack_min": 12, "attack_max": 18, ...},  # 用于存储到数据库
+            "_attr_multiplier": 1.05,  # 实际使用的倍率（用于显示）
+            "attack_min": 12,  # 直接覆盖原属性值
+            "attack_max": 18,
+            ...
+        }
+    """
+    config = get_quality_config(quality)
+
+    # 获取区间配置
+    attr_range = config.get("attr_range", [0.95, 1.05])
+    effect_range = config.get("effect_range", [0.95, 1.05])
+
+    result = item.copy()
+    random_attrs = {}
+
+    # 可随机化的数值属性
+    numeric_attrs = [
+        "attack_min", "attack_max", "magic_min", "magic_max",
+        "defense_min", "defense_max", "magic_defense_min", "magic_defense_max",
+        "hp_bonus", "mp_bonus"
+    ]
+
+    # 生成随机倍率并应用到所有属性
+    attr_multiplier = random.uniform(attr_range[0], attr_range[1])
+
+    for attr in numeric_attrs:
+        if attr in result and result[attr] > 0:
+            base_value = result[attr]
+            random_value = int(base_value * attr_multiplier)
+            result[attr] = random_value
+            random_attrs[attr] = random_value
+
+    # 处理特效随机化
+    if "effects" in result:
+        effects = result["effects"].copy()
+        effect_multiplier = random.uniform(effect_range[0], effect_range[1])
+
+        # 整数类型特效
+        int_effects = {"poison_damage", "poison_rounds", "extra_phys", "extra_magic", "hp_on_hit", "mp_on_hit"}
+        random_effects = {}
+
+        for key, value in effects.items():
+            if isinstance(value, (int, float)) and value > 0:
+                new_val = value * effect_multiplier
+                # 确保至少为1
+                if key in int_effects:
+                    effects[key] = max(1, int(new_val))
+                    random_effects[key] = effects[key]
+                else:
+                    # 百分比特效保留3位小数
+                    effects[key] = round(new_val, 3)
+                    random_effects[key] = effects[key]
+
+        result["effects"] = effects
+        random_attrs["effects"] = random_effects
+        random_attrs["_effect_multiplier"] = round(effect_multiplier, 3)
+
+    # 存储随机属性用于数据库保存
+    result["_random_attrs"] = random_attrs
+    result["_attr_multiplier"] = round(attr_multiplier, 3)
+
+    return result
+
+
+def apply_random_attributes(item: dict, random_attrs: dict) -> dict:
+    """
+    应用已存储的随机属性到装备模板
+
+    Args:
+        item: 基础装备数据（从JSON文件读取的模板）
+        random_attrs: 从数据库读取的随机属性值
+
+    Returns:
+        应用随机属性后的完整装备信息
+    """
+    if not random_attrs:
+        return item
+
+    result = item.copy()
+
+    # 应用随机属性值
+    for attr, value in random_attrs.items():
+        # 跳过元数据字段
+        if attr.startswith("_"):
+            continue
+        if attr in result:
+            result[attr] = value
+
+    # 存储倍率用于显示
+    if "_attr_multiplier" in random_attrs:
+        result["_attr_multiplier"] = random_attrs["_attr_multiplier"]
+
+    return result
+
+
+def get_item_with_attributes(item: dict, quality: str, random_attrs: dict = None) -> dict:
+    """
+    获取带随机属性的装备信息（统一入口）
+
+    Args:
+        item: 基础装备数据
+        quality: 品质
+        random_attrs: 已存储的随机属性（如果有）
+
+    Returns:
+        完整装备信息
+    """
+    # 如果有存储的随机属性，直接应用
+    if random_attrs:
+        return apply_random_attributes(item, random_attrs)
+
+    # 如果没有随机属性，使用旧版兼容逻辑（固定倍率）
+    return apply_quality_bonus(item, quality)
+
+
+def format_attribute_display(base_value: int, random_value: int, multiplier: float) -> str:
+    """
+    格式化属性显示，展示随机浮动
+
+    Args:
+        base_value: 基础属性值
+        random_value: 随机后的属性值
+        multiplier: 随机倍率
+
+    Returns:
+        格式化字符串，如 "12 (105%)"
+    """
+    percent = int(multiplier * 100)
+    if multiplier >= 1:
+        return f"{random_value} <green>({percent}%)</green>"
+    else:
+        return f"{random_value} <red>({percent}%)</red>"
+
+
+def get_item_roll_info(random_attrs: dict) -> dict:
+    """
+    获取装备随机属性信息用于前端显示
+
+    Returns:
+        {
+            "multiplier": 1.05,  # 总属性倍率
+            "effect_multiplier": 1.10,  # 特效倍率
+            "roll_rating": "perfect" | "excellent" | "good" | "normal" | "poor"
+        }
+    """
+    if not random_attrs:
+        return {"multiplier": 1.0, "effect_multiplier": 1.0, "roll_rating": "normal"}
+
+    multiplier = random_attrs.get("_attr_multiplier", 1.0)
+    effect_multiplier = random_attrs.get("_effect_multiplier", multiplier)
+
+    # 根据倍率评级
+    if multiplier >= 1.12:
+        rating = "perfect"  # 完美
+    elif multiplier >= 1.08:
+        rating = "excellent"  # 卓越
+    elif multiplier >= 1.03:
+        rating = "good"  # 优秀
+    elif multiplier >= 0.98:
+        rating = "normal"  # 普通
+    else:
+        rating = "poor"  # 较差
+
+    return {
+        "multiplier": round(multiplier, 3),
+        "effect_multiplier": round(effect_multiplier, 3),
+        "roll_rating": rating
+    }

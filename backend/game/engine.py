@@ -6,7 +6,7 @@ from backend.models import Character, InventoryItem, Equipment, CharacterSkill, 
 from backend.game.map_manager import map_manager
 from backend.game.combat import CombatEngine
 from backend.game.data_loader import DataLoader
-from backend.game.effects import EffectCalculator, calculate_set_bonuses
+from backend.game.effects import EffectCalculator, calculate_set_bonuses, roll_item_attributes, get_item_with_attributes
 
 class GameEngine:
     """游戏引擎 - 处理所有游戏逻辑"""
@@ -218,7 +218,11 @@ class GameEngine:
             equip_result = await db.execute(select(Equipment).where(Equipment.character_id == char_id))
             equipment_list = []
             for equip in equip_result.scalars():
-                item_info = cls._apply_quality_bonus(DataLoader.get_item(equip.item_id), equip.quality)
+                item_info = get_item_with_attributes(
+                    DataLoader.get_item(equip.item_id),
+                    equip.quality,
+                    equip.random_attrs
+                )
                 if item_info:
                     equipment_list.append({"info": item_info})
             
@@ -260,7 +264,8 @@ class GameEngine:
                 level_up = cls._check_level_up(char)
                 
                 for drop in result.drops:
-                    await cls._add_item(char_id, drop["item_id"], drop["quality"], db)
+                    await cls._add_item(char_id, drop["item_id"], drop["quality"], db,
+                                       random_attrs=drop.get("random_attrs"))
                 
                 # 增加主动技能熟练度
                 for skill_id in result.skills_used:
@@ -369,7 +374,12 @@ class GameEngine:
                 "item_id": item.item_id,
                 "quality": item.quality,
                 "quantity": item.quantity,
-                "info": cls._apply_quality_bonus(DataLoader.get_item(item.item_id), item.quality)
+                "random_attrs": item.random_attrs,
+                "info": get_item_with_attributes(
+                    DataLoader.get_item(item.item_id),
+                    item.quality,
+                    item.random_attrs
+                )
             } for item in items]
         }
     
@@ -444,10 +454,15 @@ class GameEngine:
         for slot in slots:
             equip = next((e for e in equipment_list if e.slot == slot), None)
             if equip:
-                item_info = cls._apply_quality_bonus(DataLoader.get_item(equip.item_id), equip.quality)
+                item_info = get_item_with_attributes(
+                    DataLoader.get_item(equip.item_id),
+                    equip.quality,
+                    equip.random_attrs
+                )
                 equipment[slot] = {
                     "item_id": equip.item_id,
                     "quality": equip.quality,
+                    "random_attrs": equip.random_attrs,
                     "info": item_info
                 }
                 equip_list_for_effects.append({"info": item_info})
@@ -585,19 +600,25 @@ class GameEngine:
             )
         )
         current_equip = result.scalar_one_or_none()
-        
+
+        # 获取背包物品的随机属性
+        inv_random_attrs = getattr(inv_item, 'random_attrs', None)
+
         if current_equip:
-            # 将当前装备放入背包
-            await cls._add_item(char_id, current_equip.item_id, current_equip.quality, db)
+            # 将当前装备放入背包（保留其random_attrs）
+            await cls._add_item(char_id, current_equip.item_id, current_equip.quality, db,
+                               random_attrs=getattr(current_equip, 'random_attrs', None))
             current_equip.item_id = inv_item.item_id
             current_equip.quality = inv_item.quality
+            current_equip.random_attrs = inv_random_attrs
         else:
             # 创建新装备
             new_equip = Equipment(
                 character_id=char_id,
                 slot=equip_slot,
                 item_id=inv_item.item_id,
-                quality=inv_item.quality
+                quality=inv_item.quality,
+                random_attrs=inv_random_attrs
             )
             db.add(new_equip)
         
@@ -998,7 +1019,11 @@ class GameEngine:
             equip_result = await db.execute(select(Equipment).where(Equipment.character_id == char_id))
             equipment_list = []
             for equip in equip_result.scalars():
-                item_info = cls._apply_quality_bonus(DataLoader.get_item(equip.item_id), equip.quality)
+                item_info = get_item_with_attributes(
+                    DataLoader.get_item(equip.item_id),
+                    equip.quality,
+                    equip.random_attrs
+                )
                 if item_info:
                     equipment_list.append({"info": item_info})
             
@@ -1039,7 +1064,8 @@ class GameEngine:
                 level_up = cls._check_level_up(char)
                 
                 for drop in combat_result.drops:
-                    await cls._add_item(char_id, drop["item_id"], drop["quality"], db)
+                    await cls._add_item(char_id, drop["item_id"], drop["quality"], db,
+                                       random_attrs=drop.get("random_attrs"))
                 
                 for skill_id in combat_result.skills_used:
                     await cls._increase_skill_proficiency(char_id, skill_id, db)
@@ -1193,19 +1219,20 @@ class GameEngine:
         return result
     
     @classmethod
-    async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1):
+    async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1, random_attrs: dict = None):
         """添加物品到背包（消耗品可堆叠）"""
         # 获取角色的user_id用于仓库共享
         char = await db.get(Character, char_id)
         user_id = char.user_id if char else None
-        
+
         item_info = DataLoader.get_item(item_id)
         item_type = item_info.get("type") if item_info else None
         is_stackable = item_type in ["consumable", "material", "skillbook", "boss_summon"]
         # 非装备类型物品品质统一为普通
         if item_type not in ["weapon", "armor", "accessory"]:
             quality = "white"
-        
+            random_attrs = None  # 非装备不存储随机属性
+
         # 如果是可堆叠物品，先查找已有的同类物品
         if is_stackable:
             result = await db.execute(
@@ -1220,7 +1247,7 @@ class GameEngine:
             if existing:
                 existing.quantity += quantity
                 return True
-        
+
         # 找空位
         result = await db.execute(
             select(InventoryItem.slot).where(
@@ -1229,7 +1256,7 @@ class GameEngine:
             )
         )
         used_slots = {row[0] for row in result.fetchall()}
-        
+
         for slot in range(200):
             if slot not in used_slots:
                 item = InventoryItem(
@@ -1239,7 +1266,8 @@ class GameEngine:
                     item_id=item_id,
                     quality=quality,
                     slot=slot,
-                    quantity=quantity
+                    quantity=quantity,
+                    random_attrs=random_attrs  # 存储随机属性
                 )
                 db.add(item)
                 return True
@@ -1271,29 +1299,24 @@ class GameEngine:
         # 加上装备属性
         result = await db.execute(select(Equipment).where(Equipment.character_id == char.id))
         for equip in result.scalars():
-            item_info = DataLoader.get_item(equip.item_id)
-            quality_info = DataLoader.get_quality(equip.quality)
-            bonus = quality_info.get("bonus", 1.0)
-            
-            # 支持min/max格式，也兼容旧的单值格式
-            atk = item_info.get("attack", 0)
-            stats["attack_min"] += int(item_info.get("attack_min", atk) * bonus)
-            stats["attack_max"] += int(item_info.get("attack_max", atk) * bonus)
-            
-            magic = item_info.get("magic", 0)
-            stats["magic_min"] += int(item_info.get("magic_min", magic) * bonus)
-            stats["magic_max"] += int(item_info.get("magic_max", magic) * bonus)
-            
-            defense = item_info.get("defense", 0)
-            stats["defense_min"] += int(item_info.get("defense_min", defense) * bonus)
-            stats["defense_max"] += int(item_info.get("defense_max", defense) * bonus)
-            
-            mac = item_info.get("magic_defense", 0)
-            stats["magic_defense_min"] += int(item_info.get("magic_defense_min", mac) * bonus)
-            stats["magic_defense_max"] += int(item_info.get("magic_defense_max", mac) * bonus)
-            
-            stats["max_hp"] += int(item_info.get("hp_bonus", 0) * bonus)
-            stats["max_mp"] += int(item_info.get("mp_bonus", 0) * bonus)
+            # 获取带随机属性的装备信息
+            item_with_attrs = get_item_with_attributes(
+                DataLoader.get_item(equip.item_id),
+                equip.quality,
+                equip.random_attrs
+            )
+
+            # 使用随机后的属性值
+            stats["attack_min"] += item_with_attrs.get("attack_min", 0)
+            stats["attack_max"] += item_with_attrs.get("attack_max", 0)
+            stats["magic_min"] += item_with_attrs.get("magic_min", 0)
+            stats["magic_max"] += item_with_attrs.get("magic_max", 0)
+            stats["defense_min"] += item_with_attrs.get("defense_min", 0)
+            stats["defense_max"] += item_with_attrs.get("defense_max", 0)
+            stats["magic_defense_min"] += item_with_attrs.get("magic_defense_min", 0)
+            stats["magic_defense_max"] += item_with_attrs.get("magic_defense_max", 0)
+            stats["max_hp"] += item_with_attrs.get("hp_bonus", 0)
+            stats["max_mp"] += item_with_attrs.get("mp_bonus", 0)
         
         # 加上被动技能属性（按基础属性百分比增加）
         skills_result = await db.execute(select(CharacterSkill).where(CharacterSkill.character_id == char.id))

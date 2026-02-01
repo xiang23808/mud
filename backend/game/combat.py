@@ -3,7 +3,7 @@ import random
 from typing import List, Dict, Optional
 from dataclasses import dataclass, field
 from fractions import Fraction
-from .effects import EffectCalculator, roll_quality, apply_quality_bonus, EFFECT_CONFIG, EFFECT_NAMES
+from .effects import EffectCalculator, roll_quality, apply_quality_bonus, roll_item_attributes, EFFECT_CONFIG, EFFECT_NAMES
 from backend.config import game_config
 
 @dataclass
@@ -640,15 +640,25 @@ class CombatEngine:
                 exp_gained += m["exp"]
                 gold_gained += m["gold"]
                 quality_drop_bonus = CombatEngine.QUALITY_DROP_BONUS.get(m["quality"], 1.0)
-                
+
                 # 处理直接掉落
                 for drop in m["drops"]:
                     base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
                     # 应用全局爆率倍数
                     final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER)
                     if random.random() < final_rate:
-                        drops.append({"item_id": drop["item"], "quality": roll_quality(base_rate)})
-                
+                        quality = roll_quality(base_rate)
+                        item_id = drop["item"]
+                        # 获取基础物品数据并生成随机属性
+                        random_attrs = None
+                        if data_loader:
+                            base_item = data_loader.get_item(item_id)
+                            # 只对装备类型生成随机属性
+                            if base_item and base_item.get("type") in ["weapon", "armor", "accessory"]:
+                                rolled_item = roll_item_attributes(base_item, quality)
+                                random_attrs = rolled_item.get("_random_attrs")
+                        drops.append({"item_id": item_id, "quality": quality, "random_attrs": random_attrs})
+
                 # 处理掉落组
                 drop_groups = m.get("drop_groups", [])
                 if drop_groups and data_loader:
@@ -658,7 +668,16 @@ class CombatEngine:
                             base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
                             final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER)
                             if random.random() < final_rate:
-                                drops.append({"item_id": drop["item"], "quality": roll_quality(base_rate)})
+                                quality = roll_quality(base_rate)
+                                item_id = drop["item"]
+                                # 获取基础物品数据并生成随机属性
+                                random_attrs = None
+                                base_item = data_loader.get_item(item_id)
+                                # 只对装备类型生成随机属性
+                                if base_item and base_item.get("type") in ["weapon", "armor", "accessory"]:
+                                    rolled_item = roll_item_attributes(base_item, quality)
+                                    random_attrs = rolled_item.get("_random_attrs")
+                                drops.append({"item_id": item_id, "quality": quality, "random_attrs": random_attrs})
             
             # 应用全局倍数
             exp_gained = int(exp_gained * game_config.EXP_MULTIPLIER)
@@ -777,7 +796,7 @@ class CombatEngine:
         """从掉落组计算掉落物品"""
         drops = []
         all_drops = {}
-        
+
         for drop in monster_drops:
             item_id = drop.get("item")
             rate = CombatEngine.parse_rate(drop.get("rate", 0))
@@ -785,7 +804,7 @@ class CombatEngine:
                 all_drops[item_id] = 1 - (1 - all_drops[item_id]) * (1 - rate)
             else:
                 all_drops[item_id] = rate
-        
+
         for group_id in drop_groups:
             group = data_loader.get_drop_group(group_id)
             for drop in group.get("drops", []):
@@ -795,12 +814,21 @@ class CombatEngine:
                     all_drops[item_id] = 1 - (1 - all_drops[item_id]) * (1 - rate)
                 else:
                     all_drops[item_id] = rate
-        
+
         for item_id, rate in all_drops.items():
             if random.random() < rate:
+                quality = roll_quality(rate)
+                # 获取基础物品数据并生成随机属性
+                random_attrs = None
+                base_item = data_loader.get_item(item_id)
+                # 只对装备类型生成随机属性
+                if base_item and base_item.get("type") in ["weapon", "armor", "accessory"]:
+                    rolled_item = roll_item_attributes(base_item, quality)
+                    random_attrs = rolled_item.get("_random_attrs")
                 drops.append({
                     "item_id": item_id,
-                    "quality": roll_quality(rate)
+                    "quality": quality,
+                    "random_attrs": random_attrs
                 })
-        
+
         return drops

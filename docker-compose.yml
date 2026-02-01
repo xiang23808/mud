@@ -1,16 +1,18 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:15
+  mysql:
+    image: mysql:8.0
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mud_legend
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mud_legend
+      MYSQL_USER: mud_user
+      MYSQL_PASSWORD: mud_password
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
 
   redis:
     image: redis:7
@@ -18,4 +20,4 @@ services:
       - "6379:6379"
 
 volumes:
-  pgdata:
+  mysql_data:

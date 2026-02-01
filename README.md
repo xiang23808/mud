@@ -17,8 +17,7 @@ pip install -r requirements.txt
 ### 3. 运行数据库迁移（可选）
 如果是首次运行或需要更新数据库结构：
 ```bash
-# 手动执行SQL迁移文件
-psql -h localhost -U mud_user -d mud_game < database/migrations/001_add_skill_proficiency.sql
+mysql -h localhost -u mud_user -p mud_legend < database/migrations/001_add_skill_proficiency.sql
 ```
 
 ### 4. 运行服务器
@@ -233,7 +232,7 @@ python -m backend.main
 ## 技术栈
 
 - 后端: Python 3.11+ / FastAPI / WebSocket
-- 数据库: PostgreSQL + Redis
+- 数据库: MySQL + Redis
 - 前端: HTML + CSS + JavaScript + Canvas
 - 响应式设计: 支持手机/平板/桌面端
 
@@ -551,7 +550,7 @@ mud-legend/
 ### 数据库迁移
 执行新的迁移文件以更新数据库结构：
 ```bash
-psql -h localhost -U mud_user -d mud_game < database/migrations/001_add_skill_proficiency.sql
+mysql -h localhost -u mud_user -p mud_legend < database/migrations/001_add_skill_proficiency.sql
 ```
 
 ### 添加新内容

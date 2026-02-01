@@ -2102,5 +2102,82 @@
         "rate": "1/2800"
       }
     ]
+  },
+  "set_t6_arcane": {
+    "name": "70级奥术套装(arcane_warrior/mage)",
+    "drops": [
+      {
+        "item": "arcane_helm_warrior",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_armor_warrior",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_belt_warrior",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_boots_warrior",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_necklace_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_ring_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_ring2_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_bracelet_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_bracelet2_warrior",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_helm_mage",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_armor_mage",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_belt_mage",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_boots_mage",
+        "rate": "1/1400"
+      },
+      {
+        "item": "arcane_necklace_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_ring_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_ring2_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_bracelet_mage",
+        "rate": "1/1600"
+      },
+      {
+        "item": "arcane_bracelet2_mage",
+        "rate": "1/1600"
+      }
+    ]
   }
 }

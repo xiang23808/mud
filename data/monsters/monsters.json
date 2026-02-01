@@ -3110,6 +3110,9 @@
         "item": "chromatic_boots",
         "rate": "1/60"
       }
+    ],
+    "drop_groups": [
+      "set_t6_arcane"
     ]
   },
   "nefarian": {
@@ -3456,6 +3459,9 @@
         "item": "zuma_armor",
         "rate": "1/60"
       }
+    ],
+    "drop_groups": [
+      "set_t6_arcane"
     ]
   },
   "dragonspawn": {
@@ -3704,6 +3710,9 @@
         "item": "gronn_totem",
         "rate": "1/70"
       }
+    ],
+    "drop_groups": [
+      "set_t6_arcane"
     ]
   },
   "lair_brute": {
@@ -3793,6 +3802,9 @@
         "item": "hellfire_core",
         "rate": "1/65"
       }
+    ],
+    "drop_groups": [
+      "set_t6_arcane"
     ]
   },
   "abyssal_guard": {
@@ -3894,6 +3906,9 @@
         "item": "coilfang_scale",
         "rate": "1/60"
       }
+    ],
+    "drop_groups": [
+      "set_t6_arcane"
     ]
   },
   "tidewalker_warrior": {

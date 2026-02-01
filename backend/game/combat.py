@@ -100,23 +100,75 @@ class CombatEngine:
     
     @staticmethod
     def create_summon(player: dict, skill: dict) -> dict:
-        """创建召唤物"""
+        """创建召唤物 - 属性跟随玩家属性计算"""
         skill_level = skill.get("level", 1)
-        magic = (player.get("magic_min", 0) + player.get("magic_max", 0)) // 2
         summon_type = skill.get("effect", {}).get("summon", "skeleton")
-        
-        base_hp = 100 if summon_type == "skeleton" else 200
-        base_atk = 15 if summon_type == "skeleton" else 30
-        base_def = 5 if summon_type == "skeleton" else 15
-        
-        mult = 1 + magic * 0.02 + (skill_level - 1) * 0.3
+
+        # 获取玩家基础属性
+        player_hp = player.get("max_hp", 100)
+        player_mp = player.get("max_mp", 50)
+        player_atk = (player.get("attack_min", 0) + player.get("attack_max", 0)) // 2
+        player_def = player.get("defense", 0)
+        player_magic = (player.get("magic_min", 0) + player.get("magic_max", 0)) // 2
+        player_magic_def = player.get("magic_defense", 0)
+        player_level = player.get("level", 1)
+
+        # 技能等级加成 (每级+15%)
+        level_bonus = 1 + (skill_level - 1) * 0.15
+
+        # 根据召唤类型设置属性比例
+        if summon_type == "skeleton":
+            # 骷髅战士 - 入门召唤物
+            hp_ratio = 0.2
+            atk_ratio = 0.25
+            def_ratio = 0.3
+            magdef_ratio = 0.2
+            summon_name = "骷髅战士"
+        elif summon_type == "holy_dog":
+            # 神兽 - 高血量坦克型
+            hp_ratio = 0.6
+            atk_ratio = 0.4
+            def_ratio = 0.5
+            magdef_ratio = 0.4
+            summon_name = "神兽"
+        elif summon_type == "kylin":
+            # 麒麟 - 完美型召唤物
+            hp_ratio = 0.8
+            atk_ratio = 0.6
+            def_ratio = 0.7
+            magdef_ratio = 0.7
+            summon_name = "麒麟"
+        else:
+            # 默认/未知类型
+            hp_ratio = 0.3
+            atk_ratio = 0.3
+            def_ratio = 0.3
+            magdef_ratio = 0.3
+            summon_name = "召唤物"
+
+        # 计算召唤物属性 (基于玩家属性 + 技能等级加成)
+        # 高级玩家额外加成: 每10级额外5%
+        level_extra_bonus = 1 + (player_level // 10) * 0.05
+
+        summon_hp = int(player_hp * hp_ratio * level_bonus * level_bonus)
+        summon_atk = int(max(player_atk, player_magic) * atk_ratio * level_bonus * level_bonus)
+        summon_def = int(player_def * def_ratio * level_bonus * level_bonus)
+        summon_magdef = int(player_magic_def * magdef_ratio * level_bonus * level_bonus)
+
+        # 确保最低属性
+        summon_hp = max(summon_hp, 50 + player_level * 10)
+        summon_atk = max(summon_atk, 5 + player_level * 2)
+        summon_def = max(summon_def, 2 + player_level)
+        summon_magdef = max(summon_magdef, 2 + player_level)
+
         return {
-            "name": "骷髅战士" if summon_type == "skeleton" else "神兽",
+            "name": summon_name,
             "type": summon_type,
-            "hp": int(base_hp * mult),
-            "max_hp": int(base_hp * mult),
-            "attack": int(base_atk * mult),
-            "defense": int(base_def * mult),
+            "hp": summon_hp,
+            "max_hp": summon_hp,
+            "attack": summon_atk,
+            "defense": summon_def,
+            "magic_defense": summon_magdef,
             "alive": True
         }
     

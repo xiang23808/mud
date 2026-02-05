@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(copy /Y \"D:\\\\work\\\\mud\\\\data\\\\items\\\\armors_new.json\" \"D:\\\\work\\\\mud\\\\data\\\\items\\\\armors.json\")",
+      "Bash(copy:*)",
+      "Bash(ls:*)"
     ]
   }
 }

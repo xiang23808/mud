@@ -16,19 +16,11 @@
       {
         "item": "hp_potion_small",
         "rate": "1/10"
-      },
-      {
-        "item": "cloth_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "bronze_ring",
-        "rate": "1/80"
-      },
-      {
-        "item": "bronze_necklace",
-        "rate": "1/80"
       }
+    ],
+    "drop_groups": [
+      "tier_1_scatter_weapon",
+      "tier_1_scatter_armor"
     ]
   },
   "deer": {
@@ -46,33 +38,13 @@
         "rate": "1/3"
       },
       {
-        "item": "bronze_ring",
-        "rate": "1/50"
-      },
-      {
-        "item": "bronze_necklace",
-        "rate": "1/50"
-      },
-      {
-        "item": "bronze_bracelet",
-        "rate": "1/50"
-      },
-      {
         "item": "hp_potion_small",
         "rate": "1/8"
-      },
-      {
-        "item": "cloth_cap",
-        "rate": "1/60"
-      },
-      {
-        "item": "cloth_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "leather_belt",
-        "rate": "1/70"
       }
+    ],
+    "drop_groups": [
+      "tier_1_scatter_weapon",
+      "tier_1_scatter_armor"
     ]
   },
   "wolf": {
@@ -90,37 +62,13 @@
         "rate": "1/5"
       },
       {
-        "item": "wooden_sword",
-        "rate": "1/80"
-      },
-      {
-        "item": "cloth_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "bronze_bracelet",
-        "rate": "1/50"
-      },
-      {
         "item": "hp_potion_small",
         "rate": "1/6"
-      },
-      {
-        "item": "leather_cap",
-        "rate": "1/80"
-      },
-      {
-        "item": "leather_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "leather_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "iron_ring",
-        "rate": "1/120"
       }
+    ],
+    "drop_groups": [
+      "tier_1_scatter_weapon",
+      "tier_1_scatter_armor"
     ]
   },
   "snake": {
@@ -138,37 +86,18 @@
         "rate": "1/7"
       },
       {
-        "item": "wooden_staff",
-        "rate": "1/80"
-      },
-      {
-        "item": "wooden_wand",
-        "rate": "1/80"
-      },
-      {
-        "item": "leather_boots",
-        "rate": "1/60"
-      },
-      {
-        "item": "leather_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/150"
-      },
-      {
         "item": "hp_potion_small",
         "rate": "1/8"
       },
       {
         "item": "mp_potion_small",
         "rate": "1/10"
-      },
-      {
-        "item": "flame_ring",
-        "rate": "1/200"
       }
+    ],
+    "drop_groups": [
+      "tier_2_scatter_armor",
+      "tier_2_scatter_weapon",
+      "tier_2_set_armor"
     ]
   },
   "zombie": {
@@ -186,41 +115,14 @@
         "rate": "1/3"
       },
       {
-        "item": "iron_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "leather_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "iron_ring",
-        "rate": "1/60"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/10"
-      },
-      {
-        "item": "mage_hat",
-        "rate": "1/100"
-      },
-      {
-        "item": "taoist_crown",
-        "rate": "1/100"
-      },
-      {
-        "item": "iron_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "iron_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "silver_necklace",
-        "rate": "1/150"
       }
+    ],
+    "drop_groups": [
+      "tier_2_scatter_armor",
+      "tier_2_scatter_weapon",
+      "tier_2_set_armor"
     ]
   },
   "zombie_warrior": {
@@ -238,49 +140,14 @@
         "rate": "1/3"
       },
       {
-        "item": "iron_sword",
-        "rate": "1/60"
-      },
-      {
-        "item": "iron_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "iron_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "iron_bracelet",
-        "rate": "1/80"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/8"
-      },
-      {
-        "item": "iron_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "iron_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "steel_sword",
-        "rate": "1/200"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/150"
-      },
-      {
-        "item": "flame_ring",
-        "rate": "1/120"
-      },
-      {
-        "item": "magic_bracelet",
-        "rate": "1/150"
       }
+    ],
+    "drop_groups": [
+      "tier_3_scatter_armor",
+      "tier_3_scatter_weapon",
+      "tier_3_set_armor"
     ]
   },
   "zombie_mage": {
@@ -298,37 +165,14 @@
         "rate": "1/7"
       },
       {
-        "item": "mage_staff",
-        "rate": "1/80"
-      },
-      {
-        "item": "magic_robe",
-        "rate": "1/100"
-      },
-      {
-        "item": "mage_hat",
-        "rate": "1/80"
-      },
-      {
         "item": "mp_potion_medium",
         "rate": "1/10"
-      },
-      {
-        "item": "frost_ring",
-        "rate": "1/200"
-      },
-      {
-        "item": "silver_wand",
-        "rate": "1/120"
-      },
-      {
-        "item": "magic_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "flame_ring",
-        "rate": "1/100"
       }
+    ],
+    "drop_groups": [
+      "tier_3_scatter_armor",
+      "tier_3_scatter_weapon",
+      "tier_3_set_armor"
     ]
   },
   "zombie_elite": {
@@ -342,45 +186,12 @@
     "gold": 100,
     "drops": [
       {
-        "item": "steel_sword",
-        "rate": "1/150"
-      },
-      {
-        "item": "heavy_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "bone_helmet",
-        "rate": "1/150"
-      },
-      {
-        "item": "steel_helmet",
-        "rate": "1/180"
-      },
-      {
-        "item": "steel_boots",
-        "rate": "1/120"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/6"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/120"
-      },
-      {
-        "item": "fury_ring",
-        "rate": "1/100"
-      },
-      {
-        "item": "magic_bracelet",
-        "rate": "1/80"
       }
+    ],
+    "drop_groups": [
+      "tier_4_all"
     ]
   },
   "corpse_king": {
@@ -394,7 +205,8 @@
     "gold": 800,
     "is_boss": true,
     "drop_groups": [
-      "set_t0"
+      "tier_5_all",
+      "tier_4_all"
     ],
     "drops": [
       {
@@ -406,80 +218,8 @@
         "rate": "1/30"
       },
       {
-        "item": "death_necklace",
-        "rate": "1/50"
-      },
-      {
-        "item": "death_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "stab_sword",
-        "rate": "1/10"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/3"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/40"
-      },
-      {
-        "item": "healing_book",
-        "rate": "1/20"
-      },
-      {
-        "item": "invisibility_book",
-        "rate": "1/30"
-      },
-      {
-        "item": "bone_staff",
-        "rate": "1/60"
-      },
-      {
-        "item": "blood_wand",
-        "rate": "1/70"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/25"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "wildheart_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "wildheart_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "wildheart_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "wildheart_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_boots",
-        "rate": "1/80"
       }
     ]
   },
@@ -494,29 +234,14 @@
     "gold": 30,
     "drops": [
       {
-        "item": "leather_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "leather_belt",
-        "rate": "1/50"
-      },
-      {
-        "item": "leather_boots",
-        "rate": "1/60"
-      },
-      {
-        "item": "iron_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "iron_ring",
-        "rate": "1/80"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/12"
       }
+    ],
+    "drop_groups": [
+      "tier_2_scatter_armor",
+      "tier_2_scatter_weapon",
+      "tier_2_set_armor"
     ]
   },
   "boar_warrior": {
@@ -530,33 +255,14 @@
     "gold": 50,
     "drops": [
       {
-        "item": "iron_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "iron_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "iron_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "iron_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "iron_bracelet",
-        "rate": "1/90"
-      },
-      {
-        "item": "steel_sword",
-        "rate": "1/150"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/10"
       }
+    ],
+    "drop_groups": [
+      "tier_3_scatter_armor",
+      "tier_3_scatter_weapon",
+      "tier_3_set_armor"
     ]
   },
   "boar_elite": {
@@ -570,37 +276,12 @@
     "gold": 80,
     "drops": [
       {
-        "item": "heavy_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "steel_helmet",
-        "rate": "1/120"
-      },
-      {
-        "item": "steel_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "steel_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "bone_helmet",
-        "rate": "1/150"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/120"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/8"
       }
+    ],
+    "drop_groups": [
+      "tier_4_all"
     ]
   },
   "wild_pig_king": {
@@ -613,30 +294,10 @@
     "exp": 600,
     "gold": 180,
     "drop_groups": [
-      "set_t0",
-      "set_t20"
+      "tier_5_all",
+      "tier_4_all"
     ],
     "drops": [
-      {
-        "item": "heavy_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/40"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/80"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/50"
-      },
-      {
-        "item": "death_necklace",
-        "rate": "1/100"
-      },
       {
         "item": "hp_potion_large",
         "rate": "1/10"
@@ -654,8 +315,8 @@
     "gold": 750,
     "is_boss": true,
     "drop_groups": [
-      "set_t0",
-      "set_t1"
+      "tier_6_all",
+      "tier_5_all"
     ],
     "drops": [
       {
@@ -663,124 +324,12 @@
         "rate": "1/10"
       },
       {
-        "item": "bone_king_sword",
-        "rate": "1/50"
-      },
-      {
-        "item": "death_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "iron_body",
-        "rate": "1/15"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/40"
-      },
-      {
         "item": "corpse_king_ring",
         "rate": "1/60"
       },
       {
-        "item": "death_necklace",
-        "rate": "1/50"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/30"
-      },
-      {
-        "item": "invisibility_book",
-        "rate": "1/20"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/5"
-      },
-      {
-        "item": "half_moon",
-        "rate": "1/25"
-      },
-      {
-        "item": "wildheart_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "wildheart_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "wildheart_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "wildheart_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "magister_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "molten_helm",
-        "rate": "1/120"
-      },
-      {
-        "item": "molten_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "molten_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "molten_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "arcanist_helm",
-        "rate": "1/120"
-      },
-      {
-        "item": "arcanist_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "arcanist_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "arcanist_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "cenarion_helm",
-        "rate": "1/120"
-      },
-      {
-        "item": "cenarion_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "cenarion_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "cenarion_boots",
-        "rate": "1/120"
       }
     ]
   },
@@ -795,41 +344,12 @@
     "gold": 45,
     "drops": [
       {
-        "item": "centipede_leg",
-        "rate": "1/5"
-      },
-      {
-        "item": "silver_wand",
-        "rate": "1/100"
-      },
-      {
-        "item": "silver_necklace",
-        "rate": "1/80"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/120"
-      },
-      {
-        "item": "mage_staff",
-        "rate": "1/100"
-      },
-      {
-        "item": "magic_robe",
-        "rate": "1/120"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/10"
-      },
-      {
-        "item": "fury_ring",
-        "rate": "1/120"
-      },
-      {
-        "item": "magic_bracelet",
-        "rate": "1/100"
       }
+    ],
+    "drop_groups": [
+      "tier_4_all"
     ]
   },
   "centipede_warrior": {
@@ -842,44 +362,12 @@
     "exp": 250,
     "gold": 70,
     "drop_groups": [
-      "set_t20"
+      "tier_4_all"
     ],
     "drops": [
       {
-        "item": "centipede_leg",
-        "rate": "1/3"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/60"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/80"
-      },
-      {
-        "item": "blood_wand",
-        "rate": "1/150"
-      },
-      {
-        "item": "bone_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "heavy_armor",
-        "rate": "1/150"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/8"
-      },
-      {
-        "item": "storm_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "fury_ring",
-        "rate": "1/80"
       }
     ]
   },
@@ -894,45 +382,17 @@
     "gold": 120,
     "drops": [
       {
-        "item": "centipede_leg",
-        "rate": "1/2"
-      },
-      {
-        "item": "bone_helmet",
-        "rate": "1/60"
-      },
-      {
-        "item": "bone_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "bone_staff",
-        "rate": "1/100"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/80"
-      },
-      {
-        "item": "death_necklace",
-        "rate": "1/120"
-      },
-      {
         "item": "corpse_king_ring",
         "rate": "1/150"
       },
       {
         "item": "hp_potion_large",
         "rate": "1/15"
-      },
-      {
-        "item": "storm_bracelet",
-        "rate": "1/80"
-      },
-      {
-        "item": "warrior_bracelet",
-        "rate": "1/100"
       }
+    ],
+    "drop_groups": [
+      "tier_5_all",
+      "tier_4_all"
     ]
   },
   "skeleton": {
@@ -946,25 +406,12 @@
     "gold": 55,
     "drops": [
       {
-        "item": "skeleton_helmet",
-        "rate": "1/80"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "bone_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "steel_sword",
-        "rate": "1/120"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/10"
       }
+    ],
+    "drop_groups": [
+      "tier_4_all"
     ]
   },
   "skeleton_warrior": {
@@ -978,29 +425,13 @@
     "gold": 90,
     "drops": [
       {
-        "item": "skeleton_helmet",
-        "rate": "1/50"
-      },
-      {
-        "item": "blood_wand",
-        "rate": "1/100"
-      },
-      {
-        "item": "bone_staff",
-        "rate": "1/120"
-      },
-      {
-        "item": "death_necklace",
-        "rate": "1/150"
-      },
-      {
-        "item": "heavy_armor",
-        "rate": "1/100"
-      },
-      {
         "item": "hp_potion_medium",
         "rate": "1/8"
       }
+    ],
+    "drop_groups": [
+      "tier_5_all",
+      "tier_4_all"
     ]
   },
   "skeleton_king": {
@@ -1014,9 +445,8 @@
     "gold": 800,
     "is_boss": true,
     "drop_groups": [
-      "set_t0",
-      "set_t1",
-      "set_t25"
+      "tier_6_all",
+      "tier_5_all"
     ],
     "drops": [
       {
@@ -1024,124 +454,12 @@
         "rate": "1/10"
       },
       {
-        "item": "bone_king_sword",
-        "rate": "1/40"
-      },
-      {
-        "item": "death_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "half_moon",
-        "rate": "1/20"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/25"
-      },
-      {
         "item": "corpse_king_ring",
         "rate": "1/40"
       },
       {
-        "item": "death_necklace",
-        "rate": "1/35"
-      },
-      {
-        "item": "bone_staff",
-        "rate": "1/50"
-      },
-      {
-        "item": "invisibility_book",
-        "rate": "1/25"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/3"
-      },
-      {
-        "item": "stab_sword",
-        "rate": "1/30"
-      },
-      {
-        "item": "wildheart_helm",
-        "rate": "1/60"
-      },
-      {
-        "item": "wildheart_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "wildheart_belt",
-        "rate": "1/60"
-      },
-      {
-        "item": "wildheart_boots",
-        "rate": "1/60"
-      },
-      {
-        "item": "magister_helm",
-        "rate": "1/60"
-      },
-      {
-        "item": "magister_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "magister_belt",
-        "rate": "1/60"
-      },
-      {
-        "item": "magister_boots",
-        "rate": "1/60"
-      },
-      {
-        "item": "molten_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "molten_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "molten_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "molten_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_boots",
-        "rate": "1/100"
       }
     ]
   },
@@ -1156,29 +474,13 @@
     "gold": 80,
     "drops": [
       {
-        "item": "steel_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "heavy_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "bone_bracelet",
-        "rate": "1/80"
-      },
-      {
-        "item": "death_necklace",
-        "rate": "1/150"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/20"
       }
+    ],
+    "drop_groups": [
+      "tier_5_all",
+      "tier_4_all"
     ]
   },
   "woma_warrior": {
@@ -1192,29 +494,17 @@
     "gold": 110,
     "drops": [
       {
-        "item": "dragon_sword",
-        "rate": "1/200"
-      },
-      {
-        "item": "zuma_helmet",
-        "rate": "1/150"
-      },
-      {
-        "item": "death_armor",
-        "rate": "1/180"
-      },
-      {
         "item": "corpse_king_ring",
         "rate": "1/100"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/200"
       },
       {
         "item": "hp_potion_large",
         "rate": "1/15"
       }
+    ],
+    "drop_groups": [
+      "tier_6_all",
+      "tier_5_all"
     ]
   },
   "woma_mage": {
@@ -1232,37 +522,13 @@
         "rate": "1/10"
       },
       {
-        "item": "dragon_staff",
-        "rate": "1/200"
-      },
-      {
-        "item": "bone_staff",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcane_hood",
-        "rate": "1/150"
-      },
-      {
-        "item": "frost_ring",
-        "rate": "1/100"
-      },
-      {
         "item": "mp_potion_large",
         "rate": "1/15"
-      },
-      {
-        "item": "thunder_ring",
-        "rate": "1/150"
-      },
-      {
-        "item": "arcane_bracelet",
-        "rate": "1/120"
-      },
-      {
-        "item": "warrior_bracelet",
-        "rate": "1/100"
       }
+    ],
+    "drop_groups": [
+      "tier_6_all",
+      "tier_5_all"
     ]
   },
   "woma_elite": {
@@ -1276,41 +542,13 @@
     "gold": 200,
     "drops": [
       {
-        "item": "dragon_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "zuma_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/200"
-      },
-      {
-        "item": "zuma_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "holy_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/150"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/10"
-      },
-      {
-        "item": "thunder_ring",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcane_bracelet",
-        "rate": "1/80"
       }
+    ],
+    "drop_groups": [
+      "tier_7_all",
+      "tier_6_all"
     ]
   },
   "woma_leader": {
@@ -1324,8 +562,8 @@
     "gold": 1500,
     "is_boss": true,
     "drop_groups": [
-      "set_t1",
-      "set_t2"
+      "tier_8_all",
+      "tier_7_all"
     ],
     "drops": [
       {
@@ -1333,156 +571,8 @@
         "rate": "1/10"
       },
       {
-        "item": "judgement",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_sword",
-        "rate": "1/30"
-      },
-      {
-        "item": "holy_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "half_moon",
-        "rate": "1/8"
-      },
-      {
-        "item": "fire_sword",
-        "rate": "1/50"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/2"
-      },
-      {
-        "item": "arcane_hood",
-        "rate": "1/60"
-      },
-      {
-        "item": "spirit_crown",
-        "rate": "1/60"
-      },
-      {
-        "item": "summon_skeleton_book",
-        "rate": "1/15"
-      },
-      {
-        "item": "lightning_book",
-        "rate": "1/20"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/40"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/35"
-      },
-      {
-        "item": "zuma_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "dragon_staff",
-        "rate": "1/70"
-      },
-      {
-        "item": "molten_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "molten_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "molten_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "molten_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "arcanist_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "arcanist_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "arcanist_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "arcanist_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "cenarion_helm",
-        "rate": "1/80"
-      },
-      {
-        "item": "cenarion_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "cenarion_belt",
-        "rate": "1/80"
-      },
-      {
-        "item": "cenarion_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_helm",
-        "rate": "1/120"
-      },
-      {
-        "item": "dragon_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "dragon_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "dragon_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "nether_helm",
-        "rate": "1/120"
-      },
-      {
-        "item": "nether_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "nether_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "nether_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "earth_helm",
-        "rate": "1/120"
-      },
-      {
-        "item": "earth_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "earth_belt",
-        "rate": "1/120"
-      },
-      {
-        "item": "earth_boots",
-        "rate": "1/120"
       }
     ]
   },
@@ -1497,41 +587,13 @@
     "gold": 200,
     "drops": [
       {
-        "item": "zuma_helmet",
-        "rate": "1/100"
-      },
-      {
-        "item": "zuma_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/150"
-      },
-      {
-        "item": "zuma_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/200"
-      },
-      {
-        "item": "holy_necklace",
-        "rate": "1/200"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/12"
-      },
-      {
-        "item": "thunder_ring",
-        "rate": "1/80"
-      },
-      {
-        "item": "shadow_bracelet",
-        "rate": "1/120"
       }
+    ],
+    "drop_groups": [
+      "tier_7_all",
+      "tier_6_all"
     ]
   },
   "zuma_archer": {
@@ -1545,29 +607,13 @@
     "gold": 220,
     "drops": [
       {
-        "item": "silver_necklace",
-        "rate": "1/60"
-      },
-      {
-        "item": "dragon_wand",
-        "rate": "1/200"
-      },
-      {
-        "item": "hunter_bow",
-        "rate": "1/100"
-      },
-      {
-        "item": "raven_bow",
-        "rate": "1/200"
-      },
-      {
-        "item": "blood_wand",
-        "rate": "1/120"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/10"
       }
+    ],
+    "drop_groups": [
+      "tier_8_all",
+      "tier_7_all"
     ]
   },
   "zuma_statue": {
@@ -1581,29 +627,13 @@
     "gold": 280,
     "drops": [
       {
-        "item": "zuma_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "holy_necklace",
-        "rate": "1/150"
-      },
-      {
-        "item": "zuma_helmet",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/120"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/100"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/8"
       }
+    ],
+    "drop_groups": [
+      "tier_8_all",
+      "tier_7_all"
     ]
   },
   "zuma_elite": {
@@ -1617,49 +647,13 @@
     "gold": 350,
     "drops": [
       {
-        "item": "dragon_ring",
-        "rate": "1/80"
-      },
-      {
-        "item": "holy_armor",
-        "rate": "1/120"
-      },
-      {
-        "item": "blood_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcane_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "judgement",
-        "rate": "1/200"
-      },
-      {
-        "item": "dragon_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_staff",
-        "rate": "1/120"
-      },
-      {
-        "item": "dragon_wand",
-        "rate": "1/120"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/6"
-      },
-      {
-        "item": "berserker_ring",
-        "rate": "1/80"
-      },
-      {
-        "item": "fury_bracelet",
-        "rate": "1/100"
       }
+    ],
+    "drop_groups": [
+      "tier_9_all",
+      "tier_8_all"
     ]
   },
   "zuma_leader": {
@@ -1673,7 +667,8 @@
     "gold": 2500,
     "is_boss": true,
     "drop_groups": [
-      "set_t2"
+      "tier_10_all",
+      "tier_9_all"
     ],
     "drops": [
       {
@@ -1681,120 +676,8 @@
         "rate": "1/10"
       },
       {
-        "item": "judgement",
-        "rate": "1/50"
-      },
-      {
-        "item": "holy_armor",
-        "rate": "1/60"
-      },
-      {
-        "item": "holy_boots",
-        "rate": "1/40"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/30"
-      },
-      {
-        "item": "fire_sword",
-        "rate": "1/20"
-      },
-      {
-        "item": "sun_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "shield_block",
-        "rate": "1/100"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/1"
-      },
-      {
-        "item": "blood_helm",
-        "rate": "1/50"
-      },
-      {
-        "item": "group_healing_book",
-        "rate": "1/25"
-      },
-      {
-        "item": "summon_dog_book",
-        "rate": "1/40"
-      },
-      {
-        "item": "summon_kylin_book",
-        "rate": "1/80"
-      },
-      {
-        "item": "ice_roar_book",
-        "rate": "1/30"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/25"
-      },
-      {
-        "item": "holy_necklace",
-        "rate": "1/40"
-      },
-      {
-        "item": "zuma_armor",
-        "rate": "1/35"
-      },
-      {
-        "item": "arcane_robe",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_boots",
-        "rate": "1/100"
       }
     ]
   },
@@ -1807,19 +690,10 @@
     "damage_type": "physical",
     "exp": 900,
     "gold": 250,
-    "drops": [
-      {
-        "item": "heavy_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/120"
-      },
-      {
-        "item": "shadow_bracelet",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_8_all",
+      "tier_7_all"
     ]
   },
   "demon_archer": {
@@ -1832,26 +706,10 @@
     "exp": 1000,
     "gold": 280,
     "drop_groups": [
-      "set_t35"
+      "tier_8_all",
+      "tier_7_all"
     ],
-    "drops": [
-      {
-        "item": "poison_ring",
-        "rate": "1/60"
-      },
-      {
-        "item": "blood_wand",
-        "rate": "1/100"
-      },
-      {
-        "item": "berserker_ring",
-        "rate": "1/100"
-      },
-      {
-        "item": "fury_bracelet",
-        "rate": "1/120"
-      }
-    ]
+    "drops": []
   },
   "demon_warrior": {
     "name": "魔族战士",
@@ -1862,19 +720,10 @@
     "damage_type": "physical",
     "exp": 1200,
     "gold": 350,
-    "drops": [
-      {
-        "item": "zuma_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_sword",
-        "rate": "1/150"
-      },
-      {
-        "item": "void_bracelet",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_9_all",
+      "tier_8_all"
     ]
   },
   "demon_elite": {
@@ -1886,19 +735,10 @@
     "damage_type": "magic",
     "exp": 1500,
     "gold": 450,
-    "drops": [
-      {
-        "item": "death_necklace",
-        "rate": "1/60"
-      },
-      {
-        "item": "holy_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "void_bracelet",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_10_all",
+      "tier_9_all"
     ]
   },
   "demon_lord": {
@@ -1912,82 +752,10 @@
     "gold": 2000,
     "is_boss": true,
     "drop_groups": [
-      "set_t2"
+      "tier_11_all",
+      "tier_10_all"
     ],
-    "drops": [
-      {
-        "item": "demon_heart",
-        "rate": "1/10"
-      },
-      {
-        "item": "dragon_wand",
-        "rate": "1/40"
-      },
-      {
-        "item": "holy_necklace",
-        "rate": "1/50"
-      },
-      {
-        "item": "divine_shield",
-        "rate": "1/30"
-      },
-      {
-        "item": "shadow_ring",
-        "rate": "1/40"
-      },
-      {
-        "item": "nether_bracelet",
-        "rate": "1/50"
-      },
-      {
-        "item": "dragon_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_boots",
-        "rate": "1/100"
-      }
-    ]
+    "drops": []
   },
   "red_moon_guard": {
     "name": "赤月卫士",
@@ -1998,19 +766,10 @@
     "damage_type": "physical",
     "exp": 1300,
     "gold": 380,
-    "drops": [
-      {
-        "item": "zuma_helmet",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "void_bracelet",
-        "rate": "1/120"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_10_all",
+      "tier_9_all"
     ]
   },
   "red_moon_warrior": {
@@ -2023,26 +782,10 @@
     "exp": 1600,
     "gold": 450,
     "drop_groups": [
-      "set_t40"
+      "tier_10_all",
+      "tier_9_all"
     ],
-    "drops": [
-      {
-        "item": "zuma_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/100"
-      },
-      {
-        "item": "titan_ring",
-        "rate": "1/150"
-      },
-      {
-        "item": "titan_bracelet",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "red_moon_mage": {
     "name": "赤月法师",
@@ -2053,19 +796,10 @@
     "damage_type": "magic",
     "exp": 1800,
     "gold": 500,
-    "drops": [
-      {
-        "item": "dragon_staff",
-        "rate": "1/80"
-      },
-      {
-        "item": "shadow_ring",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_bracelet",
-        "rate": "1/120"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "red_moon_elite": {
@@ -2078,38 +812,10 @@
     "exp": 2200,
     "gold": 600,
     "drop_groups": [
-      "set_t55"
+      "tier_11_all",
+      "tier_10_all"
     ],
-    "drops": [
-      {
-        "item": "holy_armor",
-        "rate": "1/80"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/80"
-      },
-      {
-        "item": "void_boots",
-        "rate": "1/120"
-      },
-      {
-        "item": "holy_necklace",
-        "rate": "1/100"
-      },
-      {
-        "item": "titan_ring",
-        "rate": "1/100"
-      },
-      {
-        "item": "titan_bracelet",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_bracelet",
-        "rate": "1/80"
-      }
-    ]
+    "drops": []
   },
   "red_moon_demon": {
     "name": "赤月恶魔",
@@ -2122,97 +828,13 @@
     "gold": 4000,
     "is_boss": true,
     "drop_groups": [
-      "set_t3",
-      "set_t55"
+      "tier_12_all",
+      "tier_11_all"
     ],
     "drops": [
       {
-        "item": "red_moon_shard",
-        "rate": "1/10"
-      },
-      {
-        "item": "judgement",
-        "rate": "1/30"
-      },
-      {
-        "item": "dragon_ring",
-        "rate": "1/20"
-      },
-      {
-        "item": "sun_sword",
-        "rate": "1/40"
-      },
-      {
-        "item": "meteor",
-        "rate": "1/40"
-      },
-      {
         "item": "hp_potion_large",
         "rate": "1/1"
-      },
-      {
-        "item": "void_hood",
-        "rate": "1/40"
-      },
-      {
-        "item": "holy_crown",
-        "rate": "1/40"
-      },
-      {
-        "item": "valanyr",
-        "rate": "1/150"
-      },
-      {
-        "item": "frostmourne",
-        "rate": "1/150"
-      },
-      {
-        "item": "ice_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_armor",
-        "rate": "1/300"
-      },
-      {
-        "item": "ice_belt",
-        "rate": "1/250"
-      },
-      {
-        "item": "ice_boots",
-        "rate": "1/250"
-      },
-      {
-        "item": "shadow_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/300"
-      },
-      {
-        "item": "shadow_belt",
-        "rate": "1/250"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/250"
-      },
-      {
-        "item": "lich_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_armor",
-        "rate": "1/300"
-      },
-      {
-        "item": "lich_belt",
-        "rate": "1/250"
-      },
-      {
-        "item": "lich_boots",
-        "rate": "1/250"
       }
     ]
   },
@@ -2225,11 +847,11 @@
     "damage_type": "physical",
     "exp": 120,
     "gold": 35,
-    "drops": [
-      {
-        "item": "iron_sword",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_3_scatter_armor",
+      "tier_3_scatter_weapon",
+      "tier_3_set_armor"
     ]
   },
   "dark_hunter": {
@@ -2241,15 +863,9 @@
     "damage_type": "physical",
     "exp": 180,
     "gold": 50,
-    "drops": [
-      {
-        "item": "hunter_bow",
-        "rate": "1/60"
-      },
-      {
-        "item": "leather_armor",
-        "rate": "1/50"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_4_all"
     ]
   },
   "corrupted_rogue": {
@@ -2262,18 +878,9 @@
     "exp": 250,
     "gold": 70,
     "drop_groups": [
-      "set_t20"
+      "tier_4_all"
     ],
-    "drops": [
-      {
-        "item": "rogue_dagger",
-        "rate": "1/50"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "yeti": {
     "name": "雪人",
@@ -2284,11 +891,10 @@
     "damage_type": "physical",
     "exp": 380,
     "gold": 100,
-    "drops": [
-      {
-        "item": "frost_ring",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_5_all",
+      "tier_4_all"
     ]
   },
   "frozen_horror": {
@@ -2300,11 +906,10 @@
     "damage_type": "magic",
     "exp": 500,
     "gold": 140,
-    "drops": [
-      {
-        "item": "frost_ring",
-        "rate": "1/50"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_6_all",
+      "tier_5_all"
     ]
   },
   "ice_golem": {
@@ -2316,11 +921,10 @@
     "damage_type": "magic",
     "exp": 650,
     "gold": 180,
-    "drops": [
-      {
-        "item": "arcane_ring",
-        "rate": "1/120"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_7_all",
+      "tier_6_all"
     ]
   },
   "blood_hawk": {
@@ -2332,11 +936,9 @@
     "damage_type": "physical",
     "exp": 200,
     "gold": 55,
-    "drops": [
-      {
-        "item": "blood_ring",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_4_all"
     ]
   },
   "quill_rat": {
@@ -2348,11 +950,11 @@
     "damage_type": "physical",
     "exp": 130,
     "gold": 38,
-    "drops": [
-      {
-        "item": "leather_boots",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_3_scatter_armor",
+      "tier_3_scatter_weapon",
+      "tier_3_set_armor"
     ]
   },
   "zombie_brute": {
@@ -2364,11 +966,10 @@
     "damage_type": "physical",
     "exp": 320,
     "gold": 85,
-    "drops": [
-      {
-        "item": "heavy_armor",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_5_all",
+      "tier_4_all"
     ]
   },
   "blood_raven": {
@@ -2382,75 +983,10 @@
     "gold": 1200,
     "is_boss": true,
     "drop_groups": [
-      "set_t1",
-      "set_t35"
+      "tier_7_all",
+      "tier_6_all"
     ],
-    "drops": [
-      {
-        "item": "blood_feather",
-        "rate": "1/10"
-      },
-      {
-        "item": "raven_bow",
-        "rate": "1/25"
-      },
-      {
-        "item": "blood_ring",
-        "rate": "1/30"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/50"
-      },
-      {
-        "item": "molten_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "molten_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "molten_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "molten_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "arcanist_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "cenarion_boots",
-        "rate": "1/100"
-      }
-    ]
+    "drops": []
   },
   "skeleton_archer": {
     "name": "骷髅弓手",
@@ -2461,11 +997,10 @@
     "damage_type": "physical",
     "exp": 380,
     "gold": 100,
-    "drops": [
-      {
-        "item": "hunter_bow",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_6_all",
+      "tier_5_all"
     ]
   },
   "burning_dead": {
@@ -2478,14 +1013,10 @@
     "exp": 500,
     "gold": 140,
     "drop_groups": [
-      "set_t25"
+      "tier_6_all",
+      "tier_5_all"
     ],
-    "drops": [
-      {
-        "item": "fire_sword",
-        "rate": "1/200"
-      }
-    ]
+    "drops": []
   },
   "ghoul": {
     "name": "食尸鬼",
@@ -2496,11 +1027,10 @@
     "damage_type": "physical",
     "exp": 450,
     "gold": 120,
-    "drops": [
-      {
-        "item": "death_necklace",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_6_all",
+      "tier_5_all"
     ]
   },
   "fallen_shaman": {
@@ -2512,11 +1042,10 @@
     "damage_type": "magic",
     "exp": 600,
     "gold": 160,
-    "drops": [
-      {
-        "item": "shaman_staff",
-        "rate": "1/40"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_7_all",
+      "tier_6_all"
     ]
   },
   "dark_one": {
@@ -2528,11 +1057,10 @@
     "damage_type": "magic",
     "exp": 700,
     "gold": 190,
-    "drops": [
-      {
-        "item": "dragon_sword",
-        "rate": "1/180"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_8_all",
+      "tier_7_all"
     ]
   },
   "tainted": {
@@ -2544,11 +1072,10 @@
     "damage_type": "magic",
     "exp": 800,
     "gold": 220,
-    "drops": [
-      {
-        "item": "holy_armor",
-        "rate": "1/200"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_8_all",
+      "tier_7_all"
     ]
   },
   "bone_mage": {
@@ -2561,18 +1088,10 @@
     "exp": 900,
     "gold": 250,
     "drop_groups": [
-      "set_t35"
+      "tier_8_all",
+      "tier_7_all"
     ],
-    "drops": [
-      {
-        "item": "bone_wand",
-        "rate": "1/40"
-      },
-      {
-        "item": "dragon_staff",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "horror": {
     "name": "恐惧魔",
@@ -2583,11 +1102,10 @@
     "damage_type": "magic",
     "exp": 1000,
     "gold": 280,
-    "drops": [
-      {
-        "item": "dragon_wand",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_9_all",
+      "tier_8_all"
     ]
   },
   "afflicted": {
@@ -2599,11 +1117,10 @@
     "damage_type": "physical",
     "exp": 950,
     "gold": 260,
-    "drops": [
-      {
-        "item": "arcane_robe",
-        "rate": "1/200"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_9_all",
+      "tier_8_all"
     ]
   },
   "bone_warrior": {
@@ -2615,11 +1132,10 @@
     "damage_type": "physical",
     "exp": 1100,
     "gold": 320,
-    "drops": [
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_9_all",
+      "tier_8_all"
     ]
   },
   "returned": {
@@ -2632,14 +1148,10 @@
     "exp": 1200,
     "gold": 350,
     "drop_groups": [
-      "set_t40"
+      "tier_9_all",
+      "tier_8_all"
     ],
-    "drops": [
-      {
-        "item": "soul_necklace",
-        "rate": "1/100"
-      }
-    ]
+    "drops": []
   },
   "plague_bearer": {
     "name": "瘟疫使者",
@@ -2650,11 +1162,10 @@
     "damage_type": "magic",
     "exp": 1300,
     "gold": 380,
-    "drops": [
-      {
-        "item": "death_necklace",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_10_all",
+      "tier_9_all"
     ]
   },
   "butcher": {
@@ -2668,75 +1179,10 @@
     "gold": 3000,
     "is_boss": true,
     "drop_groups": [
-      "set_t2",
-      "set_t40"
+      "tier_10_all",
+      "tier_9_all"
     ],
-    "drops": [
-      {
-        "item": "butcher_hook",
-        "rate": "1/10"
-      },
-      {
-        "item": "butcher_cleaver",
-        "rate": "1/20"
-      },
-      {
-        "item": "blood_armor",
-        "rate": "1/40"
-      },
-      {
-        "item": "soul_harvest",
-        "rate": "1/30"
-      },
-      {
-        "item": "dragon_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "dragon_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "nether_boots",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_helm",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_armor",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_belt",
-        "rate": "1/100"
-      },
-      {
-        "item": "earth_boots",
-        "rate": "1/100"
-      }
-    ]
+    "drops": []
   },
   "ghoul_wanderer": {
     "name": "游荡食尸鬼",
@@ -2747,11 +1193,10 @@
     "damage_type": "physical",
     "exp": 1400,
     "gold": 400,
-    "drops": [
-      {
-        "item": "death_armor",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_10_all",
+      "tier_9_all"
     ]
   },
   "skeletal_mage": {
@@ -2763,11 +1208,10 @@
     "damage_type": "magic",
     "exp": 1600,
     "gold": 450,
-    "drops": [
-      {
-        "item": "bone_staff",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_10_all",
+      "tier_9_all"
     ]
   },
   "arcane_wraith": {
@@ -2779,19 +1223,10 @@
     "damage_type": "magic",
     "exp": 1800,
     "gold": 500,
-    "drops": [
-      {
-        "item": "arcane_ring",
-        "rate": "1/60"
-      },
-      {
-        "item": "shadow_ring",
-        "rate": "1/80"
-      },
-      {
-        "item": "nether_bracelet",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "phantom_guest": {
@@ -2803,11 +1238,10 @@
     "damage_type": "magic",
     "exp": 2000,
     "gold": 560,
-    "drops": [
-      {
-        "item": "phantom_shroud",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "ethereal_spellbinder": {
@@ -2819,15 +1253,10 @@
     "damage_type": "magic",
     "exp": 2300,
     "gold": 650,
-    "drops": [
-      {
-        "item": "spellbinder_tome",
-        "rate": "1/40"
-      },
-      {
-        "item": "void_mantle",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "shade_of_aran": {
@@ -2839,15 +1268,10 @@
     "damage_type": "magic",
     "exp": 2600,
     "gold": 720,
-    "drops": [
-      {
-        "item": "aran_pendant",
-        "rate": "1/30"
-      },
-      {
-        "item": "arcane_robe",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "prince_malchezaar": {
@@ -2861,122 +1285,13 @@
     "gold": 5000,
     "is_boss": true,
     "drop_groups": [
-      "set_t2",
-      "set_t3",
-      "set_t55"
+      "tier_13_all",
+      "tier_12_all"
     ],
     "drops": [
       {
-        "item": "malchezaar_blade",
-        "rate": "1/25"
-      },
-      {
-        "item": "prince_ring",
-        "rate": "1/30"
-      },
-      {
         "item": "void_crystal",
         "rate": "1/10"
-      },
-      {
-        "item": "netherbane",
-        "rate": "1/40"
-      },
-      {
-        "item": "dragon_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "dragon_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "dragon_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "dragon_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "nether_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "nether_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "nether_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "nether_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "earth_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "earth_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "earth_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "earth_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "ice_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "ice_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "ice_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "ice_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "shadow_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "shadow_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "lich_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "lich_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "lich_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "lich_boots",
-        "rate": "1/150"
       }
     ]
   },
@@ -2989,11 +1304,10 @@
     "damage_type": "physical",
     "exp": 2200,
     "gold": 620,
-    "drops": [
-      {
-        "item": "molten_plate",
-        "rate": "1/120"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "fire_guard": {
@@ -3006,14 +1320,10 @@
     "exp": 4000,
     "gold": 1100,
     "drop_groups": [
-      "set_t65"
+      "tier_13_all",
+      "tier_12_all"
     ],
-    "drops": [
-      {
-        "item": "fire_lord_crown",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "ragnaros": {
     "name": "拉格纳罗斯",
@@ -3026,73 +1336,13 @@
     "gold": 8000,
     "is_boss": true,
     "drop_groups": [
-      "set_t3",
-      "set_t65"
+      "tier_14_all",
+      "tier_13_all"
     ],
     "drops": [
       {
-        "item": "thunderfury_legendary",
-        "rate": "1/200"
-      },
-      {
         "item": "ragnaros_essence",
         "rate": "1/10"
-      },
-      {
-        "item": "fire_lord_crown",
-        "rate": "1/30"
-      },
-      {
-        "item": "molten_destroyer",
-        "rate": "1/25"
-      },
-      {
-        "item": "ice_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_boots",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_boots",
-        "rate": "1/200"
       }
     ]
   },
@@ -3105,14 +1355,10 @@
     "damage_type": "magic",
     "exp": 6500,
     "gold": 2000,
-    "drops": [
-      {
-        "item": "chromatic_boots",
-        "rate": "1/60"
-      }
-    ],
+    "drops": [],
     "drop_groups": [
-      "set_t6_arcane"
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "nefarian": {
@@ -3126,89 +1372,13 @@
     "gold": 15000,
     "is_boss": true,
     "drop_groups": [
-      "set_t3",
-      "set_t65"
+      "tier_15_all",
+      "tier_14_all"
     ],
     "drops": [
       {
         "item": "nefarian_scale",
         "rate": "1/10"
-      },
-      {
-        "item": "ashkandi",
-        "rate": "1/40"
-      },
-      {
-        "item": "fangs_of_the_father",
-        "rate": "1/150"
-      },
-      {
-        "item": "chromatic_boots",
-        "rate": "1/20"
-      },
-      {
-        "item": "dragon_lord_crown",
-        "rate": "1/30"
-      },
-      {
-        "item": "tier2_warrior_chest",
-        "rate": "1/50"
-      },
-      {
-        "item": "tier2_mage_robe",
-        "rate": "1/50"
-      },
-      {
-        "item": "tier2_taoist_vest",
-        "rate": "1/50"
-      },
-      {
-        "item": "ice_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "ice_boots",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "lich_boots",
-        "rate": "1/200"
       }
     ]
   },
@@ -3221,11 +1391,10 @@
     "damage_type": "magic",
     "exp": 1700,
     "gold": 480,
-    "drops": [
-      {
-        "item": "death_necklace",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "mana_fiend": {
@@ -3237,11 +1406,10 @@
     "damage_type": "magic",
     "exp": 1900,
     "gold": 520,
-    "drops": [
-      {
-        "item": "arcane_ring",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "spectral_servant": {
@@ -3253,11 +1421,10 @@
     "damage_type": "magic",
     "exp": 1800,
     "gold": 500,
-    "drops": [
-      {
-        "item": "silver_necklace",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "ghostly_steward": {
@@ -3270,14 +1437,10 @@
     "exp": 2100,
     "gold": 580,
     "drop_groups": [
-      "set_t55"
+      "tier_11_all",
+      "tier_10_all"
     ],
-    "drops": [
-      {
-        "item": "holy_necklace",
-        "rate": "1/120"
-      }
-    ]
+    "drops": []
   },
   "arcane_anomaly": {
     "name": "奥术畸体",
@@ -3288,11 +1451,10 @@
     "damage_type": "magic",
     "exp": 2400,
     "gold": 680,
-    "drops": [
-      {
-        "item": "dragon_staff",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "lava_surger": {
@@ -3305,14 +1467,10 @@
     "exp": 2300,
     "gold": 650,
     "drop_groups": [
-      "set_t55"
+      "tier_11_all",
+      "tier_10_all"
     ],
-    "drops": [
-      {
-        "item": "fire_sword",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "fire_imp": {
     "name": "火焰小鬼",
@@ -3323,11 +1481,10 @@
     "damage_type": "magic",
     "exp": 1600,
     "gold": 450,
-    "drops": [
-      {
-        "item": "frost_ring",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "flamewaker": {
@@ -3339,11 +1496,10 @@
     "damage_type": "magic",
     "exp": 2800,
     "gold": 780,
-    "drops": [
-      {
-        "item": "dragon_ring",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "core_hound": {
@@ -3355,11 +1511,10 @@
     "damage_type": "physical",
     "exp": 3200,
     "gold": 900,
-    "drops": [
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "lava_elemental": {
@@ -3371,11 +1526,10 @@
     "damage_type": "magic",
     "exp": 3000,
     "gold": 850,
-    "drops": [
-      {
-        "item": "holy_armor",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "flamewaker_elite": {
@@ -3388,14 +1542,10 @@
     "exp": 4200,
     "gold": 1200,
     "drop_groups": [
-      "set_t65"
+      "tier_13_all",
+      "tier_12_all"
     ],
-    "drops": [
-      {
-        "item": "judgement",
-        "rate": "1/200"
-      }
-    ]
+    "drops": []
   },
   "ancient_core_hound": {
     "name": "上古熔火犬",
@@ -3406,11 +1556,10 @@
     "damage_type": "physical",
     "exp": 4800,
     "gold": 1400,
-    "drops": [
-      {
-        "item": "sun_sword",
-        "rate": "1/150"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "dark_iron_dwarf": {
@@ -3422,11 +1571,10 @@
     "damage_type": "physical",
     "exp": 3600,
     "gold": 1000,
-    "drops": [
-      {
-        "item": "heavy_armor",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_13_all",
+      "tier_12_all"
     ]
   },
   "molten_destroyer": {
@@ -3438,11 +1586,10 @@
     "damage_type": "magic",
     "exp": 5500,
     "gold": 1600,
-    "drops": [
-      {
-        "item": "dragon_sword",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "black_dragonkin": {
@@ -3454,14 +1601,10 @@
     "damage_type": "physical",
     "exp": 6000,
     "gold": 1800,
-    "drops": [
-      {
-        "item": "zuma_armor",
-        "rate": "1/60"
-      }
-    ],
+    "drops": [],
     "drop_groups": [
-      "set_t6_arcane"
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "dragonspawn": {
@@ -3473,11 +1616,10 @@
     "damage_type": "physical",
     "exp": 6500,
     "gold": 2000,
-    "drops": [
-      {
-        "item": "holy_armor",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "qiraji_warrior": {
@@ -3489,11 +1631,10 @@
     "damage_type": "physical",
     "exp": 2000,
     "gold": 550,
-    "drops": [
-      {
-        "item": "qiraji_shell",
-        "rate": "1/50"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_10_all",
+      "tier_9_all"
     ]
   },
   "anubisath_sentinel": {
@@ -3505,23 +1646,10 @@
     "damage_type": "physical",
     "exp": 2300,
     "gold": 620,
-    "drops": [
-      {
-        "item": "insect_belt_warrior",
-        "rate": "1/80"
-      },
-      {
-        "item": "insect_belt_mage",
-        "rate": "1/80"
-      },
-      {
-        "item": "insect_boots_warrior",
-        "rate": "1/100"
-      },
-      {
-        "item": "insect_boots_mage",
-        "rate": "1/100"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "obsidian_destroyer": {
@@ -3533,11 +1661,10 @@
     "damage_type": "magic",
     "exp": 2600,
     "gold": 700,
-    "drops": [
-      {
-        "item": "obsidian_shard",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_11_all",
+      "tier_10_all"
     ]
   },
   "rajaxx": {
@@ -3551,46 +1678,10 @@
     "gold": 6000,
     "is_boss": true,
     "drop_groups": [
-      "set_t4_insect"
+      "tier_12_all",
+      "tier_11_all"
     ],
-    "drops": [
-      {
-        "item": "rajaxx_insignia",
-        "rate": "1/10"
-      },
-      {
-        "item": "insect_helm_warrior",
-        "rate": "1/40"
-      },
-      {
-        "item": "insect_armor_warrior",
-        "rate": "1/60"
-      },
-      {
-        "item": "insect_belt_warrior",
-        "rate": "1/50"
-      },
-      {
-        "item": "insect_boots_warrior",
-        "rate": "1/50"
-      },
-      {
-        "item": "insect_helm_mage",
-        "rate": "1/40"
-      },
-      {
-        "item": "insect_armor_mage",
-        "rate": "1/60"
-      },
-      {
-        "item": "insect_belt_mage",
-        "rate": "1/50"
-      },
-      {
-        "item": "insect_boots_mage",
-        "rate": "1/50"
-      }
-    ]
+    "drops": []
   },
   "qiraji_emperor": {
     "name": "其拉帝王",
@@ -3601,11 +1692,10 @@
     "damage_type": "physical",
     "exp": 3200,
     "gold": 900,
-    "drops": [
-      {
-        "item": "emperor_seal",
-        "rate": "1/70"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_12_all",
+      "tier_11_all"
     ]
   },
   "anubisath_defender": {
@@ -3617,11 +1707,10 @@
     "damage_type": "physical",
     "exp": 3600,
     "gold": 1000,
-    "drops": [
-      {
-        "item": "defender_plate",
-        "rate": "1/90"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_13_all",
+      "tier_12_all"
     ]
   },
   "vekniss_warrior": {
@@ -3633,11 +1722,10 @@
     "damage_type": "physical",
     "exp": 4000,
     "gold": 1100,
-    "drops": [
-      {
-        "item": "vekniss_carapace",
-        "rate": "1/80"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_13_all",
+      "tier_12_all"
     ]
   },
   "cthun": {
@@ -3651,50 +1739,10 @@
     "gold": 10000,
     "is_boss": true,
     "drop_groups": [
-      "set_t5_qiraji"
+      "tier_14_all",
+      "tier_13_all"
     ],
-    "drops": [
-      {
-        "item": "eye_of_cthun",
-        "rate": "1/10"
-      },
-      {
-        "item": "qiraji_helm_warrior",
-        "rate": "1/35"
-      },
-      {
-        "item": "qiraji_armor_warrior",
-        "rate": "1/50"
-      },
-      {
-        "item": "qiraji_belt_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "qiraji_boots_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "qiraji_helm_mage",
-        "rate": "1/35"
-      },
-      {
-        "item": "qiraji_armor_mage",
-        "rate": "1/50"
-      },
-      {
-        "item": "qiraji_belt_mage",
-        "rate": "1/45"
-      },
-      {
-        "item": "qiraji_boots_mage",
-        "rate": "1/45"
-      },
-      {
-        "item": "thunderfury_legendary",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "gronn_priest": {
     "name": "戈隆祭司",
@@ -3705,14 +1753,10 @@
     "damage_type": "magic",
     "exp": 4500,
     "gold": 1300,
-    "drops": [
-      {
-        "item": "gronn_totem",
-        "rate": "1/70"
-      }
-    ],
+    "drops": [],
     "drop_groups": [
-      "set_t6_arcane"
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "lair_brute": {
@@ -3724,11 +1768,10 @@
     "damage_type": "physical",
     "exp": 4800,
     "gold": 1400,
-    "drops": [
-      {
-        "item": "brute_hide",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "wild_fel_stalker": {
@@ -3745,6 +1788,10 @@
         "item": "fel_essence",
         "rate": "1/50"
       }
+    ],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "gruul": {
@@ -3758,35 +1805,10 @@
     "gold": 12000,
     "is_boss": true,
     "drop_groups": [
-      "set_t4_dragonscale",
-      "set_t65"
+      "tier_15_all",
+      "tier_14_all"
     ],
-    "drops": [
-      {
-        "item": "gruul_eye",
-        "rate": "1/10"
-      },
-      {
-        "item": "dragonscale_helm_warrior",
-        "rate": "1/35"
-      },
-      {
-        "item": "dragonscale_armor_warrior",
-        "rate": "1/50"
-      },
-      {
-        "item": "dragonscale_belt_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "dragonscale_boots_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "dragonslayer_spear",
-        "rate": "1/60"
-      }
-    ]
+    "drops": []
   },
   "hellfire_channeler": {
     "name": "地狱火引导者",
@@ -3797,14 +1819,10 @@
     "damage_type": "magic",
     "exp": 4200,
     "gold": 1200,
-    "drops": [
-      {
-        "item": "hellfire_core",
-        "rate": "1/65"
-      }
-    ],
+    "drops": [],
     "drop_groups": [
-      "set_t6_arcane"
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "abyssal_guard": {
@@ -3816,11 +1834,10 @@
     "damage_type": "physical",
     "exp": 4600,
     "gold": 1350,
-    "drops": [
-      {
-        "item": "abyssal_plate",
-        "rate": "1/75"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "fel_orc_convert": {
@@ -3832,11 +1849,10 @@
     "damage_type": "physical",
     "exp": 4900,
     "gold": 1450,
-    "drops": [
-      {
-        "item": "fel_iron",
-        "rate": "1/55"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "magtheridon": {
@@ -3850,47 +1866,10 @@
     "gold": 12000,
     "is_boss": true,
     "drop_groups": [
-      "set_t4_abyss",
-      "set_t65"
+      "tier_15_all",
+      "tier_14_all"
     ],
-    "drops": [
-      {
-        "item": "magtheridon_head",
-        "rate": "1/10"
-      },
-      {
-        "item": "abyss_helm_warrior",
-        "rate": "1/35"
-      },
-      {
-        "item": "abyss_armor_warrior",
-        "rate": "1/50"
-      },
-      {
-        "item": "abyss_belt_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "abyss_boots_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "abyss_helm_mage",
-        "rate": "1/35"
-      },
-      {
-        "item": "abyss_armor_mage",
-        "rate": "1/50"
-      },
-      {
-        "item": "abyss_belt_mage",
-        "rate": "1/45"
-      },
-      {
-        "item": "abyss_boots_mage",
-        "rate": "1/45"
-      }
-    ]
+    "drops": []
   },
   "coilfang_elite": {
     "name": "盘牙精英",
@@ -3908,7 +1887,8 @@
       }
     ],
     "drop_groups": [
-      "set_t6_arcane"
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "tidewalker_warrior": {
@@ -3920,11 +1900,10 @@
     "damage_type": "physical",
     "exp": 4700,
     "gold": 1380,
-    "drops": [
-      {
-        "item": "tidewalker_pearl",
-        "rate": "1/70"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "naga_mystic": {
@@ -3936,11 +1915,10 @@
     "damage_type": "magic",
     "exp": 5100,
     "gold": 1520,
-    "drops": [
-      {
-        "item": "naga_pearl",
-        "rate": "1/50"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "lady_vashj": {
@@ -3954,47 +1932,10 @@
     "gold": 13000,
     "is_boss": true,
     "drop_groups": [
-      "set_t5_tidecaller",
-      "set_t65"
+      "tier_16_all",
+      "tier_15_all"
     ],
-    "drops": [
-      {
-        "item": "vashj_vial",
-        "rate": "1/10"
-      },
-      {
-        "item": "tidecaller_helm_warrior",
-        "rate": "1/35"
-      },
-      {
-        "item": "tidecaller_armor_warrior",
-        "rate": "1/50"
-      },
-      {
-        "item": "tidecaller_belt_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "tidecaller_boots_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "tidecaller_helm_mage",
-        "rate": "1/35"
-      },
-      {
-        "item": "tidecaller_armor_mage",
-        "rate": "1/50"
-      },
-      {
-        "item": "tidecaller_belt_mage",
-        "rate": "1/45"
-      },
-      {
-        "item": "tidecaller_boots_mage",
-        "rate": "1/45"
-      }
-    ]
+    "drops": []
   },
   "illidari_council": {
     "name": "伊利达雷议会",
@@ -4005,11 +1946,10 @@
     "damage_type": "magic",
     "exp": 4600,
     "gold": 1300,
-    "drops": [
-      {
-        "item": "council_signet",
-        "rate": "1/65"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "shadowmoon_soldier": {
@@ -4021,11 +1961,10 @@
     "damage_type": "physical",
     "exp": 4900,
     "gold": 1420,
-    "drops": [
-      {
-        "item": "shadowmoon_insignia",
-        "rate": "1/70"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "ashtongue_defender": {
@@ -4037,11 +1976,10 @@
     "damage_type": "physical",
     "exp": 5200,
     "gold": 1550,
-    "drops": [
-      {
-        "item": "ashtongue_blade",
-        "rate": "1/55"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "illidan": {
@@ -4055,51 +1993,10 @@
     "gold": 15000,
     "is_boss": true,
     "drop_groups": [
-      "set_t6_shadowfiend",
-      "set_t65"
+      "tier_16_all",
+      "tier_15_all"
     ],
-    "drops": [
-      {
-        "item": "illidan_soul",
-        "rate": "1/10"
-      },
-      {
-        "item": "warglaives",
-        "rate": "1/150"
-      },
-      {
-        "item": "shadowfiend_helm_warrior",
-        "rate": "1/30"
-      },
-      {
-        "item": "shadowfiend_armor_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "shadowfiend_belt_warrior",
-        "rate": "1/40"
-      },
-      {
-        "item": "shadowfiend_boots_warrior",
-        "rate": "1/40"
-      },
-      {
-        "item": "shadowfiend_helm_mage",
-        "rate": "1/30"
-      },
-      {
-        "item": "shadowfiend_armor_mage",
-        "rate": "1/45"
-      },
-      {
-        "item": "shadowfiend_belt_mage",
-        "rate": "1/40"
-      },
-      {
-        "item": "shadowfiend_boots_mage",
-        "rate": "1/40"
-      }
-    ]
+    "drops": []
   },
   "abyssal_infernal": {
     "name": "深渊地狱火",
@@ -4110,11 +2007,10 @@
     "damage_type": "physical",
     "exp": 4500,
     "gold": 1280,
-    "drops": [
-      {
-        "item": "infernal_core",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "fel_stalker": {
@@ -4131,6 +2027,10 @@
         "item": "fel_crystal",
         "rate": "1/65"
       }
+    ],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "necromancer": {
@@ -4142,11 +2042,10 @@
     "damage_type": "magic",
     "exp": 5000,
     "gold": 1500,
-    "drops": [
-      {
-        "item": "necro_tome",
-        "rate": "1/50"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "archimonde": {
@@ -4160,49 +2059,13 @@
     "gold": 15000,
     "is_boss": true,
     "drop_groups": [
-      "set_t6_fury",
-      "set_t65"
+      "tier_16_all",
+      "tier_15_all"
     ],
     "drops": [
       {
         "item": "archimonde_essence",
         "rate": "1/10"
-      },
-      {
-        "item": "fury_helm_warrior",
-        "rate": "1/30"
-      },
-      {
-        "item": "fury_armor_warrior",
-        "rate": "1/45"
-      },
-      {
-        "item": "fury_belt_warrior",
-        "rate": "1/40"
-      },
-      {
-        "item": "fury_boots_warrior",
-        "rate": "1/40"
-      },
-      {
-        "item": "fury_helm_mage",
-        "rate": "1/30"
-      },
-      {
-        "item": "fury_armor_mage",
-        "rate": "1/45"
-      },
-      {
-        "item": "fury_belt_mage",
-        "rate": "1/40"
-      },
-      {
-        "item": "fury_boots_mage",
-        "rate": "1/40"
-      },
-      {
-        "item": "sulfuras_legendary",
-        "rate": "1/150"
       }
     ]
   },
@@ -4215,11 +2078,10 @@
     "damage_type": "magic",
     "exp": 4600,
     "gold": 1300,
-    "drops": [
-      {
-        "item": "phoenix_feather",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "astromancer": {
@@ -4236,6 +2098,10 @@
         "item": "astral_essence",
         "rate": "1/65"
       }
+    ],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "bloodwarder": {
@@ -4247,11 +2113,10 @@
     "damage_type": "physical",
     "exp": 5000,
     "gold": 1500,
-    "drops": [
-      {
-        "item": "bloodwarder_sigil",
-        "rate": "1/55"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "kaelthas": {
@@ -4265,51 +2130,10 @@
     "gold": 14000,
     "is_boss": true,
     "drop_groups": [
-      "set_t5_phoenix",
-      "set_t65"
+      "tier_16_all",
+      "tier_15_all"
     ],
-    "drops": [
-      {
-        "item": "kaelthas_sphere",
-        "rate": "1/10"
-      },
-      {
-        "item": "phoenix_helm_warrior",
-        "rate": "1/32"
-      },
-      {
-        "item": "phoenix_armor_warrior",
-        "rate": "1/48"
-      },
-      {
-        "item": "phoenix_belt_warrior",
-        "rate": "1/42"
-      },
-      {
-        "item": "phoenix_boots_warrior",
-        "rate": "1/42"
-      },
-      {
-        "item": "phoenix_helm_mage",
-        "rate": "1/32"
-      },
-      {
-        "item": "phoenix_armor_mage",
-        "rate": "1/48"
-      },
-      {
-        "item": "phoenix_belt_mage",
-        "rate": "1/42"
-      },
-      {
-        "item": "phoenix_boots_mage",
-        "rate": "1/42"
-      },
-      {
-        "item": "thori_dal",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   },
   "sunblade_protector": {
     "name": "日刃守护者",
@@ -4320,11 +2144,10 @@
     "damage_type": "physical",
     "exp": 4700,
     "gold": 1350,
-    "drops": [
-      {
-        "item": "sunblade_insignia",
-        "rate": "1/60"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
     ]
   },
   "dawnblade_summoner": {
@@ -4341,6 +2164,10 @@
         "item": "dawn_crystal",
         "rate": "1/65"
       }
+    ],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "shadowsword_commander": {
@@ -4352,11 +2179,10 @@
     "damage_type": "physical",
     "exp": 5100,
     "gold": 1550,
-    "drops": [
-      {
-        "item": "shadowsword_medal",
-        "rate": "1/55"
-      }
+    "drops": [],
+    "drop_groups": [
+      "tier_15_all",
+      "tier_14_all"
     ]
   },
   "kiljaeden": {
@@ -4370,50 +2196,9 @@
     "gold": 18000,
     "is_boss": true,
     "drop_groups": [
-      "set_t6_sunfury",
-      "set_t65"
+      "tier_16_all",
+      "tier_15_all"
     ],
-    "drops": [
-      {
-        "item": "kiljaeden_crown",
-        "rate": "1/10"
-      },
-      {
-        "item": "sunfury_helm_warrior",
-        "rate": "1/28"
-      },
-      {
-        "item": "sunfury_armor_warrior",
-        "rate": "1/42"
-      },
-      {
-        "item": "sunfury_belt_warrior",
-        "rate": "1/38"
-      },
-      {
-        "item": "sunfury_boots_warrior",
-        "rate": "1/38"
-      },
-      {
-        "item": "sunfury_helm_mage",
-        "rate": "1/28"
-      },
-      {
-        "item": "sunfury_armor_mage",
-        "rate": "1/42"
-      },
-      {
-        "item": "sunfury_belt_mage",
-        "rate": "1/38"
-      },
-      {
-        "item": "sunfury_boots_mage",
-        "rate": "1/38"
-      },
-      {
-        "item": "dragonwrath",
-        "rate": "1/150"
-      }
-    ]
+    "drops": []
   }
 }

@@ -1,2182 +1,4227 @@
 {
-  "common_material": {
-    "name": "普通材料",
+  "tier_1_scatter_weapon": {
+    "name": "1-5级散件武器",
+    "tier": 1,
+    "level_range": "1-5",
     "drops": [
       {
-        "item": "chicken_meat",
-        "rate": "1/2"
-      },
-      {
-        "item": "deer_meat",
-        "rate": "1/3"
-      },
-      {
-        "item": "wolf_fang",
-        "rate": "1/5"
-      },
-      {
-        "item": "snake_venom",
-        "rate": "1/7"
-      }
-    ]
-  },
-  "zombie_drops": {
-    "name": "僵尸掉落",
-    "drops": [
-      {
-        "item": "zombie_meat",
-        "rate": "1/3"
-      },
-      {
-        "item": "bone_fragment",
-        "rate": "1/5"
-      }
-    ]
-  },
-  "woma_drops": {
-    "name": "沃玛掉落",
-    "drops": [
-      {
-        "item": "woma_horn",
-        "rate": "1/10"
-      },
-      {
-        "item": "magic_stone",
-        "rate": "1/8"
-      }
-    ]
-  },
-  "zuma_drops": {
-    "name": "祖玛掉落",
-    "drops": [
-      {
-        "item": "zuma_piece",
-        "rate": "1/6"
-      }
-    ]
-  },
-  "low_weapon": {
-    "name": "低级武器",
-    "drops": [
-      {
-        "item": "wooden_sword",
-        "rate": "1/50"
-      },
-      {
-        "item": "iron_sword",
-        "rate": "1/100"
-      },
-      {
-        "item": "wooden_staff",
-        "rate": "1/50"
-      },
-      {
-        "item": "wooden_wand",
-        "rate": "1/50"
-      }
-    ]
-  },
-  "mid_weapon": {
-    "name": "中级武器",
-    "drops": [
-      {
-        "item": "steel_sword",
-        "rate": "1/200"
-      },
-      {
-        "item": "mage_staff",
-        "rate": "1/200"
-      },
-      {
-        "item": "silver_wand",
-        "rate": "1/200"
-      }
-    ]
-  },
-  "high_weapon": {
-    "name": "高级武器",
-    "drops": [
-      {
-        "item": "dragon_sword",
-        "rate": "1/500"
-      },
-      {
-        "item": "bone_staff",
-        "rate": "1/500"
-      },
-      {
-        "item": "blood_wand",
-        "rate": "1/500"
-      },
-      {
-        "item": "judgement",
-        "rate": "1/2000"
-      },
-      {
-        "item": "dragon_staff",
-        "rate": "1/1000"
-      },
-      {
-        "item": "dragon_wand",
-        "rate": "1/1000"
-      }
-    ]
-  },
-  "low_armor": {
-    "name": "低级防具",
-    "drops": [
-      {
-        "item": "cloth_armor",
+        "item": "tier_1_mage_weapon",
         "rate": "1/30"
       },
       {
-        "item": "leather_armor",
+        "item": "tier_1_warrior_weapon",
+        "rate": "1/30"
+      }
+    ]
+  },
+  "tier_1_scatter_armor": {
+    "name": "1-5级散件防具",
+    "tier": 1,
+    "level_range": "1-5",
+    "drops": [
+      {
+        "item": "tier_1_mage_belt",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_mage_body",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_mage_boots",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_mage_helmet",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_belt",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_body",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_boots",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_helmet",
+        "rate": "1/20"
+      }
+    ]
+  },
+  "tier_1_all": {
+    "name": "1-5级全部装备",
+    "tier": 1,
+    "level_range": "1-5",
+    "drops": [
+      {
+        "item": "tier_1_mage_weapon",
+        "rate": "1/30"
+      },
+      {
+        "item": "tier_1_warrior_weapon",
+        "rate": "1/30"
+      },
+      {
+        "item": "tier_1_mage_belt",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_mage_body",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_mage_boots",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_mage_helmet",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_belt",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_body",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_boots",
+        "rate": "1/20"
+      },
+      {
+        "item": "tier_1_warrior_helmet",
+        "rate": "1/20"
+      }
+    ]
+  },
+  "tier_2_scatter_weapon": {
+    "name": "6-10级散件武器",
+    "tier": 2,
+    "level_range": "6-10",
+    "drops": [
+      {
+        "item": "tier_2_mage_weapon",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_2_warrior_weapon",
+        "rate": "1/50"
+      }
+    ]
+  },
+  "tier_2_scatter_armor": {
+    "name": "6-10级散件防具",
+    "tier": 2,
+    "level_range": "6-10",
+    "drops": [
+      {
+        "item": "tier_2_mage_belt",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_mage_body",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_mage_boots",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_mage_helmet",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_warrior_belt",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_warrior_body",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_warrior_boots",
+        "rate": "1/35"
+      },
+      {
+        "item": "tier_2_warrior_helmet",
+        "rate": "1/35"
+      }
+    ]
+  },
+  "tier_2_set_weapon": {
+    "name": "6-10级套装武器",
+    "tier": 2,
+    "level_range": "6-10",
+    "drops": [
+      {
+        "item": "set_2_mage_weapon",
+        "rate": "1/80"
+      },
+      {
+        "item": "set_2_warrior_weapon",
+        "rate": "1/80"
+      }
+    ]
+  },
+  "tier_2_set_armor": {
+    "name": "6-10级套装防具",
+    "tier": 2,
+    "level_range": "6-10",
+    "drops": [
+      {
+        "item": "set_2_mage_belt",
         "rate": "1/60"
       },
       {
-        "item": "leather_boots",
-        "rate": "1/30"
+        "item": "set_2_mage_body",
+        "rate": "1/60"
       },
       {
-        "item": "leather_belt",
-        "rate": "1/40"
+        "item": "set_2_mage_boots",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_bracelet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_bracelet2",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_helmet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_necklace",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_ring",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_ring2",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_belt",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_body",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_boots",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_bracelet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_bracelet2",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_helmet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_necklace",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_ring",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_ring2",
+        "rate": "1/60"
       }
     ]
   },
-  "mid_armor": {
-    "name": "中级防具",
+  "tier_2_all": {
+    "name": "6-10级全部装备",
+    "tier": 2,
+    "level_range": "6-10",
     "drops": [
       {
-        "item": "iron_armor",
-        "rate": "1/150"
+        "item": "tier_2_mage_weapon",
+        "rate": "1/50"
       },
       {
-        "item": "heavy_armor",
-        "rate": "1/300"
+        "item": "tier_2_warrior_weapon",
+        "rate": "1/50"
       },
       {
-        "item": "iron_helmet",
-        "rate": "1/150"
+        "item": "tier_2_mage_belt",
+        "rate": "1/35"
       },
       {
-        "item": "iron_boots",
-        "rate": "1/100"
+        "item": "tier_2_mage_body",
+        "rate": "1/35"
       },
       {
-        "item": "steel_boots",
-        "rate": "1/150"
+        "item": "tier_2_mage_boots",
+        "rate": "1/35"
       },
       {
-        "item": "bone_boots",
-        "rate": "1/180"
+        "item": "tier_2_mage_helmet",
+        "rate": "1/35"
       },
       {
-        "item": "iron_belt",
-        "rate": "1/150"
+        "item": "tier_2_warrior_belt",
+        "rate": "1/35"
       },
       {
-        "item": "magic_robe",
-        "rate": "1/150"
-      }
-    ]
-  },
-  "high_armor": {
-    "name": "高级防具",
-    "drops": [
-      {
-        "item": "holy_armor",
-        "rate": "1/800"
+        "item": "tier_2_warrior_body",
+        "rate": "1/35"
       },
       {
-        "item": "death_armor",
-        "rate": "1/600"
+        "item": "tier_2_warrior_boots",
+        "rate": "1/35"
       },
       {
-        "item": "zuma_armor",
-        "rate": "1/500"
+        "item": "tier_2_warrior_helmet",
+        "rate": "1/35"
       },
       {
-        "item": "zuma_helmet",
-        "rate": "1/400"
-      },
-      {
-        "item": "zuma_boots",
-        "rate": "1/300"
-      },
-      {
-        "item": "blood_boots",
-        "rate": "1/400"
-      },
-      {
-        "item": "holy_boots",
-        "rate": "1/500"
-      },
-      {
-        "item": "arcane_boots",
-        "rate": "1/450"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/600"
-      },
-      {
-        "item": "void_boots",
-        "rate": "1/800"
-      },
-      {
-        "item": "bone_helmet",
-        "rate": "1/300"
-      },
-      {
-        "item": "skeleton_helmet",
-        "rate": "1/400"
-      }
-    ]
-  },
-  "low_accessory": {
-    "name": "低级饰品",
-    "drops": [
-      {
-        "item": "bronze_ring",
-        "rate": "1/30"
-      },
-      {
-        "item": "bronze_necklace",
-        "rate": "1/30"
-      },
-      {
-        "item": "bronze_bracelet",
-        "rate": "1/30"
-      },
-      {
-        "item": "iron_ring",
+        "item": "set_2_mage_weapon",
         "rate": "1/80"
       },
       {
-        "item": "iron_bracelet",
+        "item": "set_2_warrior_weapon",
+        "rate": "1/80"
+      },
+      {
+        "item": "set_2_mage_belt",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_body",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_boots",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_bracelet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_bracelet2",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_helmet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_necklace",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_ring",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_mage_ring2",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_belt",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_body",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_boots",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_bracelet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_bracelet2",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_helmet",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_necklace",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_ring",
+        "rate": "1/60"
+      },
+      {
+        "item": "set_2_warrior_ring2",
+        "rate": "1/60"
+      }
+    ]
+  },
+  "tier_3_scatter_weapon": {
+    "name": "11-15级散件武器",
+    "tier": 3,
+    "level_range": "11-15",
+    "drops": [
+      {
+        "item": "tier_3_mage_weapon",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_3_warrior_weapon",
         "rate": "1/80"
       }
     ]
   },
-  "mid_accessory": {
-    "name": "中级饰品",
+  "tier_3_scatter_armor": {
+    "name": "11-15级散件防具",
+    "tier": 3,
+    "level_range": "11-15",
     "drops": [
       {
-        "item": "poison_ring",
-        "rate": "1/200"
+        "item": "tier_3_mage_belt",
+        "rate": "1/50"
       },
       {
-        "item": "silver_necklace",
-        "rate": "1/150"
+        "item": "tier_3_mage_body",
+        "rate": "1/50"
       },
       {
-        "item": "bone_bracelet",
-        "rate": "1/200"
+        "item": "tier_3_mage_boots",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_mage_helmet",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_belt",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_body",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_boots",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_helmet",
+        "rate": "1/50"
       }
     ]
   },
-  "high_accessory": {
-    "name": "高级饰品",
+  "tier_3_set_weapon": {
+    "name": "11-15级套装武器",
+    "tier": 3,
+    "level_range": "11-15",
     "drops": [
       {
-        "item": "corpse_king_ring",
-        "rate": "1/500"
+        "item": "set_3_mage_weapon",
+        "rate": "1/120"
       },
       {
-        "item": "dragon_ring",
-        "rate": "1/1000"
-      },
-      {
-        "item": "death_necklace",
-        "rate": "1/600"
-      },
-      {
-        "item": "holy_necklace",
-        "rate": "1/800"
-      },
-      {
-        "item": "dragon_bracelet",
-        "rate": "1/800"
+        "item": "set_3_warrior_weapon",
+        "rate": "1/120"
       }
     ]
   },
-  "warrior_skillbook": {
-    "name": "战士技能书",
+  "tier_3_set_armor": {
+    "name": "11-15级套装防具",
+    "tier": 3,
+    "level_range": "11-15",
     "drops": [
       {
-        "item": "half_moon",
-        "rate": "1/500"
+        "item": "set_3_mage_belt",
+        "rate": "1/90"
       },
       {
-        "item": "fire_sword",
-        "rate": "1/1000"
+        "item": "set_3_mage_body",
+        "rate": "1/90"
       },
       {
-        "item": "sun_sword",
-        "rate": "1/2000"
+        "item": "set_3_mage_boots",
+        "rate": "1/90"
       },
       {
-        "item": "iron_body",
-        "rate": "1/300"
+        "item": "set_3_mage_bracelet",
+        "rate": "1/90"
       },
       {
-        "item": "stab_sword",
-        "rate": "1/200"
+        "item": "set_3_mage_bracelet2",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_helmet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_necklace",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_ring",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_ring2",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_belt",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_body",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_boots",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_bracelet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_bracelet2",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_helmet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_necklace",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_ring",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_ring2",
+        "rate": "1/90"
       }
     ]
   },
-  "mage_skillbook": {
-    "name": "法师技能书",
+  "tier_3_all": {
+    "name": "11-15级全部装备",
+    "tier": 3,
+    "level_range": "11-15",
     "drops": [
       {
-        "item": "meteor",
-        "rate": "1/1500"
+        "item": "tier_3_mage_weapon",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_3_warrior_weapon",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_3_mage_belt",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_mage_body",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_mage_boots",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_mage_helmet",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_belt",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_body",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_boots",
+        "rate": "1/50"
+      },
+      {
+        "item": "tier_3_warrior_helmet",
+        "rate": "1/50"
+      },
+      {
+        "item": "set_3_mage_weapon",
+        "rate": "1/120"
+      },
+      {
+        "item": "set_3_warrior_weapon",
+        "rate": "1/120"
+      },
+      {
+        "item": "set_3_mage_belt",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_body",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_boots",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_bracelet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_bracelet2",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_helmet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_necklace",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_ring",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_mage_ring2",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_belt",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_body",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_boots",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_bracelet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_bracelet2",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_helmet",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_necklace",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_ring",
+        "rate": "1/90"
+      },
+      {
+        "item": "set_3_warrior_ring2",
+        "rate": "1/90"
       }
     ]
   },
-  "taoist_skillbook": {
-    "name": "道士技能书",
+  "tier_4_scatter_weapon": {
+    "name": "16-20级散件武器",
+    "tier": 4,
+    "level_range": "16-20",
     "drops": [
       {
-        "item": "divine_shield",
-        "rate": "1/800"
+        "item": "tier_4_mage_weapon",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_4_warrior_weapon",
+        "rate": "1/120"
       }
     ]
   },
-  "boss_special": {
-    "name": "Boss特殊掉落",
+  "tier_4_scatter_armor": {
+    "name": "16-20级散件防具",
+    "tier": 4,
+    "level_range": "16-20",
     "drops": [
       {
-        "item": "blessing_oil",
-        "rate": "1/100"
+        "item": "tier_4_mage_belt",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_mage_body",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_mage_boots",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_mage_helmet",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_belt",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_body",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_boots",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_helmet",
+        "rate": "1/80"
       }
     ]
   },
-  "set_t0": {
-    "name": "T0套装(野性/魔导)",
+  "tier_4_set_weapon": {
+    "name": "16-20级套装武器",
+    "tier": 4,
+    "level_range": "16-20",
     "drops": [
       {
-        "item": "wildheart_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "wildheart_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "wildheart_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "wildheart_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "wildheart_necklace",
+        "item": "set_4_mage_weapon",
         "rate": "1/180"
       },
       {
-        "item": "wildheart_ring",
-        "rate": "1/180"
-      },
-      {
-        "item": "wildheart_ring2",
-        "rate": "1/180"
-      },
-      {
-        "item": "wildheart_bracelet",
-        "rate": "1/180"
-      },
-      {
-        "item": "wildheart_bracelet2",
-        "rate": "1/180"
-      },
-      {
-        "item": "magister_helm",
-        "rate": "1/150"
-      },
-      {
-        "item": "magister_armor",
-        "rate": "1/150"
-      },
-      {
-        "item": "magister_belt",
-        "rate": "1/150"
-      },
-      {
-        "item": "magister_boots",
-        "rate": "1/150"
-      },
-      {
-        "item": "magister_necklace",
-        "rate": "1/180"
-      },
-      {
-        "item": "magister_ring",
-        "rate": "1/180"
-      },
-      {
-        "item": "magister_ring2",
-        "rate": "1/180"
-      },
-      {
-        "item": "magister_bracelet",
-        "rate": "1/180"
-      },
-      {
-        "item": "magister_bracelet2",
+        "item": "set_4_warrior_weapon",
         "rate": "1/180"
       }
     ]
   },
-  "set_t20": {
-    "name": "20级套装(勇气/光辉/自然)",
+  "tier_4_set_armor": {
+    "name": "16-20级套装防具",
+    "tier": 4,
+    "level_range": "16-20",
     "drops": [
       {
-        "item": "courage_helm",
-        "rate": "1/200"
+        "item": "set_4_mage_belt",
+        "rate": "1/140"
       },
       {
-        "item": "courage_armor",
-        "rate": "1/200"
+        "item": "set_4_mage_body",
+        "rate": "1/140"
       },
       {
-        "item": "courage_belt",
-        "rate": "1/200"
+        "item": "set_4_mage_boots",
+        "rate": "1/140"
       },
       {
-        "item": "courage_boots",
-        "rate": "1/200"
+        "item": "set_4_mage_bracelet",
+        "rate": "1/140"
       },
       {
-        "item": "courage_necklace",
+        "item": "set_4_mage_bracelet2",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_helmet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_necklace",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_ring",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_ring2",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_belt",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_body",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_boots",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_bracelet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_bracelet2",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_helmet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_necklace",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_ring",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_ring2",
+        "rate": "1/140"
+      }
+    ]
+  },
+  "tier_4_all": {
+    "name": "16-20级全部装备",
+    "tier": 4,
+    "level_range": "16-20",
+    "drops": [
+      {
+        "item": "tier_4_mage_weapon",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_4_warrior_weapon",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_4_mage_belt",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_mage_body",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_mage_boots",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_mage_helmet",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_belt",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_body",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_boots",
+        "rate": "1/80"
+      },
+      {
+        "item": "tier_4_warrior_helmet",
+        "rate": "1/80"
+      },
+      {
+        "item": "set_4_mage_weapon",
+        "rate": "1/180"
+      },
+      {
+        "item": "set_4_warrior_weapon",
+        "rate": "1/180"
+      },
+      {
+        "item": "set_4_mage_belt",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_body",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_boots",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_bracelet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_bracelet2",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_helmet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_necklace",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_ring",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_mage_ring2",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_belt",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_body",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_boots",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_bracelet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_bracelet2",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_helmet",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_necklace",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_ring",
+        "rate": "1/140"
+      },
+      {
+        "item": "set_4_warrior_ring2",
+        "rate": "1/140"
+      }
+    ]
+  },
+  "tier_5_scatter_weapon": {
+    "name": "21-25级散件武器",
+    "tier": 5,
+    "level_range": "21-25",
+    "drops": [
+      {
+        "item": "tier_5_mage_weapon",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_5_warrior_weapon",
+        "rate": "1/180"
+      }
+    ]
+  },
+  "tier_5_scatter_armor": {
+    "name": "21-25级散件防具",
+    "tier": 5,
+    "level_range": "21-25",
+    "drops": [
+      {
+        "item": "tier_5_mage_belt",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_mage_body",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_mage_boots",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_mage_helmet",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_belt",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_body",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_boots",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_helmet",
+        "rate": "1/120"
+      }
+    ]
+  },
+  "tier_5_set_weapon": {
+    "name": "21-25级套装武器",
+    "tier": 5,
+    "level_range": "21-25",
+    "drops": [
+      {
+        "item": "set_5_mage_weapon",
         "rate": "1/250"
       },
       {
-        "item": "courage_ring",
-        "rate": "1/250"
-      },
-      {
-        "item": "courage_ring2",
-        "rate": "1/250"
-      },
-      {
-        "item": "courage_bracelet",
-        "rate": "1/250"
-      },
-      {
-        "item": "courage_bracelet2",
-        "rate": "1/250"
-      },
-      {
-        "item": "illumination_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "illumination_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "illumination_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "illumination_boots",
-        "rate": "1/200"
-      },
-      {
-        "item": "illumination_necklace",
-        "rate": "1/250"
-      },
-      {
-        "item": "illumination_ring",
-        "rate": "1/250"
-      },
-      {
-        "item": "illumination_ring2",
-        "rate": "1/250"
-      },
-      {
-        "item": "illumination_bracelet",
-        "rate": "1/250"
-      },
-      {
-        "item": "illumination_bracelet2",
-        "rate": "1/250"
-      },
-      {
-        "item": "nature_helm",
-        "rate": "1/200"
-      },
-      {
-        "item": "nature_armor",
-        "rate": "1/200"
-      },
-      {
-        "item": "nature_belt",
-        "rate": "1/200"
-      },
-      {
-        "item": "nature_boots",
-        "rate": "1/200"
-      },
-      {
-        "item": "nature_necklace",
-        "rate": "1/250"
-      },
-      {
-        "item": "nature_ring",
-        "rate": "1/250"
-      },
-      {
-        "item": "nature_ring2",
-        "rate": "1/250"
-      },
-      {
-        "item": "nature_bracelet",
-        "rate": "1/250"
-      },
-      {
-        "item": "nature_bracelet2",
+        "item": "set_5_warrior_weapon",
         "rate": "1/250"
       }
     ]
   },
-  "set_t25": {
-    "name": "25级套装(守护/奥秘/野性之灵)",
+  "tier_5_set_armor": {
+    "name": "21-25级套装防具",
+    "tier": 5,
+    "level_range": "21-25",
     "drops": [
       {
-        "item": "guardian_helm",
-        "rate": "1/250"
+        "item": "set_5_mage_belt",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_armor",
-        "rate": "1/250"
+        "item": "set_5_mage_body",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_belt",
-        "rate": "1/250"
+        "item": "set_5_mage_boots",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_boots",
-        "rate": "1/250"
+        "item": "set_5_mage_bracelet",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_necklace",
-        "rate": "1/300"
+        "item": "set_5_mage_bracelet2",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_ring",
-        "rate": "1/300"
+        "item": "set_5_mage_helmet",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_ring2",
-        "rate": "1/300"
+        "item": "set_5_mage_necklace",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_bracelet",
-        "rate": "1/300"
+        "item": "set_5_mage_ring",
+        "rate": "1/200"
       },
       {
-        "item": "guardian_bracelet2",
-        "rate": "1/300"
+        "item": "set_5_mage_ring2",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_helm",
-        "rate": "1/250"
+        "item": "set_5_warrior_belt",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_armor",
-        "rate": "1/250"
+        "item": "set_5_warrior_body",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_belt",
-        "rate": "1/250"
+        "item": "set_5_warrior_boots",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_boots",
-        "rate": "1/250"
+        "item": "set_5_warrior_bracelet",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_necklace",
-        "rate": "1/300"
+        "item": "set_5_warrior_bracelet2",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_ring",
-        "rate": "1/300"
+        "item": "set_5_warrior_helmet",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_ring2",
-        "rate": "1/300"
+        "item": "set_5_warrior_necklace",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_bracelet",
-        "rate": "1/300"
+        "item": "set_5_warrior_ring",
+        "rate": "1/200"
       },
       {
-        "item": "mystic_bracelet2",
-        "rate": "1/300"
-      },
-      {
-        "item": "spirit_helm",
-        "rate": "1/250"
-      },
-      {
-        "item": "spirit_armor",
-        "rate": "1/250"
-      },
-      {
-        "item": "spirit_belt",
-        "rate": "1/250"
-      },
-      {
-        "item": "spirit_boots",
-        "rate": "1/250"
-      },
-      {
-        "item": "spirit_necklace",
-        "rate": "1/300"
-      },
-      {
-        "item": "spirit_ring",
-        "rate": "1/300"
-      },
-      {
-        "item": "spirit_ring2",
-        "rate": "1/300"
-      },
-      {
-        "item": "spirit_bracelet",
-        "rate": "1/300"
-      },
-      {
-        "item": "spirit_bracelet2",
-        "rate": "1/300"
+        "item": "set_5_warrior_ring2",
+        "rate": "1/200"
       }
     ]
   },
-  "set_t1": {
-    "name": "T1套装(熔火/奥术/塞纳里奥)",
+  "tier_5_all": {
+    "name": "21-25级全部装备",
+    "tier": 5,
+    "level_range": "21-25",
     "drops": [
       {
-        "item": "molten_helm",
-        "rate": "1/300"
+        "item": "tier_5_mage_weapon",
+        "rate": "1/180"
       },
       {
-        "item": "molten_armor",
-        "rate": "1/300"
+        "item": "tier_5_warrior_weapon",
+        "rate": "1/180"
       },
       {
-        "item": "molten_belt",
-        "rate": "1/300"
+        "item": "tier_5_mage_belt",
+        "rate": "1/120"
       },
       {
-        "item": "molten_boots",
-        "rate": "1/300"
+        "item": "tier_5_mage_body",
+        "rate": "1/120"
       },
       {
-        "item": "molten_necklace",
+        "item": "tier_5_mage_boots",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_mage_helmet",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_belt",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_body",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_boots",
+        "rate": "1/120"
+      },
+      {
+        "item": "tier_5_warrior_helmet",
+        "rate": "1/120"
+      },
+      {
+        "item": "set_5_mage_weapon",
+        "rate": "1/250"
+      },
+      {
+        "item": "set_5_warrior_weapon",
+        "rate": "1/250"
+      },
+      {
+        "item": "set_5_mage_belt",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_body",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_boots",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_bracelet",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_bracelet2",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_helmet",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_necklace",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_ring",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_mage_ring2",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_belt",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_body",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_boots",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_bracelet",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_bracelet2",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_helmet",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_necklace",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_ring",
+        "rate": "1/200"
+      },
+      {
+        "item": "set_5_warrior_ring2",
+        "rate": "1/200"
+      }
+    ]
+  },
+  "tier_6_scatter_weapon": {
+    "name": "26-30级散件武器",
+    "tier": 6,
+    "level_range": "26-30",
+    "drops": [
+      {
+        "item": "tier_6_mage_weapon",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_6_warrior_weapon",
+        "rate": "1/250"
+      }
+    ]
+  },
+  "tier_6_scatter_armor": {
+    "name": "26-30级散件防具",
+    "tier": 6,
+    "level_range": "26-30",
+    "drops": [
+      {
+        "item": "tier_6_mage_belt",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_mage_body",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_mage_boots",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_mage_helmet",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_belt",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_body",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_boots",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_helmet",
+        "rate": "1/180"
+      }
+    ]
+  },
+  "tier_6_set_weapon": {
+    "name": "26-30级套装武器",
+    "tier": 6,
+    "level_range": "26-30",
+    "drops": [
+      {
+        "item": "set_6_mage_weapon",
         "rate": "1/350"
       },
       {
-        "item": "molten_ring",
-        "rate": "1/350"
-      },
-      {
-        "item": "molten_ring2",
-        "rate": "1/350"
-      },
-      {
-        "item": "molten_bracelet",
-        "rate": "1/350"
-      },
-      {
-        "item": "molten_bracelet2",
-        "rate": "1/350"
-      },
-      {
-        "item": "arcanist_helm",
-        "rate": "1/300"
-      },
-      {
-        "item": "arcanist_armor",
-        "rate": "1/300"
-      },
-      {
-        "item": "arcanist_belt",
-        "rate": "1/300"
-      },
-      {
-        "item": "arcanist_boots",
-        "rate": "1/300"
-      },
-      {
-        "item": "arcanist_necklace",
-        "rate": "1/350"
-      },
-      {
-        "item": "arcanist_ring",
-        "rate": "1/350"
-      },
-      {
-        "item": "arcanist_ring2",
-        "rate": "1/350"
-      },
-      {
-        "item": "arcanist_bracelet",
-        "rate": "1/350"
-      },
-      {
-        "item": "arcanist_bracelet2",
-        "rate": "1/350"
-      },
-      {
-        "item": "cenarion_helm",
-        "rate": "1/300"
-      },
-      {
-        "item": "cenarion_armor",
-        "rate": "1/300"
-      },
-      {
-        "item": "cenarion_belt",
-        "rate": "1/300"
-      },
-      {
-        "item": "cenarion_boots",
-        "rate": "1/300"
-      },
-      {
-        "item": "cenarion_necklace",
-        "rate": "1/350"
-      },
-      {
-        "item": "cenarion_ring",
-        "rate": "1/350"
-      },
-      {
-        "item": "cenarion_ring2",
-        "rate": "1/350"
-      },
-      {
-        "item": "cenarion_bracelet",
-        "rate": "1/350"
-      },
-      {
-        "item": "cenarion_bracelet2",
+        "item": "set_6_warrior_weapon",
         "rate": "1/350"
       }
     ]
   },
-  "set_t35": {
-    "name": "35级套装(烈焰/寒冰/剧毒)",
+  "tier_6_set_armor": {
+    "name": "26-30级套装防具",
+    "tier": 6,
+    "level_range": "26-30",
     "drops": [
       {
-        "item": "flame_helm",
-        "rate": "1/400"
+        "item": "set_6_mage_belt",
+        "rate": "1/280"
       },
       {
-        "item": "flame_armor",
-        "rate": "1/400"
+        "item": "set_6_mage_body",
+        "rate": "1/280"
       },
       {
-        "item": "flame_belt",
-        "rate": "1/400"
+        "item": "set_6_mage_boots",
+        "rate": "1/280"
       },
       {
-        "item": "flame_boots",
-        "rate": "1/400"
+        "item": "set_6_mage_bracelet",
+        "rate": "1/280"
       },
       {
-        "item": "flame_necklace",
-        "rate": "1/450"
+        "item": "set_6_mage_bracelet2",
+        "rate": "1/280"
       },
       {
-        "item": "flame_ring",
-        "rate": "1/450"
+        "item": "set_6_mage_helmet",
+        "rate": "1/280"
       },
       {
-        "item": "flame_ring2",
-        "rate": "1/450"
+        "item": "set_6_mage_necklace",
+        "rate": "1/280"
       },
       {
-        "item": "flame_bracelet",
-        "rate": "1/450"
+        "item": "set_6_mage_ring",
+        "rate": "1/280"
       },
       {
-        "item": "flame_bracelet2",
-        "rate": "1/450"
+        "item": "set_6_mage_ring2",
+        "rate": "1/280"
       },
       {
-        "item": "frost_helm",
-        "rate": "1/400"
+        "item": "set_6_warrior_belt",
+        "rate": "1/280"
       },
       {
-        "item": "frost_armor",
-        "rate": "1/400"
+        "item": "set_6_warrior_body",
+        "rate": "1/280"
       },
       {
-        "item": "frost_belt",
-        "rate": "1/400"
+        "item": "set_6_warrior_boots",
+        "rate": "1/280"
       },
       {
-        "item": "frost_boots",
-        "rate": "1/400"
+        "item": "set_6_warrior_bracelet",
+        "rate": "1/280"
       },
       {
-        "item": "frost_necklace",
-        "rate": "1/450"
+        "item": "set_6_warrior_bracelet2",
+        "rate": "1/280"
       },
       {
-        "item": "frost_ring",
-        "rate": "1/450"
+        "item": "set_6_warrior_helmet",
+        "rate": "1/280"
       },
       {
-        "item": "frost_ring2",
-        "rate": "1/450"
+        "item": "set_6_warrior_necklace",
+        "rate": "1/280"
       },
       {
-        "item": "frost_bracelet",
-        "rate": "1/450"
+        "item": "set_6_warrior_ring",
+        "rate": "1/280"
       },
       {
-        "item": "frost_bracelet2",
-        "rate": "1/450"
-      },
-      {
-        "item": "poison_helm",
-        "rate": "1/400"
-      },
-      {
-        "item": "poison_armor",
-        "rate": "1/400"
-      },
-      {
-        "item": "poison_belt",
-        "rate": "1/400"
-      },
-      {
-        "item": "poison_boots",
-        "rate": "1/400"
-      },
-      {
-        "item": "poison_necklace",
-        "rate": "1/450"
-      },
-      {
-        "item": "poison_ring",
-        "rate": "1/450"
-      },
-      {
-        "item": "poison_ring2",
-        "rate": "1/450"
-      },
-      {
-        "item": "poison_bracelet",
-        "rate": "1/450"
-      },
-      {
-        "item": "poison_bracelet2",
-        "rate": "1/450"
+        "item": "set_6_warrior_ring2",
+        "rate": "1/280"
       }
     ]
   },
-  "set_t40": {
-    "name": "40级套装(勇气/魔能/治愈)",
+  "tier_6_all": {
+    "name": "26-30级全部装备",
+    "tier": 6,
+    "level_range": "26-30",
     "drops": [
       {
-        "item": "valor_helm",
+        "item": "tier_6_mage_weapon",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_6_warrior_weapon",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_6_mage_belt",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_mage_body",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_mage_boots",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_mage_helmet",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_belt",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_body",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_boots",
+        "rate": "1/180"
+      },
+      {
+        "item": "tier_6_warrior_helmet",
+        "rate": "1/180"
+      },
+      {
+        "item": "set_6_mage_weapon",
+        "rate": "1/350"
+      },
+      {
+        "item": "set_6_warrior_weapon",
+        "rate": "1/350"
+      },
+      {
+        "item": "set_6_mage_belt",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_body",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_boots",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_bracelet",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_bracelet2",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_helmet",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_necklace",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_ring",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_mage_ring2",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_belt",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_body",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_boots",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_bracelet",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_bracelet2",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_helmet",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_necklace",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_ring",
+        "rate": "1/280"
+      },
+      {
+        "item": "set_6_warrior_ring2",
+        "rate": "1/280"
+      }
+    ]
+  },
+  "tier_7_scatter_weapon": {
+    "name": "31-35级散件武器",
+    "tier": 7,
+    "level_range": "31-35",
+    "drops": [
+      {
+        "item": "tier_7_mage_weapon",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_7_warrior_weapon",
+        "rate": "1/350"
+      }
+    ]
+  },
+  "tier_7_scatter_armor": {
+    "name": "31-35级散件防具",
+    "tier": 7,
+    "level_range": "31-35",
+    "drops": [
+      {
+        "item": "tier_7_mage_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_mage_body",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_mage_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_mage_helmet",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_body",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_helmet",
+        "rate": "1/250"
+      }
+    ]
+  },
+  "tier_7_set_weapon": {
+    "name": "31-35级套装武器",
+    "tier": 7,
+    "level_range": "31-35",
+    "drops": [
+      {
+        "item": "set_7_mage_weapon",
         "rate": "1/500"
       },
       {
-        "item": "valor_armor",
+        "item": "set_7_warrior_weapon",
+        "rate": "1/500"
+      }
+    ]
+  },
+  "tier_7_set_armor": {
+    "name": "31-35级套装防具",
+    "tier": 7,
+    "level_range": "31-35",
+    "drops": [
+      {
+        "item": "set_7_mage_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_body",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_bracelet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_bracelet2",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_helmet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_necklace",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_ring",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_ring2",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_body",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_bracelet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_bracelet2",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_helmet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_necklace",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_ring",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_ring2",
+        "rate": "1/400"
+      }
+    ]
+  },
+  "tier_7_all": {
+    "name": "31-35级全部装备",
+    "tier": 7,
+    "level_range": "31-35",
+    "drops": [
+      {
+        "item": "tier_7_mage_weapon",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_7_warrior_weapon",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_7_mage_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_mage_body",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_mage_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_mage_helmet",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_belt",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_body",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_boots",
+        "rate": "1/250"
+      },
+      {
+        "item": "tier_7_warrior_helmet",
+        "rate": "1/250"
+      },
+      {
+        "item": "set_7_mage_weapon",
         "rate": "1/500"
       },
       {
-        "item": "valor_belt",
+        "item": "set_7_warrior_weapon",
         "rate": "1/500"
       },
       {
-        "item": "valor_boots",
+        "item": "set_7_mage_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_body",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_bracelet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_bracelet2",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_helmet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_necklace",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_ring",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_mage_ring2",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_belt",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_body",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_boots",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_bracelet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_bracelet2",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_helmet",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_necklace",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_ring",
+        "rate": "1/400"
+      },
+      {
+        "item": "set_7_warrior_ring2",
+        "rate": "1/400"
+      }
+    ]
+  },
+  "tier_8_scatter_weapon": {
+    "name": "36-40级散件武器",
+    "tier": 8,
+    "level_range": "36-40",
+    "drops": [
+      {
+        "item": "tier_8_mage_weapon",
         "rate": "1/500"
       },
       {
-        "item": "valor_necklace",
-        "rate": "1/550"
-      },
-      {
-        "item": "valor_ring",
-        "rate": "1/550"
-      },
-      {
-        "item": "valor_ring2",
-        "rate": "1/550"
-      },
-      {
-        "item": "valor_bracelet",
-        "rate": "1/550"
-      },
-      {
-        "item": "valor_bracelet2",
-        "rate": "1/550"
-      },
-      {
-        "item": "arcane_helm",
+        "item": "tier_8_warrior_weapon",
         "rate": "1/500"
+      }
+    ]
+  },
+  "tier_8_scatter_armor": {
+    "name": "36-40级散件防具",
+    "tier": 8,
+    "level_range": "36-40",
+    "drops": [
+      {
+        "item": "tier_8_mage_belt",
+        "rate": "1/350"
       },
       {
-        "item": "arcane_armor",
-        "rate": "1/500"
+        "item": "tier_8_mage_body",
+        "rate": "1/350"
       },
       {
-        "item": "arcane_belt",
-        "rate": "1/500"
+        "item": "tier_8_mage_boots",
+        "rate": "1/350"
       },
       {
-        "item": "arcane_boots",
-        "rate": "1/500"
+        "item": "tier_8_mage_helmet",
+        "rate": "1/350"
       },
       {
-        "item": "arcane_necklace",
+        "item": "tier_8_warrior_belt",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_body",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_boots",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_helmet",
+        "rate": "1/350"
+      }
+    ]
+  },
+  "tier_8_set_weapon": {
+    "name": "36-40级套装武器",
+    "tier": 8,
+    "level_range": "36-40",
+    "drops": [
+      {
+        "item": "set_8_mage_weapon",
+        "rate": "1/700"
+      },
+      {
+        "item": "set_8_warrior_weapon",
+        "rate": "1/700"
+      }
+    ]
+  },
+  "tier_8_set_armor": {
+    "name": "36-40级套装防具",
+    "tier": 8,
+    "level_range": "36-40",
+    "drops": [
+      {
+        "item": "set_8_mage_belt",
         "rate": "1/550"
       },
       {
-        "item": "arcane_ring",
+        "item": "set_8_mage_body",
         "rate": "1/550"
       },
       {
-        "item": "arcane_ring2",
+        "item": "set_8_mage_boots",
         "rate": "1/550"
       },
       {
-        "item": "arcane_bracelet",
+        "item": "set_8_mage_bracelet",
         "rate": "1/550"
       },
       {
-        "item": "arcane_bracelet2",
+        "item": "set_8_mage_bracelet2",
         "rate": "1/550"
       },
       {
-        "item": "healing_helm",
-        "rate": "1/500"
-      },
-      {
-        "item": "healing_armor",
-        "rate": "1/500"
-      },
-      {
-        "item": "healing_belt",
-        "rate": "1/500"
-      },
-      {
-        "item": "healing_boots",
-        "rate": "1/500"
-      },
-      {
-        "item": "healing_necklace",
+        "item": "set_8_mage_helmet",
         "rate": "1/550"
       },
       {
-        "item": "healing_ring",
+        "item": "set_8_mage_necklace",
         "rate": "1/550"
       },
       {
-        "item": "healing_ring2",
+        "item": "set_8_mage_ring",
         "rate": "1/550"
       },
       {
-        "item": "healing_bracelet",
+        "item": "set_8_mage_ring2",
         "rate": "1/550"
       },
       {
-        "item": "healing_bracelet2",
+        "item": "set_8_warrior_belt",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_body",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_boots",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_bracelet",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_bracelet2",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_helmet",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_necklace",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_ring",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_ring2",
         "rate": "1/550"
       }
     ]
   },
-  "set_t2": {
-    "name": "T2套装(龙鳞/灵风/碎地)",
+  "tier_8_all": {
+    "name": "36-40级全部装备",
+    "tier": 8,
+    "level_range": "36-40",
     "drops": [
       {
-        "item": "dragon_helm",
-        "rate": "1/600"
+        "item": "tier_8_mage_weapon",
+        "rate": "1/500"
       },
       {
-        "item": "dragon_armor",
-        "rate": "1/600"
+        "item": "tier_8_warrior_weapon",
+        "rate": "1/500"
       },
       {
-        "item": "dragon_belt",
-        "rate": "1/600"
+        "item": "tier_8_mage_belt",
+        "rate": "1/350"
       },
       {
-        "item": "dragon_boots",
-        "rate": "1/600"
+        "item": "tier_8_mage_body",
+        "rate": "1/350"
       },
       {
-        "item": "dragon_necklace",
+        "item": "tier_8_mage_boots",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_mage_helmet",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_belt",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_body",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_boots",
+        "rate": "1/350"
+      },
+      {
+        "item": "tier_8_warrior_helmet",
+        "rate": "1/350"
+      },
+      {
+        "item": "set_8_mage_weapon",
         "rate": "1/700"
       },
       {
-        "item": "dragon_ring",
+        "item": "set_8_warrior_weapon",
         "rate": "1/700"
       },
       {
-        "item": "dragon_ring2",
+        "item": "set_8_mage_belt",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_body",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_boots",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_bracelet",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_bracelet2",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_helmet",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_necklace",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_ring",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_mage_ring2",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_belt",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_body",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_boots",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_bracelet",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_bracelet2",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_helmet",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_necklace",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_ring",
+        "rate": "1/550"
+      },
+      {
+        "item": "set_8_warrior_ring2",
+        "rate": "1/550"
+      }
+    ]
+  },
+  "tier_9_scatter_weapon": {
+    "name": "41-45级散件武器",
+    "tier": 9,
+    "level_range": "41-45",
+    "drops": [
+      {
+        "item": "tier_9_mage_weapon",
         "rate": "1/700"
       },
       {
-        "item": "dragon_bracelet",
-        "rate": "1/700"
-      },
-      {
-        "item": "dragon_bracelet2",
-        "rate": "1/700"
-      },
-      {
-        "item": "nether_helm",
-        "rate": "1/600"
-      },
-      {
-        "item": "nether_armor",
-        "rate": "1/600"
-      },
-      {
-        "item": "nether_belt",
-        "rate": "1/600"
-      },
-      {
-        "item": "nether_boots",
-        "rate": "1/600"
-      },
-      {
-        "item": "nether_necklace",
-        "rate": "1/700"
-      },
-      {
-        "item": "nether_ring",
-        "rate": "1/700"
-      },
-      {
-        "item": "nether_ring2",
-        "rate": "1/700"
-      },
-      {
-        "item": "nether_bracelet",
-        "rate": "1/700"
-      },
-      {
-        "item": "nether_bracelet2",
-        "rate": "1/700"
-      },
-      {
-        "item": "earth_helm",
-        "rate": "1/600"
-      },
-      {
-        "item": "earth_armor",
-        "rate": "1/600"
-      },
-      {
-        "item": "earth_belt",
-        "rate": "1/600"
-      },
-      {
-        "item": "earth_boots",
-        "rate": "1/600"
-      },
-      {
-        "item": "earth_necklace",
-        "rate": "1/700"
-      },
-      {
-        "item": "earth_ring",
-        "rate": "1/700"
-      },
-      {
-        "item": "earth_ring2",
-        "rate": "1/700"
-      },
-      {
-        "item": "earth_bracelet",
-        "rate": "1/700"
-      },
-      {
-        "item": "earth_bracelet2",
+        "item": "tier_9_warrior_weapon",
         "rate": "1/700"
       }
     ]
   },
-  "set_t4_insect": {
-    "name": "T4昆虫套装",
+  "tier_9_scatter_armor": {
+    "name": "41-45级散件防具",
+    "tier": 9,
+    "level_range": "41-45",
     "drops": [
       {
-        "item": "insect_helm_warrior",
+        "item": "tier_9_mage_belt",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_mage_body",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_mage_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_mage_helmet",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_belt",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_body",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_helmet",
+        "rate": "1/500"
+      }
+    ]
+  },
+  "tier_9_set_weapon": {
+    "name": "41-45级套装武器",
+    "tier": 9,
+    "level_range": "41-45",
+    "drops": [
+      {
+        "item": "set_9_mage_weapon",
+        "rate": "1/1000"
+      },
+      {
+        "item": "set_9_warrior_weapon",
+        "rate": "1/1000"
+      }
+    ]
+  },
+  "tier_9_set_armor": {
+    "name": "41-45级套装防具",
+    "tier": 9,
+    "level_range": "41-45",
+    "drops": [
+      {
+        "item": "set_9_mage_belt",
         "rate": "1/800"
       },
       {
-        "item": "insect_armor_warrior",
+        "item": "set_9_mage_body",
         "rate": "1/800"
       },
       {
-        "item": "insect_belt_warrior",
+        "item": "set_9_mage_boots",
         "rate": "1/800"
       },
       {
-        "item": "insect_boots_warrior",
+        "item": "set_9_mage_bracelet",
         "rate": "1/800"
       },
       {
-        "item": "insect_necklace_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "insect_ring_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "insect_ring2_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "insect_bracelet_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "insect_bracelet2_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "insect_helm_mage",
+        "item": "set_9_mage_bracelet2",
         "rate": "1/800"
       },
       {
-        "item": "insect_armor_mage",
+        "item": "set_9_mage_helmet",
         "rate": "1/800"
       },
       {
-        "item": "insect_belt_mage",
+        "item": "set_9_mage_necklace",
         "rate": "1/800"
       },
       {
-        "item": "insect_boots_mage",
+        "item": "set_9_mage_ring",
         "rate": "1/800"
       },
       {
-        "item": "insect_necklace_mage",
-        "rate": "1/900"
+        "item": "set_9_mage_ring2",
+        "rate": "1/800"
       },
       {
-        "item": "insect_ring_mage",
-        "rate": "1/900"
+        "item": "set_9_warrior_belt",
+        "rate": "1/800"
       },
       {
-        "item": "insect_ring2_mage",
-        "rate": "1/900"
+        "item": "set_9_warrior_body",
+        "rate": "1/800"
       },
       {
-        "item": "insect_bracelet_mage",
-        "rate": "1/900"
+        "item": "set_9_warrior_boots",
+        "rate": "1/800"
       },
       {
-        "item": "insect_bracelet2_mage",
-        "rate": "1/900"
+        "item": "set_9_warrior_bracelet",
+        "rate": "1/800"
+      },
+      {
+        "item": "set_9_warrior_bracelet2",
+        "rate": "1/800"
+      },
+      {
+        "item": "set_9_warrior_helmet",
+        "rate": "1/800"
+      },
+      {
+        "item": "set_9_warrior_necklace",
+        "rate": "1/800"
+      },
+      {
+        "item": "set_9_warrior_ring",
+        "rate": "1/800"
+      },
+      {
+        "item": "set_9_warrior_ring2",
+        "rate": "1/800"
       }
     ]
   },
-  "set_t55": {
-    "name": "55级套装(雷霆/虚空/暗影)",
+  "tier_9_all": {
+    "name": "41-45级全部装备",
+    "tier": 9,
+    "level_range": "41-45",
     "drops": [
       {
-        "item": "thunder_helm",
-        "rate": "1/900"
+        "item": "tier_9_mage_weapon",
+        "rate": "1/700"
       },
       {
-        "item": "thunder_armor",
-        "rate": "1/900"
+        "item": "tier_9_warrior_weapon",
+        "rate": "1/700"
       },
       {
-        "item": "thunder_belt",
-        "rate": "1/900"
+        "item": "tier_9_mage_belt",
+        "rate": "1/500"
       },
       {
-        "item": "thunder_boots",
-        "rate": "1/900"
+        "item": "tier_9_mage_body",
+        "rate": "1/500"
       },
       {
-        "item": "thunder_necklace",
+        "item": "tier_9_mage_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_mage_helmet",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_belt",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_body",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_boots",
+        "rate": "1/500"
+      },
+      {
+        "item": "tier_9_warrior_helmet",
+        "rate": "1/500"
+      },
+      {
+        "item": "set_9_mage_weapon",
         "rate": "1/1000"
       },
       {
-        "item": "thunder_ring",
+        "item": "set_9_warrior_weapon",
         "rate": "1/1000"
       },
       {
-        "item": "thunder_ring2",
-        "rate": "1/1000"
+        "item": "set_9_mage_belt",
+        "rate": "1/800"
       },
       {
-        "item": "thunder_bracelet",
-        "rate": "1/1000"
+        "item": "set_9_mage_body",
+        "rate": "1/800"
       },
       {
-        "item": "thunder_bracelet2",
-        "rate": "1/1000"
+        "item": "set_9_mage_boots",
+        "rate": "1/800"
       },
       {
-        "item": "void_helm",
-        "rate": "1/900"
+        "item": "set_9_mage_bracelet",
+        "rate": "1/800"
       },
       {
-        "item": "void_armor",
-        "rate": "1/900"
+        "item": "set_9_mage_bracelet2",
+        "rate": "1/800"
       },
       {
-        "item": "void_belt",
-        "rate": "1/900"
+        "item": "set_9_mage_helmet",
+        "rate": "1/800"
       },
       {
-        "item": "void_boots",
-        "rate": "1/900"
+        "item": "set_9_mage_necklace",
+        "rate": "1/800"
       },
       {
-        "item": "void_necklace",
-        "rate": "1/1000"
+        "item": "set_9_mage_ring",
+        "rate": "1/800"
       },
       {
-        "item": "void_ring",
-        "rate": "1/1000"
+        "item": "set_9_mage_ring2",
+        "rate": "1/800"
       },
       {
-        "item": "void_ring2",
-        "rate": "1/1000"
+        "item": "set_9_warrior_belt",
+        "rate": "1/800"
       },
       {
-        "item": "void_bracelet",
-        "rate": "1/1000"
+        "item": "set_9_warrior_body",
+        "rate": "1/800"
       },
       {
-        "item": "void_bracelet2",
-        "rate": "1/1000"
+        "item": "set_9_warrior_boots",
+        "rate": "1/800"
       },
       {
-        "item": "shadow_helm",
-        "rate": "1/900"
+        "item": "set_9_warrior_bracelet",
+        "rate": "1/800"
       },
       {
-        "item": "shadow_armor",
-        "rate": "1/900"
+        "item": "set_9_warrior_bracelet2",
+        "rate": "1/800"
       },
       {
-        "item": "shadow_belt",
-        "rate": "1/900"
+        "item": "set_9_warrior_helmet",
+        "rate": "1/800"
       },
       {
-        "item": "shadow_boots",
-        "rate": "1/900"
+        "item": "set_9_warrior_necklace",
+        "rate": "1/800"
       },
       {
-        "item": "shadow_necklace",
-        "rate": "1/1000"
+        "item": "set_9_warrior_ring",
+        "rate": "1/800"
       },
       {
-        "item": "shadow_ring",
-        "rate": "1/1000"
-      },
-      {
-        "item": "shadow_ring2",
-        "rate": "1/1000"
-      },
-      {
-        "item": "shadow_bracelet",
-        "rate": "1/1000"
-      },
-      {
-        "item": "shadow_bracelet2",
-        "rate": "1/1000"
+        "item": "set_9_warrior_ring2",
+        "rate": "1/800"
       }
     ]
   },
-  "set_t3": {
-    "name": "T3套装(冰冠/暗影/巫妖)",
+  "tier_10_scatter_weapon": {
+    "name": "46-50级散件武器",
+    "tier": 10,
+    "level_range": "46-50",
     "drops": [
       {
-        "item": "ice_helm",
-        "rate": "1/1500"
-      },
-      {
-        "item": "ice_armor",
-        "rate": "1/1500"
-      },
-      {
-        "item": "ice_belt",
-        "rate": "1/1500"
-      },
-      {
-        "item": "ice_boots",
-        "rate": "1/1500"
-      },
-      {
-        "item": "ice_necklace",
-        "rate": "1/1700"
-      },
-      {
-        "item": "ice_ring",
-        "rate": "1/1700"
-      },
-      {
-        "item": "ice_ring2",
-        "rate": "1/1700"
-      },
-      {
-        "item": "ice_bracelet",
-        "rate": "1/1700"
-      },
-      {
-        "item": "ice_bracelet2",
-        "rate": "1/1700"
-      },
-      {
-        "item": "shadow_helm",
-        "rate": "1/1500"
-      },
-      {
-        "item": "shadow_armor",
-        "rate": "1/1500"
-      },
-      {
-        "item": "shadow_belt",
-        "rate": "1/1500"
-      },
-      {
-        "item": "shadow_boots",
-        "rate": "1/1500"
-      },
-      {
-        "item": "shadow_necklace",
-        "rate": "1/1700"
-      },
-      {
-        "item": "shadow_ring",
-        "rate": "1/1700"
-      },
-      {
-        "item": "shadow_ring2",
-        "rate": "1/1700"
-      },
-      {
-        "item": "shadow_bracelet",
-        "rate": "1/1700"
-      },
-      {
-        "item": "shadow_bracelet2",
-        "rate": "1/1700"
-      },
-      {
-        "item": "lich_helm",
-        "rate": "1/1500"
-      },
-      {
-        "item": "lich_armor",
-        "rate": "1/1500"
-      },
-      {
-        "item": "lich_belt",
-        "rate": "1/1500"
-      },
-      {
-        "item": "lich_boots",
-        "rate": "1/1500"
-      },
-      {
-        "item": "lich_necklace",
-        "rate": "1/1700"
-      },
-      {
-        "item": "lich_ring",
-        "rate": "1/1700"
-      },
-      {
-        "item": "lich_ring2",
-        "rate": "1/1700"
-      },
-      {
-        "item": "lich_bracelet",
-        "rate": "1/1700"
-      },
-      {
-        "item": "lich_bracelet2",
-        "rate": "1/1700"
-      }
-    ]
-  },
-  "set_t65": {
-    "name": "65级套装(风暴/熔岩/神圣)",
-    "drops": [
-      {
-        "item": "storm_helm",
-        "rate": "1/1800"
-      },
-      {
-        "item": "storm_armor",
-        "rate": "1/1800"
-      },
-      {
-        "item": "storm_belt",
-        "rate": "1/1800"
-      },
-      {
-        "item": "storm_boots",
-        "rate": "1/1800"
-      },
-      {
-        "item": "storm_necklace",
-        "rate": "1/2000"
-      },
-      {
-        "item": "storm_ring",
-        "rate": "1/2000"
-      },
-      {
-        "item": "storm_ring2",
-        "rate": "1/2000"
-      },
-      {
-        "item": "storm_bracelet",
-        "rate": "1/2000"
-      },
-      {
-        "item": "storm_bracelet2",
-        "rate": "1/2000"
-      },
-      {
-        "item": "lava_helm",
-        "rate": "1/1800"
-      },
-      {
-        "item": "lava_armor",
-        "rate": "1/1800"
-      },
-      {
-        "item": "lava_belt",
-        "rate": "1/1800"
-      },
-      {
-        "item": "lava_boots",
-        "rate": "1/1800"
-      },
-      {
-        "item": "lava_necklace",
-        "rate": "1/2000"
-      },
-      {
-        "item": "lava_ring",
-        "rate": "1/2000"
-      },
-      {
-        "item": "lava_ring2",
-        "rate": "1/2000"
-      },
-      {
-        "item": "lava_bracelet",
-        "rate": "1/2000"
-      },
-      {
-        "item": "lava_bracelet2",
-        "rate": "1/2000"
-      },
-      {
-        "item": "divine_helm",
-        "rate": "1/1800"
-      },
-      {
-        "item": "divine_armor",
-        "rate": "1/1800"
-      },
-      {
-        "item": "divine_belt",
-        "rate": "1/1800"
-      },
-      {
-        "item": "divine_boots",
-        "rate": "1/1800"
-      },
-      {
-        "item": "divine_necklace",
-        "rate": "1/2000"
-      },
-      {
-        "item": "divine_ring",
-        "rate": "1/2000"
-      },
-      {
-        "item": "divine_ring2",
-        "rate": "1/2000"
-      },
-      {
-        "item": "divine_bracelet",
-        "rate": "1/2000"
-      },
-      {
-        "item": "divine_bracelet2",
-        "rate": "1/2000"
-      }
-    ]
-  },
-  "set_t5_qiraji": {
-    "name": "T5其拉套装",
-    "drops": [
-      {
-        "item": "qiraji_helm_warrior",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_armor_warrior",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_belt_warrior",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_boots_warrior",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_necklace_warrior",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_ring_warrior",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_ring2_warrior",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_bracelet_warrior",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_bracelet2_warrior",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_helm_mage",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_armor_mage",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_belt_mage",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_boots_mage",
-        "rate": "1/1500"
-      },
-      {
-        "item": "qiraji_necklace_mage",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_ring_mage",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_ring2_mage",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_bracelet_mage",
-        "rate": "1/1700"
-      },
-      {
-        "item": "qiraji_bracelet2_mage",
-        "rate": "1/1700"
-      }
-    ]
-  },
-  "set_t4_dragonscale": {
-    "name": "T4龙鳞套装",
-    "drops": [
-      {
-        "item": "dragonscale_helm_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "dragonscale_armor_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "dragonscale_belt_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "dragonscale_boots_warrior",
-        "rate": "1/900"
-      },
-      {
-        "item": "dragonscale_necklace_warrior",
+        "item": "tier_10_mage_weapon",
         "rate": "1/1000"
       },
       {
-        "item": "dragonscale_ring_warrior",
-        "rate": "1/1000"
-      },
-      {
-        "item": "dragonscale_ring2_warrior",
-        "rate": "1/1000"
-      },
-      {
-        "item": "dragonscale_bracelet_warrior",
-        "rate": "1/1000"
-      },
-      {
-        "item": "dragonscale_bracelet2_warrior",
+        "item": "tier_10_warrior_weapon",
         "rate": "1/1000"
       }
     ]
   },
-  "set_t4_abyss": {
-    "name": "T4深渊套装",
+  "tier_10_scatter_armor": {
+    "name": "46-50级散件防具",
+    "tier": 10,
+    "level_range": "46-50",
     "drops": [
       {
-        "item": "abyss_helm_warrior",
-        "rate": "1/900"
+        "item": "tier_10_mage_belt",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_armor_warrior",
-        "rate": "1/900"
+        "item": "tier_10_mage_body",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_belt_warrior",
-        "rate": "1/900"
+        "item": "tier_10_mage_boots",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_boots_warrior",
-        "rate": "1/900"
+        "item": "tier_10_mage_helmet",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_necklace_warrior",
-        "rate": "1/1000"
+        "item": "tier_10_warrior_belt",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_ring_warrior",
-        "rate": "1/1000"
+        "item": "tier_10_warrior_body",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_ring2_warrior",
-        "rate": "1/1000"
+        "item": "tier_10_warrior_boots",
+        "rate": "1/700"
       },
       {
-        "item": "abyss_bracelet_warrior",
-        "rate": "1/1000"
-      },
-      {
-        "item": "abyss_bracelet2_warrior",
-        "rate": "1/1000"
-      },
-      {
-        "item": "abyss_helm_mage",
-        "rate": "1/900"
-      },
-      {
-        "item": "abyss_armor_mage",
-        "rate": "1/900"
-      },
-      {
-        "item": "abyss_belt_mage",
-        "rate": "1/900"
-      },
-      {
-        "item": "abyss_boots_mage",
-        "rate": "1/900"
-      },
-      {
-        "item": "abyss_necklace_mage",
-        "rate": "1/1000"
-      },
-      {
-        "item": "abyss_ring_mage",
-        "rate": "1/1000"
-      },
-      {
-        "item": "abyss_ring2_mage",
-        "rate": "1/1000"
-      },
-      {
-        "item": "abyss_bracelet_mage",
-        "rate": "1/1000"
-      },
-      {
-        "item": "abyss_bracelet2_mage",
-        "rate": "1/1000"
+        "item": "tier_10_warrior_helmet",
+        "rate": "1/700"
       }
     ]
   },
-  "set_t5_tidecaller": {
-    "name": "T5潮汐套装",
+  "tier_10_set_weapon": {
+    "name": "46-50级套装武器",
+    "tier": 10,
+    "level_range": "46-50",
     "drops": [
       {
-        "item": "tidecaller_helm_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_armor_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_belt_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_boots_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_necklace_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_ring_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_ring2_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_bracelet_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_bracelet2_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_helm_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_armor_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_belt_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_boots_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "tidecaller_necklace_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_ring_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_ring2_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_bracelet_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "tidecaller_bracelet2_mage",
-        "rate": "1/1800"
-      }
-    ]
-  },
-  "set_t5_phoenix": {
-    "name": "T5凤凰套装",
-    "drops": [
-      {
-        "item": "phoenix_helm_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_armor_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_belt_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_boots_warrior",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_necklace_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_ring_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_ring2_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_bracelet_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_bracelet2_warrior",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_helm_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_armor_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_belt_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_boots_mage",
-        "rate": "1/1600"
-      },
-      {
-        "item": "phoenix_necklace_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_ring_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_ring2_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_bracelet_mage",
-        "rate": "1/1800"
-      },
-      {
-        "item": "phoenix_bracelet2_mage",
-        "rate": "1/1800"
-      }
-    ]
-  },
-  "set_t6_shadowfiend": {
-    "name": "T6影魔套装",
-    "drops": [
-      {
-        "item": "shadowfiend_helm_warrior",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_armor_warrior",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_belt_warrior",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_boots_warrior",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_necklace_warrior",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_ring_warrior",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_ring2_warrior",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_bracelet_warrior",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_bracelet2_warrior",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_helm_mage",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_armor_mage",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_belt_mage",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_boots_mage",
-        "rate": "1/2000"
-      },
-      {
-        "item": "shadowfiend_necklace_mage",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_ring_mage",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_ring2_mage",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_bracelet_mage",
-        "rate": "1/2200"
-      },
-      {
-        "item": "shadowfiend_bracelet2_mage",
-        "rate": "1/2200"
-      }
-    ]
-  },
-  "set_t6_fury": {
-    "name": "T6怒火套装",
-    "drops": [
-      {
-        "item": "fury_helm_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_armor_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_belt_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_boots_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_necklace_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_ring_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_ring2_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_bracelet_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_bracelet2_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_helm_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_armor_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_belt_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_boots_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "fury_necklace_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_ring_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_ring2_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_bracelet_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "fury_bracelet2_mage",
-        "rate": "1/2800"
-      }
-    ]
-  },
-  "set_t6_sunfury": {
-    "name": "T6日怒套装",
-    "drops": [
-      {
-        "item": "sunfury_helm_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_armor_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_belt_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_boots_warrior",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_necklace_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_ring_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_ring2_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_bracelet_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_bracelet2_warrior",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_helm_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_armor_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_belt_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_boots_mage",
-        "rate": "1/2500"
-      },
-      {
-        "item": "sunfury_necklace_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_ring_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_ring2_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_bracelet_mage",
-        "rate": "1/2800"
-      },
-      {
-        "item": "sunfury_bracelet2_mage",
-        "rate": "1/2800"
-      }
-    ]
-  },
-  "set_t6_arcane": {
-    "name": "70级奥术套装(arcane_warrior/mage)",
-    "drops": [
-      {
-        "item": "arcane_helm_warrior",
+        "item": "set_10_mage_weapon",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_armor_warrior",
+        "item": "set_10_warrior_weapon",
+        "rate": "1/1400"
+      }
+    ]
+  },
+  "tier_10_set_armor": {
+    "name": "46-50级套装防具",
+    "tier": 10,
+    "level_range": "46-50",
+    "drops": [
+      {
+        "item": "set_10_mage_belt",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_body",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_boots",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_bracelet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_bracelet2",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_helmet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_necklace",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_ring",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_ring2",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_belt",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_body",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_boots",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_bracelet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_bracelet2",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_helmet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_necklace",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_ring",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_ring2",
+        "rate": "1/1100"
+      }
+    ]
+  },
+  "tier_10_all": {
+    "name": "46-50级全部装备",
+    "tier": 10,
+    "level_range": "46-50",
+    "drops": [
+      {
+        "item": "tier_10_mage_weapon",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_10_warrior_weapon",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_10_mage_belt",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_mage_body",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_mage_boots",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_mage_helmet",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_warrior_belt",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_warrior_body",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_warrior_boots",
+        "rate": "1/700"
+      },
+      {
+        "item": "tier_10_warrior_helmet",
+        "rate": "1/700"
+      },
+      {
+        "item": "set_10_mage_weapon",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_belt_warrior",
+        "item": "set_10_warrior_weapon",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_boots_warrior",
+        "item": "set_10_mage_belt",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_body",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_boots",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_bracelet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_bracelet2",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_helmet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_necklace",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_ring",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_mage_ring2",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_belt",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_body",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_boots",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_bracelet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_bracelet2",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_helmet",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_necklace",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_ring",
+        "rate": "1/1100"
+      },
+      {
+        "item": "set_10_warrior_ring2",
+        "rate": "1/1100"
+      }
+    ]
+  },
+  "tier_11_scatter_weapon": {
+    "name": "51-55级散件武器",
+    "tier": 11,
+    "level_range": "51-55",
+    "drops": [
+      {
+        "item": "tier_11_mage_weapon",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_necklace_warrior",
+        "item": "tier_11_warrior_weapon",
+        "rate": "1/1400"
+      }
+    ]
+  },
+  "tier_11_scatter_armor": {
+    "name": "51-55级散件防具",
+    "tier": 11,
+    "level_range": "51-55",
+    "drops": [
+      {
+        "item": "tier_11_mage_belt",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_mage_body",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_mage_boots",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_mage_helmet",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_belt",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_body",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_boots",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_helmet",
+        "rate": "1/1000"
+      }
+    ]
+  },
+  "tier_11_set_weapon": {
+    "name": "51-55级套装武器",
+    "tier": 11,
+    "level_range": "51-55",
+    "drops": [
+      {
+        "item": "set_11_mage_weapon",
+        "rate": "1/2000"
+      },
+      {
+        "item": "set_11_warrior_weapon",
+        "rate": "1/2000"
+      }
+    ]
+  },
+  "tier_11_set_armor": {
+    "name": "51-55级套装防具",
+    "tier": 11,
+    "level_range": "51-55",
+    "drops": [
+      {
+        "item": "set_11_mage_belt",
         "rate": "1/1600"
       },
       {
-        "item": "arcane_ring_warrior",
+        "item": "set_11_mage_body",
         "rate": "1/1600"
       },
       {
-        "item": "arcane_ring2_warrior",
+        "item": "set_11_mage_boots",
         "rate": "1/1600"
       },
       {
-        "item": "arcane_bracelet_warrior",
+        "item": "set_11_mage_bracelet",
         "rate": "1/1600"
       },
       {
-        "item": "arcane_bracelet2_warrior",
+        "item": "set_11_mage_bracelet2",
         "rate": "1/1600"
       },
       {
-        "item": "arcane_helm_mage",
+        "item": "set_11_mage_helmet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_necklace",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_ring",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_ring2",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_belt",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_body",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_boots",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_bracelet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_bracelet2",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_helmet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_necklace",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_ring",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_ring2",
+        "rate": "1/1600"
+      }
+    ]
+  },
+  "tier_11_all": {
+    "name": "51-55级全部装备",
+    "tier": 11,
+    "level_range": "51-55",
+    "drops": [
+      {
+        "item": "tier_11_mage_weapon",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_armor_mage",
+        "item": "tier_11_warrior_weapon",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_belt_mage",
+        "item": "tier_11_mage_belt",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_mage_body",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_mage_boots",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_mage_helmet",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_belt",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_body",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_boots",
+        "rate": "1/1000"
+      },
+      {
+        "item": "tier_11_warrior_helmet",
+        "rate": "1/1000"
+      },
+      {
+        "item": "set_11_mage_weapon",
+        "rate": "1/2000"
+      },
+      {
+        "item": "set_11_warrior_weapon",
+        "rate": "1/2000"
+      },
+      {
+        "item": "set_11_mage_belt",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_body",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_boots",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_bracelet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_bracelet2",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_helmet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_necklace",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_ring",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_mage_ring2",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_belt",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_body",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_boots",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_bracelet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_bracelet2",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_helmet",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_necklace",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_ring",
+        "rate": "1/1600"
+      },
+      {
+        "item": "set_11_warrior_ring2",
+        "rate": "1/1600"
+      }
+    ]
+  },
+  "tier_12_scatter_weapon": {
+    "name": "56-60级散件武器",
+    "tier": 12,
+    "level_range": "56-60",
+    "drops": [
+      {
+        "item": "tier_12_mage_weapon",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_12_warrior_weapon",
+        "rate": "1/2000"
+      }
+    ]
+  },
+  "tier_12_scatter_armor": {
+    "name": "56-60级散件防具",
+    "tier": 12,
+    "level_range": "56-60",
+    "drops": [
+      {
+        "item": "tier_12_mage_belt",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_boots_mage",
+        "item": "tier_12_mage_body",
         "rate": "1/1400"
       },
       {
-        "item": "arcane_necklace_mage",
-        "rate": "1/1600"
+        "item": "tier_12_mage_boots",
+        "rate": "1/1400"
       },
       {
-        "item": "arcane_ring_mage",
-        "rate": "1/1600"
+        "item": "tier_12_mage_helmet",
+        "rate": "1/1400"
       },
       {
-        "item": "arcane_ring2_mage",
-        "rate": "1/1600"
+        "item": "tier_12_warrior_belt",
+        "rate": "1/1400"
       },
       {
-        "item": "arcane_bracelet_mage",
-        "rate": "1/1600"
+        "item": "tier_12_warrior_body",
+        "rate": "1/1400"
       },
       {
-        "item": "arcane_bracelet2_mage",
-        "rate": "1/1600"
+        "item": "tier_12_warrior_boots",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_warrior_helmet",
+        "rate": "1/1400"
+      }
+    ]
+  },
+  "tier_12_set_weapon": {
+    "name": "56-60级套装武器",
+    "tier": 12,
+    "level_range": "56-60",
+    "drops": [
+      {
+        "item": "set_12_mage_weapon",
+        "rate": "1/2800"
+      },
+      {
+        "item": "set_12_warrior_weapon",
+        "rate": "1/2800"
+      }
+    ]
+  },
+  "tier_12_set_armor": {
+    "name": "56-60级套装防具",
+    "tier": 12,
+    "level_range": "56-60",
+    "drops": [
+      {
+        "item": "set_12_mage_belt",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_body",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_boots",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_bracelet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_bracelet2",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_helmet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_necklace",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_ring",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_ring2",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_belt",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_body",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_boots",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_bracelet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_bracelet2",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_helmet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_necklace",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_ring",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_ring2",
+        "rate": "1/2200"
+      }
+    ]
+  },
+  "tier_12_all": {
+    "name": "56-60级全部装备",
+    "tier": 12,
+    "level_range": "56-60",
+    "drops": [
+      {
+        "item": "tier_12_mage_weapon",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_12_warrior_weapon",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_12_mage_belt",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_mage_body",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_mage_boots",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_mage_helmet",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_warrior_belt",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_warrior_body",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_warrior_boots",
+        "rate": "1/1400"
+      },
+      {
+        "item": "tier_12_warrior_helmet",
+        "rate": "1/1400"
+      },
+      {
+        "item": "set_12_mage_weapon",
+        "rate": "1/2800"
+      },
+      {
+        "item": "set_12_warrior_weapon",
+        "rate": "1/2800"
+      },
+      {
+        "item": "set_12_mage_belt",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_body",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_boots",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_bracelet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_bracelet2",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_helmet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_necklace",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_ring",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_mage_ring2",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_belt",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_body",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_boots",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_bracelet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_bracelet2",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_helmet",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_necklace",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_ring",
+        "rate": "1/2200"
+      },
+      {
+        "item": "set_12_warrior_ring2",
+        "rate": "1/2200"
+      }
+    ]
+  },
+  "tier_13_scatter_weapon": {
+    "name": "61-65级散件武器",
+    "tier": 13,
+    "level_range": "61-65",
+    "drops": [
+      {
+        "item": "tier_13_mage_weapon",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_13_warrior_weapon",
+        "rate": "1/2800"
+      }
+    ]
+  },
+  "tier_13_scatter_armor": {
+    "name": "61-65级散件防具",
+    "tier": 13,
+    "level_range": "61-65",
+    "drops": [
+      {
+        "item": "tier_13_mage_belt",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_mage_body",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_mage_boots",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_mage_helmet",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_belt",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_body",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_boots",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_helmet",
+        "rate": "1/2000"
+      }
+    ]
+  },
+  "tier_13_set_weapon": {
+    "name": "61-65级套装武器",
+    "tier": 13,
+    "level_range": "61-65",
+    "drops": [
+      {
+        "item": "set_13_mage_weapon",
+        "rate": "1/4000"
+      },
+      {
+        "item": "set_13_warrior_weapon",
+        "rate": "1/4000"
+      }
+    ]
+  },
+  "tier_13_set_armor": {
+    "name": "61-65级套装防具",
+    "tier": 13,
+    "level_range": "61-65",
+    "drops": [
+      {
+        "item": "set_13_mage_belt",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_body",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_boots",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_bracelet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_bracelet2",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_helmet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_necklace",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_ring",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_ring2",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_belt",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_body",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_boots",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_bracelet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_bracelet2",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_helmet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_necklace",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_ring",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_ring2",
+        "rate": "1/3200"
+      }
+    ]
+  },
+  "tier_13_all": {
+    "name": "61-65级全部装备",
+    "tier": 13,
+    "level_range": "61-65",
+    "drops": [
+      {
+        "item": "tier_13_mage_weapon",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_13_warrior_weapon",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_13_mage_belt",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_mage_body",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_mage_boots",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_mage_helmet",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_belt",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_body",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_boots",
+        "rate": "1/2000"
+      },
+      {
+        "item": "tier_13_warrior_helmet",
+        "rate": "1/2000"
+      },
+      {
+        "item": "set_13_mage_weapon",
+        "rate": "1/4000"
+      },
+      {
+        "item": "set_13_warrior_weapon",
+        "rate": "1/4000"
+      },
+      {
+        "item": "set_13_mage_belt",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_body",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_boots",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_bracelet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_bracelet2",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_helmet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_necklace",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_ring",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_mage_ring2",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_belt",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_body",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_boots",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_bracelet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_bracelet2",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_helmet",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_necklace",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_ring",
+        "rate": "1/3200"
+      },
+      {
+        "item": "set_13_warrior_ring2",
+        "rate": "1/3200"
+      }
+    ]
+  },
+  "tier_14_scatter_weapon": {
+    "name": "66-70级散件武器",
+    "tier": 14,
+    "level_range": "66-70",
+    "drops": [
+      {
+        "item": "tier_14_mage_weapon",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_14_warrior_weapon",
+        "rate": "1/4000"
+      }
+    ]
+  },
+  "tier_14_scatter_armor": {
+    "name": "66-70级散件防具",
+    "tier": 14,
+    "level_range": "66-70",
+    "drops": [
+      {
+        "item": "tier_14_mage_belt",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_mage_body",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_mage_boots",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_mage_helmet",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_belt",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_body",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_boots",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_helmet",
+        "rate": "1/2800"
+      }
+    ]
+  },
+  "tier_14_set_weapon": {
+    "name": "66-70级套装武器",
+    "tier": 14,
+    "level_range": "66-70",
+    "drops": [
+      {
+        "item": "set_14_mage_weapon",
+        "rate": "1/5500"
+      },
+      {
+        "item": "set_14_warrior_weapon",
+        "rate": "1/5500"
+      }
+    ]
+  },
+  "tier_14_set_armor": {
+    "name": "66-70级套装防具",
+    "tier": 14,
+    "level_range": "66-70",
+    "drops": [
+      {
+        "item": "set_14_mage_belt",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_body",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_boots",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_bracelet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_bracelet2",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_helmet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_necklace",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_ring",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_ring2",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_belt",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_body",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_boots",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_bracelet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_bracelet2",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_helmet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_necklace",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_ring",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_ring2",
+        "rate": "1/4500"
+      }
+    ]
+  },
+  "tier_14_all": {
+    "name": "66-70级全部装备",
+    "tier": 14,
+    "level_range": "66-70",
+    "drops": [
+      {
+        "item": "tier_14_mage_weapon",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_14_warrior_weapon",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_14_mage_belt",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_mage_body",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_mage_boots",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_mage_helmet",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_belt",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_body",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_boots",
+        "rate": "1/2800"
+      },
+      {
+        "item": "tier_14_warrior_helmet",
+        "rate": "1/2800"
+      },
+      {
+        "item": "set_14_mage_weapon",
+        "rate": "1/5500"
+      },
+      {
+        "item": "set_14_warrior_weapon",
+        "rate": "1/5500"
+      },
+      {
+        "item": "set_14_mage_belt",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_body",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_boots",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_bracelet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_bracelet2",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_helmet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_necklace",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_ring",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_mage_ring2",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_belt",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_body",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_boots",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_bracelet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_bracelet2",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_helmet",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_necklace",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_ring",
+        "rate": "1/4500"
+      },
+      {
+        "item": "set_14_warrior_ring2",
+        "rate": "1/4500"
+      }
+    ]
+  },
+  "tier_15_scatter_weapon": {
+    "name": "71-75级散件武器",
+    "tier": 15,
+    "level_range": "71-75",
+    "drops": [
+      {
+        "item": "tier_15_mage_weapon",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_15_warrior_weapon",
+        "rate": "1/5500"
+      }
+    ]
+  },
+  "tier_15_scatter_armor": {
+    "name": "71-75级散件防具",
+    "tier": 15,
+    "level_range": "71-75",
+    "drops": [
+      {
+        "item": "tier_15_mage_belt",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_mage_body",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_mage_boots",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_mage_helmet",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_belt",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_body",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_boots",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_helmet",
+        "rate": "1/4000"
+      }
+    ]
+  },
+  "tier_15_set_weapon": {
+    "name": "71-75级套装武器",
+    "tier": 15,
+    "level_range": "71-75",
+    "drops": [
+      {
+        "item": "set_15_mage_weapon",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_15_warrior_weapon",
+        "rate": "1/8000"
+      }
+    ]
+  },
+  "tier_15_set_armor": {
+    "name": "71-75级套装防具",
+    "tier": 15,
+    "level_range": "71-75",
+    "drops": [
+      {
+        "item": "set_15_mage_belt",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_body",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_boots",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_bracelet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_bracelet2",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_helmet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_necklace",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_ring",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_ring2",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_belt",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_body",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_boots",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_bracelet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_bracelet2",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_helmet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_necklace",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_ring",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_ring2",
+        "rate": "1/6500"
+      }
+    ]
+  },
+  "tier_15_all": {
+    "name": "71-75级全部装备",
+    "tier": 15,
+    "level_range": "71-75",
+    "drops": [
+      {
+        "item": "tier_15_mage_weapon",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_15_warrior_weapon",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_15_mage_belt",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_mage_body",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_mage_boots",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_mage_helmet",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_belt",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_body",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_boots",
+        "rate": "1/4000"
+      },
+      {
+        "item": "tier_15_warrior_helmet",
+        "rate": "1/4000"
+      },
+      {
+        "item": "set_15_mage_weapon",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_15_warrior_weapon",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_15_mage_belt",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_body",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_boots",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_bracelet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_bracelet2",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_helmet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_necklace",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_ring",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_mage_ring2",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_belt",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_body",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_boots",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_bracelet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_bracelet2",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_helmet",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_necklace",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_ring",
+        "rate": "1/6500"
+      },
+      {
+        "item": "set_15_warrior_ring2",
+        "rate": "1/6500"
+      }
+    ]
+  },
+  "tier_16_scatter_weapon": {
+    "name": "76-80级散件武器",
+    "tier": 16,
+    "level_range": "76-80",
+    "drops": [
+      {
+        "item": "tier_16_mage_weapon",
+        "rate": "1/8000"
+      },
+      {
+        "item": "tier_16_warrior_weapon",
+        "rate": "1/8000"
+      }
+    ]
+  },
+  "tier_16_scatter_armor": {
+    "name": "76-80级散件防具",
+    "tier": 16,
+    "level_range": "76-80",
+    "drops": [
+      {
+        "item": "tier_16_mage_belt",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_mage_body",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_mage_boots",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_mage_helmet",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_belt",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_body",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_boots",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_helmet",
+        "rate": "1/5500"
+      }
+    ]
+  },
+  "tier_16_set_weapon": {
+    "name": "76-80级套装武器",
+    "tier": 16,
+    "level_range": "76-80",
+    "drops": [
+      {
+        "item": "set_16_mage_weapon",
+        "rate": "1/10000"
+      },
+      {
+        "item": "set_16_warrior_weapon",
+        "rate": "1/10000"
+      }
+    ]
+  },
+  "tier_16_set_armor": {
+    "name": "76-80级套装防具",
+    "tier": 16,
+    "level_range": "76-80",
+    "drops": [
+      {
+        "item": "set_16_mage_belt",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_body",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_boots",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_bracelet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_bracelet2",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_helmet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_necklace",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_ring",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_ring2",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_belt",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_body",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_boots",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_bracelet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_bracelet2",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_helmet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_necklace",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_ring",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_ring2",
+        "rate": "1/8000"
+      }
+    ]
+  },
+  "tier_16_all": {
+    "name": "76-80级全部装备",
+    "tier": 16,
+    "level_range": "76-80",
+    "drops": [
+      {
+        "item": "tier_16_mage_weapon",
+        "rate": "1/8000"
+      },
+      {
+        "item": "tier_16_warrior_weapon",
+        "rate": "1/8000"
+      },
+      {
+        "item": "tier_16_mage_belt",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_mage_body",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_mage_boots",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_mage_helmet",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_belt",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_body",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_boots",
+        "rate": "1/5500"
+      },
+      {
+        "item": "tier_16_warrior_helmet",
+        "rate": "1/5500"
+      },
+      {
+        "item": "set_16_mage_weapon",
+        "rate": "1/10000"
+      },
+      {
+        "item": "set_16_warrior_weapon",
+        "rate": "1/10000"
+      },
+      {
+        "item": "set_16_mage_belt",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_body",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_boots",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_bracelet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_bracelet2",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_helmet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_necklace",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_ring",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_mage_ring2",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_belt",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_body",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_boots",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_bracelet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_bracelet2",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_helmet",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_necklace",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_ring",
+        "rate": "1/8000"
+      },
+      {
+        "item": "set_16_warrior_ring2",
+        "rate": "1/8000"
       }
     ]
   }

@@ -1,0 +1,206 @@
+{
+  "tiers": [
+    {
+      "tier": 1,
+      "level_range": "1-5",
+      "name": "新手档",
+      "description": "新手级装备",
+      "scatter_count": 5,
+      "set_count": 0,
+      "set_names": []
+    },
+    {
+      "tier": 2,
+      "level_range": "6-10",
+      "name": "初级档",
+      "description": "初级装备",
+      "scatter_count": 5,
+      "set_count": 1,
+      "set_names": ["新手套装"]
+    },
+    {
+      "tier": 3,
+      "level_range": "11-15",
+      "name": "低级档",
+      "description": "低级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["丛林套装", "秘法套装"]
+    },
+    {
+      "tier": 4,
+      "level_range": "16-20",
+      "name": "中低档",
+      "description": "中低级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["勇气套装", "光辉套装"]
+    },
+    {
+      "tier": 5,
+      "level_range": "21-25",
+      "name": "中级档",
+      "description": "中级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["守护套装", "奥秘套装"]
+    },
+    {
+      "tier": 6,
+      "level_range": "26-30",
+      "name": "中高档",
+      "description": "中高级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["熔火套装", "奥术套装"]
+    },
+    {
+      "tier": 7,
+      "level_range": "31-35",
+      "name": "高级档",
+      "description": "高级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["烈焰套装", "寒冰套装"]
+    },
+    {
+      "tier": 8,
+      "level_range": "36-40",
+      "name": "高级档2",
+      "description": "高级装备2",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["勇者套装", "魔能套装"]
+    },
+    {
+      "tier": 9,
+      "level_range": "41-45",
+      "name": "超高档",
+      "description": "超高级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["龙鳞套装", "灵风套装"]
+    },
+    {
+      "tier": 10,
+      "level_range": "46-50",
+      "name": "超高档2",
+      "description": "超高级装备2",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["雷霆套装", "虚空套装"]
+    },
+    {
+      "tier": 11,
+      "level_range": "51-55",
+      "name": "顶级档",
+      "description": "顶级装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["圣光套装", "暗影套装"]
+    },
+    {
+      "tier": 12,
+      "level_range": "56-60",
+      "name": "顶级档2",
+      "description": "顶级装备2",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["冰冠套装", "巫妖套装"]
+    },
+    {
+      "tier": 13,
+      "level_range": "61-65",
+      "name": "传奇档",
+      "description": "传奇装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["风暴套装", "熔岩套装"]
+    },
+    {
+      "tier": 14,
+      "level_range": "66-70",
+      "name": "传奇档2",
+      "description": "传奇装备2",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["奥术战铠", "奥术秘法"]
+    },
+    {
+      "tier": 15,
+      "level_range": "71-75",
+      "name": "神话档",
+      "description": "神话装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["深渊套装", "深渊魔纹"]
+    },
+    {
+      "tier": 16,
+      "level_range": "76-80",
+      "name": "终极档",
+      "description": "终极装备",
+      "scatter_count": 5,
+      "set_count": 2,
+      "set_names": ["终极套装", "终极套装"],
+      "legendary_count": 8
+    }
+  ],
+  "attribute_formulas": {
+    "warrior": {
+      "weapon": {
+        "attack": "tier * 8",
+        "variance": "±20%"
+      },
+      "armor": {
+        "defense": "tier * 5",
+        "hp_bonus": "tier * 30",
+        "variance": "±20%"
+      }
+    },
+    "mage": {
+      "weapon": {
+        "magic": "tier * 10",
+        "mp_bonus": "tier * 40",
+        "variance": "±20%"
+      },
+      "armor": {
+        "magic_defense": "tier * 6",
+        "mp_bonus": "tier * 40",
+        "variance": "±20%"
+      }
+    }
+  },
+  "scatter_vs_set": {
+    "scatter": {
+      "attribute_multiplier": 1.0,
+      "effects_count": "1-2"
+    },
+    "set_piece": {
+      "attribute_multiplier": 0.75,
+      "effects_count": 1
+    },
+    "set_bonuses": {
+      "2": {
+        "attribute_bonus": "20%",
+        "effects": "无额外特效"
+      },
+      "4": {
+        "attribute_bonus": "50%",
+        "effects": "额外特效1个"
+      },
+      "6": {
+        "attribute_bonus": "100%",
+        "effects": "额外特效2个"
+      },
+      "8": {
+        "attribute_bonus": "150%",
+        "effects": "额外特效3个"
+      },
+      "9": {
+        "attribute_bonus": "200%",
+        "effects": "终极特效1个"
+      }
+    }
+  }
+}

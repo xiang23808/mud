@@ -222,6 +222,7 @@ class CombatEngine:
                 "exp": int(m.get("exp", 10) * quality_bonus),
                 "gold": int(m.get("gold", 5) * quality_bonus),
                 "drops": m.get("drops", []),
+                "drop_groups": m.get("drop_groups", []),
                 "quality": quality,
                 "is_boss": m.get("is_boss", False),
                 "damage_type": damage_type,
@@ -377,7 +378,7 @@ class CombatEngine:
                 is_aoe = False
                 
                 # 技能使用 - 法师90%、道士80%、战士50%
-                skill_chance = {"mage": 0.9, "taoist": 0.8, "warrior": 0.5}.get(char_class, 0.5)
+                skill_chance = {"mage": 0.9, "taoist": 0.9, "warrior": 0.9}.get(char_class, 0.5)
                 if available_skills and player_mp > 0 and random.random() < skill_chance:
                     for skill in available_skills:
                         s_name = skill.get("name", "技能")

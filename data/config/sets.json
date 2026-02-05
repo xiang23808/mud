@@ -1,3090 +1,1837 @@
 {
-  "wildheart": {
-    "name": "野性套装",
+  "set_2_warrior": {
+    "id": "set_2_warrior",
+    "name": "新手套装",
     "class": [
-      "warrior",
-      "taoist"
+      "warrior"
     ],
-    "level": 15,
-    "pieces": [
-      "wildheart_helm",
-      "wildheart_armor",
-      "wildheart_belt",
-      "wildheart_boots",
-      "wildheart_necklace",
-      "wildheart_ring",
-      "wildheart_ring2",
-      "wildheart_bracelet",
-      "wildheart_bracelet2"
-    ],
+    "tier": 2,
+    "level_req": 6,
     "bonuses": {
       "2": {
-        "hp_bonus": 30,
-        "defense": 3,
-        "attack_bonus": 3
+        "attributes": {
+          "attack": 3,
+          "defense": 2
+        }
       },
       "4": {
-        "hp_bonus": 60,
-        "defense": 8,
-        "attack_bonus": 8,
-        "effects": {
-          "hit_rate": 0.01
-        }
+        "attributes": {
+          "attack": 8,
+          "defense": 5,
+          "hp": 30
+        },
+        "effects": {}
       },
       "6": {
-        "hp_bonus": 120,
-        "defense": 18,
-        "attack_bonus": 18,
-        "effects": {
-          "hit_rate": 0.02,
-          "dodge_rate": 0.02
-        }
+        "attributes": {
+          "attack": 16,
+          "defense": 10,
+          "hp": 60
+        },
+        "effects": {}
       },
       "8": {
-        "hp_bonus": 200,
-        "defense": 30,
-        "attack_bonus": 30,
-        "effects": {
-          "hit_rate": 0.03,
-          "dodge_rate": 0.03,
-          "crush_rate": 0.03
-        }
+        "attributes": {
+          "attack": 24,
+          "defense": 15,
+          "hp": 90
+        },
+        "effects": {}
       },
       "9": {
-        "hp_bonus": 100,
-        "defense": 15,
-        "attack_bonus": 15,
-        "effects": {
-          "double_attack": 0.05
-        }
+        "attributes": {
+          "attack": 32,
+          "defense": 20,
+          "hp": 120
+        },
+        "effects": {},
+        "description": "新手套装终极加成"
       }
     }
   },
-  "magister": {
-    "name": "魔导套装",
+  "set_2_mage": {
+    "id": "set_2_mage",
+    "name": "新手套装",
     "class": [
       "mage"
     ],
-    "level": 15,
-    "pieces": [
-      "magister_helm",
-      "magister_armor",
-      "magister_belt",
-      "magister_boots",
-      "magister_necklace",
-      "magister_ring",
-      "magister_ring2",
-      "magister_bracelet",
-      "magister_bracelet2"
-    ],
+    "tier": 2,
+    "level_req": 6,
     "bonuses": {
       "2": {
-        "mp_bonus": 50,
-        "magic_defense": 4,
-        "magic_bonus": 5
+        "attributes": {
+          "magic": 4,
+          "magic_defense": 2
+        }
       },
       "4": {
-        "mp_bonus": 100,
-        "magic_defense": 10,
-        "magic_bonus": 12,
-        "effects": {
-          "crit_rate": 0.01
-        }
+        "attributes": {
+          "magic": 10,
+          "magic_defense": 6,
+          "mp": 40
+        },
+        "effects": {}
       },
       "6": {
-        "mp_bonus": 200,
-        "magic_defense": 22,
-        "magic_bonus": 28,
-        "effects": {
-          "crit_rate": 0.02,
-          "crit_damage": 0.05
-        }
+        "attributes": {
+          "magic": 20,
+          "magic_defense": 12,
+          "mp": 80
+        },
+        "effects": {}
       },
       "8": {
-        "mp_bonus": 350,
-        "magic_defense": 40,
-        "magic_bonus": 50,
-        "effects": {
-          "crit_rate": 0.03,
-          "crit_damage": 0.1,
-          "extra_magic": 5
-        }
+        "attributes": {
+          "magic": 30,
+          "magic_defense": 18,
+          "mp": 120
+        },
+        "effects": {}
       },
       "9": {
-        "mp_bonus": 180,
-        "magic_defense": 20,
-        "magic_bonus": 25,
-        "effects": {
-          "double_attack": 0.05
-        }
+        "attributes": {
+          "magic": 40,
+          "magic_defense": 24,
+          "mp": 160
+        },
+        "effects": {},
+        "description": "新手套装终极加成"
       }
     }
   },
-  "courage": {
+  "set_3_warrior": {
+    "id": "set_3_warrior",
+    "name": "丛林套装",
+    "class": [
+      "warrior"
+    ],
+    "tier": 3,
+    "level_req": 11,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "attack": 4,
+          "defense": 3
+        }
+      },
+      "4": {
+        "attributes": {
+          "attack": 12,
+          "defense": 7,
+          "hp": 45
+        },
+        "effects": {}
+      },
+      "6": {
+        "attributes": {
+          "attack": 24,
+          "defense": 15,
+          "hp": 90
+        },
+        "effects": {}
+      },
+      "8": {
+        "attributes": {
+          "attack": 36,
+          "defense": 22,
+          "hp": 135
+        },
+        "effects": {}
+      },
+      "9": {
+        "attributes": {
+          "attack": 48,
+          "defense": 30,
+          "hp": 180
+        },
+        "effects": {},
+        "description": "丛林套装终极加成"
+      }
+    }
+  },
+  "set_3_mage": {
+    "id": "set_3_mage",
+    "name": "秘法套装",
+    "class": [
+      "mage"
+    ],
+    "tier": 3,
+    "level_req": 11,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "magic": 6,
+          "magic_defense": 3
+        }
+      },
+      "4": {
+        "attributes": {
+          "magic": 15,
+          "magic_defense": 9,
+          "mp": 60
+        },
+        "effects": {}
+      },
+      "6": {
+        "attributes": {
+          "magic": 30,
+          "magic_defense": 18,
+          "mp": 120
+        },
+        "effects": {}
+      },
+      "8": {
+        "attributes": {
+          "magic": 45,
+          "magic_defense": 27,
+          "mp": 180
+        },
+        "effects": {}
+      },
+      "9": {
+        "attributes": {
+          "magic": 60,
+          "magic_defense": 36,
+          "mp": 240
+        },
+        "effects": {},
+        "description": "秘法套装终极加成"
+      }
+    }
+  },
+  "set_4_warrior": {
+    "id": "set_4_warrior",
     "name": "勇气套装",
     "class": [
       "warrior"
     ],
-    "level": 20,
-    "pieces": [
-      "courage_helm",
-      "courage_armor",
-      "courage_belt",
-      "courage_boots",
-      "courage_necklace",
-      "courage_ring",
-      "courage_ring2",
-      "courage_bracelet",
-      "courage_bracelet2"
-    ],
+    "tier": 4,
+    "level_req": 16,
     "bonuses": {
       "2": {
-        "hp_bonus": 50,
-        "defense": 5,
-        "attack_bonus": 5
+        "attributes": {
+          "attack": 6,
+          "defense": 4
+        }
       },
       "4": {
-        "hp_bonus": 100,
-        "defense": 12,
-        "attack_bonus": 12,
-        "effects": {
-          "hit_rate": 0.02
-        }
+        "attributes": {
+          "attack": 16,
+          "defense": 10,
+          "hp": 60
+        },
+        "effects": {}
       },
       "6": {
-        "hp_bonus": 200,
-        "defense": 25,
-        "attack_bonus": 25,
-        "effects": {
-          "hit_rate": 0.03,
-          "block_rate": 0.02
-        }
+        "attributes": {
+          "attack": 32,
+          "defense": 20,
+          "hp": 120
+        },
+        "effects": {}
       },
       "8": {
-        "hp_bonus": 350,
-        "defense": 40,
-        "attack_bonus": 40,
-        "effects": {
-          "hit_rate": 0.04,
-          "block_rate": 0.03,
-          "block_amount": 0.05
-        }
+        "attributes": {
+          "attack": 48,
+          "defense": 30,
+          "hp": 180
+        },
+        "effects": {}
       },
       "9": {
-        "hp_bonus": 180,
-        "defense": 20,
-        "attack_bonus": 20,
-        "effects": {
-          "crush_rate": 0.05
-        }
+        "attributes": {
+          "attack": 64,
+          "defense": 40,
+          "hp": 240
+        },
+        "effects": {},
+        "description": "勇气套装终极加成"
       }
     }
   },
-  "illumination": {
+  "set_4_mage": {
+    "id": "set_4_mage",
     "name": "光辉套装",
     "class": [
       "mage"
     ],
-    "level": 20,
-    "pieces": [
-      "illumination_helm",
-      "illumination_armor",
-      "illumination_belt",
-      "illumination_boots",
-      "illumination_necklace",
-      "illumination_ring",
-      "illumination_ring2",
-      "illumination_bracelet",
-      "illumination_bracelet2"
-    ],
+    "tier": 4,
+    "level_req": 16,
     "bonuses": {
       "2": {
-        "mp_bonus": 70,
-        "magic_defense": 6,
-        "magic_bonus": 7
+        "attributes": {
+          "magic": 8,
+          "magic_defense": 4
+        }
       },
       "4": {
-        "mp_bonus": 140,
-        "magic_defense": 14,
-        "magic_bonus": 16,
+        "attributes": {
+          "magic": 20,
+          "magic_defense": 12,
+          "mp": 80
+        },
+        "effects": {}
+      },
+      "6": {
+        "attributes": {
+          "magic": 40,
+          "magic_defense": 24,
+          "mp": 160
+        },
+        "effects": {}
+      },
+      "8": {
+        "attributes": {
+          "magic": 60,
+          "magic_defense": 36,
+          "mp": 240
+        },
+        "effects": {}
+      },
+      "9": {
+        "attributes": {
+          "magic": 80,
+          "magic_defense": 48,
+          "mp": 320
+        },
+        "effects": {},
+        "description": "光辉套装终极加成"
+      }
+    }
+  },
+  "set_5_warrior": {
+    "id": "set_5_warrior",
+    "name": "守护套装",
+    "class": [
+      "warrior"
+    ],
+    "tier": 5,
+    "level_req": 21,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "attack": 8,
+          "defense": 5
+        }
+      },
+      "4": {
+        "attributes": {
+          "attack": 20,
+          "defense": 12,
+          "hp": 75
+        },
         "effects": {
           "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 280,
-        "magic_defense": 30,
-        "magic_bonus": 35,
+        "attributes": {
+          "attack": 40,
+          "defense": 25,
+          "hp": 150
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "extra_magic": 3
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "mp_bonus": 480,
-        "magic_defense": 50,
-        "magic_bonus": 60,
+        "attributes": {
+          "attack": 60,
+          "defense": 37,
+          "hp": 225
+        },
         "effects": {
-          "crit_rate": 0.04,
-          "extra_magic": 8,
-          "ignore_magic_def": 0.03
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 10
         }
       },
       "9": {
-        "mp_bonus": 250,
-        "magic_defense": 25,
-        "magic_bonus": 30,
+        "attributes": {
+          "attack": 80,
+          "defense": 50,
+          "hp": 300
+        },
         "effects": {
-          "splash_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 15,
+          "damage_reduction": 0.05
+        },
+        "description": "守护套装终极加成"
       }
     }
   },
-  "nature": {
-    "name": "自然套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 20,
-    "pieces": [
-      "nature_helm",
-      "nature_armor",
-      "nature_belt",
-      "nature_boots",
-      "nature_necklace",
-      "nature_ring",
-      "nature_ring2",
-      "nature_bracelet",
-      "nature_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 40,
-        "mp_bonus": 35,
-        "defense": 4,
-        "attack_bonus": 4,
-        "magic_bonus": 4
-      },
-      "4": {
-        "hp_bonus": 80,
-        "mp_bonus": 70,
-        "attack_bonus": 10,
-        "magic_bonus": 10,
-        "effects": {
-          "lifesteal": 0.01
-        }
-      },
-      "6": {
-        "hp_bonus": 160,
-        "mp_bonus": 140,
-        "attack_bonus": 20,
-        "magic_bonus": 20,
-        "effects": {
-          "lifesteal": 0.02,
-          "hp_on_hit": 2
-        }
-      },
-      "8": {
-        "hp_bonus": 280,
-        "mp_bonus": 240,
-        "attack_bonus": 35,
-        "magic_bonus": 35,
-        "effects": {
-          "lifesteal": 0.03,
-          "hp_on_hit": 5,
-          "mp_on_hit": 3
-        }
-      },
-      "9": {
-        "hp_bonus": 140,
-        "mp_bonus": 120,
-        "attack_bonus": 18,
-        "magic_bonus": 18,
-        "effects": {
-          "poison_damage": 3,
-          "poison_rounds": 2
-        }
-      }
-    }
-  },
-  "guardian": {
-    "name": "守护套装",
-    "class": [
-      "warrior"
-    ],
-    "level": 25,
-    "pieces": [
-      "guardian_helm",
-      "guardian_armor",
-      "guardian_belt",
-      "guardian_boots",
-      "guardian_necklace",
-      "guardian_ring",
-      "guardian_ring2",
-      "guardian_bracelet",
-      "guardian_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 70,
-        "defense": 7,
-        "attack_bonus": 7
-      },
-      "4": {
-        "hp_bonus": 140,
-        "defense": 16,
-        "attack_bonus": 16,
-        "effects": {
-          "block_rate": 0.02
-        }
-      },
-      "6": {
-        "hp_bonus": 280,
-        "defense": 35,
-        "attack_bonus": 35,
-        "effects": {
-          "block_rate": 0.03,
-          "block_amount": 0.05
-        }
-      },
-      "8": {
-        "hp_bonus": 480,
-        "defense": 55,
-        "attack_bonus": 55,
-        "effects": {
-          "block_rate": 0.04,
-          "block_amount": 0.1,
-          "damage_reduction": 0.03
-        }
-      },
-      "9": {
-        "hp_bonus": 250,
-        "defense": 28,
-        "attack_bonus": 28,
-        "effects": {
-          "reflect": 0.05
-        }
-      }
-    }
-  },
-  "mystic": {
+  "set_5_mage": {
+    "id": "set_5_mage",
     "name": "奥秘套装",
     "class": [
       "mage"
     ],
-    "level": 25,
-    "pieces": [
-      "mystic_helm",
-      "mystic_armor",
-      "mystic_belt",
-      "mystic_boots",
-      "mystic_necklace",
-      "mystic_ring",
-      "mystic_ring2",
-      "mystic_bracelet",
-      "mystic_bracelet2"
-    ],
+    "tier": 5,
+    "level_req": 21,
     "bonuses": {
       "2": {
-        "mp_bonus": 90,
-        "magic_defense": 8,
-        "magic_bonus": 9
+        "attributes": {
+          "magic": 10,
+          "magic_defense": 6
+        }
       },
       "4": {
-        "mp_bonus": 180,
-        "magic_defense": 18,
-        "magic_bonus": 21,
+        "attributes": {
+          "magic": 25,
+          "magic_defense": 15,
+          "mp": 100
+        },
         "effects": {
-          "crit_rate": 0.02,
-          "crit_damage": 0.05
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 360,
-        "magic_defense": 38,
-        "magic_bonus": 45,
+        "attributes": {
+          "magic": 50,
+          "magic_defense": 30,
+          "mp": 200
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "crit_damage": 0.1,
+          "crit_rate": 0.05,
           "extra_magic": 5
         }
       },
       "8": {
-        "mp_bonus": 620,
-        "magic_defense": 65,
-        "magic_bonus": 80,
+        "attributes": {
+          "magic": 75,
+          "magic_defense": 45,
+          "mp": 300
+        },
         "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.15,
+          "crit_rate": 0.08,
           "extra_magic": 10,
           "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 320,
-        "magic_defense": 33,
-        "magic_bonus": 40,
+        "attributes": {
+          "magic": 100,
+          "magic_defense": 60,
+          "mp": 400
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 15,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 10
+        },
+        "description": "奥秘套装终极加成"
       }
     }
   },
-  "spirit": {
-    "name": "野性之灵套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 25,
-    "pieces": [
-      "spirit_helm",
-      "spirit_armor",
-      "spirit_belt",
-      "spirit_boots",
-      "spirit_necklace",
-      "spirit_ring",
-      "spirit_ring2",
-      "spirit_bracelet",
-      "spirit_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 55,
-        "mp_bonus": 50,
-        "defense": 5,
-        "attack_bonus": 5,
-        "magic_bonus": 5
-      },
-      "4": {
-        "hp_bonus": 110,
-        "mp_bonus": 100,
-        "attack_bonus": 12,
-        "magic_bonus": 12,
-        "effects": {
-          "lifesteal": 0.02,
-          "hp_on_hit": 2
-        }
-      },
-      "6": {
-        "hp_bonus": 220,
-        "mp_bonus": 200,
-        "attack_bonus": 24,
-        "magic_bonus": 24,
-        "effects": {
-          "lifesteal": 0.03,
-          "hp_on_hit": 4,
-          "mp_on_hit": 3
-        }
-      },
-      "8": {
-        "hp_bonus": 380,
-        "mp_bonus": 340,
-        "attack_bonus": 42,
-        "magic_bonus": 42,
-        "effects": {
-          "lifesteal": 0.04,
-          "hp_on_hit": 8,
-          "mp_on_hit": 6,
-          "poison_damage": 2
-        }
-      },
-      "9": {
-        "hp_bonus": 190,
-        "mp_bonus": 170,
-        "attack_bonus": 21,
-        "magic_bonus": 21,
-        "effects": {
-          "poison_damage": 5,
-          "poison_rounds": 3
-        }
-      }
-    }
-  },
-  "molten": {
+  "set_6_warrior": {
+    "id": "set_6_warrior",
     "name": "熔火套装",
     "class": [
       "warrior"
     ],
-    "level": 30,
-    "pieces": [
-      "molten_helm",
-      "molten_armor",
-      "molten_belt",
-      "molten_boots",
-      "molten_necklace",
-      "molten_ring",
-      "molten_ring2",
-      "molten_bracelet",
-      "molten_bracelet2"
-    ],
+    "tier": 6,
+    "level_req": 26,
     "bonuses": {
       "2": {
-        "hp_bonus": 80,
-        "defense": 8,
-        "attack_bonus": 8
+        "attributes": {
+          "attack": 9,
+          "defense": 6
+        }
       },
       "4": {
-        "hp_bonus": 160,
-        "defense": 18,
-        "attack_bonus": 18,
+        "attributes": {
+          "attack": 24,
+          "defense": 15,
+          "hp": 90
+        },
         "effects": {
-          "reflect": 0.01,
-          "block_rate": 0.01
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 320,
-        "defense": 38,
-        "attack_bonus": 38,
+        "attributes": {
+          "attack": 48,
+          "defense": 30,
+          "hp": 180
+        },
         "effects": {
-          "reflect": 0.02,
-          "block_rate": 0.02,
-          "block_amount": 0.05
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "hp_bonus": 550,
-        "defense": 60,
-        "attack_bonus": 60,
+        "attributes": {
+          "attack": 72,
+          "defense": 45,
+          "hp": 270
+        },
         "effects": {
-          "reflect": 0.03,
-          "block_rate": 0.03,
-          "block_amount": 0.1,
-          "extra_phys": 5
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 12
         }
       },
       "9": {
-        "hp_bonus": 280,
-        "defense": 30,
-        "attack_bonus": 30,
+        "attributes": {
+          "attack": 96,
+          "defense": 60,
+          "hp": 360
+        },
         "effects": {
-          "crush_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 18,
+          "damage_reduction": 0.05
+        },
+        "description": "熔火套装终极加成"
       }
     }
   },
-  "arcanist": {
+  "set_6_mage": {
+    "id": "set_6_mage",
     "name": "奥术套装",
     "class": [
       "mage"
     ],
-    "level": 30,
-    "pieces": [
-      "arcanist_helm",
-      "arcanist_armor",
-      "arcanist_belt",
-      "arcanist_boots",
-      "arcanist_necklace",
-      "arcanist_ring",
-      "arcanist_ring2",
-      "arcanist_bracelet",
-      "arcanist_bracelet2"
-    ],
+    "tier": 6,
+    "level_req": 26,
     "bonuses": {
       "2": {
-        "mp_bonus": 100,
-        "magic_defense": 10,
-        "magic_bonus": 12
+        "attributes": {
+          "magic": 12,
+          "magic_defense": 7
+        }
       },
       "4": {
-        "mp_bonus": 200,
-        "magic_defense": 22,
-        "magic_bonus": 28,
+        "attributes": {
+          "magic": 30,
+          "magic_defense": 18,
+          "mp": 120
+        },
         "effects": {
-          "crit_rate": 0.02,
-          "crit_damage": 0.05
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 400,
-        "magic_defense": 46,
-        "magic_bonus": 58,
+        "attributes": {
+          "magic": 60,
+          "magic_defense": 36,
+          "mp": 240
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "crit_damage": 0.1,
-          "extra_magic": 5
+          "crit_rate": 0.05,
+          "extra_magic": 6
         }
       },
       "8": {
-        "mp_bonus": 680,
-        "magic_defense": 75,
-        "magic_bonus": 95,
+        "attributes": {
+          "magic": 90,
+          "magic_defense": 54,
+          "mp": 360
+        },
         "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.15,
-          "extra_magic": 10,
+          "crit_rate": 0.08,
+          "extra_magic": 12,
           "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 350,
-        "magic_defense": 38,
-        "magic_bonus": 48,
+        "attributes": {
+          "magic": 120,
+          "magic_defense": 72,
+          "mp": 480
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 18,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 12
+        },
+        "description": "奥术套装终极加成"
       }
     }
   },
-  "cenarion": {
-    "name": "塞纳里奥套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 30,
-    "pieces": [
-      "cenarion_helm",
-      "cenarion_armor",
-      "cenarion_belt",
-      "cenarion_boots",
-      "cenarion_necklace",
-      "cenarion_ring",
-      "cenarion_ring2",
-      "cenarion_bracelet",
-      "cenarion_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 50,
-        "mp_bonus": 45,
-        "defense": 5,
-        "attack_bonus": 5,
-        "magic_bonus": 5
-      },
-      "4": {
-        "hp_bonus": 100,
-        "mp_bonus": 90,
-        "attack_bonus": 12,
-        "magic_bonus": 12,
-        "effects": {
-          "lifesteal": 0.01,
-          "hp_on_hit": 2
-        }
-      },
-      "6": {
-        "hp_bonus": 200,
-        "mp_bonus": 180,
-        "attack_bonus": 24,
-        "magic_bonus": 24,
-        "effects": {
-          "lifesteal": 0.02,
-          "hp_on_hit": 4,
-          "mp_on_hit": 3
-        }
-      },
-      "8": {
-        "hp_bonus": 350,
-        "mp_bonus": 310,
-        "attack_bonus": 42,
-        "magic_bonus": 42,
-        "effects": {
-          "lifesteal": 0.03,
-          "hp_on_hit": 8,
-          "mp_on_hit": 6,
-          "poison_damage": 2
-        }
-      },
-      "9": {
-        "hp_bonus": 180,
-        "mp_bonus": 160,
-        "attack_bonus": 21,
-        "magic_bonus": 21,
-        "effects": {
-          "poison_damage": 5,
-          "poison_rounds": 3
-        }
-      }
-    }
-  },
-  "flame": {
+  "set_7_warrior": {
+    "id": "set_7_warrior",
     "name": "烈焰套装",
     "class": [
       "warrior"
     ],
-    "level": 35,
-    "pieces": [
-      "flame_helm",
-      "flame_armor",
-      "flame_belt",
-      "flame_boots",
-      "flame_necklace",
-      "flame_ring",
-      "flame_ring2",
-      "flame_bracelet",
-      "flame_bracelet2"
-    ],
+    "tier": 7,
+    "level_req": 31,
     "bonuses": {
       "2": {
-        "hp_bonus": 100,
-        "defense": 10,
-        "attack_bonus": 10
+        "attributes": {
+          "attack": 11,
+          "defense": 7
+        }
       },
       "4": {
-        "hp_bonus": 200,
-        "defense": 22,
-        "attack_bonus": 22,
+        "attributes": {
+          "attack": 28,
+          "defense": 17,
+          "hp": 105
+        },
         "effects": {
-          "crush_rate": 0.02,
-          "extra_phys": 3
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 400,
-        "defense": 48,
-        "attack_bonus": 48,
+        "attributes": {
+          "attack": 56,
+          "defense": 35,
+          "hp": 210
+        },
         "effects": {
-          "crush_rate": 0.03,
-          "extra_phys": 8,
-          "hit_rate": 0.02
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "hp_bonus": 680,
-        "defense": 75,
-        "attack_bonus": 75,
+        "attributes": {
+          "attack": 84,
+          "defense": 52,
+          "hp": 315
+        },
         "effects": {
-          "crush_rate": 0.04,
-          "extra_phys": 15,
-          "hit_rate": 0.03,
-          "ignore_defense": 0.03
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 14
         }
       },
       "9": {
-        "hp_bonus": 350,
-        "defense": 38,
-        "attack_bonus": 38,
+        "attributes": {
+          "attack": 112,
+          "defense": 70,
+          "hp": 420
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 21,
+          "damage_reduction": 0.05
+        },
+        "description": "烈焰套装终极加成"
       }
     }
   },
-  "frost": {
+  "set_7_mage": {
+    "id": "set_7_mage",
     "name": "寒冰套装",
     "class": [
       "mage"
     ],
-    "level": 35,
-    "pieces": [
-      "frost_helm",
-      "frost_armor",
-      "frost_belt",
-      "frost_boots",
-      "frost_necklace",
-      "frost_ring",
-      "frost_ring2",
-      "frost_bracelet",
-      "frost_bracelet2"
-    ],
+    "tier": 7,
+    "level_req": 31,
     "bonuses": {
       "2": {
-        "mp_bonus": 120,
-        "magic_defense": 12,
-        "magic_bonus": 14
+        "attributes": {
+          "magic": 14,
+          "magic_defense": 8
+        }
       },
       "4": {
-        "mp_bonus": 240,
-        "magic_defense": 26,
-        "magic_bonus": 32,
+        "attributes": {
+          "magic": 35,
+          "magic_defense": 21,
+          "mp": 140
+        },
         "effects": {
-          "crit_rate": 0.02,
-          "extra_magic": 5
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 480,
-        "magic_defense": 55,
-        "magic_bonus": 68,
+        "attributes": {
+          "magic": 70,
+          "magic_defense": 42,
+          "mp": 280
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "extra_magic": 12,
-          "crit_damage": 0.05
+          "crit_rate": 0.05,
+          "extra_magic": 7
         }
       },
       "8": {
-        "mp_bonus": 820,
-        "magic_defense": 90,
-        "magic_bonus": 110,
+        "attributes": {
+          "magic": 105,
+          "magic_defense": 63,
+          "mp": 420
+        },
         "effects": {
-          "crit_rate": 0.04,
-          "extra_magic": 20,
-          "crit_damage": 0.1,
+          "crit_rate": 0.08,
+          "extra_magic": 14,
           "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 420,
-        "magic_defense": 45,
-        "magic_bonus": 55,
+        "attributes": {
+          "magic": 140,
+          "magic_defense": 84,
+          "mp": 560
+        },
         "effects": {
-          "splash_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 21,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 14
+        },
+        "description": "寒冰套装终极加成"
       }
     }
   },
-  "poison": {
-    "name": "剧毒套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 35,
-    "pieces": [
-      "poison_helm",
-      "poison_armor",
-      "poison_belt",
-      "poison_boots",
-      "poison_necklace",
-      "poison_ring",
-      "poison_ring2",
-      "poison_bracelet",
-      "poison_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 70,
-        "mp_bonus": 65,
-        "defense": 7,
-        "attack_bonus": 7,
-        "magic_bonus": 7
-      },
-      "4": {
-        "hp_bonus": 140,
-        "mp_bonus": 130,
-        "attack_bonus": 16,
-        "magic_bonus": 16,
-        "effects": {
-          "lifesteal": 0.02,
-          "poison_damage": 2
-        }
-      },
-      "6": {
-        "hp_bonus": 280,
-        "mp_bonus": 260,
-        "attack_bonus": 32,
-        "magic_bonus": 32,
-        "effects": {
-          "lifesteal": 0.03,
-          "poison_damage": 4,
-          "hp_on_hit": 3
-        }
-      },
-      "8": {
-        "hp_bonus": 480,
-        "mp_bonus": 440,
-        "attack_bonus": 55,
-        "magic_bonus": 55,
-        "effects": {
-          "lifesteal": 0.04,
-          "poison_damage": 8,
-          "hp_on_hit": 6,
-          "mp_on_hit": 5
-        }
-      },
-      "9": {
-        "hp_bonus": 240,
-        "mp_bonus": 220,
-        "attack_bonus": 28,
-        "magic_bonus": 28,
-        "effects": {
-          "poison_damage": 12,
-          "poison_rounds": 4
-        }
-      }
-    }
-  },
-  "valor": {
-    "name": "勇气套装",
+  "set_8_warrior": {
+    "id": "set_8_warrior",
+    "name": "勇者套装",
     "class": [
       "warrior"
     ],
-    "level": 40,
-    "pieces": [
-      "valor_helm",
-      "valor_armor",
-      "valor_belt",
-      "valor_boots",
-      "valor_necklace",
-      "valor_ring",
-      "valor_ring2",
-      "valor_bracelet",
-      "valor_bracelet2"
-    ],
+    "tier": 8,
+    "level_req": 36,
     "bonuses": {
       "2": {
-        "hp_bonus": 120,
-        "defense": 12,
-        "attack_bonus": 12
+        "attributes": {
+          "attack": 12,
+          "defense": 8
+        }
       },
       "4": {
-        "hp_bonus": 240,
-        "defense": 26,
-        "attack_bonus": 26,
+        "attributes": {
+          "attack": 32,
+          "defense": 20,
+          "hp": 120
+        },
         "effects": {
-          "block_rate": 0.02,
-          "damage_reduction": 0.02
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 480,
-        "defense": 55,
-        "attack_bonus": 55,
+        "attributes": {
+          "attack": 64,
+          "defense": 40,
+          "hp": 240
+        },
         "effects": {
-          "block_rate": 0.03,
-          "damage_reduction": 0.04,
-          "block_amount": 0.05
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "hp_bonus": 820,
-        "defense": 85,
-        "attack_bonus": 85,
+        "attributes": {
+          "attack": 96,
+          "defense": 60,
+          "hp": 360
+        },
         "effects": {
-          "block_rate": 0.04,
-          "damage_reduction": 0.06,
-          "block_amount": 0.1,
-          "reflect": 0.02
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 16
         }
       },
       "9": {
-        "hp_bonus": 420,
-        "defense": 43,
-        "attack_bonus": 43,
+        "attributes": {
+          "attack": 128,
+          "defense": 80,
+          "hp": 480
+        },
         "effects": {
-          "crush_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 24,
+          "damage_reduction": 0.05
+        },
+        "description": "勇者套装终极加成"
       }
     }
   },
-  "arcane": {
+  "set_8_mage": {
+    "id": "set_8_mage",
     "name": "魔能套装",
     "class": [
       "mage"
     ],
-    "level": 40,
-    "pieces": [
-      "arcane_helm",
-      "arcane_armor",
-      "arcane_belt",
-      "arcane_boots",
-      "arcane_necklace",
-      "arcane_ring",
-      "arcane_ring2",
-      "arcane_bracelet",
-      "arcane_bracelet2"
-    ],
+    "tier": 8,
+    "level_req": 36,
     "bonuses": {
       "2": {
-        "mp_bonus": 140,
-        "magic_defense": 14,
-        "magic_bonus": 16
+        "attributes": {
+          "magic": 16,
+          "magic_defense": 9
+        }
       },
       "4": {
-        "mp_bonus": 280,
-        "magic_defense": 30,
-        "magic_bonus": 36,
+        "attributes": {
+          "magic": 40,
+          "magic_defense": 24,
+          "mp": 160
+        },
         "effects": {
-          "crit_rate": 0.02,
-          "crit_damage": 0.05
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 560,
-        "magic_defense": 62,
-        "magic_bonus": 75,
+        "attributes": {
+          "magic": 80,
+          "magic_defense": 48,
+          "mp": 320
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "crit_damage": 0.1,
+          "crit_rate": 0.05,
           "extra_magic": 8
         }
       },
       "8": {
-        "mp_bonus": 960,
-        "magic_defense": 105,
-        "magic_bonus": 125,
+        "attributes": {
+          "magic": 120,
+          "magic_defense": 72,
+          "mp": 480
+        },
         "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.15,
-          "extra_magic": 15,
+          "crit_rate": 0.08,
+          "extra_magic": 16,
           "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 480,
-        "magic_defense": 52,
-        "magic_bonus": 62,
+        "attributes": {
+          "magic": 160,
+          "magic_defense": 96,
+          "mp": 640
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 24,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 16
+        },
+        "description": "魔能套装终极加成"
       }
     }
   },
-  "healing": {
-    "name": "治愈套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 40,
-    "pieces": [
-      "healing_helm",
-      "healing_armor",
-      "healing_belt",
-      "healing_boots",
-      "healing_necklace",
-      "healing_ring",
-      "healing_ring2",
-      "healing_bracelet",
-      "healing_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 85,
-        "mp_bonus": 80,
-        "defense": 8,
-        "attack_bonus": 8,
-        "magic_bonus": 8
-      },
-      "4": {
-        "hp_bonus": 170,
-        "mp_bonus": 160,
-        "attack_bonus": 18,
-        "magic_bonus": 18,
-        "effects": {
-          "lifesteal": 0.02,
-          "hp_on_hit": 3
-        }
-      },
-      "6": {
-        "hp_bonus": 340,
-        "mp_bonus": 320,
-        "attack_bonus": 36,
-        "magic_bonus": 36,
-        "effects": {
-          "lifesteal": 0.03,
-          "hp_on_hit": 6,
-          "mp_on_hit": 5
-        }
-      },
-      "8": {
-        "hp_bonus": 580,
-        "mp_bonus": 540,
-        "attack_bonus": 62,
-        "magic_bonus": 62,
-        "effects": {
-          "lifesteal": 0.04,
-          "hp_on_hit": 10,
-          "mp_on_hit": 8,
-          "damage_reduction": 0.02
-        }
-      },
-      "9": {
-        "hp_bonus": 290,
-        "mp_bonus": 270,
-        "attack_bonus": 31,
-        "magic_bonus": 31,
-        "effects": {
-          "poison_damage": 6,
-          "poison_rounds": 3
-        }
-      }
-    }
-  },
-  "dragon": {
+  "set_9_warrior": {
+    "id": "set_9_warrior",
     "name": "龙鳞套装",
     "class": [
       "warrior"
     ],
-    "level": 45,
-    "pieces": [
-      "dragon_helm",
-      "dragon_armor",
-      "dragon_belt",
-      "dragon_boots",
-      "dragon_necklace",
-      "dragon_ring",
-      "dragon_ring2",
-      "dragon_bracelet",
-      "dragon_bracelet2"
-    ],
+    "tier": 9,
+    "level_req": 41,
     "bonuses": {
       "2": {
-        "hp_bonus": 150,
-        "defense": 15,
-        "attack_bonus": 15
+        "attributes": {
+          "attack": 14,
+          "defense": 9
+        }
       },
       "4": {
-        "hp_bonus": 300,
-        "defense": 35,
-        "attack_bonus": 35,
+        "attributes": {
+          "attack": 36,
+          "defense": 22,
+          "hp": 135
+        },
         "effects": {
-          "crush_rate": 0.02,
-          "block_rate": 0.01,
-          "block_amount": 0.05
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 600,
-        "defense": 70,
-        "attack_bonus": 70,
+        "attributes": {
+          "attack": 72,
+          "defense": 45,
+          "hp": 270
+        },
         "effects": {
-          "crush_rate": 0.03,
-          "block_rate": 0.02,
-          "block_amount": 0.1,
-          "extra_phys": 5
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "hp_bonus": 1000,
-        "defense": 110,
-        "attack_bonus": 110,
+        "attributes": {
+          "attack": 108,
+          "defense": 67,
+          "hp": 405
+        },
         "effects": {
-          "crush_rate": 0.04,
-          "block_rate": 0.03,
-          "block_amount": 0.15,
-          "extra_phys": 10,
-          "ignore_defense": 0.03
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 18
         }
       },
       "9": {
-        "hp_bonus": 520,
-        "defense": 55,
-        "attack_bonus": 55,
+        "attributes": {
+          "attack": 144,
+          "defense": 90,
+          "hp": 540
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 27,
+          "damage_reduction": 0.05
+        },
+        "description": "龙鳞套装终极加成"
       }
     }
   },
-  "nether": {
+  "set_9_mage": {
+    "id": "set_9_mage",
     "name": "灵风套装",
     "class": [
       "mage"
     ],
-    "level": 45,
-    "pieces": [
-      "nether_helm",
-      "nether_armor",
-      "nether_belt",
-      "nether_boots",
-      "nether_necklace",
-      "nether_ring",
-      "nether_ring2",
-      "nether_bracelet",
-      "nether_bracelet2"
-    ],
+    "tier": 9,
+    "level_req": 41,
     "bonuses": {
       "2": {
-        "mp_bonus": 180,
-        "magic_defense": 18,
-        "magic_bonus": 22
+        "attributes": {
+          "magic": 18,
+          "magic_defense": 10
+        }
       },
       "4": {
-        "mp_bonus": 360,
-        "magic_defense": 40,
-        "magic_bonus": 50,
+        "attributes": {
+          "magic": 45,
+          "magic_defense": 27,
+          "mp": 180
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "ignore_magic_def": 0.03
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 720,
-        "magic_defense": 80,
-        "magic_bonus": 100,
-        "effects": {
-          "crit_rate": 0.04,
-          "ignore_magic_def": 0.05,
-          "extra_magic": 8
-        }
-      },
-      "8": {
-        "mp_bonus": 1200,
-        "magic_defense": 130,
-        "magic_bonus": 160,
+        "attributes": {
+          "magic": 90,
+          "magic_defense": 54,
+          "mp": 360
+        },
         "effects": {
           "crit_rate": 0.05,
-          "ignore_magic_def": 0.08,
-          "extra_magic": 15,
-          "crit_damage": 0.05
-        }
-      },
-      "9": {
-        "mp_bonus": 620,
-        "magic_defense": 65,
-        "magic_bonus": 80,
-        "effects": {
-          "splash_rate": 0.05
-        }
-      }
-    }
-  },
-  "earth": {
-    "name": "碎地套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 45,
-    "pieces": [
-      "earth_helm",
-      "earth_armor",
-      "earth_belt",
-      "earth_boots",
-      "earth_necklace",
-      "earth_ring",
-      "earth_ring2",
-      "earth_bracelet",
-      "earth_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 100,
-        "mp_bonus": 85,
-        "defense": 10,
-        "attack_bonus": 10,
-        "magic_bonus": 10
-      },
-      "4": {
-        "hp_bonus": 200,
-        "mp_bonus": 170,
-        "attack_bonus": 22,
-        "magic_bonus": 22,
-        "effects": {
-          "lifesteal": 0.02,
-          "mp_on_hit": 3,
-          "poison_damage": 1
-        }
-      },
-      "6": {
-        "hp_bonus": 400,
-        "mp_bonus": 340,
-        "attack_bonus": 44,
-        "magic_bonus": 44,
-        "effects": {
-          "lifesteal": 0.03,
-          "mp_on_hit": 6,
-          "poison_damage": 3,
-          "hp_on_hit": 3
+          "extra_magic": 9
         }
       },
       "8": {
-        "hp_bonus": 680,
-        "mp_bonus": 570,
-        "attack_bonus": 75,
-        "magic_bonus": 75,
+        "attributes": {
+          "magic": 135,
+          "magic_defense": 81,
+          "mp": 540
+        },
         "effects": {
-          "lifesteal": 0.04,
-          "mp_on_hit": 10,
-          "poison_damage": 5,
-          "hp_on_hit": 6,
-          "damage_reduction": 0.02
-        }
-      },
-      "9": {
-        "hp_bonus": 340,
-        "mp_bonus": 285,
-        "attack_bonus": 38,
-        "magic_bonus": 38,
-        "effects": {
-          "poison_damage": 8,
-          "poison_rounds": 4
-        }
-      }
-    }
-  },
-  "insect_warrior": {
-    "name": "昆虫战甲",
-    "class": [
-      "warrior"
-    ],
-    "level": 50,
-    "pieces": [
-      "insect_helm_warrior",
-      "insect_armor_warrior",
-      "insect_belt_warrior",
-      "insect_boots_warrior",
-      "insect_necklace_warrior",
-      "insect_ring_warrior",
-      "insect_ring2_warrior",
-      "insect_bracelet_warrior",
-      "insect_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 200,
-        "defense": 25,
-        "attack_bonus": 20
-      },
-      "4": {
-        "hp_bonus": 400,
-        "defense": 55,
-        "attack_bonus": 45,
-        "effects": {
-          "block_rate": 0.03,
-          "reflect": 0.02
-        }
-      },
-      "6": {
-        "hp_bonus": 800,
-        "defense": 110,
-        "attack_bonus": 90,
-        "effects": {
-          "block_rate": 0.04,
-          "reflect": 0.03,
-          "block_amount": 0.05
-        }
-      },
-      "8": {
-        "hp_bonus": 1350,
-        "defense": 170,
-        "attack_bonus": 140,
-        "effects": {
-          "block_rate": 0.05,
-          "reflect": 0.04,
-          "block_amount": 0.1,
-          "extra_phys": 8
-        }
-      },
-      "9": {
-        "hp_bonus": 680,
-        "defense": 85,
-        "attack_bonus": 70,
-        "effects": {
-          "crush_rate": 0.05
-        }
-      }
-    }
-  },
-  "insect_mage": {
-    "name": "昆虫法袍",
-    "class": [
-      "mage"
-    ],
-    "level": 50,
-    "pieces": [
-      "insect_helm_mage",
-      "insect_armor_mage",
-      "insect_belt_mage",
-      "insect_boots_mage",
-      "insect_necklace_mage",
-      "insect_ring_mage",
-      "insect_ring2_mage",
-      "insect_bracelet_mage",
-      "insect_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 250,
-        "magic_defense": 28,
-        "magic_bonus": 30
-      },
-      "4": {
-        "mp_bonus": 500,
-        "magic_defense": 60,
-        "magic_bonus": 70,
-        "effects": {
-          "crit_rate": 0.03,
+          "crit_rate": 0.08,
+          "extra_magic": 18,
           "ignore_magic_def": 0.05
         }
       },
-      "6": {
-        "mp_bonus": 1000,
-        "magic_defense": 120,
-        "magic_bonus": 140,
-        "effects": {
-          "crit_rate": 0.04,
-          "ignore_magic_def": 0.08,
-          "extra_magic": 10
-        }
-      },
-      "8": {
-        "mp_bonus": 1700,
-        "magic_defense": 200,
-        "magic_bonus": 230,
-        "effects": {
-          "crit_rate": 0.05,
-          "ignore_magic_def": 0.12,
-          "extra_magic": 18,
-          "crit_damage": 0.05
-        }
-      },
       "9": {
-        "mp_bonus": 850,
-        "magic_defense": 100,
-        "magic_bonus": 115,
+        "attributes": {
+          "magic": 180,
+          "magic_defense": 108,
+          "mp": 720
+        },
         "effects": {
-          "splash_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 27,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 18
+        },
+        "description": "灵风套装终极加成"
       }
     }
   },
-  "thunder": {
+  "set_10_warrior": {
+    "id": "set_10_warrior",
     "name": "雷霆套装",
     "class": [
       "warrior"
     ],
-    "level": 55,
-    "pieces": [
-      "thunder_helm",
-      "thunder_armor",
-      "thunder_belt",
-      "thunder_boots",
-      "thunder_necklace",
-      "thunder_ring",
-      "thunder_ring2",
-      "thunder_bracelet",
-      "thunder_bracelet2"
-    ],
+    "tier": 10,
+    "level_req": 46,
     "bonuses": {
       "2": {
-        "hp_bonus": 250,
-        "defense": 28,
-        "attack_bonus": 25
+        "attributes": {
+          "attack": 16,
+          "defense": 10
+        }
       },
       "4": {
-        "hp_bonus": 500,
-        "defense": 60,
-        "attack_bonus": 55,
+        "attributes": {
+          "attack": 40,
+          "defense": 25,
+          "hp": 150
+        },
         "effects": {
-          "crush_rate": 0.03,
-          "hit_rate": 0.02
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 1000,
-        "defense": 120,
-        "attack_bonus": 110,
+        "attributes": {
+          "attack": 80,
+          "defense": 50,
+          "hp": 300
+        },
         "effects": {
-          "crush_rate": 0.04,
-          "hit_rate": 0.03,
-          "extra_phys": 8
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "hp_bonus": 1700,
-        "defense": 185,
-        "attack_bonus": 170,
+        "attributes": {
+          "attack": 120,
+          "defense": 75,
+          "hp": 450
+        },
         "effects": {
+          "crit_rate": 0.08,
           "crush_rate": 0.05,
-          "hit_rate": 0.04,
-          "extra_phys": 15,
-          "ignore_defense": 0.05
+          "extra_phys": 20
         }
       },
       "9": {
-        "hp_bonus": 850,
-        "defense": 92,
-        "attack_bonus": 85,
+        "attributes": {
+          "attack": 160,
+          "defense": 100,
+          "hp": 600
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 30,
+          "damage_reduction": 0.05
+        },
+        "description": "雷霆套装终极加成"
       }
     }
   },
-  "void": {
+  "set_10_mage": {
+    "id": "set_10_mage",
     "name": "虚空套装",
     "class": [
       "mage"
     ],
-    "level": 55,
-    "pieces": [
-      "void_helm",
-      "void_armor",
-      "void_belt",
-      "void_boots",
-      "void_necklace",
-      "void_ring",
-      "void_ring2",
-      "void_bracelet",
-      "void_bracelet2"
-    ],
+    "tier": 10,
+    "level_req": 46,
     "bonuses": {
       "2": {
-        "mp_bonus": 300,
-        "magic_defense": 32,
-        "magic_bonus": 35
+        "attributes": {
+          "magic": 20,
+          "magic_defense": 12
+        }
       },
       "4": {
-        "mp_bonus": 600,
-        "magic_defense": 68,
-        "magic_bonus": 75,
+        "attributes": {
+          "magic": 50,
+          "magic_defense": 30,
+          "mp": 200
+        },
         "effects": {
-          "crit_rate": 0.03,
-          "crit_damage": 0.05
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 1200,
-        "magic_defense": 135,
-        "magic_bonus": 150,
-        "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.1,
-          "extra_magic": 12
-        }
-      },
-      "8": {
-        "mp_bonus": 2050,
-        "magic_defense": 220,
-        "magic_bonus": 250,
+        "attributes": {
+          "magic": 100,
+          "magic_defense": 60,
+          "mp": 400
+        },
         "effects": {
           "crit_rate": 0.05,
-          "crit_damage": 0.15,
-          "extra_magic": 20,
-          "ignore_magic_def": 0.08
-        }
-      },
-      "9": {
-        "mp_bonus": 1020,
-        "magic_defense": 110,
-        "magic_bonus": 125,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "shadow": {
-    "name": "暗影套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 55,
-    "pieces": [
-      "shadow_helm",
-      "shadow_armor",
-      "shadow_belt",
-      "shadow_boots",
-      "shadow_necklace",
-      "shadow_ring",
-      "shadow_ring2",
-      "shadow_bracelet",
-      "shadow_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 150,
-        "mp_bonus": 130,
-        "defense": 15,
-        "attack_bonus": 15,
-        "magic_bonus": 15
-      },
-      "4": {
-        "hp_bonus": 300,
-        "mp_bonus": 260,
-        "attack_bonus": 32,
-        "magic_bonus": 32,
-        "effects": {
-          "lifesteal": 0.03,
-          "poison_damage": 3
-        }
-      },
-      "6": {
-        "hp_bonus": 600,
-        "mp_bonus": 520,
-        "attack_bonus": 64,
-        "magic_bonus": 64,
-        "effects": {
-          "lifesteal": 0.04,
-          "poison_damage": 6,
-          "hp_on_hit": 5,
-          "mp_on_hit": 5
+          "extra_magic": 10
         }
       },
       "8": {
-        "hp_bonus": 1020,
-        "mp_bonus": 880,
-        "attack_bonus": 110,
-        "magic_bonus": 110,
+        "attributes": {
+          "magic": 150,
+          "magic_defense": 90,
+          "mp": 600
+        },
         "effects": {
-          "lifesteal": 0.05,
-          "poison_damage": 10,
-          "hp_on_hit": 10,
-          "mp_on_hit": 8,
-          "damage_reduction": 0.03
+          "crit_rate": 0.08,
+          "extra_magic": 20,
+          "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "hp_bonus": 510,
-        "mp_bonus": 440,
-        "attack_bonus": 55,
-        "magic_bonus": 55,
+        "attributes": {
+          "magic": 200,
+          "magic_defense": 120,
+          "mp": 800
+        },
         "effects": {
-          "poison_damage": 15,
-          "poison_rounds": 5
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 30,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 20
+        },
+        "description": "虚空套装终极加成"
       }
     }
   },
-  "icecrown": {
+  "set_11_warrior": {
+    "id": "set_11_warrior",
+    "name": "圣光套装",
+    "class": [
+      "warrior"
+    ],
+    "tier": 11,
+    "level_req": 51,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "attack": 17,
+          "defense": 11
+        }
+      },
+      "4": {
+        "attributes": {
+          "attack": 44,
+          "defense": 27,
+          "hp": 165
+        },
+        "effects": {
+          "crit_rate": 0.02
+        }
+      },
+      "6": {
+        "attributes": {
+          "attack": 88,
+          "defense": 55,
+          "hp": 330
+        },
+        "effects": {
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
+        }
+      },
+      "8": {
+        "attributes": {
+          "attack": 132,
+          "defense": 82,
+          "hp": 495
+        },
+        "effects": {
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 22
+        }
+      },
+      "9": {
+        "attributes": {
+          "attack": 176,
+          "defense": 110,
+          "hp": 660
+        },
+        "effects": {
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 33,
+          "damage_reduction": 0.05
+        },
+        "description": "圣光套装终极加成"
+      }
+    }
+  },
+  "set_11_mage": {
+    "id": "set_11_mage",
+    "name": "暗影套装",
+    "class": [
+      "mage"
+    ],
+    "tier": 11,
+    "level_req": 51,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "magic": 22,
+          "magic_defense": 13
+        }
+      },
+      "4": {
+        "attributes": {
+          "magic": 55,
+          "magic_defense": 33,
+          "mp": 220
+        },
+        "effects": {
+          "crit_rate": 0.02
+        }
+      },
+      "6": {
+        "attributes": {
+          "magic": 110,
+          "magic_defense": 66,
+          "mp": 440
+        },
+        "effects": {
+          "crit_rate": 0.05,
+          "extra_magic": 11
+        }
+      },
+      "8": {
+        "attributes": {
+          "magic": 165,
+          "magic_defense": 99,
+          "mp": 660
+        },
+        "effects": {
+          "crit_rate": 0.08,
+          "extra_magic": 22,
+          "ignore_magic_def": 0.05
+        }
+      },
+      "9": {
+        "attributes": {
+          "magic": 220,
+          "magic_defense": 132,
+          "mp": 880
+        },
+        "effects": {
+          "crit_rate": 0.12,
+          "extra_magic": 33,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 22
+        },
+        "description": "暗影套装终极加成"
+      }
+    }
+  },
+  "set_12_warrior": {
+    "id": "set_12_warrior",
     "name": "冰冠套装",
     "class": [
       "warrior"
     ],
-    "level": 60,
-    "pieces": [
-      "ice_helm",
-      "ice_armor",
-      "ice_belt",
-      "ice_boots",
-      "ice_necklace",
-      "ice_ring",
-      "ice_ring2",
-      "ice_bracelet",
-      "ice_bracelet2"
-    ],
+    "tier": 12,
+    "level_req": 56,
     "bonuses": {
       "2": {
-        "hp_bonus": 280,
-        "defense": 30,
-        "attack_bonus": 30
+        "attributes": {
+          "attack": 19,
+          "defense": 12
+        }
       },
       "4": {
-        "hp_bonus": 560,
-        "defense": 65,
-        "attack_bonus": 65,
+        "attributes": {
+          "attack": 48,
+          "defense": 30,
+          "hp": 180
+        },
         "effects": {
-          "crush_rate": 0.02,
-          "reflect": 0.01,
-          "stun_rate": 0.02
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 1120,
-        "defense": 130,
-        "attack_bonus": 130,
-        "effects": {
-          "crush_rate": 0.03,
-          "reflect": 0.02,
-          "stun_rate": 0.03,
-          "extra_phys": 8
-        }
-      },
-      "8": {
-        "hp_bonus": 1900,
-        "defense": 200,
-        "attack_bonus": 200,
-        "effects": {
-          "crush_rate": 0.04,
-          "reflect": 0.03,
-          "stun_rate": 0.04,
-          "extra_phys": 15,
-          "ignore_defense": 0.05
-        }
-      },
-      "9": {
-        "hp_bonus": 950,
-        "defense": 100,
-        "attack_bonus": 100,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "shadowfrost": {
-    "name": "暗影套装",
-    "class": [
-      "mage"
-    ],
-    "level": 60,
-    "pieces": [
-      "shadow_helm",
-      "shadow_armor",
-      "shadow_belt",
-      "shadow_boots",
-      "shadow_necklace",
-      "shadow_ring",
-      "shadow_ring2",
-      "shadow_bracelet",
-      "shadow_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 320,
-        "magic_defense": 35,
-        "magic_bonus": 40
-      },
-      "4": {
-        "mp_bonus": 640,
-        "magic_defense": 75,
-        "magic_bonus": 90,
-        "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.1,
-          "double_attack": 0.02
-        }
-      },
-      "6": {
-        "mp_bonus": 1280,
-        "magic_defense": 150,
-        "magic_bonus": 180,
+        "attributes": {
+          "attack": 96,
+          "defense": 60,
+          "hp": 360
+        },
         "effects": {
           "crit_rate": 0.05,
-          "crit_damage": 0.15,
-          "double_attack": 0.03,
-          "extra_magic": 10
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "mp_bonus": 2200,
-        "magic_defense": 250,
-        "magic_bonus": 300,
+        "attributes": {
+          "attack": 144,
+          "defense": 90,
+          "hp": 540
+        },
         "effects": {
-          "crit_rate": 0.06,
-          "crit_damage": 0.2,
-          "double_attack": 0.04,
-          "extra_magic": 18,
-          "ignore_magic_def": 0.08
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 24
         }
       },
       "9": {
-        "mp_bonus": 1100,
-        "magic_defense": 125,
-        "magic_bonus": 150,
+        "attributes": {
+          "attack": 192,
+          "defense": 120,
+          "hp": 720
+        },
         "effects": {
-          "splash_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 36,
+          "damage_reduction": 0.05
+        },
+        "description": "冰冠套装终极加成"
       }
     }
   },
-  "lichking": {
+  "set_12_mage": {
+    "id": "set_12_mage",
     "name": "巫妖套装",
     "class": [
-      "taoist"
-    ],
-    "level": 60,
-    "pieces": [
-      "lich_helm",
-      "lich_armor",
-      "lich_belt",
-      "lich_boots",
-      "lich_necklace",
-      "lich_ring",
-      "lich_ring2",
-      "lich_bracelet",
-      "lich_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 200,
-        "mp_bonus": 170,
-        "defense": 20,
-        "attack_bonus": 18,
-        "magic_bonus": 18
-      },
-      "4": {
-        "hp_bonus": 400,
-        "mp_bonus": 340,
-        "attack_bonus": 40,
-        "magic_bonus": 40,
-        "effects": {
-          "lifesteal": 0.02,
-          "poison_damage": 1,
-          "damage_reduction": 0.01
-        }
-      },
-      "6": {
-        "hp_bonus": 800,
-        "mp_bonus": 680,
-        "attack_bonus": 80,
-        "magic_bonus": 80,
-        "effects": {
-          "lifesteal": 0.03,
-          "poison_damage": 3,
-          "damage_reduction": 0.02,
-          "hp_on_hit": 5
-        }
-      },
-      "8": {
-        "hp_bonus": 1360,
-        "mp_bonus": 1150,
-        "attack_bonus": 135,
-        "magic_bonus": 135,
-        "effects": {
-          "lifesteal": 0.04,
-          "poison_damage": 5,
-          "damage_reduction": 0.03,
-          "hp_on_hit": 10,
-          "mp_on_hit": 8
-        }
-      },
-      "9": {
-        "hp_bonus": 680,
-        "mp_bonus": 575,
-        "attack_bonus": 68,
-        "magic_bonus": 68,
-        "effects": {
-          "poison_damage": 10,
-          "poison_rounds": 5
-        }
-      }
-    }
-  },
-  "qiraji_warrior": {
-    "name": "其拉战甲",
-    "class": [
-      "warrior"
-    ],
-    "level": 60,
-    "pieces": [
-      "qiraji_helm_warrior",
-      "qiraji_armor_warrior",
-      "qiraji_belt_warrior",
-      "qiraji_boots_warrior",
-      "qiraji_necklace_warrior",
-      "qiraji_ring_warrior",
-      "qiraji_ring2_warrior",
-      "qiraji_bracelet_warrior",
-      "qiraji_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 300,
-        "defense": 40,
-        "attack_bonus": 35
-      },
-      "4": {
-        "hp_bonus": 600,
-        "defense": 85,
-        "attack_bonus": 75,
-        "effects": {
-          "block_rate": 0.05,
-          "stun_rate": 0.03
-        }
-      },
-      "6": {
-        "hp_bonus": 1200,
-        "defense": 170,
-        "attack_bonus": 150,
-        "effects": {
-          "block_rate": 0.06,
-          "stun_rate": 0.04,
-          "block_amount": 0.05
-        }
-      },
-      "8": {
-        "hp_bonus": 2050,
-        "defense": 260,
-        "attack_bonus": 230,
-        "effects": {
-          "block_rate": 0.07,
-          "stun_rate": 0.05,
-          "block_amount": 0.1,
-          "extra_phys": 10
-        }
-      },
-      "9": {
-        "hp_bonus": 1020,
-        "defense": 130,
-        "attack_bonus": 115,
-        "effects": {
-          "crush_rate": 0.05
-        }
-      }
-    }
-  },
-  "qiraji_mage": {
-    "name": "其拉法袍",
-    "class": [
       "mage"
     ],
-    "level": 60,
-    "pieces": [
-      "qiraji_helm_mage",
-      "qiraji_armor_mage",
-      "qiraji_belt_mage",
-      "qiraji_boots_mage",
-      "qiraji_necklace_mage",
-      "qiraji_ring_mage",
-      "qiraji_ring2_mage",
-      "qiraji_bracelet_mage",
-      "qiraji_bracelet2_mage"
-    ],
+    "tier": 12,
+    "level_req": 56,
     "bonuses": {
       "2": {
-        "mp_bonus": 380,
-        "magic_defense": 45,
-        "magic_bonus": 50
+        "attributes": {
+          "magic": 24,
+          "magic_defense": 14
+        }
       },
       "4": {
-        "mp_bonus": 760,
-        "magic_defense": 95,
-        "magic_bonus": 110,
+        "attributes": {
+          "magic": 60,
+          "magic_defense": 36,
+          "mp": 240
+        },
         "effects": {
-          "crit_rate": 0.05,
-          "double_attack": 0.02
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 1520,
-        "magic_defense": 190,
-        "magic_bonus": 220,
+        "attributes": {
+          "magic": 120,
+          "magic_defense": 72,
+          "mp": 480
+        },
         "effects": {
-          "crit_rate": 0.06,
-          "double_attack": 0.03,
+          "crit_rate": 0.05,
           "extra_magic": 12
         }
       },
       "8": {
-        "mp_bonus": 2600,
-        "magic_defense": 320,
-        "magic_bonus": 370,
+        "attributes": {
+          "magic": 180,
+          "magic_defense": 108,
+          "mp": 720
+        },
         "effects": {
-          "crit_rate": 0.07,
-          "double_attack": 0.04,
-          "extra_magic": 20,
-          "ignore_magic_def": 0.08
+          "crit_rate": 0.08,
+          "extra_magic": 24,
+          "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 1300,
-        "magic_defense": 160,
-        "magic_bonus": 185,
+        "attributes": {
+          "magic": 240,
+          "magic_defense": 144,
+          "mp": 960
+        },
         "effects": {
-          "splash_rate": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 36,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 24
+        },
+        "description": "巫妖套装终极加成"
       }
     }
   },
-  "storm": {
+  "set_13_warrior": {
+    "id": "set_13_warrior",
     "name": "风暴套装",
     "class": [
       "warrior"
     ],
-    "level": 65,
-    "pieces": [
-      "storm_helm",
-      "storm_armor",
-      "storm_belt",
-      "storm_boots",
-      "storm_necklace",
-      "storm_ring",
-      "storm_ring2",
-      "storm_bracelet",
-      "storm_bracelet2"
-    ],
+    "tier": 13,
+    "level_req": 61,
     "bonuses": {
       "2": {
-        "hp_bonus": 350,
-        "defense": 38,
-        "attack_bonus": 35
+        "attributes": {
+          "attack": 20,
+          "defense": 13
+        }
       },
       "4": {
-        "hp_bonus": 700,
-        "defense": 80,
-        "attack_bonus": 75,
+        "attributes": {
+          "attack": 52,
+          "defense": 32,
+          "hp": 195
+        },
         "effects": {
-          "crush_rate": 0.03,
-          "hit_rate": 0.02
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 1400,
-        "defense": 160,
-        "attack_bonus": 150,
+        "attributes": {
+          "attack": 104,
+          "defense": 65,
+          "hp": 390
+        },
         "effects": {
-          "crush_rate": 0.04,
-          "hit_rate": 0.03,
-          "extra_phys": 10
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "hp_bonus": 2400,
-        "defense": 245,
-        "attack_bonus": 230,
+        "attributes": {
+          "attack": 156,
+          "defense": 97,
+          "hp": 585
+        },
         "effects": {
+          "crit_rate": 0.08,
           "crush_rate": 0.05,
-          "hit_rate": 0.04,
-          "extra_phys": 18,
-          "ignore_defense": 0.05
+          "extra_phys": 26
         }
       },
       "9": {
-        "hp_bonus": 1200,
-        "defense": 122,
-        "attack_bonus": 115,
+        "attributes": {
+          "attack": 208,
+          "defense": 130,
+          "hp": 780
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 39,
+          "damage_reduction": 0.05
+        },
+        "description": "风暴套装终极加成"
       }
     }
   },
-  "lava": {
+  "set_13_mage": {
+    "id": "set_13_mage",
     "name": "熔岩套装",
     "class": [
       "mage"
     ],
-    "level": 65,
-    "pieces": [
-      "lava_helm",
-      "lava_armor",
-      "lava_belt",
-      "lava_boots",
-      "lava_necklace",
-      "lava_ring",
-      "lava_ring2",
-      "lava_bracelet",
-      "lava_bracelet2"
-    ],
+    "tier": 13,
+    "level_req": 61,
     "bonuses": {
       "2": {
-        "mp_bonus": 420,
-        "magic_defense": 45,
-        "magic_bonus": 50
+        "attributes": {
+          "magic": 26,
+          "magic_defense": 15
+        }
       },
       "4": {
-        "mp_bonus": 840,
-        "magic_defense": 95,
-        "magic_bonus": 110,
+        "attributes": {
+          "magic": 65,
+          "magic_defense": 39,
+          "mp": 260
+        },
         "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.1
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 1680,
-        "magic_defense": 190,
-        "magic_bonus": 220,
+        "attributes": {
+          "magic": 130,
+          "magic_defense": 78,
+          "mp": 520
+        },
         "effects": {
           "crit_rate": 0.05,
-          "crit_damage": 0.15,
-          "extra_magic": 12
+          "extra_magic": 13
         }
       },
       "8": {
-        "mp_bonus": 2900,
-        "magic_defense": 320,
-        "magic_bonus": 370,
+        "attributes": {
+          "magic": 195,
+          "magic_defense": 117,
+          "mp": 780
+        },
         "effects": {
-          "crit_rate": 0.06,
-          "crit_damage": 0.2,
-          "extra_magic": 20,
-          "ignore_magic_def": 0.08
+          "crit_rate": 0.08,
+          "extra_magic": 26,
+          "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 1450,
-        "magic_defense": 160,
-        "magic_bonus": 185,
+        "attributes": {
+          "magic": 260,
+          "magic_defense": 156,
+          "mp": 1040
+        },
         "effects": {
-          "double_attack": 0.05
-        }
+          "crit_rate": 0.12,
+          "extra_magic": 39,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 26
+        },
+        "description": "熔岩套装终极加成"
       }
     }
   },
-  "divine": {
-    "name": "神圣套装",
-    "class": [
-      "taoist"
-    ],
-    "level": 65,
-    "pieces": [
-      "divine_helm",
-      "divine_armor",
-      "divine_belt",
-      "divine_boots",
-      "divine_necklace",
-      "divine_ring",
-      "divine_ring2",
-      "divine_bracelet",
-      "divine_bracelet2"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 220,
-        "mp_bonus": 190,
-        "defense": 22,
-        "attack_bonus": 20,
-        "magic_bonus": 20
-      },
-      "4": {
-        "hp_bonus": 440,
-        "mp_bonus": 380,
-        "attack_bonus": 45,
-        "magic_bonus": 45,
-        "effects": {
-          "lifesteal": 0.03,
-          "poison_damage": 3
-        }
-      },
-      "6": {
-        "hp_bonus": 880,
-        "mp_bonus": 760,
-        "attack_bonus": 90,
-        "magic_bonus": 90,
-        "effects": {
-          "lifesteal": 0.04,
-          "poison_damage": 6,
-          "hp_on_hit": 6,
-          "mp_on_hit": 6
-        }
-      },
-      "8": {
-        "hp_bonus": 1500,
-        "mp_bonus": 1280,
-        "attack_bonus": 155,
-        "magic_bonus": 155,
-        "effects": {
-          "lifesteal": 0.05,
-          "poison_damage": 10,
-          "hp_on_hit": 12,
-          "mp_on_hit": 10,
-          "damage_reduction": 0.03
-        }
-      },
-      "9": {
-        "hp_bonus": 750,
-        "mp_bonus": 640,
-        "attack_bonus": 78,
-        "magic_bonus": 78,
-        "effects": {
-          "poison_damage": 15,
-          "poison_rounds": 5
-        }
-      }
-    }
-  },
-  "arcane_warrior": {
-    "name": "奥术战铠",
+  "set_14_warrior": {
+    "id": "set_14_warrior",
+    "name": "奥术战铠套装",
     "class": [
       "warrior"
     ],
-    "level": 70,
-    "pieces": [
-      "arcane_helm_warrior",
-      "arcane_armor_warrior",
-      "arcane_belt_warrior",
-      "arcane_boots_warrior",
-      "arcane_necklace_warrior",
-      "arcane_ring_warrior",
-      "arcane_ring2_warrior",
-      "arcane_bracelet_warrior",
-      "arcane_bracelet2_warrior"
-    ],
+    "tier": 14,
+    "level_req": 66,
     "bonuses": {
       "2": {
-        "hp_bonus": 220,
-        "defense": 28,
-        "attack_bonus": 22
+        "attributes": {
+          "attack": 22,
+          "defense": 14
+        }
       },
       "4": {
-        "hp_bonus": 440,
-        "defense": 60,
-        "attack_bonus": 50,
+        "attributes": {
+          "attack": 56,
+          "defense": 35,
+          "hp": 210
+        },
         "effects": {
-          "crush_rate": 0.03,
-          "hit_rate": 0.02
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "hp_bonus": 880,
-        "defense": 120,
-        "attack_bonus": 100,
-        "effects": {
-          "crush_rate": 0.04,
-          "hit_rate": 0.03,
-          "extra_phys": 8
-        }
-      },
-      "8": {
-        "hp_bonus": 1500,
-        "defense": 185,
-        "attack_bonus": 155,
-        "effects": {
-          "crush_rate": 0.05,
-          "hit_rate": 0.04,
-          "extra_phys": 15,
-          "ignore_defense": 0.05
-        }
-      },
-      "9": {
-        "hp_bonus": 750,
-        "defense": 92,
-        "attack_bonus": 77,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "arcane_mage": {
-    "name": "奥术秘法",
-    "class": [
-      "mage"
-    ],
-    "level": 70,
-    "pieces": [
-      "arcane_helm_mage",
-      "arcane_armor_mage",
-      "arcane_belt_mage",
-      "arcane_boots_mage",
-      "arcane_necklace_mage",
-      "arcane_ring_mage",
-      "arcane_ring2_mage",
-      "arcane_bracelet_mage",
-      "arcane_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 280,
-        "magic_defense": 30,
-        "magic_bonus": 35
-      },
-      "4": {
-        "mp_bonus": 560,
-        "magic_defense": 65,
-        "magic_bonus": 80,
-        "effects": {
-          "crit_rate": 0.04,
-          "crit_damage": 0.08
-        }
-      },
-      "6": {
-        "mp_bonus": 1120,
-        "magic_defense": 130,
-        "magic_bonus": 160,
+        "attributes": {
+          "attack": 112,
+          "defense": 70,
+          "hp": 420
+        },
         "effects": {
           "crit_rate": 0.05,
-          "crit_damage": 0.13,
-          "extra_magic": 10
+          "crush_rate": 0.03
         }
       },
       "8": {
-        "mp_bonus": 1900,
-        "magic_defense": 200,
-        "magic_bonus": 250,
+        "attributes": {
+          "attack": 168,
+          "defense": 105,
+          "hp": 630
+        },
         "effects": {
-          "crit_rate": 0.06,
-          "crit_damage": 0.18,
-          "extra_magic": 18,
-          "ignore_magic_def": 0.08
-        }
-      },
-      "9": {
-        "mp_bonus": 950,
-        "magic_defense": 100,
-        "magic_bonus": 125,
-        "effects": {
-          "splash_rate": 0.05
-        }
-      }
-    }
-  },
-  "dragonscale_warrior": {
-    "name": "龙鳞重甲",
-    "class": [
-      "warrior"
-    ],
-    "level": 70,
-    "pieces": [
-      "dragonscale_helm_warrior",
-      "dragonscale_armor_warrior",
-      "dragonscale_belt_warrior",
-      "dragonscale_boots_warrior",
-      "dragonscale_necklace_warrior",
-      "dragonscale_ring_warrior",
-      "dragonscale_ring2_warrior",
-      "dragonscale_bracelet_warrior",
-      "dragonscale_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 240,
-        "defense": 30,
-        "attack_bonus": 25
-      },
-      "4": {
-        "hp_bonus": 480,
-        "defense": 65,
-        "attack_bonus": 55,
-        "effects": {
-          "crush_rate": 0.04,
-          "damage_reduction": 0.03
-        }
-      },
-      "6": {
-        "hp_bonus": 960,
-        "defense": 130,
-        "attack_bonus": 110,
-        "effects": {
+          "crit_rate": 0.08,
           "crush_rate": 0.05,
-          "damage_reduction": 0.05,
-          "extra_phys": 8
-        }
-      },
-      "8": {
-        "hp_bonus": 1650,
-        "defense": 200,
-        "attack_bonus": 170,
-        "effects": {
-          "crush_rate": 0.06,
-          "damage_reduction": 0.07,
-          "extra_phys": 15,
-          "ignore_defense": 0.05
+          "extra_phys": 28
         }
       },
       "9": {
-        "hp_bonus": 820,
-        "defense": 100,
-        "attack_bonus": 85,
+        "attributes": {
+          "attack": 224,
+          "defense": 140,
+          "hp": 840
+        },
         "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "phoenix_warrior": {
-    "name": "凤凰战甲",
-    "class": [
-      "warrior"
-    ],
-    "level": 70,
-    "pieces": [
-      "phoenix_helm_warrior",
-      "phoenix_armor_warrior",
-      "phoenix_belt_warrior",
-      "phoenix_boots_warrior",
-      "phoenix_necklace_warrior",
-      "phoenix_ring_warrior",
-      "phoenix_ring2_warrior",
-      "phoenix_bracelet_warrior",
-      "phoenix_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 340,
-        "defense": 45,
-        "attack_bonus": 40
-      },
-      "4": {
-        "hp_bonus": 680,
-        "defense": 95,
-        "attack_bonus": 85,
-        "effects": {
-          "reflect": 0.05,
-          "dodge_rate": 0.03
-        }
-      },
-      "6": {
-        "hp_bonus": 1360,
-        "defense": 190,
-        "attack_bonus": 170,
-        "effects": {
-          "reflect": 0.06,
-          "dodge_rate": 0.04,
-          "hp_on_hit": 5
-        }
-      },
-      "8": {
-        "hp_bonus": 2350,
-        "defense": 290,
-        "attack_bonus": 260,
-        "effects": {
-          "reflect": 0.07,
-          "dodge_rate": 0.05,
-          "hp_on_hit": 10,
-          "extra_phys": 10
-        }
-      },
-      "9": {
-        "hp_bonus": 1170,
-        "defense": 145,
-        "attack_bonus": 130,
-        "effects": {
-          "crush_rate": 0.05
-        }
-      }
-    }
-  },
-  "fury_warrior": {
-    "name": "怒火战甲",
-    "class": [
-      "warrior"
-    ],
-    "level": 70,
-    "pieces": [
-      "fury_helm_warrior",
-      "fury_armor_warrior",
-      "fury_belt_warrior",
-      "fury_boots_warrior",
-      "fury_necklace_warrior",
-      "fury_ring_warrior",
-      "fury_ring2_warrior",
-      "fury_bracelet_warrior",
-      "fury_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 420,
-        "defense": 58,
-        "attack_bonus": 52
-      },
-      "4": {
-        "hp_bonus": 840,
-        "defense": 120,
-        "attack_bonus": 110,
-        "effects": {
-          "block_rate": 0.07,
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 42,
           "damage_reduction": 0.05
-        }
-      },
-      "6": {
-        "hp_bonus": 1680,
-        "defense": 240,
-        "attack_bonus": 220,
-        "effects": {
-          "block_rate": 0.08,
-          "damage_reduction": 0.07,
-          "block_amount": 0.05
-        }
-      },
-      "8": {
-        "hp_bonus": 2900,
-        "defense": 365,
-        "attack_bonus": 335,
-        "effects": {
-          "block_rate": 0.09,
-          "damage_reduction": 0.09,
-          "block_amount": 0.1,
-          "extra_phys": 12
-        }
-      },
-      "9": {
-        "hp_bonus": 1450,
-        "defense": 182,
-        "attack_bonus": 167,
-        "effects": {
-          "crush_rate": 0.05
-        }
+        },
+        "description": "奥术战铠套装终极加成"
       }
     }
   },
-  "phoenix_mage": {
-    "name": "凤凰法袍",
+  "set_14_mage": {
+    "id": "set_14_mage",
+    "name": "奥术秘法套装",
     "class": [
       "mage"
     ],
-    "level": 70,
-    "pieces": [
-      "phoenix_helm_mage",
-      "phoenix_armor_mage",
-      "phoenix_belt_mage",
-      "phoenix_boots_mage",
-      "phoenix_necklace_mage",
-      "phoenix_ring_mage",
-      "phoenix_ring2_mage",
-      "phoenix_bracelet_mage",
-      "phoenix_bracelet2_mage"
-    ],
+    "tier": 14,
+    "level_req": 66,
     "bonuses": {
       "2": {
-        "mp_bonus": 420,
-        "magic_defense": 50,
-        "magic_bonus": 58
+        "attributes": {
+          "magic": 28,
+          "magic_defense": 16
+        }
       },
       "4": {
-        "mp_bonus": 840,
-        "magic_defense": 105,
-        "magic_bonus": 130,
+        "attributes": {
+          "magic": 70,
+          "magic_defense": 42,
+          "mp": 280
+        },
         "effects": {
-          "crit_rate": 0.06,
-          "crit_damage": 0.13
+          "crit_rate": 0.02
         }
       },
       "6": {
-        "mp_bonus": 1680,
-        "magic_defense": 210,
-        "magic_bonus": 260,
-        "effects": {
-          "crit_rate": 0.07,
-          "crit_damage": 0.18,
-          "extra_magic": 12
-        }
-      },
-      "8": {
-        "mp_bonus": 2900,
-        "magic_defense": 320,
-        "magic_bonus": 400,
-        "effects": {
-          "crit_rate": 0.08,
-          "crit_damage": 0.23,
-          "extra_magic": 20,
-          "ignore_magic_def": 0.08
-        }
-      },
-      "9": {
-        "mp_bonus": 1450,
-        "magic_defense": 160,
-        "magic_bonus": 200,
-        "effects": {
-          "splash_rate": 0.05
-        }
-      }
-    }
-  },
-  "fury_mage": {
-    "name": "怒火法袍",
-    "class": [
-      "mage"
-    ],
-    "level": 70,
-    "pieces": [
-      "fury_helm_mage",
-      "fury_armor_mage",
-      "fury_belt_mage",
-      "fury_boots_mage",
-      "fury_necklace_mage",
-      "fury_ring_mage",
-      "fury_ring2_mage",
-      "fury_bracelet_mage",
-      "fury_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 520,
-        "magic_defense": 62,
-        "magic_bonus": 72
-      },
-      "4": {
-        "mp_bonus": 1040,
-        "magic_defense": 130,
-        "magic_bonus": 160,
-        "effects": {
-          "crit_rate": 0.07,
-          "ignore_magic_def": 0.08
-        }
-      },
-      "6": {
-        "mp_bonus": 2080,
-        "magic_defense": 260,
-        "magic_bonus": 320,
-        "effects": {
-          "crit_rate": 0.08,
-          "ignore_magic_def": 0.11,
-          "extra_magic": 15
-        }
-      },
-      "8": {
-        "mp_bonus": 3600,
-        "magic_defense": 400,
-        "magic_bonus": 490,
-        "effects": {
-          "crit_rate": 0.09,
-          "ignore_magic_def": 0.14,
-          "extra_magic": 25,
-          "crit_damage": 0.1
-        }
-      },
-      "9": {
-        "mp_bonus": 1800,
-        "magic_defense": 200,
-        "magic_bonus": 245,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "abyss_warrior": {
-    "name": "深渊战甲",
-    "class": [
-      "warrior"
-    ],
-    "level": 75,
-    "pieces": [
-      "abyss_helm_warrior",
-      "abyss_armor_warrior",
-      "abyss_belt_warrior",
-      "abyss_boots_warrior",
-      "abyss_necklace_warrior",
-      "abyss_ring_warrior",
-      "abyss_ring2_warrior",
-      "abyss_bracelet_warrior",
-      "abyss_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 230,
-        "defense": 28,
-        "attack_bonus": 23
-      },
-      "4": {
-        "hp_bonus": 460,
-        "defense": 62,
-        "attack_bonus": 52,
-        "effects": {
-          "reflect": 0.04,
-          "lifesteal": 0.02
-        }
-      },
-      "6": {
-        "hp_bonus": 920,
-        "defense": 125,
-        "attack_bonus": 105,
-        "effects": {
-          "reflect": 0.05,
-          "lifesteal": 0.03,
-          "extra_phys": 8
-        }
-      },
-      "8": {
-        "hp_bonus": 1580,
-        "defense": 190,
-        "attack_bonus": 160,
-        "effects": {
-          "reflect": 0.06,
-          "lifesteal": 0.04,
-          "extra_phys": 15,
-          "damage_reduction": 0.03
-        }
-      },
-      "9": {
-        "hp_bonus": 790,
-        "defense": 95,
-        "attack_bonus": 80,
-        "effects": {
-          "crush_rate": 0.05
-        }
-      }
-    }
-  },
-  "abyss_mage": {
-    "name": "深渊魔纹",
-    "class": [
-      "mage"
-    ],
-    "level": 75,
-    "pieces": [
-      "abyss_helm_mage",
-      "abyss_armor_mage",
-      "abyss_belt_mage",
-      "abyss_boots_mage",
-      "abyss_necklace_mage",
-      "abyss_ring_mage",
-      "abyss_ring2_mage",
-      "abyss_bracelet_mage",
-      "abyss_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 270,
-        "magic_defense": 30,
-        "magic_bonus": 33
-      },
-      "4": {
-        "mp_bonus": 540,
-        "magic_defense": 65,
-        "magic_bonus": 75,
-        "effects": {
-          "crit_rate": 0.03,
-          "extra_magic": 7
-        }
-      },
-      "6": {
-        "mp_bonus": 1080,
-        "magic_defense": 130,
-        "magic_bonus": 150,
-        "effects": {
-          "crit_rate": 0.04,
-          "extra_magic": 14,
-          "crit_damage": 0.05
-        }
-      },
-      "8": {
-        "mp_bonus": 1850,
-        "magic_defense": 200,
-        "magic_bonus": 230,
+        "attributes": {
+          "magic": 140,
+          "magic_defense": 84,
+          "mp": 560
+        },
         "effects": {
           "crit_rate": 0.05,
-          "extra_magic": 22,
-          "crit_damage": 0.1,
-          "ignore_magic_def": 0.08
-        }
-      },
-      "9": {
-        "mp_bonus": 920,
-        "magic_defense": 100,
-        "magic_bonus": 115,
-        "effects": {
-          "splash_rate": 0.05
-        }
-      }
-    }
-  },
-  "tidecaller_warrior": {
-    "name": "潮汐战铠",
-    "class": [
-      "warrior"
-    ],
-    "level": 75,
-    "pieces": [
-      "tidecaller_helm_warrior",
-      "tidecaller_armor_warrior",
-      "tidecaller_belt_warrior",
-      "tidecaller_boots_warrior",
-      "tidecaller_necklace_warrior",
-      "tidecaller_ring_warrior",
-      "tidecaller_ring2_warrior",
-      "tidecaller_bracelet_warrior",
-      "tidecaller_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 320,
-        "defense": 42,
-        "attack_bonus": 38
-      },
-      "4": {
-        "hp_bonus": 640,
-        "defense": 90,
-        "attack_bonus": 80,
-        "effects": {
-          "crush_rate": 0.05,
-          "hp_on_hit": 5
-        }
-      },
-      "6": {
-        "hp_bonus": 1280,
-        "defense": 180,
-        "attack_bonus": 160,
-        "effects": {
-          "crush_rate": 0.06,
-          "hp_on_hit": 10,
-          "extra_phys": 10
+          "extra_magic": 14
         }
       },
       "8": {
-        "hp_bonus": 2200,
-        "defense": 275,
-        "attack_bonus": 245,
-        "effects": {
-          "crush_rate": 0.07,
-          "hp_on_hit": 15,
-          "extra_phys": 18,
-          "ignore_defense": 0.05
-        }
-      },
-      "9": {
-        "hp_bonus": 1100,
-        "defense": 137,
-        "attack_bonus": 122,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "tidecaller_mage": {
-    "name": "潮汐秘法",
-    "class": [
-      "mage"
-    ],
-    "level": 75,
-    "pieces": [
-      "tidecaller_helm_mage",
-      "tidecaller_armor_mage",
-      "tidecaller_belt_mage",
-      "tidecaller_boots_mage",
-      "tidecaller_necklace_mage",
-      "tidecaller_ring_mage",
-      "tidecaller_ring2_mage",
-      "tidecaller_bracelet_mage",
-      "tidecaller_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 400,
-        "magic_defense": 48,
-        "magic_bonus": 55
-      },
-      "4": {
-        "mp_bonus": 800,
-        "magic_defense": 100,
-        "magic_bonus": 120,
-        "effects": {
-          "crit_rate": 0.05,
-          "ignore_magic_def": 0.07
-        }
-      },
-      "6": {
-        "mp_bonus": 1600,
-        "magic_defense": 200,
-        "magic_bonus": 240,
-        "effects": {
-          "crit_rate": 0.06,
-          "ignore_magic_def": 0.11,
-          "extra_magic": 12
-        }
-      },
-      "8": {
-        "mp_bonus": 2750,
-        "magic_defense": 305,
-        "magic_bonus": 370,
-        "effects": {
-          "crit_rate": 0.07,
-          "ignore_magic_def": 0.15,
-          "extra_magic": 22,
-          "crit_damage": 0.1
-        }
-      },
-      "9": {
-        "mp_bonus": 1370,
-        "magic_defense": 152,
-        "magic_bonus": 185,
-        "effects": {
-          "splash_rate": 0.05
-        }
-      }
-    }
-  },
-  "shadowfiend_warrior": {
-    "name": "影魔战铠",
-    "class": [
-      "warrior"
-    ],
-    "level": 75,
-    "pieces": [
-      "shadowfiend_helm_warrior",
-      "shadowfiend_armor_warrior",
-      "shadowfiend_belt_warrior",
-      "shadowfiend_boots_warrior",
-      "shadowfiend_necklace_warrior",
-      "shadowfiend_ring_warrior",
-      "shadowfiend_ring2_warrior",
-      "shadowfiend_bracelet_warrior",
-      "shadowfiend_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 400,
-        "defense": 55,
-        "attack_bonus": 50
-      },
-      "4": {
-        "hp_bonus": 800,
-        "defense": 115,
-        "attack_bonus": 105,
-        "effects": {
-          "crush_rate": 0.06,
-          "lifesteal": 0.03
-        }
-      },
-      "6": {
-        "hp_bonus": 1600,
-        "defense": 230,
-        "attack_bonus": 210,
-        "effects": {
-          "crush_rate": 0.07,
-          "lifesteal": 0.04,
-          "extra_phys": 12
-        }
-      },
-      "8": {
-        "hp_bonus": 2750,
-        "defense": 350,
-        "attack_bonus": 320,
-        "effects": {
-          "crush_rate": 0.08,
-          "lifesteal": 0.05,
-          "extra_phys": 20,
-          "ignore_defense": 0.05
-        }
-      },
-      "9": {
-        "hp_bonus": 1370,
-        "defense": 175,
-        "attack_bonus": 160,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "shadowfiend_mage": {
-    "name": "影魔法袍",
-    "class": [
-      "mage"
-    ],
-    "level": 75,
-    "pieces": [
-      "shadowfiend_helm_mage",
-      "shadowfiend_armor_mage",
-      "shadowfiend_belt_mage",
-      "shadowfiend_boots_mage",
-      "shadowfiend_necklace_mage",
-      "shadowfiend_ring_mage",
-      "shadowfiend_ring2_mage",
-      "shadowfiend_bracelet_mage",
-      "shadowfiend_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 500,
-        "magic_defense": 60,
-        "magic_bonus": 70
-      },
-      "4": {
-        "mp_bonus": 1000,
-        "magic_defense": 125,
-        "magic_bonus": 155,
-        "effects": {
-          "crit_rate": 0.07,
-          "double_attack": 0.04
-        }
-      },
-      "6": {
-        "mp_bonus": 2000,
-        "magic_defense": 250,
-        "magic_bonus": 310,
+        "attributes": {
+          "magic": 210,
+          "magic_defense": 126,
+          "mp": 840
+        },
         "effects": {
           "crit_rate": 0.08,
-          "double_attack": 0.05,
-          "extra_magic": 15
-        }
-      },
-      "8": {
-        "mp_bonus": 3450,
-        "magic_defense": 390,
-        "magic_bonus": 480,
-        "effects": {
-          "crit_rate": 0.09,
-          "double_attack": 0.06,
-          "extra_magic": 25,
-          "ignore_magic_def": 0.1
-        }
-      },
-      "9": {
-        "mp_bonus": 1720,
-        "magic_defense": 195,
-        "magic_bonus": 240,
-        "effects": {
-          "splash_rate": 0.05
-        }
-      }
-    }
-  },
-  "sunfury_warrior": {
-    "name": "日怒战铠",
-    "class": [
-      "warrior"
-    ],
-    "level": 75,
-    "pieces": [
-      "sunfury_helm_warrior",
-      "sunfury_armor_warrior",
-      "sunfury_belt_warrior",
-      "sunfury_boots_warrior",
-      "sunfury_necklace_warrior",
-      "sunfury_ring_warrior",
-      "sunfury_ring2_warrior",
-      "sunfury_bracelet_warrior",
-      "sunfury_bracelet2_warrior"
-    ],
-    "bonuses": {
-      "2": {
-        "hp_bonus": 450,
-        "defense": 60,
-        "attack_bonus": 55
-      },
-      "4": {
-        "hp_bonus": 900,
-        "defense": 130,
-        "attack_bonus": 120,
-        "effects": {
-          "crush_rate": 0.07,
-          "reflect": 0.06
-        }
-      },
-      "6": {
-        "hp_bonus": 1800,
-        "defense": 260,
-        "attack_bonus": 240,
-        "effects": {
-          "crush_rate": 0.08,
-          "reflect": 0.07,
-          "extra_phys": 15
-        }
-      },
-      "8": {
-        "hp_bonus": 3100,
-        "defense": 395,
-        "attack_bonus": 365,
-        "effects": {
-          "crush_rate": 0.09,
-          "reflect": 0.08,
-          "extra_phys": 25,
-          "ignore_defense": 0.05
-        }
-      },
-      "9": {
-        "hp_bonus": 1550,
-        "defense": 197,
-        "attack_bonus": 182,
-        "effects": {
-          "double_attack": 0.05
-        }
-      }
-    }
-  },
-  "sunfury_mage": {
-    "name": "日怒秘法",
-    "class": [
-      "mage"
-    ],
-    "level": 75,
-    "pieces": [
-      "sunfury_helm_mage",
-      "sunfury_armor_mage",
-      "sunfury_belt_mage",
-      "sunfury_boots_mage",
-      "sunfury_necklace_mage",
-      "sunfury_ring_mage",
-      "sunfury_ring2_mage",
-      "sunfury_bracelet_mage",
-      "sunfury_bracelet2_mage"
-    ],
-    "bonuses": {
-      "2": {
-        "mp_bonus": 550,
-        "magic_defense": 65,
-        "magic_bonus": 75
-      },
-      "4": {
-        "mp_bonus": 1100,
-        "magic_defense": 135,
-        "magic_bonus": 170,
-        "effects": {
-          "crit_rate": 0.08,
-          "crit_damage": 0.17
-        }
-      },
-      "6": {
-        "mp_bonus": 2200,
-        "magic_defense": 270,
-        "magic_bonus": 340,
-        "effects": {
-          "crit_rate": 0.09,
-          "crit_damage": 0.22,
-          "extra_magic": 18
-        }
-      },
-      "8": {
-        "mp_bonus": 3800,
-        "magic_defense": 425,
-        "magic_bonus": 530,
-        "effects": {
-          "crit_rate": 0.1,
-          "crit_damage": 0.27,
           "extra_magic": 28,
-          "ignore_magic_def": 0.1
+          "ignore_magic_def": 0.05
         }
       },
       "9": {
-        "mp_bonus": 1900,
-        "magic_defense": 212,
-        "magic_bonus": 265,
+        "attributes": {
+          "magic": 280,
+          "magic_defense": 168,
+          "mp": 1120
+        },
         "effects": {
-          "splash_rate": 0.05
+          "crit_rate": 0.12,
+          "extra_magic": 42,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 28
+        },
+        "description": "奥术秘法套装终极加成"
+      }
+    }
+  },
+  "set_15_warrior": {
+    "id": "set_15_warrior",
+    "name": "深渊套装",
+    "class": [
+      "warrior"
+    ],
+    "tier": 15,
+    "level_req": 71,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "attack": 24,
+          "defense": 15
         }
+      },
+      "4": {
+        "attributes": {
+          "attack": 60,
+          "defense": 37,
+          "hp": 225
+        },
+        "effects": {
+          "crit_rate": 0.02
+        }
+      },
+      "6": {
+        "attributes": {
+          "attack": 120,
+          "defense": 75,
+          "hp": 450
+        },
+        "effects": {
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
+        }
+      },
+      "8": {
+        "attributes": {
+          "attack": 180,
+          "defense": 112,
+          "hp": 675
+        },
+        "effects": {
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 30
+        }
+      },
+      "9": {
+        "attributes": {
+          "attack": 240,
+          "defense": 150,
+          "hp": 900
+        },
+        "effects": {
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 45,
+          "damage_reduction": 0.05
+        },
+        "description": "深渊套装终极加成"
+      }
+    }
+  },
+  "set_15_mage": {
+    "id": "set_15_mage",
+    "name": "深渊魔纹套装",
+    "class": [
+      "mage"
+    ],
+    "tier": 15,
+    "level_req": 71,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "magic": 30,
+          "magic_defense": 18
+        }
+      },
+      "4": {
+        "attributes": {
+          "magic": 75,
+          "magic_defense": 45,
+          "mp": 300
+        },
+        "effects": {
+          "crit_rate": 0.02
+        }
+      },
+      "6": {
+        "attributes": {
+          "magic": 150,
+          "magic_defense": 90,
+          "mp": 600
+        },
+        "effects": {
+          "crit_rate": 0.05,
+          "extra_magic": 15
+        }
+      },
+      "8": {
+        "attributes": {
+          "magic": 225,
+          "magic_defense": 135,
+          "mp": 900
+        },
+        "effects": {
+          "crit_rate": 0.08,
+          "extra_magic": 30,
+          "ignore_magic_def": 0.05
+        }
+      },
+      "9": {
+        "attributes": {
+          "magic": 300,
+          "magic_defense": 180,
+          "mp": 1200
+        },
+        "effects": {
+          "crit_rate": 0.12,
+          "extra_magic": 45,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 30
+        },
+        "description": "深渊魔纹套装终极加成"
+      }
+    }
+  },
+  "set_16_warrior": {
+    "id": "set_16_warrior",
+    "name": "终极套装",
+    "class": [
+      "warrior"
+    ],
+    "tier": 16,
+    "level_req": 76,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "attack": 25,
+          "defense": 16
+        }
+      },
+      "4": {
+        "attributes": {
+          "attack": 64,
+          "defense": 40,
+          "hp": 240
+        },
+        "effects": {
+          "crit_rate": 0.02
+        }
+      },
+      "6": {
+        "attributes": {
+          "attack": 128,
+          "defense": 80,
+          "hp": 480
+        },
+        "effects": {
+          "crit_rate": 0.05,
+          "crush_rate": 0.03
+        }
+      },
+      "8": {
+        "attributes": {
+          "attack": 192,
+          "defense": 120,
+          "hp": 720
+        },
+        "effects": {
+          "crit_rate": 0.08,
+          "crush_rate": 0.05,
+          "extra_phys": 32
+        }
+      },
+      "9": {
+        "attributes": {
+          "attack": 256,
+          "defense": 160,
+          "hp": 960
+        },
+        "effects": {
+          "crit_rate": 0.12,
+          "crush_rate": 0.08,
+          "extra_phys": 48,
+          "damage_reduction": 0.05
+        },
+        "description": "终极套装终极加成"
+      }
+    }
+  },
+  "set_16_mage": {
+    "id": "set_16_mage",
+    "name": "终极套装",
+    "class": [
+      "mage"
+    ],
+    "tier": 16,
+    "level_req": 76,
+    "bonuses": {
+      "2": {
+        "attributes": {
+          "magic": 32,
+          "magic_defense": 19
+        }
+      },
+      "4": {
+        "attributes": {
+          "magic": 80,
+          "magic_defense": 48,
+          "mp": 320
+        },
+        "effects": {
+          "crit_rate": 0.02
+        }
+      },
+      "6": {
+        "attributes": {
+          "magic": 160,
+          "magic_defense": 96,
+          "mp": 640
+        },
+        "effects": {
+          "crit_rate": 0.05,
+          "extra_magic": 16
+        }
+      },
+      "8": {
+        "attributes": {
+          "magic": 240,
+          "magic_defense": 144,
+          "mp": 960
+        },
+        "effects": {
+          "crit_rate": 0.08,
+          "extra_magic": 32,
+          "ignore_magic_def": 0.05
+        }
+      },
+      "9": {
+        "attributes": {
+          "magic": 320,
+          "magic_defense": 192,
+          "mp": 1280
+        },
+        "effects": {
+          "crit_rate": 0.12,
+          "extra_magic": 48,
+          "ignore_magic_def": 0.1,
+          "mp_regen": 32
+        },
+        "description": "终极套装终极加成"
       }
     }
   }

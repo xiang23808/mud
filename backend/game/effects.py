@@ -454,7 +454,12 @@ def calculate_set_bonuses(equipment: list, sets_config: dict, include_full_confi
                     if key == "effects":
                         for ek, ev in val.items():
                             total_effects[ek] = total_effects.get(ek, 0) + ev
-                    else:
+                    elif key == "attributes":
+                        # 新结构：属性嵌套在 attributes 字段下
+                        for attr_key, attr_val in val.items():
+                            total_stats[attr_key] = total_stats.get(attr_key, 0) + attr_val
+                    elif isinstance(val, (int, float)):
+                        # 兼容旧结构：属性直接在顶层
                         total_stats[key] = total_stats.get(key, 0) + val
         
         if count >= 1:  # 只要有1件就显示套装信息

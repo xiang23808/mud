@@ -1,0 +1,563 @@
+{
+  "rune_el": {
+    "id": "rune_el",
+    "name": "艾尔",
+    "name_en": "El",
+    "type": "rune",
+    "rune_number": 1,
+    "level_req": 10,
+    "drop_weight": 100,
+    "recycle_gold": 100,
+    "socketed_effects": {
+      "weapon": { "attack_min": 3, "attack_max": 3, "magic_min": 3, "magic_max": 3, "effects": { "hit_rate": 0.02 } },
+      "armor": { "defense_min": 5, "defense_max": 5 },
+      "helmet": { "defense_min": 3, "defense_max": 3 },
+      "boots": { "defense_min": 2, "defense_max": 2 },
+      "belt": { "hp_bonus": 8 }
+    }
+  },
+  "rune_eld": {
+    "id": "rune_eld",
+    "name": "艾德",
+    "name_en": "Eld",
+    "type": "rune",
+    "rune_number": 2,
+    "level_req": 10,
+    "drop_weight": 95,
+    "recycle_gold": 120,
+    "socketed_effects": {
+      "weapon": { "attack_min": 4, "attack_max": 4, "magic_min": 4, "magic_max": 4 },
+      "armor": { "defense_min": 8, "defense_max": 8 },
+      "helmet": { "defense_min": 5, "defense_max": 5 },
+      "boots": { "defense_min": 3, "defense_max": 3 },
+      "belt": { "hp_bonus": 10 }
+    }
+  },
+  "rune_tir": {
+    "id": "rune_tir",
+    "name": "特尔",
+    "name_en": "Tir",
+    "type": "rune",
+    "rune_number": 3,
+    "level_req": 11,
+    "drop_weight": 90,
+    "recycle_gold": 150,
+    "socketed_effects": {
+      "weapon": { "mp_bonus": 5 },
+      "armor": { "mp_bonus": 8 },
+      "helmet": { "mp_bonus": 6 },
+      "boots": { "mp_bonus": 4 },
+      "belt": { "mp_bonus": 3 }
+    }
+  },
+  "rune_nef": {
+    "id": "rune_nef",
+    "name": "那夫",
+    "name_en": "Nef",
+    "type": "rune",
+    "rune_number": 4,
+    "level_req": 11,
+    "drop_weight": 85,
+    "recycle_gold": 180,
+    "socketed_effects": {
+      "weapon": { "effects": { "stun_rate": 0.02 } },
+      "armor": { "defense_min": 10, "defense_max": 10 },
+      "helmet": { "defense_min": 6, "defense_max": 6 },
+      "boots": { "defense_min": 4, "defense_max": 4 },
+      "belt": { "defense_min": 3, "defense_max": 3 }
+    }
+  },
+  "rune_eth": {
+    "id": "rune_eth",
+    "name": "爱斯",
+    "name_en": "Eth",
+    "type": "rune",
+    "rune_number": 5,
+    "level_req": 12,
+    "drop_weight": 80,
+    "recycle_gold": 220,
+    "socketed_effects": {
+      "weapon": { "effects": { "ignore_defense": 0.05 } },
+      "armor": { "effects": { "damage_reduction": 0.02 } },
+      "helmet": { "effects": { "damage_reduction": 0.01 } },
+      "boots": { "effects": { "damage_reduction": 0.01 } },
+      "belt": { "effects": { "damage_reduction": 0.01 } }
+    }
+  },
+  "rune_ith": {
+    "id": "rune_ith",
+    "name": "伊司",
+    "name_en": "Ith",
+    "type": "rune",
+    "rune_number": 6,
+    "level_req": 12,
+    "drop_weight": 75,
+    "recycle_gold": 260,
+    "socketed_effects": {
+      "weapon": { "attack_max": 6, "magic_max": 6 },
+      "armor": { "magic_defense_min": 5, "magic_defense_max": 5 },
+      "helmet": { "magic_defense_min": 3, "magic_defense_max": 3 },
+      "boots": { "magic_defense_min": 2, "magic_defense_max": 2 },
+      "belt": { "magic_defense_min": 2, "magic_defense_max": 2 }
+    }
+  },
+  "rune_tal": {
+    "id": "rune_tal",
+    "name": "塔尔",
+    "name_en": "Tal",
+    "type": "rune",
+    "rune_number": 7,
+    "level_req": 13,
+    "drop_weight": 70,
+    "recycle_gold": 300,
+    "socketed_effects": {
+      "weapon": { "effects": { "poison_damage": 5, "poison_rounds": 2 } },
+      "armor": { "hp_bonus": 15 },
+      "helmet": { "hp_bonus": 10 },
+      "boots": { "hp_bonus": 8 },
+      "belt": { "hp_bonus": 5 }
+    }
+  },
+  "rune_ral": {
+    "id": "rune_ral",
+    "name": "拉尔",
+    "name_en": "Ral",
+    "type": "rune",
+    "rune_number": 8,
+    "level_req": 14,
+    "drop_weight": 65,
+    "recycle_gold": 350,
+    "socketed_effects": {
+      "weapon": { "effects": { "extra_magic": 5 } },
+      "armor": { "effects": { "reflect": 0.02 } },
+      "helmet": { "effects": { "reflect": 0.01 } },
+      "boots": { "effects": { "reflect": 0.01 } },
+      "belt": { "effects": { "reflect": 0.01 } }
+    }
+  },
+  "rune_ort": {
+    "id": "rune_ort",
+    "name": "欧特",
+    "name_en": "Ort",
+    "type": "rune",
+    "rune_number": 9,
+    "level_req": 15,
+    "drop_weight": 60,
+    "recycle_gold": 400,
+    "socketed_effects": {
+      "weapon": { "effects": { "extra_phys": 5 } },
+      "armor": { "magic_defense_min": 8, "magic_defense_max": 8 },
+      "helmet": { "magic_defense_min": 5, "magic_defense_max": 5 },
+      "boots": { "magic_defense_min": 4, "magic_defense_max": 4 },
+      "belt": { "magic_defense_min": 3, "magic_defense_max": 3 }
+    }
+  },
+  "rune_thul": {
+    "id": "rune_thul",
+    "name": "书尔",
+    "name_en": "Thul",
+    "type": "rune",
+    "rune_number": 10,
+    "level_req": 16,
+    "drop_weight": 55,
+    "recycle_gold": 450,
+    "socketed_effects": {
+      "weapon": { "effects": { "extra_magic": 8 } },
+      "armor": { "hp_bonus": 20 },
+      "helmet": { "hp_bonus": 15 },
+      "boots": { "hp_bonus": 10 },
+      "belt": { "hp_bonus": 8 }
+    }
+  },
+  "rune_amn": {
+    "id": "rune_amn",
+    "name": "安姆",
+    "name_en": "Amn",
+    "type": "rune",
+    "rune_number": 11,
+    "level_req": 17,
+    "drop_weight": 50,
+    "recycle_gold": 500,
+    "socketed_effects": {
+      "weapon": { "effects": { "lifesteal": 0.03 } },
+      "armor": { "effects": { "hp_on_hit": 3 } },
+      "helmet": { "effects": { "hp_on_hit": 2 } },
+      "boots": { "effects": { "hp_on_hit": 2 } },
+      "belt": { "effects": { "hp_on_hit": 1 } }
+    }
+  },
+  "rune_sol": {
+    "id": "rune_sol",
+    "name": "索尔",
+    "name_en": "Sol",
+    "type": "rune",
+    "rune_number": 12,
+    "level_req": 18,
+    "drop_weight": 45,
+    "recycle_gold": 600,
+    "socketed_effects": {
+      "weapon": { "attack_min": 8, "attack_max": 8, "magic_min": 8, "magic_max": 8 },
+      "armor": { "effects": { "damage_reduction": 0.03 } },
+      "helmet": { "effects": { "damage_reduction": 0.02 } },
+      "boots": { "effects": { "damage_reduction": 0.02 } },
+      "belt": { "effects": { "damage_reduction": 0.01 } }
+    }
+  },
+  "rune_shael": {
+    "id": "rune_shael",
+    "name": "夏",
+    "name_en": "Shael",
+    "type": "rune",
+    "rune_number": 13,
+    "level_req": 19,
+    "drop_weight": 40,
+    "recycle_gold": 700,
+    "socketed_effects": {
+      "weapon": { "effects": { "double_attack": 0.05 } },
+      "armor": { "effects": { "dodge_rate": 0.02 } },
+      "helmet": { "effects": { "dodge_rate": 0.02 } },
+      "boots": { "effects": { "dodge_rate": 0.02 } },
+      "belt": { "effects": { "dodge_rate": 0.01 } }
+    }
+  },
+  "rune_dol": {
+    "id": "rune_dol",
+    "name": "多尔",
+    "name_en": "Dol",
+    "type": "rune",
+    "rune_number": 14,
+    "level_req": 20,
+    "drop_weight": 36,
+    "recycle_gold": 800,
+    "socketed_effects": {
+      "weapon": { "effects": { "stun_rate": 0.05 } },
+      "armor": { "hp_bonus": 25 },
+      "helmet": { "hp_bonus": 18 },
+      "boots": { "hp_bonus": 12 },
+      "belt": { "hp_bonus": 10 }
+    }
+  },
+  "rune_hel": {
+    "id": "rune_hel",
+    "name": "海尔",
+    "name_en": "Hel",
+    "type": "rune",
+    "rune_number": 15,
+    "level_req": 21,
+    "drop_weight": 32,
+    "recycle_gold": 900,
+    "socketed_effects": {
+      "weapon": { "attack_min": 5, "attack_max": 10, "magic_min": 5, "magic_max": 10 },
+      "armor": { "defense_min": 15, "defense_max": 15 },
+      "helmet": { "defense_min": 10, "defense_max": 10 },
+      "boots": { "defense_min": 8, "defense_max": 8 },
+      "belt": { "defense_min": 5, "defense_max": 5 }
+    }
+  },
+  "rune_io": {
+    "id": "rune_io",
+    "name": "埃欧",
+    "name_en": "Io",
+    "type": "rune",
+    "rune_number": 16,
+    "level_req": 22,
+    "drop_weight": 28,
+    "recycle_gold": 1000,
+    "socketed_effects": {
+      "weapon": { "hp_bonus": 10, "mp_bonus": 10 },
+      "armor": { "hp_bonus": 20, "mp_bonus": 20 },
+      "helmet": { "hp_bonus": 15, "mp_bonus": 15 },
+      "boots": { "hp_bonus": 10, "mp_bonus": 10 },
+      "belt": { "hp_bonus": 8, "mp_bonus": 8 }
+    }
+  },
+  "rune_lum": {
+    "id": "rune_lum",
+    "name": "卢姆",
+    "name_en": "Lum",
+    "type": "rune",
+    "rune_number": 17,
+    "level_req": 23,
+    "drop_weight": 25,
+    "recycle_gold": 1200,
+    "socketed_effects": {
+      "weapon": { "mp_bonus": 15 },
+      "armor": { "mp_bonus": 25 },
+      "helmet": { "mp_bonus": 20 },
+      "boots": { "mp_bonus": 15 },
+      "belt": { "mp_bonus": 10 }
+    }
+  },
+  "rune_ko": {
+    "id": "rune_ko",
+    "name": "科",
+    "name_en": "Ko",
+    "type": "rune",
+    "rune_number": 18,
+    "level_req": 24,
+    "drop_weight": 22,
+    "recycle_gold": 1400,
+    "socketed_effects": {
+      "weapon": { "effects": { "crit_damage": 0.1 } },
+      "armor": { "effects": { "crit_rate": 0.02 } },
+      "helmet": { "effects": { "crit_rate": 0.02 } },
+      "boots": { "effects": { "crit_rate": 0.01 } },
+      "belt": { "effects": { "crit_rate": 0.01 } }
+    }
+  },
+  "rune_fal": {
+    "id": "rune_fal",
+    "name": "法尔",
+    "name_en": "Fal",
+    "type": "rune",
+    "rune_number": 19,
+    "level_req": 25,
+    "drop_weight": 20,
+    "recycle_gold": 1600,
+    "socketed_effects": {
+      "weapon": { "attack_min": 10, "attack_max": 10, "magic_min": 10, "magic_max": 10 },
+      "armor": { "defense_min": 20, "defense_max": 20 },
+      "helmet": { "defense_min": 12, "defense_max": 12 },
+      "boots": { "defense_min": 10, "defense_max": 10 },
+      "belt": { "defense_min": 8, "defense_max": 8 }
+    }
+  },
+  "rune_lem": {
+    "id": "rune_lem",
+    "name": "蓝姆",
+    "name_en": "Lem",
+    "type": "rune",
+    "rune_number": 20,
+    "level_req": 26,
+    "drop_weight": 18,
+    "recycle_gold": 1800,
+    "socketed_effects": {
+      "weapon": { "effects": { "extra_phys": 10 } },
+      "armor": { "hp_bonus": 30 },
+      "helmet": { "hp_bonus": 20 },
+      "boots": { "hp_bonus": 15 },
+      "belt": { "hp_bonus": 12 }
+    }
+  },
+  "rune_pul": {
+    "id": "rune_pul",
+    "name": "普尔",
+    "name_en": "Pul",
+    "type": "rune",
+    "rune_number": 21,
+    "level_req": 28,
+    "drop_weight": 15,
+    "recycle_gold": 2200,
+    "socketed_effects": {
+      "weapon": { "effects": { "crush_rate": 0.05 } },
+      "armor": { "defense_min": 25, "defense_max": 25 },
+      "helmet": { "defense_min": 15, "defense_max": 15 },
+      "boots": { "defense_min": 12, "defense_max": 12 },
+      "belt": { "defense_min": 10, "defense_max": 10 }
+    }
+  },
+  "rune_um": {
+    "id": "rune_um",
+    "name": "乌姆",
+    "name_en": "Um",
+    "type": "rune",
+    "rune_number": 22,
+    "level_req": 30,
+    "drop_weight": 12,
+    "recycle_gold": 2800,
+    "socketed_effects": {
+      "weapon": { "effects": { "ignore_defense": 0.1 } },
+      "armor": { "effects": { "damage_reduction": 0.05 } },
+      "helmet": { "effects": { "damage_reduction": 0.03 } },
+      "boots": { "effects": { "damage_reduction": 0.03 } },
+      "belt": { "effects": { "damage_reduction": 0.02 } }
+    }
+  },
+  "rune_mal": {
+    "id": "rune_mal",
+    "name": "马尔",
+    "name_en": "Mal",
+    "type": "rune",
+    "rune_number": 23,
+    "level_req": 32,
+    "drop_weight": 10,
+    "recycle_gold": 3500,
+    "socketed_effects": {
+      "weapon": { "effects": { "lifesteal": 0.05 } },
+      "armor": { "magic_defense_min": 15, "magic_defense_max": 15 },
+      "helmet": { "magic_defense_min": 10, "magic_defense_max": 10 },
+      "boots": { "magic_defense_min": 8, "magic_defense_max": 8 },
+      "belt": { "magic_defense_min": 5, "magic_defense_max": 5 }
+    }
+  },
+  "rune_ist": {
+    "id": "rune_ist",
+    "name": "伊斯特",
+    "name_en": "Ist",
+    "type": "rune",
+    "rune_number": 24,
+    "level_req": 34,
+    "drop_weight": 8,
+    "recycle_gold": 4500,
+    "socketed_effects": {
+      "weapon": { "effects": { "crit_rate": 0.05 } },
+      "armor": { "effects": { "crit_rate": 0.03 } },
+      "helmet": { "effects": { "crit_rate": 0.03 } },
+      "boots": { "effects": { "crit_rate": 0.02 } },
+      "belt": { "effects": { "crit_rate": 0.02 } }
+    }
+  },
+  "rune_gul": {
+    "id": "rune_gul",
+    "name": "古尔",
+    "name_en": "Gul",
+    "type": "rune",
+    "rune_number": 25,
+    "level_req": 36,
+    "drop_weight": 6,
+    "recycle_gold": 5500,
+    "socketed_effects": {
+      "weapon": { "effects": { "extra_magic": 15, "extra_phys": 15 } },
+      "armor": { "hp_bonus": 40, "mp_bonus": 30 },
+      "helmet": { "hp_bonus": 30, "mp_bonus": 20 },
+      "boots": { "hp_bonus": 20, "mp_bonus": 15 },
+      "belt": { "hp_bonus": 15, "mp_bonus": 10 }
+    }
+  },
+  "rune_vex": {
+    "id": "rune_vex",
+    "name": "伐克斯",
+    "name_en": "Vex",
+    "type": "rune",
+    "rune_number": 26,
+    "level_req": 38,
+    "drop_weight": 5,
+    "recycle_gold": 7000,
+    "socketed_effects": {
+      "weapon": { "effects": { "lifesteal": 0.08 } },
+      "armor": { "effects": { "reflect": 0.05 } },
+      "helmet": { "effects": { "reflect": 0.03 } },
+      "boots": { "effects": { "reflect": 0.03 } },
+      "belt": { "effects": { "reflect": 0.02 } }
+    }
+  },
+  "rune_ohm": {
+    "id": "rune_ohm",
+    "name": "欧姆",
+    "name_en": "Ohm",
+    "type": "rune",
+    "rune_number": 27,
+    "level_req": 40,
+    "drop_weight": 4,
+    "recycle_gold": 9000,
+    "socketed_effects": {
+      "weapon": { "attack_min": 20, "attack_max": 30, "magic_min": 20, "magic_max": 30 },
+      "armor": { "defense_min": 40, "defense_max": 40 },
+      "helmet": { "defense_min": 25, "defense_max": 25 },
+      "boots": { "defense_min": 20, "defense_max": 20 },
+      "belt": { "defense_min": 15, "defense_max": 15 }
+    }
+  },
+  "rune_lo": {
+    "id": "rune_lo",
+    "name": "罗",
+    "name_en": "Lo",
+    "type": "rune",
+    "rune_number": 28,
+    "level_req": 42,
+    "drop_weight": 3.5,
+    "recycle_gold": 12000,
+    "socketed_effects": {
+      "weapon": { "effects": { "crit_damage": 0.25 } },
+      "armor": { "effects": { "damage_reduction": 0.08 } },
+      "helmet": { "effects": { "damage_reduction": 0.05 } },
+      "boots": { "effects": { "damage_reduction": 0.05 } },
+      "belt": { "effects": { "damage_reduction": 0.03 } }
+    }
+  },
+  "rune_sur": {
+    "id": "rune_sur",
+    "name": "瑟",
+    "name_en": "Sur",
+    "type": "rune",
+    "rune_number": 29,
+    "level_req": 44,
+    "drop_weight": 3,
+    "recycle_gold": 15000,
+    "socketed_effects": {
+      "weapon": { "effects": { "hp_on_hit": 10, "mp_on_hit": 5 } },
+      "armor": { "hp_bonus": 60, "effects": { "block_rate": 0.03 } },
+      "helmet": { "hp_bonus": 40, "effects": { "block_rate": 0.02 } },
+      "boots": { "hp_bonus": 30 },
+      "belt": { "hp_bonus": 25 }
+    }
+  },
+  "rune_ber": {
+    "id": "rune_ber",
+    "name": "贝",
+    "name_en": "Ber",
+    "type": "rune",
+    "rune_number": 30,
+    "level_req": 46,
+    "drop_weight": 2.5,
+    "recycle_gold": 20000,
+    "socketed_effects": {
+      "weapon": { "effects": { "crush_rate": 0.1 } },
+      "armor": { "effects": { "damage_reduction": 0.1 } },
+      "helmet": { "effects": { "damage_reduction": 0.06 } },
+      "boots": { "effects": { "damage_reduction": 0.05 } },
+      "belt": { "effects": { "damage_reduction": 0.04 } }
+    }
+  },
+  "rune_jah": {
+    "id": "rune_jah",
+    "name": "乔",
+    "name_en": "Jah",
+    "type": "rune",
+    "rune_number": 31,
+    "level_req": 48,
+    "drop_weight": 2,
+    "recycle_gold": 28000,
+    "socketed_effects": {
+      "weapon": { "effects": { "ignore_defense": 0.15 } },
+      "armor": { "hp_bonus": 80 },
+      "helmet": { "hp_bonus": 50 },
+      "boots": { "hp_bonus": 40 },
+      "belt": { "hp_bonus": 30 }
+    }
+  },
+  "rune_cham": {
+    "id": "rune_cham",
+    "name": "查姆",
+    "name_en": "Cham",
+    "type": "rune",
+    "rune_number": 32,
+    "level_req": 50,
+    "drop_weight": 1.5,
+    "recycle_gold": 38000,
+    "socketed_effects": {
+      "weapon": { "effects": { "stun_rate": 0.1 } },
+      "armor": { "effects": { "dodge_rate": 0.08 } },
+      "helmet": { "effects": { "dodge_rate": 0.05 } },
+      "boots": { "effects": { "dodge_rate": 0.05 } },
+      "belt": { "effects": { "dodge_rate": 0.03 } }
+    }
+  },
+  "rune_zod": {
+    "id": "rune_zod",
+    "name": "萨德",
+    "name_en": "Zod",
+    "type": "rune",
+    "rune_number": 33,
+    "level_req": 52,
+    "drop_weight": 1,
+    "recycle_gold": 50000,
+    "socketed_effects": {
+      "weapon": { "attack_min": 30, "attack_max": 50, "magic_min": 30, "magic_max": 50, "effects": { "crit_rate": 0.1, "crit_damage": 0.3 } },
+      "armor": { "defense_min": 60, "defense_max": 60, "effects": { "damage_reduction": 0.12 } },
+      "helmet": { "defense_min": 40, "defense_max": 40, "effects": { "damage_reduction": 0.08 } },
+      "boots": { "defense_min": 30, "defense_max": 30, "effects": { "damage_reduction": 0.06 } },
+      "belt": { "defense_min": 25, "defense_max": 25, "effects": { "damage_reduction": 0.05 } }
+    }
+  }
+}

@@ -13,9 +13,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "attack_min": 1,
+    "attack_max": 2,
     "defense_min": 4,
     "defense_max": 6,
-    "hp_bonus": 30
+    "magic_defense_min": 2,
+    "magic_defense_max": 3,
+    "hp_bonus": 30,
+    "mp_bonus": 10
   },
   "tier_1_warrior_body": {
     "id": "tier_1_warrior_body",
@@ -31,9 +36,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "attack_min": 1,
+    "attack_max": 2,
     "defense_min": 4,
     "defense_max": 6,
-    "hp_bonus": 30
+    "magic_defense_min": 2,
+    "magic_defense_max": 3,
+    "hp_bonus": 30,
+    "mp_bonus": 10
   },
   "tier_1_warrior_belt": {
     "id": "tier_1_warrior_belt",
@@ -49,9 +59,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "attack_min": 1,
+    "attack_max": 2,
     "defense_min": 4,
     "defense_max": 6,
-    "hp_bonus": 30
+    "magic_defense_min": 2,
+    "magic_defense_max": 3,
+    "hp_bonus": 30,
+    "mp_bonus": 10
   },
   "tier_1_warrior_boots": {
     "id": "tier_1_warrior_boots",
@@ -67,9 +82,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "attack_min": 1,
+    "attack_max": 2,
     "defense_min": 4,
     "defense_max": 6,
-    "hp_bonus": 30
+    "magic_defense_min": 2,
+    "magic_defense_max": 3,
+    "hp_bonus": 30,
+    "mp_bonus": 10
   },
   "tier_1_mage_helmet": {
     "id": "tier_1_mage_helmet",
@@ -85,9 +105,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "magic_min": 2,
+    "magic_max": 3,
     "magic_defense_min": 4,
     "magic_defense_max": 7,
-    "mp_bonus": 40
+    "defense_min": 2,
+    "defense_max": 3,
+    "mp_bonus": 40,
+    "hp_bonus": 8
   },
   "tier_1_mage_body": {
     "id": "tier_1_mage_body",
@@ -103,9 +128,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "magic_min": 2,
+    "magic_max": 3,
     "magic_defense_min": 4,
     "magic_defense_max": 7,
-    "mp_bonus": 40
+    "defense_min": 2,
+    "defense_max": 3,
+    "mp_bonus": 40,
+    "hp_bonus": 8
   },
   "tier_1_mage_belt": {
     "id": "tier_1_mage_belt",
@@ -121,9 +151,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "magic_min": 2,
+    "magic_max": 3,
     "magic_defense_min": 4,
     "magic_defense_max": 7,
-    "mp_bonus": 40
+    "defense_min": 2,
+    "defense_max": 3,
+    "mp_bonus": 40,
+    "hp_bonus": 8
   },
   "tier_1_mage_boots": {
     "id": "tier_1_mage_boots",
@@ -139,9 +174,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 50,
     "drop_only": false,
+    "magic_min": 2,
+    "magic_max": 3,
     "magic_defense_min": 4,
     "magic_defense_max": 7,
-    "mp_bonus": 40
+    "defense_min": 2,
+    "defense_max": 3,
+    "mp_bonus": 40,
+    "hp_bonus": 8
   },
   "tier_2_warrior_helmet": {
     "id": "tier_2_warrior_helmet",
@@ -157,9 +197,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 4,
     "defense_min": 8,
     "defense_max": 12,
-    "hp_bonus": 60
+    "magic_defense_min": 4,
+    "magic_defense_max": 7,
+    "hp_bonus": 60,
+    "mp_bonus": 20
   },
   "tier_2_warrior_body": {
     "id": "tier_2_warrior_body",
@@ -175,9 +220,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 4,
     "defense_min": 8,
     "defense_max": 12,
-    "hp_bonus": 60
+    "magic_defense_min": 4,
+    "magic_defense_max": 7,
+    "hp_bonus": 60,
+    "mp_bonus": 20
   },
   "tier_2_warrior_belt": {
     "id": "tier_2_warrior_belt",
@@ -193,9 +243,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 4,
     "defense_min": 8,
     "defense_max": 12,
-    "hp_bonus": 60
+    "magic_defense_min": 4,
+    "magic_defense_max": 7,
+    "hp_bonus": 60,
+    "mp_bonus": 20
   },
   "tier_2_warrior_boots": {
     "id": "tier_2_warrior_boots",
@@ -211,9 +266,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 4,
     "defense_min": 8,
     "defense_max": 12,
-    "hp_bonus": 60
+    "magic_defense_min": 4,
+    "magic_defense_max": 7,
+    "hp_bonus": 60,
+    "mp_bonus": 20
   },
   "tier_2_mage_helmet": {
     "id": "tier_2_mage_helmet",
@@ -229,9 +289,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 9,
     "magic_defense_max": 14,
-    "mp_bonus": 80
+    "defense_min": 4,
+    "defense_max": 7,
+    "mp_bonus": 80,
+    "hp_bonus": 16
   },
   "tier_2_mage_body": {
     "id": "tier_2_mage_body",
@@ -247,9 +312,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 9,
     "magic_defense_max": 14,
-    "mp_bonus": 80
+    "defense_min": 4,
+    "defense_max": 7,
+    "mp_bonus": 80,
+    "hp_bonus": 16
   },
   "tier_2_mage_belt": {
     "id": "tier_2_mage_belt",
@@ -265,9 +335,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 9,
     "magic_defense_max": 14,
-    "mp_bonus": 80
+    "defense_min": 4,
+    "defense_max": 7,
+    "mp_bonus": 80,
+    "hp_bonus": 16
   },
   "tier_2_mage_boots": {
     "id": "tier_2_mage_boots",
@@ -283,9 +358,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 100,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 9,
     "magic_defense_max": 14,
-    "mp_bonus": 80
+    "defense_min": 4,
+    "defense_max": 7,
+    "mp_bonus": 80,
+    "hp_bonus": 16
   },
   "tier_3_warrior_helmet": {
     "id": "tier_3_warrior_helmet",
@@ -301,9 +381,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 7,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 7,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "tier_3_warrior_body": {
     "id": "tier_3_warrior_body",
@@ -319,9 +404,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 7,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 7,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "tier_3_warrior_belt": {
     "id": "tier_3_warrior_belt",
@@ -337,9 +427,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 7,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 7,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "tier_3_warrior_boots": {
     "id": "tier_3_warrior_boots",
@@ -355,9 +450,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 7,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 7,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "tier_3_mage_helmet": {
     "id": "tier_3_mage_helmet",
@@ -373,9 +473,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 7,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "tier_3_mage_body": {
     "id": "tier_3_mage_body",
@@ -391,9 +496,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 7,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "tier_3_mage_belt": {
     "id": "tier_3_mage_belt",
@@ -409,9 +519,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 7,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "tier_3_mage_boots": {
     "id": "tier_3_mage_boots",
@@ -427,9 +542,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 7,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "tier_4_warrior_helmet": {
     "id": "tier_4_warrior_helmet",
@@ -445,9 +565,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 16,
     "defense_max": 24,
-    "hp_bonus": 120
+    "magic_defense_min": 9,
+    "magic_defense_max": 14,
+    "hp_bonus": 120,
+    "mp_bonus": 40
   },
   "tier_4_warrior_body": {
     "id": "tier_4_warrior_body",
@@ -463,9 +588,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 16,
     "defense_max": 24,
-    "hp_bonus": 120
+    "magic_defense_min": 9,
+    "magic_defense_max": 14,
+    "hp_bonus": 120,
+    "mp_bonus": 40
   },
   "tier_4_warrior_belt": {
     "id": "tier_4_warrior_belt",
@@ -481,9 +611,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 16,
     "defense_max": 24,
-    "hp_bonus": 120
+    "magic_defense_min": 9,
+    "magic_defense_max": 14,
+    "hp_bonus": 120,
+    "mp_bonus": 40
   },
   "tier_4_warrior_boots": {
     "id": "tier_4_warrior_boots",
@@ -499,9 +634,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 16,
     "defense_max": 24,
-    "hp_bonus": 120
+    "magic_defense_min": 9,
+    "magic_defense_max": 14,
+    "hp_bonus": 120,
+    "mp_bonus": 40
   },
   "tier_4_mage_helmet": {
     "id": "tier_4_mage_helmet",
@@ -517,9 +657,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "magic_min": 8,
+    "magic_max": 12,
     "magic_defense_min": 19,
     "magic_defense_max": 28,
-    "mp_bonus": 160
+    "defense_min": 9,
+    "defense_max": 14,
+    "mp_bonus": 160,
+    "hp_bonus": 32
   },
   "tier_4_mage_body": {
     "id": "tier_4_mage_body",
@@ -535,9 +680,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "magic_min": 8,
+    "magic_max": 12,
     "magic_defense_min": 19,
     "magic_defense_max": 28,
-    "mp_bonus": 160
+    "defense_min": 9,
+    "defense_max": 14,
+    "mp_bonus": 160,
+    "hp_bonus": 32
   },
   "tier_4_mage_belt": {
     "id": "tier_4_mage_belt",
@@ -553,9 +703,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "magic_min": 8,
+    "magic_max": 12,
     "magic_defense_min": 19,
     "magic_defense_max": 28,
-    "mp_bonus": 160
+    "defense_min": 9,
+    "defense_max": 14,
+    "mp_bonus": 160,
+    "hp_bonus": 32
   },
   "tier_4_mage_boots": {
     "id": "tier_4_mage_boots",
@@ -571,9 +726,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 200,
     "drop_only": false,
+    "magic_min": 8,
+    "magic_max": 12,
     "magic_defense_min": 19,
     "magic_defense_max": 28,
-    "mp_bonus": 160
+    "defense_min": 9,
+    "defense_max": 14,
+    "mp_bonus": 160,
+    "hp_bonus": 32
   },
   "tier_5_warrior_helmet": {
     "id": "tier_5_warrior_helmet",
@@ -589,9 +749,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 20,
     "defense_max": 30,
-    "hp_bonus": 150
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 150,
+    "mp_bonus": 50
   },
   "tier_5_warrior_body": {
     "id": "tier_5_warrior_body",
@@ -607,9 +772,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 20,
     "defense_max": 30,
-    "hp_bonus": 150
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 150,
+    "mp_bonus": 50
   },
   "tier_5_warrior_belt": {
     "id": "tier_5_warrior_belt",
@@ -625,9 +795,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 20,
     "defense_max": 30,
-    "hp_bonus": 150
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 150,
+    "mp_bonus": 50
   },
   "tier_5_warrior_boots": {
     "id": "tier_5_warrior_boots",
@@ -643,9 +818,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 20,
     "defense_max": 30,
-    "hp_bonus": 150
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 150,
+    "mp_bonus": 50
   },
   "tier_5_mage_helmet": {
     "id": "tier_5_mage_helmet",
@@ -661,9 +841,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 36,
-    "mp_bonus": 200
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 200,
+    "hp_bonus": 40
   },
   "tier_5_mage_body": {
     "id": "tier_5_mage_body",
@@ -679,9 +864,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 36,
-    "mp_bonus": 200
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 200,
+    "hp_bonus": 40
   },
   "tier_5_mage_belt": {
     "id": "tier_5_mage_belt",
@@ -697,9 +887,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 36,
-    "mp_bonus": 200
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 200,
+    "hp_bonus": 40
   },
   "tier_5_mage_boots": {
     "id": "tier_5_mage_boots",
@@ -715,9 +910,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 250,
     "drop_only": false,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 36,
-    "mp_bonus": 200
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 200,
+    "hp_bonus": 40
   },
   "tier_6_warrior_helmet": {
     "id": "tier_6_warrior_helmet",
@@ -733,9 +933,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "tier_6_warrior_body": {
     "id": "tier_6_warrior_body",
@@ -751,9 +956,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "tier_6_warrior_belt": {
     "id": "tier_6_warrior_belt",
@@ -769,9 +979,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "tier_6_warrior_boots": {
     "id": "tier_6_warrior_boots",
@@ -787,9 +1002,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "tier_6_mage_helmet": {
     "id": "tier_6_mage_helmet",
@@ -805,9 +1025,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 43,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "tier_6_mage_body": {
     "id": "tier_6_mage_body",
@@ -823,9 +1048,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 43,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "tier_6_mage_belt": {
     "id": "tier_6_mage_belt",
@@ -841,9 +1071,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 43,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "tier_6_mage_boots": {
     "id": "tier_6_mage_boots",
@@ -859,9 +1094,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 300,
     "drop_only": false,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 43,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "tier_7_warrior_helmet": {
     "id": "tier_7_warrior_helmet",
@@ -877,9 +1117,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 11,
+    "attack_max": 16,
     "defense_min": 28,
     "defense_max": 42,
+    "magic_defense_min": 16,
+    "magic_defense_max": 25,
     "hp_bonus": 210,
+    "mp_bonus": 70,
     "effects": {
       "crit_rate": 0.01
     }
@@ -898,9 +1143,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 11,
+    "attack_max": 16,
     "defense_min": 28,
     "defense_max": 42,
+    "magic_defense_min": 16,
+    "magic_defense_max": 25,
     "hp_bonus": 210,
+    "mp_bonus": 70,
     "effects": {
       "crit_rate": 0.01
     }
@@ -919,9 +1169,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 11,
+    "attack_max": 16,
     "defense_min": 28,
     "defense_max": 42,
+    "magic_defense_min": 16,
+    "magic_defense_max": 25,
     "hp_bonus": 210,
+    "mp_bonus": 70,
     "effects": {
       "crit_rate": 0.01
     }
@@ -940,9 +1195,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 11,
+    "attack_max": 16,
     "defense_min": 28,
     "defense_max": 42,
+    "magic_defense_min": 16,
+    "magic_defense_max": 25,
     "hp_bonus": 210,
+    "mp_bonus": 70,
     "effects": {
       "crit_rate": 0.01
     }
@@ -961,9 +1221,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 14,
+    "magic_max": 21,
     "magic_defense_min": 33,
     "magic_defense_max": 50,
+    "defense_min": 16,
+    "defense_max": 25,
     "mp_bonus": 280,
+    "hp_bonus": 56,
     "effects": {
       "crit_rate": 0.01
     }
@@ -982,9 +1247,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 14,
+    "magic_max": 21,
     "magic_defense_min": 33,
     "magic_defense_max": 50,
+    "defense_min": 16,
+    "defense_max": 25,
     "mp_bonus": 280,
+    "hp_bonus": 56,
     "effects": {
       "crit_rate": 0.01
     }
@@ -1003,9 +1273,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 14,
+    "magic_max": 21,
     "magic_defense_min": 33,
     "magic_defense_max": 50,
+    "defense_min": 16,
+    "defense_max": 25,
     "mp_bonus": 280,
+    "hp_bonus": 56,
     "effects": {
       "crit_rate": 0.01
     }
@@ -1024,9 +1299,14 @@
     "recycle_yuanbao": 35,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 14,
+    "magic_max": 21,
     "magic_defense_min": 33,
     "magic_defense_max": 50,
+    "defense_min": 16,
+    "defense_max": 25,
     "mp_bonus": 280,
+    "hp_bonus": 56,
     "effects": {
       "crit_rate": 0.01
     }
@@ -1045,9 +1325,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 32,
     "defense_max": 48,
+    "magic_defense_min": 19,
+    "magic_defense_max": 28,
     "hp_bonus": 240,
+    "mp_bonus": 80,
     "effects": {
       "crit_rate": 0.02
     }
@@ -1066,9 +1351,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 32,
     "defense_max": 48,
+    "magic_defense_min": 19,
+    "magic_defense_max": 28,
     "hp_bonus": 240,
+    "mp_bonus": 80,
     "effects": {
       "crit_rate": 0.02
     }
@@ -1087,9 +1377,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 32,
     "defense_max": 48,
+    "magic_defense_min": 19,
+    "magic_defense_max": 28,
     "hp_bonus": 240,
+    "mp_bonus": 80,
     "effects": {
       "crit_rate": 0.02
     }
@@ -1108,9 +1403,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 32,
     "defense_max": 48,
+    "magic_defense_min": 19,
+    "magic_defense_max": 28,
     "hp_bonus": 240,
+    "mp_bonus": 80,
     "effects": {
       "crit_rate": 0.02
     }
@@ -1129,9 +1429,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 38,
     "magic_defense_max": 57,
+    "defense_min": 19,
+    "defense_max": 28,
     "mp_bonus": 320,
+    "hp_bonus": 64,
     "effects": {
       "crit_rate": 0.02,
       "extra_magic": 3
@@ -1151,9 +1456,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 38,
     "magic_defense_max": 57,
+    "defense_min": 19,
+    "defense_max": 28,
     "mp_bonus": 320,
+    "hp_bonus": 64,
     "effects": {
       "crit_rate": 0.02,
       "extra_magic": 3
@@ -1173,9 +1483,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 38,
     "magic_defense_max": 57,
+    "defense_min": 19,
+    "defense_max": 28,
     "mp_bonus": 320,
+    "hp_bonus": 64,
     "effects": {
       "crit_rate": 0.02,
       "extra_magic": 3
@@ -1195,9 +1510,14 @@
     "recycle_yuanbao": 40,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 38,
     "magic_defense_max": 57,
+    "defense_min": 19,
+    "defense_max": 28,
     "mp_bonus": 320,
+    "hp_bonus": 64,
     "effects": {
       "crit_rate": 0.02,
       "extra_magic": 3
@@ -1217,9 +1537,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
     "hp_bonus": 270,
+    "mp_bonus": 90,
     "effects": {
       "crit_rate": 0.03,
       "crush_rate": 0.01
@@ -1239,9 +1564,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
     "hp_bonus": 270,
+    "mp_bonus": 90,
     "effects": {
       "crit_rate": 0.03,
       "crush_rate": 0.01
@@ -1261,9 +1591,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
     "hp_bonus": 270,
+    "mp_bonus": 90,
     "effects": {
       "crit_rate": 0.03,
       "crush_rate": 0.01
@@ -1283,9 +1618,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
     "hp_bonus": 270,
+    "mp_bonus": 90,
     "effects": {
       "crit_rate": 0.03,
       "crush_rate": 0.01
@@ -1305,9 +1645,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 43,
     "magic_defense_max": 64,
+    "defense_min": 21,
+    "defense_max": 32,
     "mp_bonus": 360,
+    "hp_bonus": 72,
     "effects": {
       "crit_rate": 0.03,
       "extra_magic": 6
@@ -1327,9 +1672,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 43,
     "magic_defense_max": 64,
+    "defense_min": 21,
+    "defense_max": 32,
     "mp_bonus": 360,
+    "hp_bonus": 72,
     "effects": {
       "crit_rate": 0.03,
       "extra_magic": 6
@@ -1349,9 +1699,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 43,
     "magic_defense_max": 64,
+    "defense_min": 21,
+    "defense_max": 32,
     "mp_bonus": 360,
+    "hp_bonus": 72,
     "effects": {
       "crit_rate": 0.03,
       "extra_magic": 6
@@ -1371,9 +1726,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 43,
     "magic_defense_max": 64,
+    "defense_min": 21,
+    "defense_max": 32,
     "mp_bonus": 360,
+    "hp_bonus": 72,
     "effects": {
       "crit_rate": 0.03,
       "extra_magic": 6
@@ -1393,9 +1753,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 40,
     "defense_max": 60,
+    "magic_defense_min": 24,
+    "magic_defense_max": 36,
     "hp_bonus": 300,
+    "mp_bonus": 100,
     "effects": {
       "crit_rate": 0.04,
       "crush_rate": 0.02,
@@ -1416,9 +1781,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 40,
     "defense_max": 60,
+    "magic_defense_min": 24,
+    "magic_defense_max": 36,
     "hp_bonus": 300,
+    "mp_bonus": 100,
     "effects": {
       "crit_rate": 0.04,
       "crush_rate": 0.02,
@@ -1439,9 +1809,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 40,
     "defense_max": 60,
+    "magic_defense_min": 24,
+    "magic_defense_max": 36,
     "hp_bonus": 300,
+    "mp_bonus": 100,
     "effects": {
       "crit_rate": 0.04,
       "crush_rate": 0.02,
@@ -1462,9 +1837,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 40,
     "defense_max": 60,
+    "magic_defense_min": 24,
+    "magic_defense_max": 36,
     "hp_bonus": 300,
+    "mp_bonus": 100,
     "effects": {
       "crit_rate": 0.04,
       "crush_rate": 0.02,
@@ -1485,9 +1865,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 20,
+    "magic_max": 30,
     "magic_defense_min": 48,
     "magic_defense_max": 72,
+    "defense_min": 24,
+    "defense_max": 36,
     "mp_bonus": 400,
+    "hp_bonus": 80,
     "effects": {
       "crit_rate": 0.04,
       "extra_magic": 9,
@@ -1508,9 +1893,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 20,
+    "magic_max": 30,
     "magic_defense_min": 48,
     "magic_defense_max": 72,
+    "defense_min": 24,
+    "defense_max": 36,
     "mp_bonus": 400,
+    "hp_bonus": 80,
     "effects": {
       "crit_rate": 0.04,
       "extra_magic": 9,
@@ -1531,9 +1921,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 20,
+    "magic_max": 30,
     "magic_defense_min": 48,
     "magic_defense_max": 72,
+    "defense_min": 24,
+    "defense_max": 36,
     "mp_bonus": 400,
+    "hp_bonus": 80,
     "effects": {
       "crit_rate": 0.04,
       "extra_magic": 9,
@@ -1554,9 +1949,14 @@
     "recycle_yuanbao": 50,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 20,
+    "magic_max": 30,
     "magic_defense_min": 48,
     "magic_defense_max": 72,
+    "defense_min": 24,
+    "defense_max": 36,
     "mp_bonus": 400,
+    "hp_bonus": 80,
     "effects": {
       "crit_rate": 0.04,
       "extra_magic": 9,
@@ -1577,9 +1977,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 17,
+    "attack_max": 26,
     "defense_min": 44,
     "defense_max": 66,
+    "magic_defense_min": 26,
+    "magic_defense_max": 39,
     "hp_bonus": 330,
+    "mp_bonus": 110,
     "effects": {
       "crit_rate": 0.05,
       "crush_rate": 0.03,
@@ -1600,9 +2005,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 17,
+    "attack_max": 26,
     "defense_min": 44,
     "defense_max": 66,
+    "magic_defense_min": 26,
+    "magic_defense_max": 39,
     "hp_bonus": 330,
+    "mp_bonus": 110,
     "effects": {
       "crit_rate": 0.05,
       "crush_rate": 0.03,
@@ -1623,9 +2033,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 17,
+    "attack_max": 26,
     "defense_min": 44,
     "defense_max": 66,
+    "magic_defense_min": 26,
+    "magic_defense_max": 39,
     "hp_bonus": 330,
+    "mp_bonus": 110,
     "effects": {
       "crit_rate": 0.05,
       "crush_rate": 0.03,
@@ -1646,9 +2061,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 17,
+    "attack_max": 26,
     "defense_min": 44,
     "defense_max": 66,
+    "magic_defense_min": 26,
+    "magic_defense_max": 39,
     "hp_bonus": 330,
+    "mp_bonus": 110,
     "effects": {
       "crit_rate": 0.05,
       "crush_rate": 0.03,
@@ -1669,9 +2089,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 52,
     "magic_defense_max": 79,
+    "defense_min": 26,
+    "defense_max": 39,
     "mp_bonus": 440,
+    "hp_bonus": 88,
     "effects": {
       "crit_rate": 0.05,
       "extra_magic": 12,
@@ -1692,9 +2117,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 52,
     "magic_defense_max": 79,
+    "defense_min": 26,
+    "defense_max": 39,
     "mp_bonus": 440,
+    "hp_bonus": 88,
     "effects": {
       "crit_rate": 0.05,
       "extra_magic": 12,
@@ -1715,9 +2145,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 52,
     "magic_defense_max": 79,
+    "defense_min": 26,
+    "defense_max": 39,
     "mp_bonus": 440,
+    "hp_bonus": 88,
     "effects": {
       "crit_rate": 0.05,
       "extra_magic": 12,
@@ -1738,9 +2173,14 @@
     "recycle_yuanbao": 55,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 52,
     "magic_defense_max": 79,
+    "defense_min": 26,
+    "defense_max": 39,
     "mp_bonus": 440,
+    "hp_bonus": 88,
     "effects": {
       "crit_rate": 0.05,
       "extra_magic": 12,
@@ -1761,9 +2201,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 19,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
+    "magic_defense_min": 28,
+    "magic_defense_max": 43,
     "hp_bonus": 360,
+    "mp_bonus": 120,
     "effects": {
       "crit_rate": 0.06,
       "crush_rate": 0.04,
@@ -1784,9 +2229,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 19,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
+    "magic_defense_min": 28,
+    "magic_defense_max": 43,
     "hp_bonus": 360,
+    "mp_bonus": 120,
     "effects": {
       "crit_rate": 0.06,
       "crush_rate": 0.04,
@@ -1807,9 +2257,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 19,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
+    "magic_defense_min": 28,
+    "magic_defense_max": 43,
     "hp_bonus": 360,
+    "mp_bonus": 120,
     "effects": {
       "crit_rate": 0.06,
       "crush_rate": 0.04,
@@ -1830,9 +2285,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 19,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
+    "magic_defense_min": 28,
+    "magic_defense_max": 43,
     "hp_bonus": 360,
+    "mp_bonus": 120,
     "effects": {
       "crit_rate": 0.06,
       "crush_rate": 0.04,
@@ -1853,9 +2313,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
+    "defense_min": 28,
+    "defense_max": 43,
     "mp_bonus": 480,
+    "hp_bonus": 96,
     "effects": {
       "crit_rate": 0.06,
       "extra_magic": 15,
@@ -1876,9 +2341,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
+    "defense_min": 28,
+    "defense_max": 43,
     "mp_bonus": 480,
+    "hp_bonus": 96,
     "effects": {
       "crit_rate": 0.06,
       "extra_magic": 15,
@@ -1899,9 +2369,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
+    "defense_min": 28,
+    "defense_max": 43,
     "mp_bonus": 480,
+    "hp_bonus": 96,
     "effects": {
       "crit_rate": 0.06,
       "extra_magic": 15,
@@ -1922,9 +2397,14 @@
     "recycle_yuanbao": 60,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
+    "defense_min": 28,
+    "defense_max": 43,
     "mp_bonus": 480,
+    "hp_bonus": 96,
     "effects": {
       "crit_rate": 0.06,
       "extra_magic": 15,
@@ -1945,9 +2425,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 20,
+    "attack_max": 31,
     "defense_min": 52,
     "defense_max": 78,
+    "magic_defense_min": 31,
+    "magic_defense_max": 46,
     "hp_bonus": 390,
+    "mp_bonus": 130,
     "effects": {
       "crit_rate": 0.07,
       "crush_rate": 0.05,
@@ -1968,9 +2453,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 20,
+    "attack_max": 31,
     "defense_min": 52,
     "defense_max": 78,
+    "magic_defense_min": 31,
+    "magic_defense_max": 46,
     "hp_bonus": 390,
+    "mp_bonus": 130,
     "effects": {
       "crit_rate": 0.07,
       "crush_rate": 0.05,
@@ -1991,9 +2481,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 20,
+    "attack_max": 31,
     "defense_min": 52,
     "defense_max": 78,
+    "magic_defense_min": 31,
+    "magic_defense_max": 46,
     "hp_bonus": 390,
+    "mp_bonus": 130,
     "effects": {
       "crit_rate": 0.07,
       "crush_rate": 0.05,
@@ -2014,9 +2509,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 20,
+    "attack_max": 31,
     "defense_min": 52,
     "defense_max": 78,
+    "magic_defense_min": 31,
+    "magic_defense_max": 46,
     "hp_bonus": 390,
+    "mp_bonus": 130,
     "effects": {
       "crit_rate": 0.07,
       "crush_rate": 0.05,
@@ -2037,9 +2537,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 26,
+    "magic_max": 39,
     "magic_defense_min": 62,
     "magic_defense_max": 93,
+    "defense_min": 31,
+    "defense_max": 46,
     "mp_bonus": 520,
+    "hp_bonus": 104,
     "effects": {
       "crit_rate": 0.07,
       "extra_magic": 18,
@@ -2060,9 +2565,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 26,
+    "magic_max": 39,
     "magic_defense_min": 62,
     "magic_defense_max": 93,
+    "defense_min": 31,
+    "defense_max": 46,
     "mp_bonus": 520,
+    "hp_bonus": 104,
     "effects": {
       "crit_rate": 0.07,
       "extra_magic": 18,
@@ -2083,9 +2593,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 26,
+    "magic_max": 39,
     "magic_defense_min": 62,
     "magic_defense_max": 93,
+    "defense_min": 31,
+    "defense_max": 46,
     "mp_bonus": 520,
+    "hp_bonus": 104,
     "effects": {
       "crit_rate": 0.07,
       "extra_magic": 18,
@@ -2106,9 +2621,14 @@
     "recycle_yuanbao": 65,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 26,
+    "magic_max": 39,
     "magic_defense_min": 62,
     "magic_defense_max": 93,
+    "defense_min": 31,
+    "defense_max": 46,
     "mp_bonus": 520,
+    "hp_bonus": 104,
     "effects": {
       "crit_rate": 0.07,
       "extra_magic": 18,
@@ -2129,9 +2649,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 22,
+    "attack_max": 33,
     "defense_min": 56,
     "defense_max": 84,
+    "magic_defense_min": 33,
+    "magic_defense_max": 50,
     "hp_bonus": 420,
+    "mp_bonus": 140,
     "effects": {
       "crit_rate": 0.08,
       "crush_rate": 0.06,
@@ -2152,9 +2677,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 22,
+    "attack_max": 33,
     "defense_min": 56,
     "defense_max": 84,
+    "magic_defense_min": 33,
+    "magic_defense_max": 50,
     "hp_bonus": 420,
+    "mp_bonus": 140,
     "effects": {
       "crit_rate": 0.08,
       "crush_rate": 0.06,
@@ -2175,9 +2705,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 22,
+    "attack_max": 33,
     "defense_min": 56,
     "defense_max": 84,
+    "magic_defense_min": 33,
+    "magic_defense_max": 50,
     "hp_bonus": 420,
+    "mp_bonus": 140,
     "effects": {
       "crit_rate": 0.08,
       "crush_rate": 0.06,
@@ -2198,9 +2733,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 22,
+    "attack_max": 33,
     "defense_min": 56,
     "defense_max": 84,
+    "magic_defense_min": 33,
+    "magic_defense_max": 50,
     "hp_bonus": 420,
+    "mp_bonus": 140,
     "effects": {
       "crit_rate": 0.08,
       "crush_rate": 0.06,
@@ -2221,9 +2761,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 28,
+    "magic_max": 42,
     "magic_defense_min": 67,
     "magic_defense_max": 100,
+    "defense_min": 33,
+    "defense_max": 50,
     "mp_bonus": 560,
+    "hp_bonus": 112,
     "effects": {
       "crit_rate": 0.08,
       "extra_magic": 21,
@@ -2244,9 +2789,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 28,
+    "magic_max": 42,
     "magic_defense_min": 67,
     "magic_defense_max": 100,
+    "defense_min": 33,
+    "defense_max": 50,
     "mp_bonus": 560,
+    "hp_bonus": 112,
     "effects": {
       "crit_rate": 0.08,
       "extra_magic": 21,
@@ -2267,9 +2817,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 28,
+    "magic_max": 42,
     "magic_defense_min": 67,
     "magic_defense_max": 100,
+    "defense_min": 33,
+    "defense_max": 50,
     "mp_bonus": 560,
+    "hp_bonus": 112,
     "effects": {
       "crit_rate": 0.08,
       "extra_magic": 21,
@@ -2290,9 +2845,14 @@
     "recycle_yuanbao": 70,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 28,
+    "magic_max": 42,
     "magic_defense_min": 67,
     "magic_defense_max": 100,
+    "defense_min": 33,
+    "defense_max": 50,
     "mp_bonus": 560,
+    "hp_bonus": 112,
     "effects": {
       "crit_rate": 0.08,
       "extra_magic": 21,
@@ -2313,9 +2873,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 24,
+    "attack_max": 36,
     "defense_min": 60,
     "defense_max": 90,
+    "magic_defense_min": 36,
+    "magic_defense_max": 54,
     "hp_bonus": 450,
+    "mp_bonus": 150,
     "effects": {
       "crit_rate": 0.09,
       "crush_rate": 0.07,
@@ -2336,9 +2901,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 24,
+    "attack_max": 36,
     "defense_min": 60,
     "defense_max": 90,
+    "magic_defense_min": 36,
+    "magic_defense_max": 54,
     "hp_bonus": 450,
+    "mp_bonus": 150,
     "effects": {
       "crit_rate": 0.09,
       "crush_rate": 0.07,
@@ -2359,9 +2929,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 24,
+    "attack_max": 36,
     "defense_min": 60,
     "defense_max": 90,
+    "magic_defense_min": 36,
+    "magic_defense_max": 54,
     "hp_bonus": 450,
+    "mp_bonus": 150,
     "effects": {
       "crit_rate": 0.09,
       "crush_rate": 0.07,
@@ -2382,9 +2957,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 24,
+    "attack_max": 36,
     "defense_min": 60,
     "defense_max": 90,
+    "magic_defense_min": 36,
+    "magic_defense_max": 54,
     "hp_bonus": 450,
+    "mp_bonus": 150,
     "effects": {
       "crit_rate": 0.09,
       "crush_rate": 0.07,
@@ -2405,9 +2985,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 30,
+    "magic_max": 45,
     "magic_defense_min": 72,
     "magic_defense_max": 108,
+    "defense_min": 36,
+    "defense_max": 54,
     "mp_bonus": 600,
+    "hp_bonus": 120,
     "effects": {
       "crit_rate": 0.09,
       "extra_magic": 24,
@@ -2428,9 +3013,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 30,
+    "magic_max": 45,
     "magic_defense_min": 72,
     "magic_defense_max": 108,
+    "defense_min": 36,
+    "defense_max": 54,
     "mp_bonus": 600,
+    "hp_bonus": 120,
     "effects": {
       "crit_rate": 0.09,
       "extra_magic": 24,
@@ -2451,9 +3041,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 30,
+    "magic_max": 45,
     "magic_defense_min": 72,
     "magic_defense_max": 108,
+    "defense_min": 36,
+    "defense_max": 54,
     "mp_bonus": 600,
+    "hp_bonus": 120,
     "effects": {
       "crit_rate": 0.09,
       "extra_magic": 24,
@@ -2474,9 +3069,14 @@
     "recycle_yuanbao": 75,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 30,
+    "magic_max": 45,
     "magic_defense_min": 72,
     "magic_defense_max": 108,
+    "defense_min": 36,
+    "defense_max": 54,
     "mp_bonus": 600,
+    "hp_bonus": 120,
     "effects": {
       "crit_rate": 0.09,
       "extra_magic": 24,
@@ -2497,9 +3097,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 25,
+    "attack_max": 38,
     "defense_min": 64,
     "defense_max": 96,
+    "magic_defense_min": 38,
+    "magic_defense_max": 57,
     "hp_bonus": 480,
+    "mp_bonus": 160,
     "effects": {
       "crit_rate": 0.1,
       "crush_rate": 0.08,
@@ -2520,9 +3125,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 25,
+    "attack_max": 38,
     "defense_min": 64,
     "defense_max": 96,
+    "magic_defense_min": 38,
+    "magic_defense_max": 57,
     "hp_bonus": 480,
+    "mp_bonus": 160,
     "effects": {
       "crit_rate": 0.1,
       "crush_rate": 0.08,
@@ -2543,9 +3153,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 25,
+    "attack_max": 38,
     "defense_min": 64,
     "defense_max": 96,
+    "magic_defense_min": 38,
+    "magic_defense_max": 57,
     "hp_bonus": 480,
+    "mp_bonus": 160,
     "effects": {
       "crit_rate": 0.1,
       "crush_rate": 0.08,
@@ -2566,9 +3181,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 25,
+    "attack_max": 38,
     "defense_min": 64,
     "defense_max": 96,
+    "magic_defense_min": 38,
+    "magic_defense_max": 57,
     "hp_bonus": 480,
+    "mp_bonus": 160,
     "effects": {
       "crit_rate": 0.1,
       "crush_rate": 0.08,
@@ -2589,9 +3209,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 32,
+    "magic_max": 48,
     "magic_defense_min": 76,
     "magic_defense_max": 115,
+    "defense_min": 38,
+    "defense_max": 57,
     "mp_bonus": 640,
+    "hp_bonus": 128,
     "effects": {
       "crit_rate": 0.1,
       "extra_magic": 27,
@@ -2612,9 +3237,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 32,
+    "magic_max": 48,
     "magic_defense_min": 76,
     "magic_defense_max": 115,
+    "defense_min": 38,
+    "defense_max": 57,
     "mp_bonus": 640,
+    "hp_bonus": 128,
     "effects": {
       "crit_rate": 0.1,
       "extra_magic": 27,
@@ -2635,9 +3265,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 32,
+    "magic_max": 48,
     "magic_defense_min": 76,
     "magic_defense_max": 115,
+    "defense_min": 38,
+    "defense_max": 57,
     "mp_bonus": 640,
+    "hp_bonus": 128,
     "effects": {
       "crit_rate": 0.1,
       "extra_magic": 27,
@@ -2658,9 +3293,14 @@
     "recycle_yuanbao": 80,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 32,
+    "magic_max": 48,
     "magic_defense_min": 76,
     "magic_defense_max": 115,
+    "defense_min": 38,
+    "defense_max": 57,
     "mp_bonus": 640,
+    "hp_bonus": 128,
     "effects": {
       "crit_rate": 0.1,
       "extra_magic": 27,
@@ -2683,9 +3323,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_body": {
     "id": "set_2_warrior_body",
@@ -2703,9 +3348,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_belt": {
     "id": "set_2_warrior_belt",
@@ -2723,9 +3373,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_boots": {
     "id": "set_2_warrior_boots",
@@ -2743,9 +3398,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_necklace": {
     "id": "set_2_warrior_necklace",
@@ -2763,9 +3423,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_ring": {
     "id": "set_2_warrior_ring",
@@ -2783,9 +3448,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_ring2": {
     "id": "set_2_warrior_ring2",
@@ -2803,9 +3473,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_bracelet": {
     "id": "set_2_warrior_bracelet",
@@ -2823,9 +3498,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_warrior_bracelet2": {
     "id": "set_2_warrior_bracelet2",
@@ -2843,9 +3523,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "attack_min": 2,
+    "attack_max": 3,
     "defense_min": 6,
     "defense_max": 9,
-    "hp_bonus": 45
+    "magic_defense_min": 3,
+    "magic_defense_max": 5,
+    "hp_bonus": 45,
+    "mp_bonus": 15
   },
   "set_2_mage_helmet": {
     "id": "set_2_mage_helmet",
@@ -2863,9 +3548,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_body": {
     "id": "set_2_mage_body",
@@ -2883,9 +3573,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_belt": {
     "id": "set_2_mage_belt",
@@ -2903,9 +3598,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_boots": {
     "id": "set_2_mage_boots",
@@ -2923,9 +3623,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_necklace": {
     "id": "set_2_mage_necklace",
@@ -2943,9 +3648,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_ring": {
     "id": "set_2_mage_ring",
@@ -2963,9 +3673,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_ring2": {
     "id": "set_2_mage_ring2",
@@ -2983,9 +3698,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_bracelet": {
     "id": "set_2_mage_bracelet",
@@ -3003,9 +3723,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_2_mage_bracelet2": {
     "id": "set_2_mage_bracelet2",
@@ -3023,9 +3748,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 60,
     "drop_only": false,
+    "magic_min": 3,
+    "magic_max": 4,
     "magic_defense_min": 6,
     "magic_defense_max": 10,
-    "mp_bonus": 60
+    "defense_min": 3,
+    "defense_max": 5,
+    "mp_bonus": 60,
+    "hp_bonus": 12
   },
   "set_3_warrior_helmet": {
     "id": "set_3_warrior_helmet",
@@ -3043,9 +3773,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_body": {
     "id": "set_3_warrior_body",
@@ -3063,9 +3798,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_belt": {
     "id": "set_3_warrior_belt",
@@ -3083,9 +3823,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_boots": {
     "id": "set_3_warrior_boots",
@@ -3103,9 +3848,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_necklace": {
     "id": "set_3_warrior_necklace",
@@ -3123,9 +3873,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_ring": {
     "id": "set_3_warrior_ring",
@@ -3143,9 +3898,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_ring2": {
     "id": "set_3_warrior_ring2",
@@ -3163,9 +3923,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_bracelet": {
     "id": "set_3_warrior_bracelet",
@@ -3183,9 +3948,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_warrior_bracelet2": {
     "id": "set_3_warrior_bracelet2",
@@ -3203,9 +3973,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "attack_min": 3,
+    "attack_max": 5,
     "defense_min": 9,
     "defense_max": 13,
-    "hp_bonus": 67
+    "magic_defense_min": 5,
+    "magic_defense_max": 7,
+    "hp_bonus": 67,
+    "mp_bonus": 22
   },
   "set_3_mage_helmet": {
     "id": "set_3_mage_helmet",
@@ -3223,9 +3998,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_body": {
     "id": "set_3_mage_body",
@@ -3243,9 +4023,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_belt": {
     "id": "set_3_mage_belt",
@@ -3263,9 +4048,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_boots": {
     "id": "set_3_mage_boots",
@@ -3283,9 +4073,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_necklace": {
     "id": "set_3_mage_necklace",
@@ -3303,9 +4098,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_ring": {
     "id": "set_3_mage_ring",
@@ -3323,9 +4123,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_ring2": {
     "id": "set_3_mage_ring2",
@@ -3343,9 +4148,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_bracelet": {
     "id": "set_3_mage_bracelet",
@@ -3363,9 +4173,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_3_mage_bracelet2": {
     "id": "set_3_mage_bracelet2",
@@ -3383,9 +4198,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 90,
     "drop_only": false,
+    "magic_min": 4,
+    "magic_max": 6,
     "magic_defense_min": 10,
     "magic_defense_max": 15,
-    "mp_bonus": 90
+    "defense_min": 5,
+    "defense_max": 7,
+    "mp_bonus": 90,
+    "hp_bonus": 18
   },
   "set_4_warrior_helmet": {
     "id": "set_4_warrior_helmet",
@@ -3403,9 +4223,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_body": {
     "id": "set_4_warrior_body",
@@ -3423,9 +4248,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_belt": {
     "id": "set_4_warrior_belt",
@@ -3443,9 +4273,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_boots": {
     "id": "set_4_warrior_boots",
@@ -3463,9 +4298,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_necklace": {
     "id": "set_4_warrior_necklace",
@@ -3483,9 +4323,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_ring": {
     "id": "set_4_warrior_ring",
@@ -3503,9 +4348,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_ring2": {
     "id": "set_4_warrior_ring2",
@@ -3523,9 +4373,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_bracelet": {
     "id": "set_4_warrior_bracelet",
@@ -3543,9 +4398,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_warrior_bracelet2": {
     "id": "set_4_warrior_bracelet2",
@@ -3563,9 +4423,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "attack_min": 4,
+    "attack_max": 6,
     "defense_min": 12,
     "defense_max": 18,
-    "hp_bonus": 90
+    "magic_defense_min": 6,
+    "magic_defense_max": 10,
+    "hp_bonus": 90,
+    "mp_bonus": 30
   },
   "set_4_mage_helmet": {
     "id": "set_4_mage_helmet",
@@ -3583,9 +4448,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_body": {
     "id": "set_4_mage_body",
@@ -3603,9 +4473,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_belt": {
     "id": "set_4_mage_belt",
@@ -3623,9 +4498,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_boots": {
     "id": "set_4_mage_boots",
@@ -3643,9 +4523,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_necklace": {
     "id": "set_4_mage_necklace",
@@ -3663,9 +4548,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_ring": {
     "id": "set_4_mage_ring",
@@ -3683,9 +4573,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_ring2": {
     "id": "set_4_mage_ring2",
@@ -3703,9 +4598,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_bracelet": {
     "id": "set_4_mage_bracelet",
@@ -3723,9 +4623,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_4_mage_bracelet2": {
     "id": "set_4_mage_bracelet2",
@@ -3743,9 +4648,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 120,
     "drop_only": false,
+    "magic_min": 6,
+    "magic_max": 9,
     "magic_defense_min": 14,
     "magic_defense_max": 21,
-    "mp_bonus": 120
+    "defense_min": 6,
+    "defense_max": 10,
+    "mp_bonus": 120,
+    "hp_bonus": 24
   },
   "set_5_warrior_helmet": {
     "id": "set_5_warrior_helmet",
@@ -3763,9 +4673,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_body": {
     "id": "set_5_warrior_body",
@@ -3783,9 +4698,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_belt": {
     "id": "set_5_warrior_belt",
@@ -3803,9 +4723,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_boots": {
     "id": "set_5_warrior_boots",
@@ -3823,9 +4748,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_necklace": {
     "id": "set_5_warrior_necklace",
@@ -3843,9 +4773,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_ring": {
     "id": "set_5_warrior_ring",
@@ -3863,9 +4798,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_ring2": {
     "id": "set_5_warrior_ring2",
@@ -3883,9 +4823,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_bracelet": {
     "id": "set_5_warrior_bracelet",
@@ -3903,9 +4848,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_warrior_bracelet2": {
     "id": "set_5_warrior_bracelet2",
@@ -3923,9 +4873,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 9,
     "defense_min": 15,
     "defense_max": 22,
-    "hp_bonus": 112
+    "magic_defense_min": 9,
+    "magic_defense_max": 13,
+    "hp_bonus": 112,
+    "mp_bonus": 37
   },
   "set_5_mage_helmet": {
     "id": "set_5_mage_helmet",
@@ -3943,9 +4898,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_body": {
     "id": "set_5_mage_body",
@@ -3963,9 +4923,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_belt": {
     "id": "set_5_mage_belt",
@@ -3983,9 +4948,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_boots": {
     "id": "set_5_mage_boots",
@@ -4003,9 +4973,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_necklace": {
     "id": "set_5_mage_necklace",
@@ -4023,9 +4998,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_ring": {
     "id": "set_5_mage_ring",
@@ -4043,9 +5023,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_ring2": {
     "id": "set_5_mage_ring2",
@@ -4063,9 +5048,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_bracelet": {
     "id": "set_5_mage_bracelet",
@@ -4083,9 +5073,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_5_mage_bracelet2": {
     "id": "set_5_mage_bracelet2",
@@ -4103,9 +5098,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 150,
     "drop_only": false,
+    "magic_min": 7,
+    "magic_max": 11,
     "magic_defense_min": 18,
     "magic_defense_max": 27,
-    "mp_bonus": 150
+    "defense_min": 9,
+    "defense_max": 13,
+    "mp_bonus": 150,
+    "hp_bonus": 30
   },
   "set_6_warrior_helmet": {
     "id": "set_6_warrior_helmet",
@@ -4123,9 +5123,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_body": {
     "id": "set_6_warrior_body",
@@ -4143,9 +5148,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_belt": {
     "id": "set_6_warrior_belt",
@@ -4163,9 +5173,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_boots": {
     "id": "set_6_warrior_boots",
@@ -4183,9 +5198,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_necklace": {
     "id": "set_6_warrior_necklace",
@@ -4203,9 +5223,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_ring": {
     "id": "set_6_warrior_ring",
@@ -4223,9 +5248,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_ring2": {
     "id": "set_6_warrior_ring2",
@@ -4243,9 +5273,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_bracelet": {
     "id": "set_6_warrior_bracelet",
@@ -4263,9 +5298,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_warrior_bracelet2": {
     "id": "set_6_warrior_bracelet2",
@@ -4283,9 +5323,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "attack_min": 6,
+    "attack_max": 10,
     "defense_min": 18,
     "defense_max": 27,
-    "hp_bonus": 135
+    "magic_defense_min": 10,
+    "magic_defense_max": 15,
+    "hp_bonus": 135,
+    "mp_bonus": 45
   },
   "set_6_mage_helmet": {
     "id": "set_6_mage_helmet",
@@ -4303,9 +5348,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_body": {
     "id": "set_6_mage_body",
@@ -4323,9 +5373,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_belt": {
     "id": "set_6_mage_belt",
@@ -4343,9 +5398,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_boots": {
     "id": "set_6_mage_boots",
@@ -4363,9 +5423,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_necklace": {
     "id": "set_6_mage_necklace",
@@ -4383,9 +5448,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_ring": {
     "id": "set_6_mage_ring",
@@ -4403,9 +5473,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_ring2": {
     "id": "set_6_mage_ring2",
@@ -4423,9 +5498,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_bracelet": {
     "id": "set_6_mage_bracelet",
@@ -4443,9 +5523,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_6_mage_bracelet2": {
     "id": "set_6_mage_bracelet2",
@@ -4463,9 +5548,14 @@
     "recycle_yuanbao": 0,
     "recycle_gold": 180,
     "drop_only": false,
+    "magic_min": 9,
+    "magic_max": 13,
     "magic_defense_min": 21,
     "magic_defense_max": 32,
-    "mp_bonus": 180
+    "defense_min": 10,
+    "defense_max": 15,
+    "mp_bonus": 180,
+    "hp_bonus": 36
   },
   "set_7_warrior_helmet": {
     "id": "set_7_warrior_helmet",
@@ -4483,9 +5573,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_body": {
     "id": "set_7_warrior_body",
@@ -4503,9 +5598,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_belt": {
     "id": "set_7_warrior_belt",
@@ -4523,9 +5623,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_boots": {
     "id": "set_7_warrior_boots",
@@ -4543,9 +5648,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_necklace": {
     "id": "set_7_warrior_necklace",
@@ -4563,9 +5673,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_ring": {
     "id": "set_7_warrior_ring",
@@ -4583,9 +5698,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_ring2": {
     "id": "set_7_warrior_ring2",
@@ -4603,9 +5723,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_bracelet": {
     "id": "set_7_warrior_bracelet",
@@ -4623,9 +5748,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_warrior_bracelet2": {
     "id": "set_7_warrior_bracelet2",
@@ -4643,9 +5773,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 8,
+    "attack_max": 12,
     "defense_min": 21,
     "defense_max": 31,
-    "hp_bonus": 157
+    "magic_defense_min": 12,
+    "magic_defense_max": 18,
+    "hp_bonus": 157,
+    "mp_bonus": 52
   },
   "set_7_mage_helmet": {
     "id": "set_7_mage_helmet",
@@ -4663,9 +5798,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_body": {
     "id": "set_7_mage_body",
@@ -4683,9 +5823,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_belt": {
     "id": "set_7_mage_belt",
@@ -4703,9 +5848,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_boots": {
     "id": "set_7_mage_boots",
@@ -4723,9 +5873,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_necklace": {
     "id": "set_7_mage_necklace",
@@ -4743,9 +5898,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_ring": {
     "id": "set_7_mage_ring",
@@ -4763,9 +5923,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_ring2": {
     "id": "set_7_mage_ring2",
@@ -4783,9 +5948,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_bracelet": {
     "id": "set_7_mage_bracelet",
@@ -4803,9 +5973,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_7_mage_bracelet2": {
     "id": "set_7_mage_bracelet2",
@@ -4823,9 +5998,14 @@
     "recycle_yuanbao": 21,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 10,
+    "magic_max": 15,
     "magic_defense_min": 24,
     "magic_defense_max": 37,
-    "mp_bonus": 210
+    "defense_min": 12,
+    "defense_max": 18,
+    "mp_bonus": 210,
+    "hp_bonus": 42
   },
   "set_8_warrior_helmet": {
     "id": "set_8_warrior_helmet",
@@ -4843,9 +6023,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_body": {
     "id": "set_8_warrior_body",
@@ -4863,9 +6048,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_belt": {
     "id": "set_8_warrior_belt",
@@ -4883,9 +6073,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_boots": {
     "id": "set_8_warrior_boots",
@@ -4903,9 +6098,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_necklace": {
     "id": "set_8_warrior_necklace",
@@ -4923,9 +6123,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_ring": {
     "id": "set_8_warrior_ring",
@@ -4943,9 +6148,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_ring2": {
     "id": "set_8_warrior_ring2",
@@ -4963,9 +6173,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_bracelet": {
     "id": "set_8_warrior_bracelet",
@@ -4983,9 +6198,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_warrior_bracelet2": {
     "id": "set_8_warrior_bracelet2",
@@ -5003,9 +6223,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 9,
+    "attack_max": 14,
     "defense_min": 24,
     "defense_max": 36,
-    "hp_bonus": 180
+    "magic_defense_min": 14,
+    "magic_defense_max": 21,
+    "hp_bonus": 180,
+    "mp_bonus": 60
   },
   "set_8_mage_helmet": {
     "id": "set_8_mage_helmet",
@@ -5023,9 +6248,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_body": {
     "id": "set_8_mage_body",
@@ -5043,9 +6273,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_belt": {
     "id": "set_8_mage_belt",
@@ -5063,9 +6298,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_boots": {
     "id": "set_8_mage_boots",
@@ -5083,9 +6323,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_necklace": {
     "id": "set_8_mage_necklace",
@@ -5103,9 +6348,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_ring": {
     "id": "set_8_mage_ring",
@@ -5123,9 +6373,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_ring2": {
     "id": "set_8_mage_ring2",
@@ -5143,9 +6398,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_bracelet": {
     "id": "set_8_mage_bracelet",
@@ -5163,9 +6423,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_8_mage_bracelet2": {
     "id": "set_8_mage_bracelet2",
@@ -5183,9 +6448,14 @@
     "recycle_yuanbao": 24,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 12,
+    "magic_max": 18,
     "magic_defense_min": 28,
     "magic_defense_max": 42,
-    "mp_bonus": 240
+    "defense_min": 14,
+    "defense_max": 21,
+    "mp_bonus": 240,
+    "hp_bonus": 48
   },
   "set_9_warrior_helmet": {
     "id": "set_9_warrior_helmet",
@@ -5203,9 +6473,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_body": {
     "id": "set_9_warrior_body",
@@ -5223,9 +6498,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_belt": {
     "id": "set_9_warrior_belt",
@@ -5243,9 +6523,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_boots": {
     "id": "set_9_warrior_boots",
@@ -5263,9 +6548,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_necklace": {
     "id": "set_9_warrior_necklace",
@@ -5283,9 +6573,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_ring": {
     "id": "set_9_warrior_ring",
@@ -5303,9 +6598,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_ring2": {
     "id": "set_9_warrior_ring2",
@@ -5323,9 +6623,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_bracelet": {
     "id": "set_9_warrior_bracelet",
@@ -5343,9 +6648,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_warrior_bracelet2": {
     "id": "set_9_warrior_bracelet2",
@@ -5363,9 +6673,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 10,
+    "attack_max": 15,
     "defense_min": 27,
     "defense_max": 40,
-    "hp_bonus": 202
+    "magic_defense_min": 15,
+    "magic_defense_max": 24,
+    "hp_bonus": 202,
+    "mp_bonus": 67
   },
   "set_9_mage_helmet": {
     "id": "set_9_mage_helmet",
@@ -5383,9 +6698,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_body": {
     "id": "set_9_mage_body",
@@ -5403,9 +6723,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_belt": {
     "id": "set_9_mage_belt",
@@ -5423,9 +6748,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_boots": {
     "id": "set_9_mage_boots",
@@ -5443,9 +6773,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_necklace": {
     "id": "set_9_mage_necklace",
@@ -5463,9 +6798,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_ring": {
     "id": "set_9_mage_ring",
@@ -5483,9 +6823,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_ring2": {
     "id": "set_9_mage_ring2",
@@ -5503,9 +6848,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_bracelet": {
     "id": "set_9_mage_bracelet",
@@ -5523,9 +6873,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_9_mage_bracelet2": {
     "id": "set_9_mage_bracelet2",
@@ -5543,9 +6898,14 @@
     "recycle_yuanbao": 27,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 13,
+    "magic_max": 20,
     "magic_defense_min": 32,
     "magic_defense_max": 48,
-    "mp_bonus": 270
+    "defense_min": 15,
+    "defense_max": 24,
+    "mp_bonus": 270,
+    "hp_bonus": 54
   },
   "set_10_warrior_helmet": {
     "id": "set_10_warrior_helmet",
@@ -5563,9 +6923,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_body": {
     "id": "set_10_warrior_body",
@@ -5583,9 +6948,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_belt": {
     "id": "set_10_warrior_belt",
@@ -5603,9 +6973,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_boots": {
     "id": "set_10_warrior_boots",
@@ -5623,9 +6998,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_necklace": {
     "id": "set_10_warrior_necklace",
@@ -5643,9 +7023,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_ring": {
     "id": "set_10_warrior_ring",
@@ -5663,9 +7048,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_ring2": {
     "id": "set_10_warrior_ring2",
@@ -5683,9 +7073,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_bracelet": {
     "id": "set_10_warrior_bracelet",
@@ -5703,9 +7098,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_warrior_bracelet2": {
     "id": "set_10_warrior_bracelet2",
@@ -5723,9 +7123,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 18,
     "defense_min": 30,
     "defense_max": 45,
-    "hp_bonus": 225
+    "magic_defense_min": 18,
+    "magic_defense_max": 27,
+    "hp_bonus": 225,
+    "mp_bonus": 75
   },
   "set_10_mage_helmet": {
     "id": "set_10_mage_helmet",
@@ -5743,9 +7148,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_body": {
     "id": "set_10_mage_body",
@@ -5763,9 +7173,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_belt": {
     "id": "set_10_mage_belt",
@@ -5783,9 +7198,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_boots": {
     "id": "set_10_mage_boots",
@@ -5803,9 +7223,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_necklace": {
     "id": "set_10_mage_necklace",
@@ -5823,9 +7248,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_ring": {
     "id": "set_10_mage_ring",
@@ -5843,9 +7273,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_ring2": {
     "id": "set_10_mage_ring2",
@@ -5863,9 +7298,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_bracelet": {
     "id": "set_10_mage_bracelet",
@@ -5883,9 +7323,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_10_mage_bracelet2": {
     "id": "set_10_mage_bracelet2",
@@ -5903,9 +7348,14 @@
     "recycle_yuanbao": 30,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 15,
+    "magic_max": 22,
     "magic_defense_min": 36,
     "magic_defense_max": 54,
-    "mp_bonus": 300
+    "defense_min": 18,
+    "defense_max": 27,
+    "mp_bonus": 300,
+    "hp_bonus": 60
   },
   "set_11_warrior_helmet": {
     "id": "set_11_warrior_helmet",
@@ -5923,9 +7373,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_body": {
     "id": "set_11_warrior_body",
@@ -5943,9 +7398,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_belt": {
     "id": "set_11_warrior_belt",
@@ -5963,9 +7423,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_boots": {
     "id": "set_11_warrior_boots",
@@ -5983,9 +7448,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_necklace": {
     "id": "set_11_warrior_necklace",
@@ -6003,9 +7473,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_ring": {
     "id": "set_11_warrior_ring",
@@ -6023,9 +7498,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_ring2": {
     "id": "set_11_warrior_ring2",
@@ -6043,9 +7523,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_bracelet": {
     "id": "set_11_warrior_bracelet",
@@ -6063,9 +7548,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_warrior_bracelet2": {
     "id": "set_11_warrior_bracelet2",
@@ -6083,9 +7573,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 12,
+    "attack_max": 19,
     "defense_min": 33,
     "defense_max": 49,
-    "hp_bonus": 247
+    "magic_defense_min": 19,
+    "magic_defense_max": 29,
+    "hp_bonus": 247,
+    "mp_bonus": 82
   },
   "set_11_mage_helmet": {
     "id": "set_11_mage_helmet",
@@ -6103,9 +7598,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_body": {
     "id": "set_11_mage_body",
@@ -6123,9 +7623,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_belt": {
     "id": "set_11_mage_belt",
@@ -6143,9 +7648,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_boots": {
     "id": "set_11_mage_boots",
@@ -6163,9 +7673,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_necklace": {
     "id": "set_11_mage_necklace",
@@ -6183,9 +7698,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_ring": {
     "id": "set_11_mage_ring",
@@ -6203,9 +7723,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_ring2": {
     "id": "set_11_mage_ring2",
@@ -6223,9 +7748,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_bracelet": {
     "id": "set_11_mage_bracelet",
@@ -6243,9 +7773,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_11_mage_bracelet2": {
     "id": "set_11_mage_bracelet2",
@@ -6263,9 +7798,14 @@
     "recycle_yuanbao": 33,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 16,
+    "magic_max": 24,
     "magic_defense_min": 39,
     "magic_defense_max": 59,
-    "mp_bonus": 330
+    "defense_min": 19,
+    "defense_max": 29,
+    "mp_bonus": 330,
+    "hp_bonus": 66
   },
   "set_12_warrior_helmet": {
     "id": "set_12_warrior_helmet",
@@ -6283,9 +7823,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_body": {
     "id": "set_12_warrior_body",
@@ -6303,9 +7848,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_belt": {
     "id": "set_12_warrior_belt",
@@ -6323,9 +7873,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_boots": {
     "id": "set_12_warrior_boots",
@@ -6343,9 +7898,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_necklace": {
     "id": "set_12_warrior_necklace",
@@ -6363,9 +7923,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_ring": {
     "id": "set_12_warrior_ring",
@@ -6383,9 +7948,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_ring2": {
     "id": "set_12_warrior_ring2",
@@ -6403,9 +7973,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_bracelet": {
     "id": "set_12_warrior_bracelet",
@@ -6423,9 +7998,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_warrior_bracelet2": {
     "id": "set_12_warrior_bracelet2",
@@ -6443,9 +8023,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 14,
+    "attack_max": 21,
     "defense_min": 36,
     "defense_max": 54,
-    "hp_bonus": 270
+    "magic_defense_min": 21,
+    "magic_defense_max": 32,
+    "hp_bonus": 270,
+    "mp_bonus": 90
   },
   "set_12_mage_helmet": {
     "id": "set_12_mage_helmet",
@@ -6463,9 +8048,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_body": {
     "id": "set_12_mage_body",
@@ -6483,9 +8073,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_belt": {
     "id": "set_12_mage_belt",
@@ -6503,9 +8098,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_boots": {
     "id": "set_12_mage_boots",
@@ -6523,9 +8123,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_necklace": {
     "id": "set_12_mage_necklace",
@@ -6543,9 +8148,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_ring": {
     "id": "set_12_mage_ring",
@@ -6563,9 +8173,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_ring2": {
     "id": "set_12_mage_ring2",
@@ -6583,9 +8198,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_bracelet": {
     "id": "set_12_mage_bracelet",
@@ -6603,9 +8223,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_12_mage_bracelet2": {
     "id": "set_12_mage_bracelet2",
@@ -6623,9 +8248,14 @@
     "recycle_yuanbao": 36,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 18,
+    "magic_max": 27,
     "magic_defense_min": 42,
     "magic_defense_max": 64,
-    "mp_bonus": 360
+    "defense_min": 21,
+    "defense_max": 32,
+    "mp_bonus": 360,
+    "hp_bonus": 72
   },
   "set_13_warrior_helmet": {
     "id": "set_13_warrior_helmet",
@@ -6643,9 +8273,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_body": {
     "id": "set_13_warrior_body",
@@ -6663,9 +8298,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_belt": {
     "id": "set_13_warrior_belt",
@@ -6683,9 +8323,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_boots": {
     "id": "set_13_warrior_boots",
@@ -6703,9 +8348,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_necklace": {
     "id": "set_13_warrior_necklace",
@@ -6723,9 +8373,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_ring": {
     "id": "set_13_warrior_ring",
@@ -6743,9 +8398,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_ring2": {
     "id": "set_13_warrior_ring2",
@@ -6763,9 +8423,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_bracelet": {
     "id": "set_13_warrior_bracelet",
@@ -6783,9 +8448,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_warrior_bracelet2": {
     "id": "set_13_warrior_bracelet2",
@@ -6803,9 +8473,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 15,
+    "attack_max": 23,
     "defense_min": 39,
     "defense_max": 58,
-    "hp_bonus": 292
+    "magic_defense_min": 23,
+    "magic_defense_max": 34,
+    "hp_bonus": 292,
+    "mp_bonus": 97
   },
   "set_13_mage_helmet": {
     "id": "set_13_mage_helmet",
@@ -6823,9 +8498,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_body": {
     "id": "set_13_mage_body",
@@ -6843,9 +8523,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_belt": {
     "id": "set_13_mage_belt",
@@ -6863,9 +8548,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_boots": {
     "id": "set_13_mage_boots",
@@ -6883,9 +8573,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_necklace": {
     "id": "set_13_mage_necklace",
@@ -6903,9 +8598,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_ring": {
     "id": "set_13_mage_ring",
@@ -6923,9 +8623,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_ring2": {
     "id": "set_13_mage_ring2",
@@ -6943,9 +8648,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_bracelet": {
     "id": "set_13_mage_bracelet",
@@ -6963,9 +8673,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_13_mage_bracelet2": {
     "id": "set_13_mage_bracelet2",
@@ -6983,9 +8698,14 @@
     "recycle_yuanbao": 39,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 19,
+    "magic_max": 29,
     "magic_defense_min": 46,
     "magic_defense_max": 69,
-    "mp_bonus": 390
+    "defense_min": 23,
+    "defense_max": 34,
+    "mp_bonus": 390,
+    "hp_bonus": 78
   },
   "set_14_warrior_helmet": {
     "id": "set_14_warrior_helmet",
@@ -7003,9 +8723,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_body": {
     "id": "set_14_warrior_body",
@@ -7023,9 +8748,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_belt": {
     "id": "set_14_warrior_belt",
@@ -7043,9 +8773,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_boots": {
     "id": "set_14_warrior_boots",
@@ -7063,9 +8798,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_necklace": {
     "id": "set_14_warrior_necklace",
@@ -7083,9 +8823,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_ring": {
     "id": "set_14_warrior_ring",
@@ -7103,9 +8848,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_ring2": {
     "id": "set_14_warrior_ring2",
@@ -7123,9 +8873,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_bracelet": {
     "id": "set_14_warrior_bracelet",
@@ -7143,9 +8898,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_warrior_bracelet2": {
     "id": "set_14_warrior_bracelet2",
@@ -7163,9 +8923,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 16,
+    "attack_max": 24,
     "defense_min": 42,
     "defense_max": 63,
-    "hp_bonus": 315
+    "magic_defense_min": 24,
+    "magic_defense_max": 37,
+    "hp_bonus": 315,
+    "mp_bonus": 105
   },
   "set_14_mage_helmet": {
     "id": "set_14_mage_helmet",
@@ -7183,9 +8948,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_body": {
     "id": "set_14_mage_body",
@@ -7203,9 +8973,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_belt": {
     "id": "set_14_mage_belt",
@@ -7223,9 +8998,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_boots": {
     "id": "set_14_mage_boots",
@@ -7243,9 +9023,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_necklace": {
     "id": "set_14_mage_necklace",
@@ -7263,9 +9048,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_ring": {
     "id": "set_14_mage_ring",
@@ -7283,9 +9073,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_ring2": {
     "id": "set_14_mage_ring2",
@@ -7303,9 +9098,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_bracelet": {
     "id": "set_14_mage_bracelet",
@@ -7323,9 +9123,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_14_mage_bracelet2": {
     "id": "set_14_mage_bracelet2",
@@ -7343,9 +9148,14 @@
     "recycle_yuanbao": 42,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 21,
+    "magic_max": 31,
     "magic_defense_min": 50,
     "magic_defense_max": 75,
-    "mp_bonus": 420
+    "defense_min": 24,
+    "defense_max": 37,
+    "mp_bonus": 420,
+    "hp_bonus": 84
   },
   "set_15_warrior_helmet": {
     "id": "set_15_warrior_helmet",
@@ -7363,9 +9173,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_body": {
     "id": "set_15_warrior_body",
@@ -7383,9 +9198,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_belt": {
     "id": "set_15_warrior_belt",
@@ -7403,9 +9223,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_boots": {
     "id": "set_15_warrior_boots",
@@ -7423,9 +9248,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_necklace": {
     "id": "set_15_warrior_necklace",
@@ -7443,9 +9273,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_ring": {
     "id": "set_15_warrior_ring",
@@ -7463,9 +9298,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_ring2": {
     "id": "set_15_warrior_ring2",
@@ -7483,9 +9323,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_bracelet": {
     "id": "set_15_warrior_bracelet",
@@ -7503,9 +9348,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_warrior_bracelet2": {
     "id": "set_15_warrior_bracelet2",
@@ -7523,9 +9373,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 27,
     "defense_min": 45,
     "defense_max": 67,
-    "hp_bonus": 337
+    "magic_defense_min": 27,
+    "magic_defense_max": 40,
+    "hp_bonus": 337,
+    "mp_bonus": 112
   },
   "set_15_mage_helmet": {
     "id": "set_15_mage_helmet",
@@ -7543,9 +9398,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_body": {
     "id": "set_15_mage_body",
@@ -7563,9 +9423,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_belt": {
     "id": "set_15_mage_belt",
@@ -7583,9 +9448,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_boots": {
     "id": "set_15_mage_boots",
@@ -7603,9 +9473,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_necklace": {
     "id": "set_15_mage_necklace",
@@ -7623,9 +9498,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_ring": {
     "id": "set_15_mage_ring",
@@ -7643,9 +9523,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_ring2": {
     "id": "set_15_mage_ring2",
@@ -7663,9 +9548,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_bracelet": {
     "id": "set_15_mage_bracelet",
@@ -7683,9 +9573,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_15_mage_bracelet2": {
     "id": "set_15_mage_bracelet2",
@@ -7703,9 +9598,14 @@
     "recycle_yuanbao": 45,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 22,
+    "magic_max": 33,
     "magic_defense_min": 54,
     "magic_defense_max": 81,
-    "mp_bonus": 450
+    "defense_min": 27,
+    "defense_max": 40,
+    "mp_bonus": 450,
+    "hp_bonus": 90
   },
   "set_16_warrior_helmet": {
     "id": "set_16_warrior_helmet",
@@ -7723,9 +9623,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_body": {
     "id": "set_16_warrior_body",
@@ -7743,9 +9648,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_belt": {
     "id": "set_16_warrior_belt",
@@ -7763,9 +9673,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_boots": {
     "id": "set_16_warrior_boots",
@@ -7783,9 +9698,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_necklace": {
     "id": "set_16_warrior_necklace",
@@ -7803,9 +9723,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_ring": {
     "id": "set_16_warrior_ring",
@@ -7823,9 +9748,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_ring2": {
     "id": "set_16_warrior_ring2",
@@ -7843,9 +9773,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_bracelet": {
     "id": "set_16_warrior_bracelet",
@@ -7863,9 +9798,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_warrior_bracelet2": {
     "id": "set_16_warrior_bracelet2",
@@ -7883,9 +9823,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "attack_min": 18,
+    "attack_max": 28,
     "defense_min": 48,
     "defense_max": 72,
-    "hp_bonus": 360
+    "magic_defense_min": 28,
+    "magic_defense_max": 42,
+    "hp_bonus": 360,
+    "mp_bonus": 120
   },
   "set_16_mage_helmet": {
     "id": "set_16_mage_helmet",
@@ -7903,9 +9848,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_body": {
     "id": "set_16_mage_body",
@@ -7923,9 +9873,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_belt": {
     "id": "set_16_mage_belt",
@@ -7943,9 +9898,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_boots": {
     "id": "set_16_mage_boots",
@@ -7963,9 +9923,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_necklace": {
     "id": "set_16_mage_necklace",
@@ -7983,9 +9948,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_ring": {
     "id": "set_16_mage_ring",
@@ -8003,9 +9973,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_ring2": {
     "id": "set_16_mage_ring2",
@@ -8023,9 +9998,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_bracelet": {
     "id": "set_16_mage_bracelet",
@@ -8043,9 +10023,14 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   },
   "set_16_mage_bracelet2": {
     "id": "set_16_mage_bracelet2",
@@ -8063,8 +10048,13 @@
     "recycle_yuanbao": 48,
     "recycle_gold": 0,
     "drop_only": true,
+    "magic_min": 24,
+    "magic_max": 36,
     "magic_defense_min": 57,
     "magic_defense_max": 86,
-    "mp_bonus": 480
+    "defense_min": 28,
+    "defense_max": 42,
+    "mp_bonus": 480,
+    "hp_bonus": 96
   }
 }

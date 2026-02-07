@@ -266,7 +266,8 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
                 await manager.send(char_id, {"type": "recycle_result", "data": result})
             
             elif msg_type == "recycle_all":
-                result = await GameEngine.recycle_all(char_id, db)
+                filter_type = data.get("filter", "all")
+                result = await GameEngine.recycle_all(char_id, db, filter_type)
                 await manager.send(char_id, {"type": "recycle_result", "data": result})
             
             elif msg_type == "move_to_warehouse":
@@ -294,8 +295,13 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
                 await manager.send(char_id, {"type": "skillbook_result", "data": result})
             
             elif msg_type == "use_boss_item":
-                result = await GameEngine.use_boss_item(char_id, data["slot"], db)
-                await manager.send(char_id, {"type": "combat_result", "data": result})
+                try:
+                    result = await GameEngine.use_boss_item(char_id, data["slot"], db)
+                    await manager.send(char_id, {"type": "combat_result", "data": result})
+                except Exception as e:
+                    import traceback
+                    traceback.print_exc()
+                    await manager.send(char_id, {"type": "combat_result", "data": {"success": False, "error": str(e)}})
             
             elif msg_type == "use_skill":
                 result = await GameEngine.use_skill(char_id, data["skill_id"], db)
@@ -333,7 +339,41 @@ async def websocket_endpoint(websocket: WebSocket, token: str, char_id: int, db:
             elif msg_type == "get_disabled_skills":
                 disabled = GameEngine.disabled_skills.get(char_id, [])
                 await manager.send(char_id, {"type": "disabled_skills", "data": disabled})
-            
+
+            elif msg_type == "socket_rune":
+                # 镶嵌符文到装备
+                equipment_slot = data.get("equipment_slot")
+                rune_slot = data.get("rune_slot")
+                result = await GameEngine.socket_rune_to_equipment(char_id, equipment_slot, rune_slot, db)
+                await manager.send(char_id, {"type": "socket_rune_result", "data": result})
+                # 同时更新装备和背包
+                if result.get("success"):
+                    equipment = await GameEngine.get_equipment(char_id, db)
+                    await manager.send(char_id, {"type": "equipment", "data": equipment})
+                    inventory = await GameEngine.get_inventory(char_id, "inventory", db)
+                    await manager.send(char_id, {"type": "inventory", "data": inventory})
+
+            elif msg_type == "socket_rune_inventory":
+                # 镶嵌符文到背包中的装备
+                target_slot = data.get("target_slot")
+                rune_slot = data.get("rune_slot")
+                result = await GameEngine.socket_rune_to_inventory_item(char_id, target_slot, rune_slot, db)
+                await manager.send(char_id, {"type": "socket_rune_result", "data": result})
+                # 更新背包
+                if result.get("success"):
+                    inventory = await GameEngine.get_inventory(char_id, "inventory", db)
+                    await manager.send(char_id, {"type": "inventory", "data": inventory})
+
+            elif msg_type == "get_runewords":
+                # 获取所有符文之语配方
+                runewords = DataLoader.get_all_runewords()
+                await manager.send(char_id, {"type": "runewords", "data": runewords})
+
+            elif msg_type == "get_runes":
+                # 获取所有符文数据
+                runes = DataLoader.get_all_runes()
+                await manager.send(char_id, {"type": "runes", "data": runes})
+
             elif msg_type == "chat":
                 await manager.broadcast({"type": "chat", "char_id": char_id, "name": char.name, "message": data.get("message", "")})
             

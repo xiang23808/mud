@@ -126,6 +126,53 @@ python -m backend.main
 - **8件**：终极属性 + 3个特效（约6-8%特效触发率）
 - **9件**：完美加成（额外5-10%的强力特效，如双击、吸血等）
 
+#### 符文之语系统（新增）
+暗黑破坏神2风格的符文之语系统，玩家可以将符文按特定顺序镶嵌到有孔的白色装备中，形成强大的符文之语装备。
+
+**33个符文**（El #1 到 Zod #33）：
+
+| 符文 | 名称 | 等级需求 | 武器效果 | 防具效果 |
+|------|------|----------|----------|----------|
+| El | 艾尔符文 | 10 | +3攻击, +2%命中 | +5防御 |
+| Eld | 艾德符文 | 10 | +4攻击 | +8防御 |
+| Tir | 特尔符文 | 11 | +5MP | +8MP |
+| ... | ... | ... | ... | ... |
+| Ber | 贝符文 | 46 | +10%压碎 | +10%减伤 |
+| Jah | 乔符文 | 48 | +15%忽略防御 | +80HP |
+| Cham | 查姆符文 | 50 | +10%眩晕 | +8%闪避 |
+| Zod | 萨德符文 | 52 | +30-50攻击, +10%暴击 | +60防御, +12%减伤 |
+
+**符文之语配方**（40+种）：
+
+| 符文之语 | 等级 | 符文 | 适用装备 | 效果 |
+|----------|------|------|----------|------|
+| 钢铁 Steel | 13 | Tir + El | 武器 | +8-12伤害, +15%命中, +10%双击 |
+| 隐密 Stealth | 17 | Tal + Eth | 衣服 | +20防御, +30HP, +8%闪避, 3%减伤 |
+| 精神 Spirit | 25 | Tal + Thul + Ort + Amn | 武器 | +12-18伤害, +40MP, 附加魔法伤害 |
+| 荣耀 Honor | 27 | Amn + El + Ith + Tir + Sol | 武器 | +25-40伤害, +10%暴击, +20%暴伤 |
+| 刚毅 Fortitude | 59 | El + Sol + Dol + Lo | 衣服 | +100防御, +120HP, 15%减伤 |
+| 谜团 Enigma | 65 | Jah + Ith + Ber | 衣服 | +150防御, +200HP, 20%减伤, +15%闪避 |
+| 死亡呼吸 | 69 | Vex + Hel + El + Eld + Zod + Eth | 武器 | +150-250伤害, +40%忽略防御, +25%暴击 |
+
+**孔系统**：
+- 仅白色品质装备有孔
+- 武器：最多6孔
+- 衣服：最多6孔
+- 头盔：最多4孔
+- 鞋子：最多4孔
+- 腰带：最多2孔
+
+**符文掉落**：
+- 所有怪物都有几率掉落符文
+- 怪物等级越高，掉落高级符文的概率越大
+- Boss有更高的符文掉落率
+
+**游戏界面**：
+- 背包中可筛选查看符文
+- 装备界面显示孔位状态（◆已填充/◇空孔）
+- 点击"镶嵌符文"按钮选择符文镶嵌
+- "符文之语"按钮查看所有配方图鉴
+
 #### 副本系统（新增）
 10大经典副本，每个副本掉落专属套装和散件：
 
@@ -253,7 +300,8 @@ mud-legend/
 │   ├── game/                # 游戏逻辑
 │   │   ├── engine.py        # 游戏引擎
 │   │   ├── combat.py        # 战斗系统（支持特效）
-│   │   ├── effects.py       # 装备特效计算模块（新增）
+│   │   ├── effects.py       # 装备特效计算模块
+│   │   ├── runeword.py      # 符文之语系统模块（新增）
 │   │   ├── map_manager.py   # 地图管理
 │   │   ├── maze.py          # 迷宫生成
 │   │   ├── pvp.py           # PVP系统
@@ -277,7 +325,8 @@ mud-legend/
 │   │   ├── armors.json      # 防具数据（含特效）
 │   │   ├── accessories.json # 饰品数据（含特效）
 │   │   ├── consumables.json # 消耗品数据
-│   │   └── set_items.json   # 套装装备数据
+│   │   ├── set_items.json   # 套装装备数据
+│   │   └── runes.json       # 符文数据（新增）
 │   ├── skills/
 │   │   ├── warrior.json     # 战士技能
 │   │   ├── mage.json        # 法师技能
@@ -287,6 +336,8 @@ mud-legend/
 │   └── config/
 │       ├── quality.json     # 品质配置（含特效加成）
 │       ├── sets.json        # 套装配置
+│       ├── sockets.json     # 孔配置（新增）
+│       ├── runewords.json   # 符文之语配方（新增）
 │       └── drop_groups.json # 掉落组配置
 ├── database/
 │   └── migrations/          # 数据库迁移文件
@@ -352,6 +403,21 @@ mud-legend/
 - `config/quality.json` - 品质配置（含特效加成）
 - `config/game_config.json` - 游戏全局配置（经验倍率、爆率倍率等）
 
+### 装备属性规则
+
+所有装备必须遵守以下规则：
+
+| 装备类型 | 必须属性 | 附加属性 |
+|----------|----------|----------|
+| 攻击系装备（战士装备） | 攻击加成 (attack_min/attack_max) 或 防御加成 (defense_min/defense_max) | 少量MP加成 (mp_bonus) |
+| 魔法系装备（法师装备） | 魔法加成 (magic_min/magic_max) 或 魔御加成 (magic_defense_min/magic_defense_max) | 少量HP加成 (hp_bonus) |
+
+**规则说明**：
+- 所有装备必须有主属性（攻击/防御 或 魔法/魔御）
+- 攻击系装备额外提供少量MP加成，帮助战士使用技能
+- 魔法系装备额外提供少量HP加成，增强法师生存能力
+- 套装装备同样遵守此规则
+
 ### 全局倍率配置
 
 在 `data/config/game_config.json` 中可以调整游戏倍率：
@@ -395,6 +461,37 @@ mud-legend/
 ```
 
 ## 最近更新
+
+### v1.7.0 (2026-02-07) - 符文之语系统
+- ✅ **符文系统**
+  - 33个符文（El到Zod），从低级到高级
+  - 每个符文有独立的镶嵌属性
+  - 符文从怪物掉落，等级越高掉落越稀有的符文
+
+- ✅ **孔系统**
+  - 仅白色品质装备有孔
+  - 武器/衣服最多6孔，头盔/鞋子4孔，腰带2孔
+  - 白色装备掉落时随机生成孔数
+
+- ✅ **符文之语配方**
+  - 40+种符文之语配方
+  - 按顺序镶嵌符文完成符文之语
+  - 完成后装备获得强大的符文之语属性
+
+- ✅ **符文掉落系统**
+  - 所有怪物根据等级掉落对应等级的符文
+  - 16个掉落组覆盖1-76+级怪物
+  - 高级符文掉落率极低
+
+- ✅ **前端功能**
+  - 背包符文/符文之语筛选
+  - 装备界面显示孔位状态
+  - 符文镶嵌弹窗
+  - 符文之语图鉴
+
+- ✅ **数据库迁移**
+  - 新增sockets、socketed_runes、runeword_id字段
+  - 迁移脚本：`migrations/add_runeword_columns.py`
 
 ### v1.5.1 (2026-01-09) - Bug修复与功能优化
 - ✅ **修复专属物品无法使用的问题**
@@ -550,7 +647,12 @@ mud-legend/
 ### 数据库迁移
 执行新的迁移文件以更新数据库结构：
 ```bash
+# 技能熟练度迁移
 mysql -h localhost -u mud_user -p mud_legend < database/migrations/001_add_skill_proficiency.sql
+
+# 符文之语系统迁移（新增）
+cd D:/work/mud
+.venv/Scripts/python.exe migrations/add_runeword_columns.py
 ```
 
 ### 添加新内容
@@ -558,12 +660,54 @@ mysql -h localhost -u mud_user -p mud_legend < database/migrations/001_add_skill
 2. **新装备**: 编辑 `data/items/` 下对应文件，添加 `effects` 字段
 3. **新技能**: 编辑 `data/skills/` 下对应职业文件
 4. **新地图**: 编辑 `data/maps/maps.json`
+5. **新符文之语**: 编辑 `data/config/runewords.json`，添加配方
 
 ### 添加新特效
 1. 在 `backend/game/effects.py` 的 `get_equipment_effects` 方法中添加新特效键
 2. 实现对应的计算方法
 3. 在 `process_attack` 中调用新特效
 4. 在装备JSON中使用新特效
+
+### 添加新符文或符文之语
+1. **新符文**: 编辑 `data/items/runes.json`
+   ```json
+   {
+     "rune_xxx": {
+       "id": "rune_xxx",
+       "name": "XXX符文",
+       "name_en": "Xxx",
+       "type": "rune",
+       "rune_number": 34,
+       "level_req": 55,
+       "drop_weight": 0.5,
+       "socketed_effects": {
+         "weapon": { "attack_min": 10 },
+         "armor": { "defense_min": 20 }
+       }
+     }
+   }
+   ```
+
+2. **新符文之语**: 编辑 `data/config/runewords.json`
+   ```json
+   {
+     "my_runeword": {
+       "id": "my_runeword",
+       "name": "我的符文之语",
+       "name_en": "My Runeword",
+       "level_req": 30,
+       "runes": ["rune_tir", "rune_el", "rune_eth"],
+       "allowed_slots": ["weapon"],
+       "effects": {
+         "attack_min": 20,
+         "effects": { "crit_rate": 0.1 }
+       },
+       "description": "+20攻击, +10%暴击"
+     }
+   }
+   ```
+
+3. **符文掉落组**: 编辑 `data/config/drop_groups.json` 的 `runes_tier_X` 组
 
 ## 技术特点
 
@@ -574,6 +718,7 @@ mysql -h localhost -u mud_user -p mud_legend < database/migrations/001_add_skill
 - 完整的游戏数据体系
 - **模块化装备特效系统**
 - **可配置的品质加成**
+- **暗黑2风格符文之语系统**
 
 ## 故障排除
 
@@ -594,6 +739,17 @@ mysql -h localhost -u mud_user -p mud_legend < database/migrations/001_add_skill
 - 确认装备已正确穿戴
 - 检查装备JSON中的 `effects` 字段格式
 - 查看战斗日志确认特效触发
+
+### 符文无法镶嵌
+- 确认装备是白色品质
+- 确认装备有空闲孔位
+- 确认符文等级需求满足角色等级
+- 确认装备槽位在符文支持范围内
+
+### 符文不掉落
+- 确认已运行数据库迁移
+- 检查怪物等级是否足够掉落对应符文
+- 符文掉落概率较低，需要多次战斗
 
 ## 许可证
 

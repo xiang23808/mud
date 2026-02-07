@@ -1,0 +1,19 @@
+{
+  "max_sockets": {
+    "weapon": 6,
+    "armor": 6,
+    "helmet": 4,
+    "boots": 4,
+    "belt": 2
+  },
+  "socket_drop_weights": {
+    "weapon": [40, 30, 15, 10, 4, 1],
+    "armor": [40, 30, 15, 10, 4, 1],
+    "helmet": [50, 30, 15, 5],
+    "boots": [60, 25, 10, 5],
+    "belt": [70, 30]
+  },
+  "runeword_allowed_slots": ["weapon", "armor", "helmet", "boots", "belt"],
+  "rune_drop_base_chance": 0.02,
+  "rune_drop_boss_multiplier": 3
+}

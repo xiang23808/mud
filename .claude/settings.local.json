@@ -4,7 +4,12 @@
       "Bash(python:*)",
       "Bash(copy /Y \"D:\\\\work\\\\mud\\\\data\\\\items\\\\armors_new.json\" \"D:\\\\work\\\\mud\\\\data\\\\items\\\\armors.json\")",
       "Bash(copy:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(python3:*)",
+      "Bash(dir:*)",
+      "Bash(.venv\\\\Scripts\\\\python.exe:*)",
+      "Bash(D:/work/mud/.venv/Scripts/python.exe:*)",
+      "Bash(cd:*)"
     ]
   }
 }

@@ -1,0 +1,612 @@
+{
+  "nadir": {
+    "id": "nadir",
+    "name": "天底",
+    "name_en": "Nadir",
+    "level_req": 13,
+    "runes": ["rune_nef", "rune_tir"],
+    "allowed_slots": ["helmet"],
+    "effects": {
+      "defense_min": 30,
+      "defense_max": 30,
+      "mp_bonus": 15,
+      "effects": { "dodge_rate": 0.05 }
+    },
+    "description": "+30防御, +15MP, +5%闪避"
+  },
+  "steel": {
+    "id": "steel",
+    "name": "钢铁",
+    "name_en": "Steel",
+    "level_req": 13,
+    "runes": ["rune_tir", "rune_el"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 8,
+      "attack_max": 12,
+      "magic_min": 8,
+      "magic_max": 12,
+      "effects": { "hit_rate": 0.15, "double_attack": 0.1 }
+    },
+    "description": "+8-12伤害, +15%命中, +10%双击"
+  },
+  "malice": {
+    "id": "malice",
+    "name": "怨恨",
+    "name_en": "Malice",
+    "level_req": 15,
+    "runes": ["rune_ith", "rune_el", "rune_eth"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 10,
+      "attack_max": 15,
+      "magic_min": 10,
+      "magic_max": 15,
+      "effects": { "ignore_defense": 0.1, "lifesteal": 0.05 }
+    },
+    "description": "+10-15伤害, 忽略10%防御, 5%吸血"
+  },
+  "stealth": {
+    "id": "stealth",
+    "name": "隐密",
+    "name_en": "Stealth",
+    "level_req": 17,
+    "runes": ["rune_tal", "rune_eth"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 20,
+      "defense_max": 20,
+      "hp_bonus": 30,
+      "effects": { "dodge_rate": 0.08, "damage_reduction": 0.03 }
+    },
+    "description": "+20防御, +30HP, +8%闪避, 3%减伤"
+  },
+  "leaf": {
+    "id": "leaf",
+    "name": "叶子",
+    "name_en": "Leaf",
+    "level_req": 19,
+    "runes": ["rune_tir", "rune_ral"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "mp_bonus": 20,
+      "effects": { "extra_magic": 15 }
+    },
+    "description": "+20MP, 附加15魔法伤害"
+  },
+  "zephyr": {
+    "id": "zephyr",
+    "name": "和风",
+    "name_en": "Zephyr",
+    "level_req": 21,
+    "runes": ["rune_ort", "rune_eth"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 10,
+      "attack_max": 20,
+      "magic_min": 10,
+      "magic_max": 20,
+      "effects": { "extra_phys": 10, "double_attack": 0.08 }
+    },
+    "description": "+10-20伤害, 附加10物伤, +8%双击"
+  },
+  "strength": {
+    "id": "strength",
+    "name": "力量",
+    "name_en": "Strength",
+    "level_req": 25,
+    "runes": ["rune_amn", "rune_tir"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 15,
+      "attack_max": 25,
+      "magic_min": 15,
+      "magic_max": 25,
+      "effects": { "crush_rate": 0.08, "lifesteal": 0.05 }
+    },
+    "description": "+15-25伤害, +8%压碎, +5%吸血"
+  },
+  "spirit_weapon": {
+    "id": "spirit_weapon",
+    "name": "精神(武器)",
+    "name_en": "Spirit",
+    "level_req": 25,
+    "runes": ["rune_tal", "rune_thul", "rune_ort", "rune_amn"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 12,
+      "attack_max": 18,
+      "magic_min": 12,
+      "magic_max": 18,
+      "mp_bonus": 40,
+      "effects": { "extra_magic": 10, "extra_phys": 8, "lifesteal": 0.04 }
+    },
+    "description": "+12-18伤害, +40MP, 附加10魔伤+8物伤, 4%吸血"
+  },
+  "honor": {
+    "id": "honor",
+    "name": "荣耀",
+    "name_en": "Honor",
+    "level_req": 27,
+    "runes": ["rune_amn", "rune_el", "rune_ith", "rune_tir", "rune_sol"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 25,
+      "attack_max": 40,
+      "magic_min": 25,
+      "magic_max": 40,
+      "effects": { "crit_rate": 0.1, "crit_damage": 0.2, "lifesteal": 0.06 }
+    },
+    "description": "+25-40伤害, +10%暴击, +20%暴伤, +6%吸血"
+  },
+  "insight": {
+    "id": "insight",
+    "name": "灵光",
+    "name_en": "Insight",
+    "level_req": 27,
+    "runes": ["rune_ral", "rune_tir", "rune_tal", "rune_sol"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 15,
+      "attack_max": 25,
+      "magic_min": 15,
+      "magic_max": 25,
+      "mp_bonus": 60,
+      "effects": { "extra_magic": 20, "mp_on_hit": 5 }
+    },
+    "description": "+15-25伤害, +60MP, 附加20魔伤, 击中+5MP"
+  },
+  "lore": {
+    "id": "lore",
+    "name": "知识",
+    "name_en": "Lore",
+    "level_req": 27,
+    "runes": ["rune_ort", "rune_sol"],
+    "allowed_slots": ["helmet"],
+    "effects": {
+      "defense_min": 25,
+      "defense_max": 25,
+      "mp_bonus": 30,
+      "effects": { "damage_reduction": 0.05 }
+    },
+    "description": "+25防御, +30MP, 5%减伤"
+  },
+  "radiance": {
+    "id": "radiance",
+    "name": "光辉",
+    "name_en": "Radiance",
+    "level_req": 27,
+    "runes": ["rune_nef", "rune_sol", "rune_ith"],
+    "allowed_slots": ["helmet"],
+    "effects": {
+      "defense_min": 40,
+      "defense_max": 40,
+      "hp_bonus": 30,
+      "mp_bonus": 25,
+      "effects": { "damage_reduction": 0.06 }
+    },
+    "description": "+40防御, +30HP, +25MP, 6%减伤"
+  },
+  "peace": {
+    "id": "peace",
+    "name": "和平",
+    "name_en": "Peace",
+    "level_req": 29,
+    "runes": ["rune_shael", "rune_thul", "rune_amn"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 35,
+      "defense_max": 35,
+      "hp_bonus": 50,
+      "effects": { "dodge_rate": 0.1, "hp_on_hit": 5 }
+    },
+    "description": "+35防御, +50HP, +10%闪避, 击中+5HP"
+  },
+  "rhyme": {
+    "id": "rhyme",
+    "name": "声韵",
+    "name_en": "Rhyme",
+    "level_req": 29,
+    "runes": ["rune_shael", "rune_eth"],
+    "allowed_slots": ["armor", "helmet"],
+    "effects": {
+      "defense_min": 30,
+      "defense_max": 30,
+      "effects": { "block_rate": 0.08, "dodge_rate": 0.05 }
+    },
+    "description": "+30防御, +8%格挡, +5%闪避"
+  },
+  "black": {
+    "id": "black",
+    "name": "黑锤",
+    "name_en": "Black",
+    "level_req": 35,
+    "runes": ["rune_thul", "rune_io", "rune_nef"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 20,
+      "attack_max": 35,
+      "magic_min": 20,
+      "magic_max": 35,
+      "hp_bonus": 30,
+      "effects": { "crush_rate": 0.15, "stun_rate": 0.08 }
+    },
+    "description": "+20-35伤害, +30HP, +15%压碎, +8%眩晕"
+  },
+  "smoke": {
+    "id": "smoke",
+    "name": "烟雾",
+    "name_en": "Smoke",
+    "level_req": 37,
+    "runes": ["rune_nef", "rune_lum"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 50,
+      "defense_max": 50,
+      "mp_bonus": 40,
+      "effects": { "dodge_rate": 0.12, "damage_reduction": 0.08 }
+    },
+    "description": "+50防御, +40MP, +12%闪避, 8%减伤"
+  },
+  "lionheart": {
+    "id": "lionheart",
+    "name": "狮子心",
+    "name_en": "Lionheart",
+    "level_req": 41,
+    "runes": ["rune_hel", "rune_lum", "rune_fal"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 60,
+      "defense_max": 60,
+      "hp_bonus": 80,
+      "mp_bonus": 30,
+      "effects": { "damage_reduction": 0.1 }
+    },
+    "description": "+60防御, +80HP, +30MP, 10%减伤"
+  },
+  "treachery": {
+    "id": "treachery",
+    "name": "背信",
+    "name_en": "Treachery",
+    "level_req": 43,
+    "runes": ["rune_shael", "rune_thul", "rune_lem"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 45,
+      "defense_max": 45,
+      "hp_bonus": 40,
+      "effects": { "double_attack": 0.15, "dodge_rate": 0.1, "poison_damage": 10, "poison_rounds": 3 }
+    },
+    "description": "+45防御, +40HP, +15%双击, +10%闪避, 毒伤10x3"
+  },
+  "wealth": {
+    "id": "wealth",
+    "name": "财富",
+    "name_en": "Wealth",
+    "level_req": 43,
+    "runes": ["rune_lem", "rune_ko", "rune_tir"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 40,
+      "defense_max": 40,
+      "mp_bonus": 50,
+      "effects": { "crit_rate": 0.08, "crit_damage": 0.15 }
+    },
+    "description": "+40防御, +50MP, +8%暴击, +15%暴伤"
+  },
+  "crescent_moon": {
+    "id": "crescent_moon",
+    "name": "新月",
+    "name_en": "Crescent Moon",
+    "level_req": 47,
+    "runes": ["rune_shael", "rune_um", "rune_tir"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 25,
+      "attack_max": 45,
+      "magic_min": 25,
+      "magic_max": 45,
+      "effects": { "ignore_defense": 0.15, "extra_magic": 20, "mp_on_hit": 8 }
+    },
+    "description": "+25-45伤害, 忽略15%防御, 附加20魔伤, 击中+8MP"
+  },
+  "duress": {
+    "id": "duress",
+    "name": "强制",
+    "name_en": "Duress",
+    "level_req": 47,
+    "runes": ["rune_shael", "rune_um", "rune_thul"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 70,
+      "defense_max": 70,
+      "hp_bonus": 60,
+      "effects": { "crush_rate": 0.1, "damage_reduction": 0.12, "dodge_rate": 0.08 }
+    },
+    "description": "+70防御, +60HP, +10%压碎, 12%减伤, +8%闪避"
+  },
+  "oath": {
+    "id": "oath",
+    "name": "誓约",
+    "name_en": "Oath",
+    "level_req": 49,
+    "runes": ["rune_shael", "rune_pul", "rune_mal", "rune_lum"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 35,
+      "attack_max": 60,
+      "magic_min": 35,
+      "magic_max": 60,
+      "effects": { "crush_rate": 0.12, "lifesteal": 0.08, "crit_rate": 0.08 }
+    },
+    "description": "+35-60伤害, +12%压碎, +8%吸血, +8%暴击"
+  },
+  "kingslayer": {
+    "id": "kingslayer",
+    "name": "弑王者",
+    "name_en": "Kingslayer",
+    "level_req": 53,
+    "runes": ["rune_mal", "rune_um", "rune_gul", "rune_fal"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 50,
+      "attack_max": 80,
+      "magic_min": 50,
+      "magic_max": 80,
+      "effects": { "crush_rate": 0.15, "ignore_defense": 0.2, "crit_rate": 0.1 }
+    },
+    "description": "+50-80伤害, +15%压碎, 忽略20%防御, +10%暴击"
+  },
+  "death": {
+    "id": "death",
+    "name": "死神",
+    "name_en": "Death",
+    "level_req": 55,
+    "runes": ["rune_hel", "rune_el", "rune_vex", "rune_ort", "rune_gul"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 60,
+      "attack_max": 100,
+      "magic_min": 60,
+      "magic_max": 100,
+      "effects": { "crush_rate": 0.2, "crit_rate": 0.15, "crit_damage": 0.3, "lifesteal": 0.1 }
+    },
+    "description": "+60-100伤害, +20%压碎, +15%暴击, +30%暴伤, +10%吸血"
+  },
+  "heart_of_oak": {
+    "id": "heart_of_oak",
+    "name": "橡木之心",
+    "name_en": "Heart of the Oak",
+    "level_req": 55,
+    "runes": ["rune_ko", "rune_vex", "rune_pul", "rune_thul"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 30,
+      "attack_max": 50,
+      "magic_min": 30,
+      "magic_max": 50,
+      "hp_bonus": 60,
+      "mp_bonus": 80,
+      "effects": { "lifesteal": 0.08, "crit_rate": 0.1, "extra_magic": 25 }
+    },
+    "description": "+30-50伤害, +60HP, +80MP, +8%吸血, +10%暴击, 附加25魔伤"
+  },
+  "fortitude": {
+    "id": "fortitude",
+    "name": "刚毅",
+    "name_en": "Fortitude",
+    "level_req": 59,
+    "runes": ["rune_el", "rune_sol", "rune_dol", "rune_lo"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 100,
+      "defense_max": 100,
+      "hp_bonus": 120,
+      "effects": { "damage_reduction": 0.15, "reflect": 0.08 }
+    },
+    "description": "+100防御, +120HP, 15%减伤, 8%反伤"
+  },
+  "grief": {
+    "id": "grief",
+    "name": "悔恨",
+    "name_en": "Grief",
+    "level_req": 59,
+    "runes": ["rune_eth", "rune_tir", "rune_lo", "rune_mal", "rune_ral"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 80,
+      "attack_max": 120,
+      "magic_min": 80,
+      "magic_max": 120,
+      "effects": { "ignore_defense": 0.25, "crit_rate": 0.2, "crit_damage": 0.35, "lifesteal": 0.12 }
+    },
+    "description": "+80-120伤害, 忽略25%防御, +20%暴击, +35%暴伤, +12%吸血"
+  },
+  "bramble": {
+    "id": "bramble",
+    "name": "刺藤",
+    "name_en": "Bramble",
+    "level_req": 61,
+    "runes": ["rune_ral", "rune_ohm", "rune_sur", "rune_eth"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 80,
+      "defense_max": 80,
+      "hp_bonus": 100,
+      "effects": { "reflect": 0.15, "poison_damage": 25, "poison_rounds": 5 }
+    },
+    "description": "+80防御, +100HP, 15%反伤, 毒伤25x5"
+  },
+  "beast": {
+    "id": "beast",
+    "name": "野兽",
+    "name_en": "Beast",
+    "level_req": 63,
+    "runes": ["rune_ber", "rune_tir", "rune_um", "rune_mal", "rune_lum"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 70,
+      "attack_max": 110,
+      "magic_min": 70,
+      "magic_max": 110,
+      "mp_bonus": 50,
+      "effects": { "crush_rate": 0.18, "double_attack": 0.2, "crit_rate": 0.12 }
+    },
+    "description": "+70-110伤害, +50MP, +18%压碎, +20%双击, +12%暴击"
+  },
+  "chains_of_honor": {
+    "id": "chains_of_honor",
+    "name": "荣耀之链",
+    "name_en": "Chains of Honor",
+    "level_req": 63,
+    "runes": ["rune_dol", "rune_um", "rune_ber", "rune_ist"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 120,
+      "defense_max": 120,
+      "hp_bonus": 150,
+      "effects": { "damage_reduction": 0.18, "lifesteal": 0.06, "crit_rate": 0.08 }
+    },
+    "description": "+120防御, +150HP, 18%减伤, +6%吸血, +8%暴击"
+  },
+  "infinity": {
+    "id": "infinity",
+    "name": "无限",
+    "name_en": "Infinity",
+    "level_req": 63,
+    "runes": ["rune_ber", "rune_mal", "rune_ber", "rune_ist"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 90,
+      "attack_max": 150,
+      "magic_min": 90,
+      "magic_max": 150,
+      "effects": { "ignore_defense": 0.3, "crush_rate": 0.2, "extra_magic": 40, "extra_phys": 30 }
+    },
+    "description": "+90-150伤害, 忽略30%防御, +20%压碎, 附加40魔伤+30物伤"
+  },
+  "enigma": {
+    "id": "enigma",
+    "name": "谜团",
+    "name_en": "Enigma",
+    "level_req": 65,
+    "runes": ["rune_jah", "rune_ith", "rune_ber"],
+    "allowed_slots": ["armor"],
+    "effects": {
+      "defense_min": 150,
+      "defense_max": 150,
+      "hp_bonus": 200,
+      "effects": { "damage_reduction": 0.2, "dodge_rate": 0.15 }
+    },
+    "description": "+150防御, +200HP, 20%减伤, +15%闪避"
+  },
+  "last_wish": {
+    "id": "last_wish",
+    "name": "最后遗愿",
+    "name_en": "Last Wish",
+    "level_req": 65,
+    "runes": ["rune_jah", "rune_mal", "rune_jah", "rune_sur", "rune_jah", "rune_ber"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 120,
+      "attack_max": 200,
+      "magic_min": 120,
+      "magic_max": 200,
+      "effects": { "crush_rate": 0.25, "ignore_defense": 0.35, "lifesteal": 0.15, "crit_rate": 0.2, "crit_damage": 0.4 }
+    },
+    "description": "+120-200伤害, +25%压碎, 忽略35%防御, +15%吸血, +20%暴击, +40%暴伤"
+  },
+  "breath_of_dying": {
+    "id": "breath_of_dying",
+    "name": "死亡呼吸",
+    "name_en": "Breath of the Dying",
+    "level_req": 69,
+    "runes": ["rune_vex", "rune_hel", "rune_el", "rune_eld", "rune_zod", "rune_eth"],
+    "allowed_slots": ["weapon"],
+    "effects": {
+      "attack_min": 150,
+      "attack_max": 250,
+      "magic_min": 150,
+      "magic_max": 250,
+      "effects": { "ignore_defense": 0.4, "lifesteal": 0.2, "crit_rate": 0.25, "crit_damage": 0.5, "crush_rate": 0.25 }
+    },
+    "description": "+150-250伤害, 忽略40%防御, +20%吸血, +25%暴击, +50%暴伤, +25%压碎"
+  },
+  "sorrow": {
+    "id": "sorrow",
+    "name": "悲伤",
+    "name_en": "Sorrow",
+    "level_req": 30,
+    "runes": ["rune_thul", "rune_sol", "rune_ko"],
+    "allowed_slots": ["boots"],
+    "effects": {
+      "defense_min": 35,
+      "defense_max": 35,
+      "hp_bonus": 40,
+      "effects": { "dodge_rate": 0.1, "damage_reduction": 0.05 }
+    },
+    "description": "+35防御, +40HP, +10%闪避, 5%减伤"
+  },
+  "wind_runner": {
+    "id": "wind_runner",
+    "name": "风行者",
+    "name_en": "Wind Runner",
+    "level_req": 35,
+    "runes": ["rune_shael", "rune_ort", "rune_eth"],
+    "allowed_slots": ["boots"],
+    "effects": {
+      "defense_min": 45,
+      "defense_max": 45,
+      "hp_bonus": 50,
+      "effects": { "dodge_rate": 0.15, "double_attack": 0.05 }
+    },
+    "description": "+45防御, +50HP, +15%闪避, +5%双击"
+  },
+  "stone_skin": {
+    "id": "stone_skin",
+    "name": "石肤",
+    "name_en": "Stone Skin",
+    "level_req": 40,
+    "runes": ["rune_um", "rune_fal", "rune_sol", "rune_ber"],
+    "allowed_slots": ["boots"],
+    "effects": {
+      "defense_min": 80,
+      "defense_max": 80,
+      "hp_bonus": 100,
+      "effects": { "damage_reduction": 0.15, "reflect": 0.05 }
+    },
+    "description": "+80防御, +100HP, 15%减伤, 5%反伤"
+  },
+  "greed": {
+    "id": "greed",
+    "name": "贪婪",
+    "name_en": "Greed",
+    "level_req": 25,
+    "runes": ["rune_lem", "rune_ko"],
+    "allowed_slots": ["belt"],
+    "effects": {
+      "defense_min": 20,
+      "defense_max": 20,
+      "hp_bonus": 30,
+      "mp_bonus": 20,
+      "effects": { "crit_rate": 0.05 }
+    },
+    "description": "+20防御, +30HP, +20MP, +5%暴击"
+  },
+  "vitality": {
+    "id": "vitality",
+    "name": "活力",
+    "name_en": "Vitality",
+    "level_req": 35,
+    "runes": ["rune_io", "rune_tal"],
+    "allowed_slots": ["belt"],
+    "effects": {
+      "defense_min": 25,
+      "defense_max": 25,
+      "hp_bonus": 60,
+      "mp_bonus": 40,
+      "effects": { "hp_on_hit": 5 }
+    },
+    "description": "+25防御, +60HP, +40MP, 击中+5HP"
+  }
+}

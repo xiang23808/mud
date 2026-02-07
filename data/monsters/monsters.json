@@ -2200,5 +2200,26 @@
       "tier_15_all"
     ],
     "drops": []
+  },
+  "shade_of_medivh": {
+    "name": "麦迪文之影",
+    "level": 72,
+    "hp": 35000,
+    "attack": 420,
+    "defense": 170,
+    "damage_type": "magic",
+    "exp": 35000,
+    "gold": 9000,
+    "is_boss": true,
+    "drop_groups": [
+      "tier_14_all",
+      "tier_13_all"
+    ],
+    "drops": [
+      {
+        "item": "void_crystal",
+        "rate": "1/20"
+      }
+    ]
   }
 }

@@ -4224,5 +4224,243 @@
         "rate": "1/8000"
       }
     ]
+  },
+  "runes_tier_1": {
+    "name": "低级符文(1-5级怪)",
+    "tier": 1,
+    "level_range": "1-5",
+    "drops": [
+      { "item": "rune_el", "rate": "1/50" },
+      { "item": "rune_eld", "rate": "1/60" },
+      { "item": "rune_tir", "rate": "1/70" }
+    ]
+  },
+  "runes_tier_2": {
+    "name": "低级符文(6-10级怪)",
+    "tier": 2,
+    "level_range": "6-10",
+    "drops": [
+      { "item": "rune_el", "rate": "1/40" },
+      { "item": "rune_eld", "rate": "1/45" },
+      { "item": "rune_tir", "rate": "1/50" },
+      { "item": "rune_nef", "rate": "1/60" },
+      { "item": "rune_eth", "rate": "1/70" },
+      { "item": "rune_ith", "rate": "1/80" }
+    ]
+  },
+  "runes_tier_3": {
+    "name": "初级符文(11-15级怪)",
+    "tier": 3,
+    "level_range": "11-15",
+    "drops": [
+      { "item": "rune_tir", "rate": "1/40" },
+      { "item": "rune_nef", "rate": "1/45" },
+      { "item": "rune_eth", "rate": "1/50" },
+      { "item": "rune_ith", "rate": "1/55" },
+      { "item": "rune_tal", "rate": "1/60" },
+      { "item": "rune_ral", "rate": "1/70" },
+      { "item": "rune_ort", "rate": "1/80" }
+    ]
+  },
+  "runes_tier_4": {
+    "name": "初级符文(16-20级怪)",
+    "tier": 4,
+    "level_range": "16-20",
+    "drops": [
+      { "item": "rune_eth", "rate": "1/40" },
+      { "item": "rune_ith", "rate": "1/45" },
+      { "item": "rune_tal", "rate": "1/50" },
+      { "item": "rune_ral", "rate": "1/55" },
+      { "item": "rune_ort", "rate": "1/60" },
+      { "item": "rune_thul", "rate": "1/70" },
+      { "item": "rune_amn", "rate": "1/80" },
+      { "item": "rune_sol", "rate": "1/100" }
+    ]
+  },
+  "runes_tier_5": {
+    "name": "中级符文(21-25级怪)",
+    "tier": 5,
+    "level_range": "21-25",
+    "drops": [
+      { "item": "rune_ral", "rate": "1/40" },
+      { "item": "rune_ort", "rate": "1/45" },
+      { "item": "rune_thul", "rate": "1/50" },
+      { "item": "rune_amn", "rate": "1/55" },
+      { "item": "rune_sol", "rate": "1/60" },
+      { "item": "rune_shael", "rate": "1/70" },
+      { "item": "rune_dol", "rate": "1/80" },
+      { "item": "rune_hel", "rate": "1/100" },
+      { "item": "rune_io", "rate": "1/120" }
+    ]
+  },
+  "runes_tier_6": {
+    "name": "中级符文(26-30级怪)",
+    "tier": 6,
+    "level_range": "26-30",
+    "drops": [
+      { "item": "rune_thul", "rate": "1/40" },
+      { "item": "rune_amn", "rate": "1/45" },
+      { "item": "rune_sol", "rate": "1/50" },
+      { "item": "rune_shael", "rate": "1/55" },
+      { "item": "rune_dol", "rate": "1/60" },
+      { "item": "rune_hel", "rate": "1/70" },
+      { "item": "rune_io", "rate": "1/80" },
+      { "item": "rune_lum", "rate": "1/100" },
+      { "item": "rune_ko", "rate": "1/120" },
+      { "item": "rune_fal", "rate": "1/150" }
+    ]
+  },
+  "runes_tier_7": {
+    "name": "高级符文(31-35级怪)",
+    "tier": 7,
+    "level_range": "31-35",
+    "drops": [
+      { "item": "rune_dol", "rate": "1/45" },
+      { "item": "rune_hel", "rate": "1/50" },
+      { "item": "rune_io", "rate": "1/55" },
+      { "item": "rune_lum", "rate": "1/60" },
+      { "item": "rune_ko", "rate": "1/70" },
+      { "item": "rune_fal", "rate": "1/80" },
+      { "item": "rune_lem", "rate": "1/100" },
+      { "item": "rune_pul", "rate": "1/150" },
+      { "item": "rune_um", "rate": "1/200" }
+    ]
+  },
+  "runes_tier_8": {
+    "name": "高级符文(36-40级怪)",
+    "tier": 8,
+    "level_range": "36-40",
+    "drops": [
+      { "item": "rune_io", "rate": "1/45" },
+      { "item": "rune_lum", "rate": "1/50" },
+      { "item": "rune_ko", "rate": "1/55" },
+      { "item": "rune_fal", "rate": "1/60" },
+      { "item": "rune_lem", "rate": "1/70" },
+      { "item": "rune_pul", "rate": "1/100" },
+      { "item": "rune_um", "rate": "1/150" },
+      { "item": "rune_mal", "rate": "1/200" },
+      { "item": "rune_ist", "rate": "1/300" }
+    ]
+  },
+  "runes_tier_9": {
+    "name": "稀有符文(41-45级怪)",
+    "tier": 9,
+    "level_range": "41-45",
+    "drops": [
+      { "item": "rune_fal", "rate": "1/50" },
+      { "item": "rune_lem", "rate": "1/60" },
+      { "item": "rune_pul", "rate": "1/80" },
+      { "item": "rune_um", "rate": "1/100" },
+      { "item": "rune_mal", "rate": "1/150" },
+      { "item": "rune_ist", "rate": "1/200" },
+      { "item": "rune_gul", "rate": "1/300" },
+      { "item": "rune_vex", "rate": "1/500" }
+    ]
+  },
+  "runes_tier_10": {
+    "name": "稀有符文(46-50级怪)",
+    "tier": 10,
+    "level_range": "46-50",
+    "drops": [
+      { "item": "rune_lem", "rate": "1/50" },
+      { "item": "rune_pul", "rate": "1/60" },
+      { "item": "rune_um", "rate": "1/80" },
+      { "item": "rune_mal", "rate": "1/100" },
+      { "item": "rune_ist", "rate": "1/150" },
+      { "item": "rune_gul", "rate": "1/200" },
+      { "item": "rune_vex", "rate": "1/300" },
+      { "item": "rune_ohm", "rate": "1/500" },
+      { "item": "rune_lo", "rate": "1/800" }
+    ]
+  },
+  "runes_tier_11": {
+    "name": "传说符文(51-55级怪)",
+    "tier": 11,
+    "level_range": "51-55",
+    "drops": [
+      { "item": "rune_um", "rate": "1/60" },
+      { "item": "rune_mal", "rate": "1/80" },
+      { "item": "rune_ist", "rate": "1/100" },
+      { "item": "rune_gul", "rate": "1/150" },
+      { "item": "rune_vex", "rate": "1/200" },
+      { "item": "rune_ohm", "rate": "1/300" },
+      { "item": "rune_lo", "rate": "1/500" },
+      { "item": "rune_sur", "rate": "1/800" },
+      { "item": "rune_ber", "rate": "1/1200" }
+    ]
+  },
+  "runes_tier_12": {
+    "name": "传说符文(56-60级怪)",
+    "tier": 12,
+    "level_range": "56-60",
+    "drops": [
+      { "item": "rune_ist", "rate": "1/80" },
+      { "item": "rune_gul", "rate": "1/100" },
+      { "item": "rune_vex", "rate": "1/150" },
+      { "item": "rune_ohm", "rate": "1/200" },
+      { "item": "rune_lo", "rate": "1/300" },
+      { "item": "rune_sur", "rate": "1/500" },
+      { "item": "rune_ber", "rate": "1/800" },
+      { "item": "rune_jah", "rate": "1/1200" },
+      { "item": "rune_cham", "rate": "1/2000" }
+    ]
+  },
+  "runes_tier_13": {
+    "name": "神话符文(61-65级怪)",
+    "tier": 13,
+    "level_range": "61-65",
+    "drops": [
+      { "item": "rune_gul", "rate": "1/80" },
+      { "item": "rune_vex", "rate": "1/100" },
+      { "item": "rune_ohm", "rate": "1/150" },
+      { "item": "rune_lo", "rate": "1/200" },
+      { "item": "rune_sur", "rate": "1/300" },
+      { "item": "rune_ber", "rate": "1/500" },
+      { "item": "rune_jah", "rate": "1/800" },
+      { "item": "rune_cham", "rate": "1/1200" },
+      { "item": "rune_zod", "rate": "1/2000" }
+    ]
+  },
+  "runes_tier_14": {
+    "name": "神话符文(66-70级怪)",
+    "tier": 14,
+    "level_range": "66-70",
+    "drops": [
+      { "item": "rune_vex", "rate": "1/80" },
+      { "item": "rune_ohm", "rate": "1/100" },
+      { "item": "rune_lo", "rate": "1/150" },
+      { "item": "rune_sur", "rate": "1/200" },
+      { "item": "rune_ber", "rate": "1/300" },
+      { "item": "rune_jah", "rate": "1/500" },
+      { "item": "rune_cham", "rate": "1/800" },
+      { "item": "rune_zod", "rate": "1/1500" }
+    ]
+  },
+  "runes_tier_15": {
+    "name": "至高符文(71-75级怪)",
+    "tier": 15,
+    "level_range": "71-75",
+    "drops": [
+      { "item": "rune_ohm", "rate": "1/80" },
+      { "item": "rune_lo", "rate": "1/100" },
+      { "item": "rune_sur", "rate": "1/150" },
+      { "item": "rune_ber", "rate": "1/200" },
+      { "item": "rune_jah", "rate": "1/300" },
+      { "item": "rune_cham", "rate": "1/500" },
+      { "item": "rune_zod", "rate": "1/1000" }
+    ]
+  },
+  "runes_tier_16": {
+    "name": "至高符文(76+级怪)",
+    "tier": 16,
+    "level_range": "76+",
+    "drops": [
+      { "item": "rune_lo", "rate": "1/80" },
+      { "item": "rune_sur", "rate": "1/100" },
+      { "item": "rune_ber", "rate": "1/150" },
+      { "item": "rune_jah", "rate": "1/200" },
+      { "item": "rune_cham", "rate": "1/300" },
+      { "item": "rune_zod", "rate": "1/600" }
+    ]
   }
 }

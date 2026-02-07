@@ -158,6 +158,22 @@ function handleMessage(msg) {
         case 'skill_toggled':
             output(`[技能] ${msg.data.skill_id} ${msg.data.enabled ? '已启用' : '已禁用'}`);
             break;
+        case 'runewords':
+            runewordsData = msg.data;
+            break;
+        case 'runes':
+            runesData = msg.data;
+            break;
+        case 'socket_rune_result':
+            if (msg.data.success) {
+                output(`[符文] ${msg.data.message}`);
+                if (msg.data.runeword_id) {
+                    addBattleLog(`[符文之语] ${msg.data.message}`);
+                }
+            } else {
+                output(`[符文] 镶嵌失败: ${msg.data.error}`);
+            }
+            break;
     }
 }
 
@@ -285,10 +301,10 @@ function updateCharStatsFromEquipment(total_stats, total_effects) {
         <div>等级: ${total_stats.level}</div>
         <div>HP: ${total_stats.hp}</div>
         <div>MP: ${total_stats.mp}</div>
-        <div>攻击(DC): ${total_stats.attack}</div>
-        <div>魔法(MC): ${total_stats.magic}</div>
-        <div>防御(AC): ${total_stats.defense}</div>
-        <div>魔御(MAC): ${total_stats.magic_defense}</div>
+        <div>攻击: ${total_stats.attack}</div>
+        <div>魔法: ${total_stats.magic}</div>
+        <div>防御: ${total_stats.defense}</div>
+        <div>魔御: ${total_stats.magic_defense}</div>
         <div>幸运: ${total_stats.luck}</div>
         ${effectsHtml}
     `;
@@ -448,8 +464,12 @@ const EFFECT_NAMES = {
     block_rate: '格挡率', block_amount: '格挡量', extra_phys: '附物伤', extra_magic: '附魔伤',
     damage_reduction: '减伤', stun_rate: '眩晕', splash_rate: '溅射', poison_damage: '毒伤',
     poison_rounds: '毒回合', ignore_defense: '穿防', ignore_magic_def: '穿魔御',
-    crit_rate: '暴击率', crit_damage: '暴击伤'
+    crit_rate: '暴击率', crit_damage: '暴击伤', attack_speed: '攻速'
 };
+
+// 符文之语数据缓存
+let runewordsData = null;
+let runesData = null;
 
 // 格式化特效值
 function formatEffect(key, value) {
@@ -485,6 +505,16 @@ function formatSetBonus(bonus) {
 
 // 战斗显示
 function showCombat(data) {
+    // 处理错误情况
+    if (!data.success && data.error) {
+        output(`[战斗错误] ${data.error}`);
+        return;
+    }
+    if (!data.logs || data.logs.length === 0) {
+        output('[战斗错误] 无战斗数据');
+        return;
+    }
+
     show('combat-modal');
     const log = $('combat-log');
     log.innerHTML = '';
@@ -684,6 +714,8 @@ function renderInventory(data) {
         if (currentItemFilter === 'accessory') return type === 'accessory' || (type === 'armor' && ['boots', 'belt'].includes(slot));
         if (currentItemFilter === 'consumable') return type === 'consumable';
         if (currentItemFilter === 'material') return type === 'material' || type === 'boss_summon' || type === 'skillbook';
+        if (currentItemFilter === 'rune') return type === 'rune';
+        if (currentItemFilter === 'runeword') return item.runeword_id;
         return true;
     });
     
@@ -697,6 +729,8 @@ function renderInventory(data) {
             <button onclick="setItemFilter('accessory')" style="background:${currentItemFilter === 'accessory' ? '#0a0' : '#333'};">饰品</button>
             <button onclick="setItemFilter('consumable')" style="background:${currentItemFilter === 'consumable' ? '#0a0' : '#333'};">消耗品</button>
             <button onclick="setItemFilter('material')" style="background:${currentItemFilter === 'material' ? '#0a0' : '#333'};">材料</button>
+            <button onclick="setItemFilter('rune')" style="background:${currentItemFilter === 'rune' ? '#f80' : '#333'};color:${currentItemFilter === 'rune' ? '#fff' : '#f80'};">符文</button>
+            <button onclick="setItemFilter('runeword')" style="background:${currentItemFilter === 'runeword' ? '#ff0' : '#333'};color:${currentItemFilter === 'runeword' ? '#000' : '#ff0'};">符文之语</button>
         </div>
     `;
     // 背包显示全部回收按钮，仓库不显示
@@ -715,14 +749,14 @@ function renderInventory(data) {
         // 等级需求
         if (info.level_req && info.level_req > 1) attrs.push(`需Lv.${info.level_req}`);
         // 支持min-max格式
-        if (info.attack_min || info.attack_max) attrs.push(`DC:${info.attack_min||0}-${info.attack_max||0}`);
-        else if (info.attack) attrs.push(`DC:${info.attack}`);
-        if (info.magic_min || info.magic_max) attrs.push(`MC:${info.magic_min||0}-${info.magic_max||0}`);
-        else if (info.magic) attrs.push(`MC:${info.magic}`);
-        if (info.defense_min || info.defense_max) attrs.push(`AC:${info.defense_min||0}-${info.defense_max||0}`);
-        else if (info.defense) attrs.push(`AC:${info.defense}`);
-        if (info.magic_defense_min || info.magic_defense_max) attrs.push(`MAC:${info.magic_defense_min||0}-${info.magic_defense_max||0}`);
-        else if (info.magic_defense) attrs.push(`MAC:${info.magic_defense}`);
+        if (info.attack_min || info.attack_max) attrs.push(`攻击:${info.attack_min||0}-${info.attack_max||0}`);
+        else if (info.attack) attrs.push(`攻击:${info.attack}`);
+        if (info.magic_min || info.magic_max) attrs.push(`魔法:${info.magic_min||0}-${info.magic_max||0}`);
+        else if (info.magic) attrs.push(`魔法:${info.magic}`);
+        if (info.defense_min || info.defense_max) attrs.push(`防御:${info.defense_min||0}-${info.defense_max||0}`);
+        else if (info.defense) attrs.push(`防御:${info.defense}`);
+        if (info.magic_defense_min || info.magic_defense_max) attrs.push(`魔御:${info.magic_defense_min||0}-${info.magic_defense_max||0}`);
+        else if (info.magic_defense) attrs.push(`魔御:${info.magic_defense}`);
         if (info.hp_bonus) attrs.push(`HP+${info.hp_bonus}`);
         if (info.mp_bonus) attrs.push(`MP+${info.mp_bonus}`);
         const effectsHtml = renderEffects(info.effects);
@@ -733,14 +767,34 @@ function renderInventory(data) {
         const recycleBtn = storage_type === 'inventory' ? `<button onclick="recycleItem(${item.slot})">回收</button>` : '';
         // 套装标识
         const setTag = info.set_id ? '<span style="color:#a020f0;">[套]</span>' : '';
+        // 孔位显示 - 优先使用后端返回的socket_display
+        const socketCount = item.sockets || 0;
+        const socketedCount = item.socketed_runes?.length || 0;
+        const socketDisplay = item.socket_display
+            ? `<span style="color:#0ff;font-size:11px;">${item.socket_display}</span>`
+            : (socketCount > 0 ? `<span style="color:#0ff;font-size:11px;">[孔:${'◆'.repeat(socketedCount)}${'◇'.repeat(socketCount - socketedCount)}]</span>` : '');
+        // 符文之语标识 - 显示具体名称
+        const runewordTag = item.runeword_id
+            ? `<span style="color:#ffd700;font-weight:bold;">[${info.runeword_name || '符文之语'}]</span>`
+            : '';
+        // 符文之语描述
+        const runewordDesc = info.runeword_description
+            ? `<div style="font-size:10px;color:#ffd700;">${info.runeword_description}</div>`
+            : '';
+        // 镶嵌按钮（白色品质有孔装备且未完成符文之语且有空孔时显示）
+        const canSocketInv = storage_type === 'inventory' && item.quality === 'white' && socketCount > 0 && !item.runeword_id && socketedCount < socketCount;
+        const socketBtnInv = canSocketInv ? `<button onclick="openSocketRunePopupInventory(${item.slot})" style="background:#f80;">镶嵌</button>` : '';
         return `
         <div class="inv-slot quality-${item.quality}">
-            <div class="item-name">${setTag}${info.name || item.item_id}</div>
+            <div class="item-name">${runewordTag}${setTag}${info.name || item.item_id}</div>
+            ${socketDisplay ? `<div>${socketDisplay}</div>` : ''}
             ${attrs.length ? `<div style="font-size:10px;color:#8f8;">${attrs.join(' ')}</div>` : ''}
             ${effectsHtml ? `<div>${effectsHtml}</div>` : ''}
+            ${runewordDesc}
             <div>x${item.quantity}</div>
             <div class="item-actions">
                 ${isEquipable && storage_type === 'inventory' ? `<button onclick="equipItem(${item.slot},'${info.slot || ''}')">装备</button>` : ''}
+                ${socketBtnInv}
                 ${isSkillbook && storage_type === 'inventory' ? `<button onclick="useSkillbook(${item.slot})">学习</button>` : ''}
                 ${isBossSummon && storage_type === 'inventory' ? `<button onclick="useBossItem(${item.slot})">使用</button>` : ''}
                 ${moveBtn}
@@ -788,8 +842,19 @@ function recycleItem(slot) {
 }
 
 function recycleAll() {
-    if (confirm('确定回收背包中所有物品？此操作不可撤销！')) {
-        ws.send(JSON.stringify({ type: 'recycle_all' }));
+    const filterNames = {
+        'all': '全部物品',
+        'weapon': '武器',
+        'armor': '衣服',
+        'accessory': '饰品',
+        'consumable': '消耗品',
+        'material': '材料',
+        'rune': '符文',
+        'runeword': '符文之语装备'
+    };
+    const filterName = filterNames[currentItemFilter] || '当前筛选';
+    if (confirm(`确定回收背包中的${filterName}？此操作不可撤销！`)) {
+        ws.send(JSON.stringify({ type: 'recycle_all', filter: currentItemFilter }));
         setTimeout(() => ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' })), 500);
     }
 }
@@ -873,10 +938,10 @@ function renderEquipment(data) {
                 <div>幸运: ${total_stats.luck}</div>
                 <div>HP: ${total_stats.hp}</div>
                 <div>MP: ${total_stats.mp}</div>
-                <div>攻击(DC): ${total_stats.attack}</div>
-                <div>魔法(MC): ${total_stats.magic}</div>
-                <div>防御(AC): ${total_stats.defense}</div>
-                <div>魔御(MAC): ${total_stats.magic_defense}</div>
+                <div>攻击: ${total_stats.attack}</div>
+                <div>魔法: ${total_stats.magic}</div>
+                <div>防御: ${total_stats.defense}</div>
+                <div>魔御: ${total_stats.magic_defense}</div>
             </div>
             ${effectsHtml}
             ${setBonusHtml}
@@ -904,22 +969,32 @@ function renderEquipment(data) {
                 const item = equipment[slot];
                 const itemEffects = item?.info?.effects ? renderEffects(item.info.effects) : '';
                 const setTag = item?.info?.set_id ? '<span style="color:#a020f0;">[套]</span>' : '';
+                // 符文之语显示
+                const runewordTag = item?.runeword_id ? `<span style="color:#ffd700;font-weight:bold;">[${item.info?.runeword_name || '符文之语'}]</span>` : '';
+                // 孔位显示
+                const socketDisplay = item?.socket_display ? `<span style="color:#0ff;font-size:12px;">${item.socket_display}</span>` : '';
+                // 镶嵌按钮（仅白色品质有孔装备且未完成符文之语时显示）
+                const canSocket = item && item.quality === 'white' && item.sockets > 0 && !item.runeword_id && (item.socketed_runes?.length || 0) < item.sockets;
+                const socketBtn = canSocket ? `<button onclick="openSocketRunePopup('${slot}')" style="font-size:10px;margin-top:5px;background:#f80;">镶嵌符文</button>` : '';
                 return `
                     <div class="equip-slot ${item ? 'quality-' + item.quality : ''}"
                          style="background: #0f3460; padding: 12px; border-radius: 5px; min-height: 80px;">
                         <div style="color: #ffd700; font-weight: bold; margin-bottom: 5px;">${name}</div>
                         ${item ? `
-                            <div style="font-size: 14px; margin-bottom: 3px;">${setTag}${item.info?.name || item.item_id}</div>
+                            <div style="font-size: 14px; margin-bottom: 3px;">${runewordTag}${setTag}${item.info?.name || item.item_id}</div>
                             ${item.info?.level_req > 1 ? `<div style="font-size: 10px; color: #aaa;">需Lv.${item.info.level_req}</div>` : ''}
+                            ${socketDisplay ? `<div style="margin-bottom:3px;">${socketDisplay}</div>` : ''}
                             <div style="font-size: 10px; color: #8f8;">
-                                ${item.info?.attack_min || item.info?.attack_max ? `DC:${item.info.attack_min||0}-${item.info.attack_max||0} ` : (item.info?.attack ? `DC:${item.info.attack} ` : '')}
-                                ${item.info?.magic_min || item.info?.magic_max ? `MC:${item.info.magic_min||0}-${item.info.magic_max||0} ` : (item.info?.magic ? `MC:${item.info.magic} ` : '')}
-                                ${item.info?.defense_min || item.info?.defense_max ? `AC:${item.info.defense_min||0}-${item.info.defense_max||0} ` : (item.info?.defense ? `AC:${item.info.defense} ` : '')}
-                                ${item.info?.magic_defense_min || item.info?.magic_defense_max ? `MAC:${item.info.magic_defense_min||0}-${item.info.magic_defense_max||0} ` : (item.info?.magic_defense ? `MAC:${item.info.magic_defense} ` : '')}
+                                ${item.info?.attack_min || item.info?.attack_max ? `攻击:${item.info.attack_min||0}-${item.info.attack_max||0} ` : (item.info?.attack ? `攻击:${item.info.attack} ` : '')}
+                                ${item.info?.magic_min || item.info?.magic_max ? `魔法:${item.info.magic_min||0}-${item.info.magic_max||0} ` : (item.info?.magic ? `魔法:${item.info.magic} ` : '')}
+                                ${item.info?.defense_min || item.info?.defense_max ? `防御:${item.info.defense_min||0}-${item.info.defense_max||0} ` : (item.info?.defense ? `防御:${item.info.defense} ` : '')}
+                                ${item.info?.magic_defense_min || item.info?.magic_defense_max ? `魔御:${item.info.magic_defense_min||0}-${item.info.magic_defense_max||0} ` : (item.info?.magic_defense ? `魔御:${item.info.magic_defense} ` : '')}
                                 ${item.info?.hp_bonus ? `HP+${item.info.hp_bonus} ` : ''}
                                 ${item.info?.mp_bonus ? `MP+${item.info.mp_bonus}` : ''}
                             </div>
                             ${itemEffects ? `<div style="margin-top:3px;">${itemEffects}</div>` : ''}
+                            ${item.info?.runeword_description ? `<div style="margin-top:3px;color:#ffd700;font-size:10px;">${item.info.runeword_description}</div>` : ''}
+                            ${socketBtn}
                         ` : '<div style="color: #666;">未装备</div>'}
                     </div>
                 `;
@@ -1247,6 +1322,387 @@ function output(msg) {
 
 // 关闭弹窗
 function closeModal(id) { hide(id); }
+
+// ========== 符文之语系统 ==========
+
+// 当前选中的装备槽位（用于镶嵌）
+let currentSocketSlot = null;
+// 当前选中的背包槽位（用于背包物品镶嵌）
+let currentSocketInventorySlot = null;
+
+// 打开符文镶嵌弹窗（装备界面）
+function openSocketRunePopup(equipmentSlot) {
+    currentSocketSlot = equipmentSlot;
+    currentSocketInventorySlot = null;
+    // 获取背包中的符文
+    ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' }));
+    // 等待背包数据返回后显示弹窗
+    setTimeout(() => {
+        showSocketRuneDialog(equipmentSlot, false);
+    }, 200);
+}
+
+// 打开符文镶嵌弹窗（背包界面）
+function openSocketRunePopupInventory(inventorySlot) {
+    currentSocketSlot = null;
+    currentSocketInventorySlot = inventorySlot;
+    // 获取背包中的符文
+    ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' }));
+    // 等待背包数据返回后显示弹窗
+    setTimeout(() => {
+        showSocketRuneDialog(null, true, inventorySlot);
+    }, 200);
+}
+
+// 显示符文镶嵌对话框
+function showSocketRuneDialog(equipmentSlot, isInventory = false, inventorySlot = null) {
+    // 从最近的背包数据中获取符文
+    const inventoryGrid = $('inventory-grid');
+    if (!inventoryGrid) return;
+
+    const title = isInventory ? '选择符文镶嵌到背包装备' : `选择符文镶嵌到${getSlotName(equipmentSlot)}`;
+
+    // 获取背包数据（需要重新请求）
+    // 这里简化处理，创建一个弹窗
+    const dialog = document.createElement('div');
+    dialog.id = 'socket-rune-dialog';
+    dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f3460;border:2px solid #f80;padding:20px;border-radius:10px;max-width:600px;max-height:85vh;overflow-y:auto;z-index:1001;';
+    dialog.innerHTML = `
+        <h3 style="color:#f80;margin-bottom:15px;">${title}</h3>
+        <div id="available-runewords" style="margin-bottom:15px;"></div>
+        <div id="rune-list" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;"></div>
+        <div style="margin-top:15px;color:#888;font-size:12px;">提示：符文镶嵌后无法取出，请谨慎选择！</div>
+        <button onclick="closeSocketRuneDialog()" style="margin-top:15px;width:100%;">关闭</button>
+    `;
+    document.body.appendChild(dialog);
+
+    // 请求背包数据并填充符文列表
+    loadRunesForSocket(isInventory, inventorySlot, equipmentSlot);
+}
+
+// 获取槽位中文名
+function getSlotName(slot) {
+    const names = { weapon: '武器', helmet: '头盔', armor: '衣服', belt: '腰带', boots: '鞋子' };
+    return names[slot] || slot;
+}
+
+// 加载可镶嵌的符文
+function loadRunesForSocket(isInventory = false, inventorySlot = null, equipmentSlot = null) {
+    // 请求背包和符文之语数据
+    ws.send(JSON.stringify({ type: 'get_runewords' }));
+    ws.send(JSON.stringify({ type: 'get_runes' }));
+
+    const handler = (e) => {
+        const msg = JSON.parse(e.data);
+        if (msg.type === 'inventory') {
+            ws.removeEventListener('message', handler);
+            // 过滤符文（背包镶嵌时要排除目标装备自己）
+            const runes = (msg.data.items || []).filter(item =>
+                item.info?.type === 'rune' && item.slot !== inventorySlot
+            );
+
+            // 获取目标装备信息
+            let targetEquipment = null;
+            if (isInventory && inventorySlot !== null) {
+                // 从背包中获取
+                targetEquipment = (msg.data.items || []).find(item => item.slot === inventorySlot);
+            } else if (equipmentSlot && characterData?.equipment) {
+                // 从已装备中获取
+                targetEquipment = characterData.equipment[equipmentSlot];
+            }
+
+            // 显示可制作的符文之语
+            renderAvailableRunewords(targetEquipment, runes);
+            renderRuneList(runes, isInventory);
+        }
+    };
+    ws.addEventListener('message', handler);
+    ws.send(JSON.stringify({ type: 'get_inventory', storage: 'inventory' }));
+}
+
+// 渲染可制作的符文之语
+function renderAvailableRunewords(targetEquipment, availableRunes) {
+    const container = document.getElementById('available-runewords');
+    if (!container) return;
+
+    if (!targetEquipment) {
+        container.innerHTML = '<div style="color:#888;font-size:12px;">无法获取装备信息</div>';
+        return;
+    }
+
+    const slot = targetEquipment.info?.slot || targetEquipment.slot;
+    const totalSockets = targetEquipment.sockets || 0;
+    const socketedRunes = targetEquipment.socketed_runes || [];
+    const emptySockets = totalSockets - socketedRunes.length;
+    const runewords = runewordsData || {};
+    const runes = runesData || {};
+
+    // 获取背包中可用的符文ID列表
+    const availableRuneIds = {};
+    (availableRunes || []).forEach(r => {
+        const runeId = r.item_id || r.id;
+        availableRuneIds[runeId] = (availableRuneIds[runeId] || 0) + (r.quantity || 1);
+    });
+
+    // 筛选可制作的符文之语
+    const matchingRunewords = [];
+
+    for (const [rwId, rw] of Object.entries(runewords)) {
+        // 检查槽位是否匹配
+        if (!rw.allowed_slots?.includes(slot)) continue;
+
+        // 检查符文数量是否匹配孔数
+        const requiredRunes = rw.runes || [];
+        if (requiredRunes.length !== totalSockets) continue;
+
+        // 检查是否与已镶嵌的符文兼容
+        let isCompatible = true;
+        for (let i = 0; i < socketedRunes.length; i++) {
+            if (socketedRunes[i] !== requiredRunes[i]) {
+                isCompatible = false;
+                break;
+            }
+        }
+
+        if (!isCompatible) continue;
+
+        // 计算还需要的符文
+        const remainingRunes = requiredRunes.slice(socketedRunes.length);
+
+        // 检查是否有足够的符文来完成
+        const tempAvailable = { ...availableRuneIds };
+        let canComplete = true;
+        let missingRunes = [];
+
+        for (const runeId of remainingRunes) {
+            if (tempAvailable[runeId] && tempAvailable[runeId] > 0) {
+                tempAvailable[runeId]--;
+            } else {
+                canComplete = false;
+                missingRunes.push(runeId);
+            }
+        }
+
+        matchingRunewords.push({
+            ...rw,
+            id: rwId,
+            remainingRunes,
+            canComplete,
+            missingRunes,
+            progress: socketedRunes.length
+        });
+    }
+
+    // 排序：可完成的优先，然后按等级
+    matchingRunewords.sort((a, b) => {
+        if (a.canComplete !== b.canComplete) return a.canComplete ? -1 : 1;
+        return a.level_req - b.level_req;
+    });
+
+    if (matchingRunewords.length === 0) {
+        container.innerHTML = `
+            <div style="background:#1a1a2e;padding:10px;border-radius:5px;border:1px solid #555;">
+                <div style="color:#888;font-size:12px;">
+                    当前装备(${getSlotName(slot)}, ${totalSockets}孔)没有匹配的符文之语配方
+                    ${socketedRunes.length > 0 ? `<br>已镶嵌: ${socketedRunes.map(r => runes[r]?.name || r).join(' → ')}` : ''}
+                </div>
+            </div>
+        `;
+        return;
+    }
+
+    const html = `
+        <div style="border:1px solid #ffd700;border-radius:5px;padding:10px;background:#1a1a2e;">
+            <div style="color:#ffd700;font-weight:bold;margin-bottom:8px;">
+                可制作的符文之语 (${getSlotName(slot)}, ${totalSockets}孔)
+                ${socketedRunes.length > 0 ? `<span style="color:#0f0;font-size:11px;margin-left:10px;">已镶嵌${socketedRunes.length}/${totalSockets}</span>` : ''}
+            </div>
+            <div style="max-height:200px;overflow-y:auto;">
+                ${matchingRunewords.map(rw => {
+                    const runeDisplay = (rw.runes || []).map((r, idx) => {
+                        const runeName = runes[r]?.name || r.replace('rune_', '');
+                        const isSocketed = idx < rw.progress;
+                        const isNext = idx === rw.progress;
+                        const isMissing = rw.missingRunes.includes(r);
+
+                        let style = 'color:#888;';
+                        if (isSocketed) style = 'color:#0f0;text-decoration:line-through;';
+                        else if (isNext) style = 'color:#ff0;font-weight:bold;';
+                        else if (isMissing) style = 'color:#f44;';
+                        else style = 'color:#0ff;';
+
+                        return `<span style="${style}">${runeName}</span>`;
+                    }).join(' → ');
+
+                    const statusIcon = rw.canComplete ? '✓' : '✗';
+                    const statusColor = rw.canComplete ? '#0f0' : '#f44';
+                    const statusText = rw.canComplete ? '可制作' : `缺少: ${rw.missingRunes.map(r => runes[r]?.name || r).join(', ')}`;
+
+                    return `
+                        <div style="padding:8px;margin-bottom:6px;background:#0f3460;border-radius:4px;border-left:3px solid ${rw.canComplete ? '#0f0' : '#555'};">
+                            <div style="display:flex;justify-content:space-between;align-items:center;">
+                                <span style="color:#ffd700;font-weight:bold;">${rw.name} <span style="color:#888;font-size:10px;">${rw.name_en}</span></span>
+                                <span style="color:${statusColor};font-size:11px;">${statusIcon} ${rw.canComplete ? '可制作' : ''}</span>
+                            </div>
+                            <div style="font-size:11px;color:#888;margin:4px 0;">Lv.${rw.level_req}</div>
+                            <div style="font-size:11px;margin:4px 0;">顺序: ${runeDisplay}</div>
+                            <div style="font-size:10px;color:#0ff;">${rw.description || ''}</div>
+                            ${!rw.canComplete ? `<div style="font-size:10px;color:#f44;margin-top:4px;">${statusText}</div>` : ''}
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+// 渲染符文列表
+function renderRuneList(runes, isInventory = false) {
+    const list = document.getElementById('rune-list');
+    if (!list) return;
+
+    if (runes.length === 0) {
+        list.innerHTML = '<div style="grid-column:1/-1;color:#888;text-align:center;">背包中没有符文</div>';
+        return;
+    }
+
+    list.innerHTML = runes.map(rune => `
+        <div style="background:#1a1a2e;padding:10px;border-radius:5px;cursor:pointer;border:1px solid #f80;" onclick="socketRune(${rune.slot}, ${isInventory})">
+            <div style="color:#f80;font-weight:bold;">${rune.info?.name || rune.item_id}</div>
+            <div style="font-size:11px;color:#888;">Lv.${rune.info?.level_req || 1}需求</div>
+            <div style="font-size:10px;color:#0f0;">x${rune.quantity}</div>
+        </div>
+    `).join('');
+}
+
+// 执行符文镶嵌
+function socketRune(runeSlot, isInventory = false) {
+    if (!confirm('确定要镶嵌这个符文吗？镶嵌后无法取出！')) return;
+
+    if (isInventory) {
+        // 背包物品镶嵌
+        if (currentSocketInventorySlot === null) return;
+        ws.send(JSON.stringify({
+            type: 'socket_rune_inventory',
+            target_slot: currentSocketInventorySlot,
+            rune_slot: runeSlot
+        }));
+    } else {
+        // 已装备物品镶嵌
+        if (!currentSocketSlot) return;
+        ws.send(JSON.stringify({
+            type: 'socket_rune',
+            equipment_slot: currentSocketSlot,
+            rune_slot: runeSlot
+        }));
+    }
+    closeSocketRuneDialog();
+}
+
+// 关闭符文镶嵌对话框
+function closeSocketRuneDialog() {
+    const dialog = document.getElementById('socket-rune-dialog');
+    if (dialog) dialog.remove();
+    currentSocketSlot = null;
+}
+
+// 打开符文之语图鉴
+function openRunewordCompendium() {
+    // 请求符文之语数据
+    ws.send(JSON.stringify({ type: 'get_runewords' }));
+    ws.send(JSON.stringify({ type: 'get_runes' }));
+
+    setTimeout(() => {
+        showRunewordCompendiumDialog();
+    }, 300);
+}
+
+// 显示符文之语图鉴
+function showRunewordCompendiumDialog() {
+    const dialog = document.createElement('div');
+    dialog.id = 'runeword-compendium-dialog';
+    dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f3460;border:2px solid #ffd700;padding:20px;border-radius:10px;width:90%;max-width:800px;max-height:80vh;overflow-y:auto;z-index:1001;';
+
+    // 获取符文之语数据
+    const runewords = runewordsData || {};
+    const runes = runesData || {};
+
+    // 按等级分组
+    const grouped = {};
+    for (const [id, rw] of Object.entries(runewords)) {
+        const level = rw.level_req || 1;
+        const tier = Math.floor(level / 10) * 10;
+        if (!grouped[tier]) grouped[tier] = [];
+        grouped[tier].push({ ...rw, id });
+    }
+
+    // 生成HTML
+    const tiersHtml = Object.entries(grouped).sort((a, b) => a[0] - b[0]).map(([tier, rws]) => `
+        <div style="margin-bottom:20px;">
+            <h4 style="color:#ffd700;margin-bottom:10px;">Lv.${tier}-${parseInt(tier)+9}</h4>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+                ${rws.sort((a, b) => a.level_req - b.level_req).map(rw => {
+                    const runeNames = rw.runes.map(r => runes[r]?.name || r).join(' + ');
+                    const slots = rw.allowed_slots.map(s => getSlotName(s)).join('/');
+                    return `
+                        <div style="background:#1a1a2e;padding:12px;border-radius:5px;border:1px solid #ffd700;">
+                            <div style="color:#ffd700;font-weight:bold;font-size:14px;">${rw.name} <span style="color:#888;font-size:11px;">${rw.name_en}</span></div>
+                            <div style="font-size:11px;color:#0f0;margin:5px 0;">Lv.${rw.level_req} | ${slots}</div>
+                            <div style="font-size:10px;color:#f80;margin-bottom:5px;">${runeNames}</div>
+                            <div style="font-size:10px;color:#0ff;">${rw.description || ''}</div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>
+    `).join('');
+
+    dialog.innerHTML = `
+        <div style="position:relative;">
+            <button onclick="this.closest('#runeword-compendium-dialog').remove()" style="position:absolute;top:-10px;right:-10px;width:30px;height:30px;border-radius:50%;background:#f44;border:2px solid #ffd700;color:#fff;font-weight:bold;cursor:pointer;font-size:16px;line-height:1;">×</button>
+            <h3 style="color:#ffd700;margin-bottom:15px;">符文之语图鉴</h3>
+            <div style="margin-bottom:15px;color:#888;font-size:12px;">
+                提示：将符文按顺序镶嵌到有孔的白色装备中，可形成强大的符文之语装备！
+            </div>
+            ${tiersHtml || '<div style="color:#888;">暂无符文之语数据</div>'}
+        </div>
+    `;
+    document.body.appendChild(dialog);
+}
+
+// 打开符文列表
+function openRuneList() {
+    ws.send(JSON.stringify({ type: 'get_runes' }));
+    setTimeout(() => {
+        showRuneListDialog();
+    }, 300);
+}
+
+// 显示符文列表
+function showRuneListDialog() {
+    const dialog = document.createElement('div');
+    dialog.id = 'rune-list-dialog';
+    dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#0f3460;border:2px solid #f80;padding:20px;border-radius:10px;width:90%;max-width:600px;max-height:80vh;overflow-y:auto;z-index:1001;';
+
+    const runes = runesData || {};
+    const runesList = Object.values(runes).sort((a, b) => a.rune_number - b.rune_number);
+
+    dialog.innerHTML = `
+        <h3 style="color:#f80;margin-bottom:15px;">符文列表 (${runesList.length}个)</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;">
+            ${runesList.map(r => `
+                <div style="background:#1a1a2e;padding:8px;border-radius:5px;border:1px solid #f80;">
+                    <div style="color:#f80;font-weight:bold;">#${r.rune_number} ${r.name}</div>
+                    <div style="font-size:10px;color:#888;">${r.name_en} | Lv.${r.level_req}</div>
+                </div>
+            `).join('')}
+        </div>
+        <button onclick="this.parentElement.remove()" style="margin-top:15px;width:100%;">关闭</button>
+    `;
+    document.body.appendChild(dialog);
+}
 
 // 退出
 function logout() {

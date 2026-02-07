@@ -2,23 +2,28 @@ import json
 from pathlib import Path
 from typing import Dict, Any
 
+# 获取项目根目录（backend/game/data_loader.py -> 项目根目录）
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+DATA_DIR = PROJECT_ROOT / "data"
+
 class DataLoader:
     """游戏数据加载器"""
-    
+
     _cache: Dict[str, Any] = {}
-    
+
     @classmethod
     def load(cls, path: str) -> dict:
         """加载JSON数据文件"""
         if path in cls._cache:
             return cls._cache[path]
-        
+
         try:
-            with open(Path("data") / path, "r", encoding="utf-8") as f:
+            with open(DATA_DIR / path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 cls._cache[path] = data
                 return data
         except FileNotFoundError:
+            print(f"[WARNING] DataLoader: File not found: {DATA_DIR / path}")
             return {}
     
     @classmethod
@@ -31,7 +36,7 @@ class DataLoader:
     def get_item(cls, item_id: str) -> dict:
         """获取物品数据"""
         # 搜索所有物品文件
-        for file in ["items/weapons.json", "items/armors.json", "items/consumables.json", "items/accessories.json", "items/set_items.json"]:
+        for file in ["items/weapons_new.json", "items/armors_new.json", "items/consumables.json", "items/accessories.json", "items/set_items.json", "items/runes.json"]:
             items = cls.load(file)
             if item_id in items:
                 return items[item_id]
@@ -78,9 +83,9 @@ class DataLoader:
     def get_shop_items(cls, shop_type: str) -> dict:
         """获取商店物品"""
         if shop_type == "weapon":
-            items = cls.load("items/weapons.json")
+            items = cls.load("items/weapons_new.json")
         elif shop_type == "armor":
-            items = cls.load("items/armors.json")
+            items = cls.load("items/armors_new.json")
         elif shop_type == "consumable":
             items = cls.load("items/consumables.json")
         elif shop_type == "skill":
@@ -112,3 +117,32 @@ class DataLoader:
     def clear_cache(cls):
         """清除缓存"""
         cls._cache.clear()
+
+    # ========== 符文之语系统 ==========
+
+    @classmethod
+    def get_rune(cls, rune_id: str) -> dict:
+        """获取单个符文数据"""
+        runes = cls.load("items/runes.json")
+        return runes.get(rune_id, {})
+
+    @classmethod
+    def get_all_runes(cls) -> dict:
+        """获取所有符文数据"""
+        return cls.load("items/runes.json")
+
+    @classmethod
+    def get_runeword(cls, runeword_id: str) -> dict:
+        """获取单个符文之语配方"""
+        runewords = cls.load("config/runewords.json")
+        return runewords.get(runeword_id, {})
+
+    @classmethod
+    def get_all_runewords(cls) -> dict:
+        """获取所有符文之语配方"""
+        return cls.load("config/runewords.json")
+
+    @classmethod
+    def get_socket_config(cls) -> dict:
+        """获取孔配置"""
+        return cls.load("config/sockets.json")

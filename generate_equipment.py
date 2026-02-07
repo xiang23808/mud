@@ -126,22 +126,46 @@ def generate_scatter_equipment(tier, level_min, level_max):
                     min_atk, max_atk = calculate_attribute(tier, 8)
                     item["attack_min"] = min_atk
                     item["attack_max"] = max_atk
+                    # 战士武器也有少量MP加成（法师装备的25%）
+                    item["mp_bonus"] = tier * 10
                 else:  # mage
                     min_mag, max_mag = calculate_attribute(tier, 10)
                     item["magic_min"] = min_mag
                     item["magic_max"] = max_mag
                     item["mp_bonus"] = tier * 40
+                    # 法师武器也有少量HP加成（战士装备的约25%）
+                    item["hp_bonus"] = tier * 8
             else:  # armor
                 if class_name == "warrior":
+                    # 战士防具也有攻击加成（武器攻击的25%）
+                    min_atk, max_atk = calculate_attribute(tier, 2)
+                    item["attack_min"] = min_atk
+                    item["attack_max"] = max_atk
                     min_def, max_def = calculate_attribute(tier, 5)
                     item["defense_min"] = min_def
                     item["defense_max"] = max_def
+                    # 战士防具也有魔御（为物防的60%）
+                    min_mdef, max_mdef = calculate_attribute(tier, 3)
+                    item["magic_defense_min"] = min_mdef
+                    item["magic_defense_max"] = max_mdef
                     item["hp_bonus"] = tier * 30
+                    # 战士防具也有少量MP加成（法师装备的25%）
+                    item["mp_bonus"] = tier * 10
                 else:  # mage
+                    # 法师防具也有魔法加成（武器魔法的25%）
+                    min_mag, max_mag = calculate_attribute(tier, 2.5)
+                    item["magic_min"] = min_mag
+                    item["magic_max"] = max_mag
                     min_mdef, max_mdef = calculate_attribute(tier, 6)
                     item["magic_defense_min"] = min_mdef
                     item["magic_defense_max"] = max_mdef
+                    # 法师防具也有物防（为魔御的50%）
+                    min_def, max_def = calculate_attribute(tier, 3)
+                    item["defense_min"] = min_def
+                    item["defense_max"] = max_def
                     item["mp_bonus"] = tier * 40
+                    # 法师防具也有少量HP加成（战士装备的约25%）
+                    item["hp_bonus"] = tier * 8
             
             # 添加特效（高级装备）
             if tier >= 7:
@@ -220,22 +244,46 @@ def generate_set_equipment(tier, level_min, level_max):
                     min_atk, max_atk = calculate_attribute(tier, 8)
                     item["attack_min"] = int(min_atk * 0.75)
                     item["attack_max"] = int(max_atk * 0.75)
+                    # 战士武器也有少量MP加成（法师装备的25%）
+                    item["mp_bonus"] = int(tier * 10 * 0.75)
                 else:  # mage
                     min_mag, max_mag = calculate_attribute(tier, 10)
                     item["magic_min"] = int(min_mag * 0.75)
                     item["magic_max"] = int(max_mag * 0.75)
                     item["mp_bonus"] = int(tier * 40 * 0.75)
+                    # 法师武器也有少量HP加成（战士装备的约25%）
+                    item["hp_bonus"] = int(tier * 8 * 0.75)
             else:  # armor
                 if class_name == "warrior":
+                    # 战士防具也有攻击加成（武器攻击的25%）
+                    min_atk, max_atk = calculate_attribute(tier, 2)
+                    item["attack_min"] = int(min_atk * 0.75)
+                    item["attack_max"] = int(max_atk * 0.75)
                     min_def, max_def = calculate_attribute(tier, 5)
                     item["defense_min"] = int(min_def * 0.75)
                     item["defense_max"] = int(max_def * 0.75)
+                    # 战士防具也有魔御（为物防的60%）
+                    min_mdef, max_mdef = calculate_attribute(tier, 3)
+                    item["magic_defense_min"] = int(min_mdef * 0.75)
+                    item["magic_defense_max"] = int(max_mdef * 0.75)
                     item["hp_bonus"] = int(tier * 30 * 0.75)
+                    # 战士防具也有少量MP加成（法师装备的25%）
+                    item["mp_bonus"] = int(tier * 10 * 0.75)
                 else:  # mage
+                    # 法师防具也有魔法加成（武器魔法的25%）
+                    min_mag, max_mag = calculate_attribute(tier, 2.5)
+                    item["magic_min"] = int(min_mag * 0.75)
+                    item["magic_max"] = int(max_mag * 0.75)
                     min_mdef, max_mdef = calculate_attribute(tier, 6)
                     item["magic_defense_min"] = int(min_mdef * 0.75)
                     item["magic_defense_max"] = int(max_mdef * 0.75)
+                    # 法师防具也有物防（为魔御的50%）
+                    min_def, max_def = calculate_attribute(tier, 3)
+                    item["defense_min"] = int(min_def * 0.75)
+                    item["defense_max"] = int(max_def * 0.75)
                     item["mp_bonus"] = int(tier * 40 * 0.75)
+                    # 法师防具也有少量HP加成（战士装备的约25%）
+                    item["hp_bonus"] = int(tier * 8 * 0.75)
             
             equipment[item_id] = item
     

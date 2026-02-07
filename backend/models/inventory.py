@@ -19,6 +19,10 @@ class InventoryItem(Base):
     quantity = Column(Integer, default=1)
     # 新增：装备随机属性存储
     random_attrs = Column(JSON, nullable=True)  # 存储格式: {"attack_min": 12, "attack_max": 18, "multiplier": 1.05, ...}
+    # 符文之语系统
+    sockets = Column(Integer, default=0)  # 孔数量 (0-6)
+    socketed_runes = Column(JSON, nullable=True)  # 已镶嵌符文 ["rune_tir", "rune_el"]
+    runeword_id = Column(String(50), nullable=True)  # 完成的符文之语ID
 
 
 class Equipment(Base):
@@ -31,6 +35,10 @@ class Equipment(Base):
     quality = Column(String(20), default="white")
     # 新增：装备随机属性存储
     random_attrs = Column(JSON, nullable=True)  # 存储格式: {"attack_min": 12, "attack_max": 18, "multiplier": 1.05, ...}
+    # 符文之语系统
+    sockets = Column(Integer, default=0)  # 孔数量 (0-6)
+    socketed_runes = Column(JSON, nullable=True)  # 已镶嵌符文 ["rune_tir", "rune_el"]
+    runeword_id = Column(String(50), nullable=True)  # 完成的符文之语ID
 
 
 class CharacterSkill(Base):

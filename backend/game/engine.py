@@ -7,6 +7,10 @@ from backend.game.map_manager import map_manager
 from backend.game.combat import CombatEngine
 from backend.game.data_loader import DataLoader
 from backend.game.effects import EffectCalculator, calculate_set_bonuses, roll_item_attributes, get_item_with_attributes
+from backend.game.runeword import (
+    roll_sockets_for_white_equipment, socket_rune, can_socket_rune,
+    calculate_socketed_effects, apply_runeword_to_equipment_info, get_socket_display
+)
 
 class GameEngine:
     """游戏引擎 - 处理所有游戏逻辑"""
@@ -129,7 +133,7 @@ class GameEngine:
         if not monster_info:
             return {"success": False, "error": "怪物数据不存在"}
         
-        # 检查是否遇到哥布林 (1/10概率)
+        # 检查是否遇到哥布林 (1/5概率)
         goblin_encounter = False
         goblin_monster = None
         if random.randint(1, 5) == 1 and map_id in cls.MAP_BOSS_MAPPING:
@@ -151,6 +155,8 @@ class GameEngine:
                         new_drop["rate"] = new_rate
                     enhanced_drops.append(new_drop)
                 goblin_monster["drops"] = enhanced_drops
+                # 继承Boss的drop_groups，确保掉落装备
+                goblin_monster["drop_groups"] = boss_info.get("drop_groups", [])
         
         cls.combat_locks[char_id] = True
         
@@ -366,21 +372,51 @@ class GameEngine:
                 )
             )
         items = result.scalars().all()
-        
-        return {
-            "storage_type": storage_type,
-            "items": [{
+
+        # 处理每个物品，包括符文之语效果
+        inventory_items = []
+        for item in items:
+            item_info = DataLoader.get_item(item.item_id)
+            sockets = getattr(item, 'sockets', 0) or 0
+            socketed_runes = getattr(item, 'socketed_runes', None) or []
+            runeword_id = getattr(item, 'runeword_id', None)
+
+            # 获取带随机属性的物品信息
+            item_with_attrs = get_item_with_attributes(item_info, item.quality, item.random_attrs)
+
+            # 如果有孔，应用符文/符文之语效果
+            socket_display = ""
+            if sockets > 0:
+                # 获取物品槽位
+                item_slot = item_info.get("slot", "weapon") if item_info else "weapon"
+                slot_mapping = {"body": "armor", "head": "helmet"}
+                runeword_slot = slot_mapping.get(item_slot, item_slot)
+
+                equip_data = {
+                    "sockets": sockets,
+                    "socketed_runes": socketed_runes,
+                    "runeword_id": runeword_id,
+                    "slot": runeword_slot
+                }
+                item_with_attrs = apply_runeword_to_equipment_info(item_with_attrs, equip_data)
+                socket_display = get_socket_display(equip_data)
+
+            inventory_items.append({
                 "slot": item.slot,
                 "item_id": item.item_id,
                 "quality": item.quality,
                 "quantity": item.quantity,
                 "random_attrs": item.random_attrs,
-                "info": get_item_with_attributes(
-                    DataLoader.get_item(item.item_id),
-                    item.quality,
-                    item.random_attrs
-                )
-            } for item in items]
+                "sockets": sockets,
+                "socketed_runes": socketed_runes,
+                "runeword_id": runeword_id,
+                "socket_display": socket_display,
+                "info": item_with_attrs
+            })
+
+        return {
+            "storage_type": storage_type,
+            "items": inventory_items
         }
     
     @classmethod
@@ -459,10 +495,23 @@ class GameEngine:
                     equip.quality,
                     equip.random_attrs
                 )
+                # 应用符文/符文之语效果
+                equip_data = {
+                    "sockets": getattr(equip, 'sockets', 0) or 0,
+                    "socketed_runes": getattr(equip, 'socketed_runes', None) or [],
+                    "runeword_id": getattr(equip, 'runeword_id', None),
+                    "slot": slot
+                }
+                if equip_data["sockets"] > 0:
+                    item_info = apply_runeword_to_equipment_info(item_info, equip_data)
                 equipment[slot] = {
                     "item_id": equip.item_id,
                     "quality": equip.quality,
                     "random_attrs": equip.random_attrs,
+                    "sockets": equip_data["sockets"],
+                    "socketed_runes": equip_data["socketed_runes"],
+                    "runeword_id": equip_data["runeword_id"],
+                    "socket_display": get_socket_display(equip_data) if equip_data["sockets"] > 0 else "",
                     "info": item_info
                 }
                 equip_list_for_effects.append({"info": item_info})
@@ -601,16 +650,25 @@ class GameEngine:
         )
         current_equip = result.scalar_one_or_none()
 
-        # 获取背包物品的随机属性
+        # 获取背包物品的随机属性和孔数据
         inv_random_attrs = getattr(inv_item, 'random_attrs', None)
+        inv_sockets = getattr(inv_item, 'sockets', 0) or 0
+        inv_socketed_runes = getattr(inv_item, 'socketed_runes', None)
+        inv_runeword_id = getattr(inv_item, 'runeword_id', None)
 
         if current_equip:
-            # 将当前装备放入背包（保留其random_attrs）
+            # 将当前装备放入背包（保留其random_attrs和孔数据）
             await cls._add_item(char_id, current_equip.item_id, current_equip.quality, db,
-                               random_attrs=getattr(current_equip, 'random_attrs', None))
+                               random_attrs=getattr(current_equip, 'random_attrs', None),
+                               sockets=getattr(current_equip, 'sockets', 0),
+                               socketed_runes=getattr(current_equip, 'socketed_runes', None),
+                               runeword_id=getattr(current_equip, 'runeword_id', None))
             current_equip.item_id = inv_item.item_id
             current_equip.quality = inv_item.quality
             current_equip.random_attrs = inv_random_attrs
+            current_equip.sockets = inv_sockets
+            current_equip.socketed_runes = inv_socketed_runes
+            current_equip.runeword_id = inv_runeword_id
         else:
             # 创建新装备
             new_equip = Equipment(
@@ -618,7 +676,10 @@ class GameEngine:
                 slot=equip_slot,
                 item_id=inv_item.item_id,
                 quality=inv_item.quality,
-                random_attrs=inv_random_attrs
+                random_attrs=inv_random_attrs,
+                sockets=inv_sockets,
+                socketed_runes=inv_socketed_runes,
+                runeword_id=inv_runeword_id
             )
             db.add(new_equip)
         
@@ -661,8 +722,8 @@ class GameEngine:
         return {"success": True, "gold": gold, "yuanbao": yuanbao}
     
     @classmethod
-    async def recycle_all(cls, char_id: int, db: AsyncSession) -> dict:
-        """回收背包中所有物品"""
+    async def recycle_all(cls, char_id: int, db: AsyncSession, filter_type: str = "all") -> dict:
+        """回收背包中符合筛选条件的物品"""
         result = await db.execute(
             select(InventoryItem).where(
                 InventoryItem.character_id == char_id,
@@ -670,34 +731,64 @@ class GameEngine:
             )
         )
         items = result.scalars().all()
-        
+
         if not items:
             return {"success": False, "error": "背包为空"}
-        
+
+        # 根据筛选条件过滤物品
+        def matches_filter(inv_item) -> bool:
+            if filter_type == "all":
+                return True
+            item_info = DataLoader.get_item(inv_item.item_id)
+            item_type = item_info.get("type", "")
+            item_slot = item_info.get("slot", "")
+
+            if filter_type == "weapon":
+                return item_type == "weapon"
+            elif filter_type == "armor":
+                return item_type == "armor" and item_slot in ("body", "helmet", "head")
+            elif filter_type == "accessory":
+                # 饰品：accessory类型(项链/戒指/手镯) 或 armor类型的boots/belt
+                return item_type == "accessory" or (item_type == "armor" and item_slot in ("boots", "belt"))
+            elif filter_type == "consumable":
+                return item_type == "consumable"
+            elif filter_type == "material":
+                return item_type in ("material", "boss_summon", "skillbook")
+            elif filter_type == "rune":
+                return item_type == "rune"
+            elif filter_type == "runeword":
+                return inv_item.runeword_id is not None
+            return True
+
+        filtered_items = [item for item in items if matches_filter(item)]
+
+        if not filtered_items:
+            return {"success": False, "error": "没有符合筛选条件的物品"}
+
         char = await db.get(Character, char_id)
         total_gold = 0
         total_yuanbao = 0
         recycled_count = 0
-        
-        for inv_item in items:
+
+        for inv_item in filtered_items:
             item_info = DataLoader.get_item(inv_item.item_id)
             quality_info = DataLoader.get_quality(inv_item.quality)
-            
+
             gold = int(item_info.get("recycle_gold", 0) * quality_info.get("recycle_multiplier", 1))
             yuanbao = int(item_info.get("recycle_yuanbao", 0) * quality_info.get("recycle_multiplier", 1))
-            
+
             if gold > 0:
                 total_gold += gold * inv_item.quantity
             if yuanbao > 0:
                 total_yuanbao += yuanbao * inv_item.quantity
-            
+
             await db.delete(inv_item)
             recycled_count += 1
-        
+
         char.gold += total_gold
         char.yuanbao += total_yuanbao
         await db.commit()
-        
+
         return {"success": True, "gold": total_gold, "yuanbao": total_yuanbao, "count": recycled_count}
     
     @classmethod
@@ -705,7 +796,7 @@ class GameEngine:
         """将背包物品移到仓库（仓库按user_id共享）"""
         from sqlalchemy import or_
         char = await db.get(Character, char_id)
-        
+
         # 获取背包物品
         result = await db.execute(
             select(InventoryItem).where(
@@ -714,7 +805,7 @@ class GameEngine:
                 InventoryItem.slot == inventory_slot
             )
         )
-        inv_item = result.scalar_one_or_none()
+        inv_item = result.scalars().first()
         if not inv_item:
             return {"success": False, "error": "物品不存在"}
         
@@ -752,7 +843,7 @@ class GameEngine:
         """将仓库物品移到背包（仓库按user_id共享）"""
         from sqlalchemy import or_
         char = await db.get(Character, char_id)
-        
+
         # 获取仓库物品（按user_id共享）
         result = await db.execute(
             select(InventoryItem).where(
@@ -764,7 +855,7 @@ class GameEngine:
                 )
             )
         )
-        wh_item = result.scalar_one_or_none()
+        wh_item = result.scalars().first()
         if not wh_item:
             return {"success": False, "error": "物品不存在"}
         
@@ -870,7 +961,170 @@ class GameEngine:
         
         await db.commit()
         return {"success": True}
-    
+
+    @classmethod
+    async def socket_rune_to_equipment(cls, char_id: int, equipment_slot: str, rune_inventory_slot: int, db: AsyncSession) -> dict:
+        """镶嵌符文到装备
+
+        Args:
+            char_id: 角色ID
+            equipment_slot: 装备槽位 (weapon, armor, helmet, boots, belt)
+            rune_inventory_slot: 符文在背包中的槽位
+            db: 数据库会话
+
+        Returns:
+            操作结果
+        """
+        # 获取装备
+        result = await db.execute(
+            select(Equipment).where(
+                Equipment.character_id == char_id,
+                Equipment.slot == equipment_slot
+            )
+        )
+        equip = result.scalar_one_or_none()
+        if not equip:
+            return {"success": False, "error": "装备不存在"}
+
+        # 获取符文
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == StorageType.INVENTORY,
+                InventoryItem.slot == rune_inventory_slot
+            )
+        )
+        rune_item = result.scalar_one_or_none()
+        if not rune_item:
+            return {"success": False, "error": "符文不存在"}
+
+        # 检查是否是符文
+        rune_info = DataLoader.get_item(rune_item.item_id)
+        if not rune_info or rune_info.get("type") != "rune":
+            return {"success": False, "error": "该物品不是符文"}
+
+        # 构造装备数据
+        equipment_data = {
+            "quality": equip.quality,
+            "sockets": equip.sockets or 0,
+            "socketed_runes": equip.socketed_runes or [],
+            "runeword_id": equip.runeword_id,
+            "slot": equipment_slot
+        }
+
+        # 尝试镶嵌
+        success, message, runeword_id = socket_rune(equipment_data, rune_item.item_id)
+        if not success:
+            return {"success": False, "error": message}
+
+        # 更新装备数据
+        equip.socketed_runes = equipment_data["socketed_runes"]
+        if runeword_id:
+            equip.runeword_id = runeword_id
+
+        # 消耗符文
+        if rune_item.quantity > 1:
+            rune_item.quantity -= 1
+        else:
+            await db.delete(rune_item)
+
+        await db.commit()
+
+        return {
+            "success": True,
+            "message": message,
+            "runeword_id": runeword_id,
+            "socketed_runes": equipment_data["socketed_runes"],
+            "socket_display": get_socket_display(equipment_data)
+        }
+
+    @classmethod
+    async def socket_rune_to_inventory_item(cls, char_id: int, target_inventory_slot: int, rune_inventory_slot: int, db: AsyncSession) -> dict:
+        """镶嵌符文到背包中的装备
+
+        Args:
+            char_id: 角色ID
+            target_inventory_slot: 目标装备在背包中的槽位
+            rune_inventory_slot: 符文在背包中的槽位
+            db: 数据库会话
+
+        Returns:
+            操作结果
+        """
+        # 获取目标装备
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == StorageType.INVENTORY,
+                InventoryItem.slot == target_inventory_slot
+            )
+        )
+        target_item = result.scalar_one_or_none()
+        if not target_item:
+            return {"success": False, "error": "装备不存在"}
+
+        # 检查是否是可镶嵌的装备类型
+        target_info = DataLoader.get_item(target_item.item_id)
+        if not target_info or target_info.get("type") not in ["weapon", "armor"]:
+            return {"success": False, "error": "该物品不能镶嵌符文"}
+
+        # 获取符文
+        result = await db.execute(
+            select(InventoryItem).where(
+                InventoryItem.character_id == char_id,
+                InventoryItem.storage_type == StorageType.INVENTORY,
+                InventoryItem.slot == rune_inventory_slot
+            )
+        )
+        rune_item = result.scalar_one_or_none()
+        if not rune_item:
+            return {"success": False, "error": "符文不存在"}
+
+        # 检查是否是符文
+        rune_info = DataLoader.get_item(rune_item.item_id)
+        if not rune_info or rune_info.get("type") != "rune":
+            return {"success": False, "error": "该物品不是符文"}
+
+        # 获取装备的槽位类型
+        item_slot = target_info.get("slot", "weapon")
+        slot_mapping = {"body": "armor", "head": "helmet"}
+        runeword_slot = slot_mapping.get(item_slot, item_slot)
+
+        # 构造装备数据
+        equipment_data = {
+            "quality": target_item.quality,
+            "sockets": getattr(target_item, 'sockets', 0) or 0,
+            "socketed_runes": getattr(target_item, 'socketed_runes', None) or [],
+            "runeword_id": getattr(target_item, 'runeword_id', None),
+            "slot": runeword_slot
+        }
+
+        # 尝试镶嵌
+        success, message, runeword_id = socket_rune(equipment_data, rune_item.item_id)
+        if not success:
+            return {"success": False, "error": message}
+
+        # 更新装备数据
+        target_item.socketed_runes = equipment_data["socketed_runes"]
+        if runeword_id:
+            target_item.runeword_id = runeword_id
+
+        # 消耗符文
+        if rune_item.quantity > 1:
+            rune_item.quantity -= 1
+        else:
+            await db.delete(rune_item)
+
+        await db.commit()
+
+        return {
+            "success": True,
+            "message": message,
+            "runeword_id": runeword_id,
+            "socketed_runes": equipment_data["socketed_runes"],
+            "socket_display": get_socket_display(equipment_data)
+        }
+
     @classmethod
     async def learn_skill(cls, char_id: int, skill_id: str, db: AsyncSession) -> dict:
         """学习技能"""
@@ -1219,7 +1473,7 @@ class GameEngine:
         return result
     
     @classmethod
-    async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1, random_attrs: dict = None):
+    async def _add_item(cls, char_id: int, item_id: str, quality: str, db: AsyncSession, quantity: int = 1, random_attrs: dict = None, sockets: int = None, socketed_runes: list = None, runeword_id: str = None):
         """添加物品到背包（消耗品可堆叠）"""
         # 获取角色的user_id用于仓库共享
         char = await db.get(Character, char_id)
@@ -1227,11 +1481,20 @@ class GameEngine:
 
         item_info = DataLoader.get_item(item_id)
         item_type = item_info.get("type") if item_info else None
-        is_stackable = item_type in ["consumable", "material", "skillbook", "boss_summon"]
+        is_stackable = item_type in ["consumable", "material", "skillbook", "boss_summon", "rune"]
         # 非装备类型物品品质统一为普通
         if item_type not in ["weapon", "armor", "accessory"]:
             quality = "white"
             random_attrs = None  # 非装备不存储随机属性
+            sockets = None  # 非装备不生成孔
+
+        # 白色装备自动生成孔
+        if item_type in ["weapon", "armor"] and quality == "white" and sockets is None:
+            item_slot = item_info.get("slot", "weapon")
+            # 映射到符文之语支持的槽位
+            slot_mapping = {"body": "armor", "head": "helmet"}
+            runeword_slot = slot_mapping.get(item_slot, item_slot)
+            sockets = roll_sockets_for_white_equipment(runeword_slot)
 
         # 如果是可堆叠物品，先查找已有的同类物品
         if is_stackable:
@@ -1267,7 +1530,10 @@ class GameEngine:
                     quality=quality,
                     slot=slot,
                     quantity=quantity,
-                    random_attrs=random_attrs  # 存储随机属性
+                    random_attrs=random_attrs,  # 存储随机属性
+                    sockets=sockets or 0,  # 存储孔数
+                    socketed_runes=socketed_runes,  # 存储已镶嵌符文
+                    runeword_id=runeword_id  # 存储符文之语ID
                 )
                 db.add(item)
                 return True
@@ -1305,6 +1571,16 @@ class GameEngine:
                 equip.quality,
                 equip.random_attrs
             )
+
+            # 应用符文/符文之语效果
+            equip_data = {
+                "sockets": getattr(equip, 'sockets', 0) or 0,
+                "socketed_runes": getattr(equip, 'socketed_runes', None) or [],
+                "runeword_id": getattr(equip, 'runeword_id', None),
+                "slot": equip.slot
+            }
+            if equip_data["sockets"] > 0:
+                item_with_attrs = apply_runeword_to_equipment_info(item_with_attrs, equip_data)
 
             # 使用随机后的属性值
             stats["attack_min"] += item_with_attrs.get("attack_min", 0)

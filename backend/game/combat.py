@@ -214,6 +214,7 @@ class CombatEngine:
             damage_type = m.get("damage_type", "physical")
             monster_states.append({
                 "name": m.get("name", "怪物"),
+                "level": m.get("level", 1),  # 添加等级用于符文掉落计算
                 "hp": int(m.get("hp", 50) * quality_bonus),
                 "max_hp": int(m.get("hp", 50) * quality_bonus),
                 "attack": int(m.get("attack", 10) * quality_bonus),
@@ -714,6 +715,13 @@ class CombatEngine:
 
                 # 处理掉落组
                 drop_groups = m.get("drop_groups", [])
+                # 自动添加符文掉落组（基于怪物等级）
+                monster_level = m.get("level", 1)
+                rune_tier = min(16, max(1, (monster_level - 1) // 5 + 1))
+                rune_drop_group = f"runes_tier_{rune_tier}"
+                if rune_drop_group not in drop_groups:
+                    drop_groups = list(drop_groups) + [rune_drop_group]
+
                 if drop_groups and data_loader:
                     for group_id in drop_groups:
                         group = data_loader.get_drop_group(group_id)

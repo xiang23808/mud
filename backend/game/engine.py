@@ -615,7 +615,11 @@ class GameEngine:
         if allowed_classes:
             if isinstance(allowed_classes, str):
                 allowed_classes = [allowed_classes]
-            if char.char_class.value not in allowed_classes:
+            # 道士属于法系，可以穿戴法师装备
+            char_class = char.char_class.value
+            if char_class == "taoist" and "mage" in allowed_classes:
+                pass  # 道士可以穿戴法师装备
+            elif char_class not in allowed_classes:
                 return {"success": False, "error": f"职业不符，该装备限{'/'.join(allowed_classes)}"}
         
         # 获取物品槽位并映射到装备槽位

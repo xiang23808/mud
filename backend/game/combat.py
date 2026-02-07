@@ -493,8 +493,8 @@ class CombatEngine:
                     if target["hp"] <= 0:
                         logs.append(f"💀 {target['name']} 被击败!")
                 
-                # 玩家攻击 - 战士和道士使用物理攻击，法师使用魔法攻击
-                is_magic = char_class == "mage"
+                # 玩家攻击 - 战士使用物理攻击，法师和道士使用魔法攻击
+                is_magic = char_class in ["mage", "taoist"]
                 
                 # 检查双次攻击
                 attack_count = 1 + EffectCalculator.check_double_attack(player_effects)
@@ -796,7 +796,7 @@ class CombatEngine:
                 logs.append(f"😵 {atk_name} 被眩晕，无法行动!")
                 stunned[atk_key] = False
             else:
-                is_magic = atk_data.get("char_class") == "mage"
+                is_magic = atk_data.get("char_class") in ["mage", "taoist"]
                 base_damage = CombatEngine.calculate_damage(atk_data, def_data, is_magic, atk_fx, def_fx)
                 result = EffectCalculator.process_attack(atk_data, def_data, base_damage, [], [], is_magic)
                 

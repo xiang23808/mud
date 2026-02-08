@@ -226,6 +226,7 @@ class CombatEngine:
                 "drop_groups": m.get("drop_groups", []),
                 "quality": quality,
                 "is_boss": m.get("is_boss", False),
+                "goblin_drop_multiplier": m.get("goblin_drop_multiplier", 1),  # 哥布林掉率倍数
                 "damage_type": damage_type,
                 "poison": None,  # 毒伤状态
                 "burn": None,  # 灼烧状态
@@ -694,6 +695,7 @@ class CombatEngine:
                 exp_gained += m["exp"]
                 gold_gained += m["gold"]
                 quality_drop_bonus = CombatEngine.QUALITY_DROP_BONUS.get(m["quality"], 1.0)
+                goblin_multiplier = m.get("goblin_drop_multiplier", 1)  # 哥布林掉率倍数
 
                 # 处理直接掉落
                 for drop in m["drops"]:
@@ -727,7 +729,8 @@ class CombatEngine:
                         group = data_loader.get_drop_group(group_id)
                         for drop in group.get("drops", []):
                             base_rate = CombatEngine.parse_rate(drop.get("rate", 0.1))
-                            final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER)
+                            # 应用哥布林掉率倍数
+                            final_rate = min(1.0, base_rate * quality_drop_bonus * game_config.DROP_RATE_MULTIPLIER * goblin_multiplier)
                             if random.random() < final_rate:
                                 quality = roll_quality(base_rate)
                                 item_id = drop["item"]

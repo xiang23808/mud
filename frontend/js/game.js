@@ -710,23 +710,23 @@ function renderInventory(data) {
         const type = item.info?.type;
         const slot = item.info?.slot;
         if (currentItemFilter === 'weapon') return type === 'weapon';
-        if (currentItemFilter === 'armor') return type === 'armor' && (slot === 'body' || slot === 'helmet' || slot === 'head');
-        if (currentItemFilter === 'accessory') return type === 'accessory' || (type === 'armor' && ['boots', 'belt'].includes(slot));
+        if (currentItemFilter === 'armor') return type === 'armor';
+        if (currentItemFilter === 'accessory') return type === 'accessory';
         if (currentItemFilter === 'consumable') return type === 'consumable';
         if (currentItemFilter === 'material') return type === 'material' || type === 'boss_summon' || type === 'skillbook';
         if (currentItemFilter === 'rune') return type === 'rune';
         if (currentItemFilter === 'runeword') return item.runeword_id;
         return true;
     });
-    
+
     const grid = $('inventory-grid');
     // 筛选按钮
     const filterBtns = `
         <div style="grid-column: 1/-1; margin-bottom: 10px; display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;">
             <button onclick="setItemFilter('all')" style="background:${currentItemFilter === 'all' ? '#0a0' : '#333'};">全部</button>
             <button onclick="setItemFilter('weapon')" style="background:${currentItemFilter === 'weapon' ? '#0a0' : '#333'};">武器</button>
-            <button onclick="setItemFilter('armor')" style="background:${currentItemFilter === 'armor' ? '#0a0' : '#333'};">衣服</button>
-            <button onclick="setItemFilter('accessory')" style="background:${currentItemFilter === 'accessory' ? '#0a0' : '#333'};">饰品</button>
+            <button onclick="setItemFilter('armor')" style="background:${currentItemFilter === 'armor' ? '#0a0' : '#333'};">防具</button>
+            <button onclick="setItemFilter('accessory')" style="background:${currentItemFilter === 'accessory' ? '#0a0' : '#333'};">首饰</button>
             <button onclick="setItemFilter('consumable')" style="background:${currentItemFilter === 'consumable' ? '#0a0' : '#333'};">消耗品</button>
             <button onclick="setItemFilter('material')" style="background:${currentItemFilter === 'material' ? '#0a0' : '#333'};">材料</button>
             <button onclick="setItemFilter('rune')" style="background:${currentItemFilter === 'rune' ? '#f80' : '#333'};color:${currentItemFilter === 'rune' ? '#fff' : '#f80'};">符文</button>
@@ -845,8 +845,8 @@ function recycleAll() {
     const filterNames = {
         'all': '全部物品',
         'weapon': '武器',
-        'armor': '衣服',
-        'accessory': '饰品',
+        'armor': '防具',
+        'accessory': '首饰',
         'consumable': '消耗品',
         'material': '材料',
         'rune': '符文',

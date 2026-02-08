@@ -157,6 +157,8 @@ class GameEngine:
                 goblin_monster["drops"] = enhanced_drops
                 # 继承Boss的drop_groups，确保掉落装备
                 goblin_monster["drop_groups"] = boss_info.get("drop_groups", [])
+                # 标记哥布林掉率倍数（用于drop_groups掉率计算）
+                goblin_monster["goblin_drop_multiplier"] = 10
         
         cls.combat_locks[char_id] = True
         
@@ -745,15 +747,13 @@ class GameEngine:
                 return True
             item_info = DataLoader.get_item(inv_item.item_id)
             item_type = item_info.get("type", "")
-            item_slot = item_info.get("slot", "")
 
             if filter_type == "weapon":
                 return item_type == "weapon"
             elif filter_type == "armor":
-                return item_type == "armor" and item_slot in ("body", "helmet", "head")
+                return item_type == "armor"
             elif filter_type == "accessory":
-                # 饰品：accessory类型(项链/戒指/手镯) 或 armor类型的boots/belt
-                return item_type == "accessory" or (item_type == "armor" and item_slot in ("boots", "belt"))
+                return item_type == "accessory"
             elif filter_type == "consumable":
                 return item_type == "consumable"
             elif filter_type == "material":
